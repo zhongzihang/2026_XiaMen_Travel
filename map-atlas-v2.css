@@ -1,0 +1,99 @@
+/* 2026-09-26: watercolour atlas. Geographic anchors remain separate from art. */
+.route-overview{width:100%;max-width:none;border:0;border-radius:0;box-shadow:none;background:#d8ecea}
+.atlas-overview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;background:#f9fbf5;color:#42616a;font-size:.78rem;font-weight:800}
+.atlas-day-links{display:flex;flex-wrap:wrap;gap:.45rem}
+.atlas-day-links button{min-width:3.8rem;min-height:2.25rem;border:2px solid var(--day-color);border-radius:999px;background:#fff;color:#234a51;font:900 .74rem "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer}
+.atlas-day-links button:hover,.atlas-day-links button:focus-visible,.atlas-day-links button.is-current{background:var(--day-color);color:#fff;outline-offset:2px}
+.atlas-overview-map{background:#c9e7ed}
+.atlas-map-wash{fill:#fffdf4;opacity:.06;pointer-events:none}
+.atlas-island-label{fill:#8c6048;font:900 23px "Microsoft YaHei","PingFang SC",sans-serif;letter-spacing:3px;paint-order:stroke;stroke:#fff7e8;stroke-width:5;stroke-linejoin:round;pointer-events:none}
+.atlas-overview-node{cursor:pointer;outline:none}
+.atlas-landmark-halo{fill:#fffaf0;opacity:.6;filter:blur(11px);pointer-events:none}
+.atlas-landmark-shadow{fill:#234c54;opacity:.27;filter:blur(7px);pointer-events:none}
+.atlas-landmark-art{mix-blend-mode:multiply;pointer-events:none;overflow:hidden}
+.atlas-anchor{stroke:#fffdf7;stroke-width:2;pointer-events:none}
+.atlas-node-name{fill:#21434b;font:900 17px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fff9e9;stroke-width:4;stroke-linejoin:round;pointer-events:none}
+.atlas-overview-node:hover .atlas-node-name,.atlas-overview-node.is-selected .atlas-node-name,.atlas-overview-node:has(.atlas-node-hit:focus-visible) .atlas-node-name{fill:#b4543f;stroke-width:6}
+.atlas-overview-node:hover .atlas-anchor,.atlas-overview-node.is-selected .atlas-anchor,.atlas-overview-node:has(.atlas-node-hit:focus-visible) .atlas-anchor{stroke:#f9c953;stroke-width:4}
+.atlas-node-hit,.atlas-special-hit,.atlas-date-hit{fill:transparent}
+.atlas-node-hit:focus,.atlas-node-hit:focus-visible,.atlas-special-hit:focus,.atlas-special-hit:focus-visible{outline:none}
+.atlas-special circle:first-child{stroke:#fffdf3;stroke-width:4;filter:drop-shadow(0 4px 5px rgba(25,65,65,.25))}
+.atlas-special.is-hotel circle:first-child{fill:#d36e55}
+.atlas-special.is-station circle:first-child{fill:#397c9b}
+.atlas-special-art{pointer-events:none}
+.atlas-station-art{overflow:hidden}
+.atlas-special-anchor{stroke:#fffdf7;stroke-width:2;pointer-events:none}
+.atlas-special-anchor.is-hotel{fill:#d36e55}
+.atlas-special-anchor.is-station{fill:#397c9b}
+.atlas-special-name{fill:#24474d;font:900 19px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fff9e9;stroke-width:4;stroke-linejoin:round;pointer-events:none}
+.atlas-special-node:hover .atlas-special-name,.atlas-special-node.is-selected .atlas-special-name,.atlas-special-node:has(.atlas-special-hit:focus-visible) .atlas-special-name{fill:#b4543f;stroke-width:6}
+.atlas-special-node:hover .atlas-special-anchor,.atlas-special-node.is-selected .atlas-special-anchor,.atlas-special-node:has(.atlas-special-hit:focus-visible) .atlas-special-anchor{stroke:#f9c953;stroke-width:4}
+.atlas-date-bubble{cursor:pointer;outline:none}
+.atlas-date-bubble>circle:first-child{fill:#fffaf0;stroke:var(--day-color);stroke-width:5;filter:drop-shadow(0 5px 7px rgba(24,58,62,.2))}
+.atlas-date-bubble.is-current>circle:first-child,.atlas-date-bubble:hover>circle:first-child,.atlas-date-bubble:focus-visible>circle:first-child{fill:var(--day-color)}
+.atlas-date-bubble text{fill:#28515a;font:900 20px "Microsoft YaHei","PingFang SC",sans-serif;pointer-events:none}
+.atlas-date-bubble.is-current text,.atlas-date-bubble:hover text,.atlas-date-bubble:focus-visible text{fill:#fff}
+.atlas-compass circle{fill:#fffaf0;stroke:#8db9b7;stroke-width:2}
+.atlas-compass path{fill:#2a8694}.atlas-compass text{fill:#235464;font:900 20px sans-serif}
+.atlas-map-caption{fill:#22505a;font:900 20px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#f7fbef;stroke-width:5}
+.atlas-overview-detail{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:1rem;align-items:stretch;min-height:130px;padding:1rem;background:#fbfcf6;border-top:1px solid #dce7df}
+.atlas-overview-detail:has(>p){display:block;min-height:0;text-align:center}
+.atlas-overview-detail>p{margin:.25rem;color:#627c7d;font-size:.8rem}
+.atlas-overview-detail figure{position:relative;margin:0;min-height:145px;border-radius:12px;overflow:hidden;background:#e7eee6}
+.atlas-overview-detail figure img{display:block;width:100%;height:100%;min-height:145px;max-height:190px;object-fit:cover}
+.atlas-overview-detail figure.atlas-special-detail{background:#e9f2ed}
+.atlas-overview-detail figure.atlas-special-detail img{object-fit:contain;padding:.35rem 1rem}
+.atlas-overview-detail figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem;color:#fff;background:linear-gradient(transparent,rgba(12,47,55,.8));font-size:.64rem}
+.atlas-detail-symbol{display:grid;place-items:center;min-height:145px;border-radius:12px;background:#e4f1eb;color:#3c777a;font-size:3.2rem;font-weight:900}
+.atlas-detail-copy h3{margin:.25rem 0 .35rem;color:#173e4c;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:1.3rem}
+.atlas-detail-copy p{margin:.25rem 0;color:#526a6a;font-size:.83rem;line-height:1.55}
+.atlas-detail-kicker{color:#bd6f59;font-size:.69rem;font-weight:950;letter-spacing:.08em}
+.atlas-detail-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.7rem;color:#758987;font-size:.68rem}
+.atlas-detail-actions button{padding:.45rem .8rem;border:0;border-radius:99px;background:#1f737a;color:#fff;font-size:.72rem;font-weight:900;cursor:pointer}
+.overview-map-dialog{width:min(97vw,1450px);max-height:95vh}
+.overview-map-zoom-canvas{max-height:calc(95vh - 102px);overflow:auto;touch-action:pan-x pan-y;overscroll-behavior:contain;scrollbar-color:#72a6a9 #eef3ed}
+.overview-map-zoom-canvas .overview-map{width:max(1400px,100%);max-width:none;height:auto}
+.overview-map-dialog>p{font-size:.74rem}
+.day-map-pair.has-ferry-map{grid-template-columns:1fr}
+.day-map-pair.has-ferry-map .map-ferry-connector{flex-direction:row;min-height:62px;gap:.6rem}
+.day-map-pair.has-ferry-map .map-ferry-arrow{transform:none}
+.day-route-map{border-color:#b9d6d0;background:#c9e7ed}
+.atlas-daily-map{aspect-ratio:1.55;max-height:540px}
+.atlas-day-wash{fill:#fffaf0;opacity:.24;pointer-events:none}
+.atlas-daily-route-under{fill:none;stroke:#fffaf0;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.94;pointer-events:none}
+.atlas-daily-route{fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.92;pointer-events:none}
+.atlas-daily-pin{stroke:#fffaf0;stroke-width:3;filter:drop-shadow(0 2px 3px rgba(22,56,62,.24))}
+.atlas-daily-number{fill:#fff;font:900 14px "Microsoft YaHei",sans-serif;pointer-events:none}
+.atlas-daily-node.is-viewable{cursor:pointer}
+.atlas-daily-node:focus,.atlas-daily-node:focus-visible{outline:none}
+.atlas-daily-hit{fill:transparent}
+.atlas-daily-name{fill:#193d49;font:900 20px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:5;stroke-linejoin:round;pointer-events:none}
+.atlas-daily-node.is-selected .atlas-daily-pin,.atlas-daily-node:hover .atlas-daily-pin,.atlas-daily-node:focus-visible .atlas-daily-pin{stroke:#ffd56b;stroke-width:5}
+.atlas-daily-title rect{fill:#fffaf0;stroke:#c9ddd4;stroke-width:2;filter:drop-shadow(0 2px 4px rgba(29,63,65,.16))}
+.atlas-daily-title text{fill:#28545b;font:900 16px "Microsoft YaHei","PingFang SC",sans-serif}
+.atlas-daily-note{fill:#28535a;font:900 15px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:4}
+.day-map-heading .mini-heading{font-weight:900}
+.map-legend{border-top:1px solid #dce8de}
+@media(max-width:720px){
+  .route-overview{width:100%;max-width:none}
+  .atlas-overview-toolbar{display:block;padding:.75rem}
+  .atlas-overview-toolbar>span{display:block;margin-bottom:.55rem;font-size:.72rem}
+  .atlas-day-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.25rem}
+  .atlas-day-links button{min-width:0;min-height:2.1rem;padding:0;font-size:.68rem}
+  .atlas-overview-detail{grid-template-columns:110px 1fr;gap:.7rem;padding:.7rem}
+  .atlas-overview-detail figure,.atlas-overview-detail figure img,.atlas-detail-symbol{min-height:130px}
+  .atlas-detail-copy h3{font-size:1.03rem}
+  .atlas-detail-copy p{font-size:.7rem;line-height:1.45}
+  .atlas-detail-actions{margin-top:.35rem}
+  .atlas-detail-symbol{font-size:2.3rem}
+  .day-route-map{overflow-x:auto;overflow-y:hidden;touch-action:pan-x;scrollbar-color:#75afb2 #e3efeb}
+  .day-route-map::after{content:"← 左右滑动查看局部放大图 →";position:sticky;left:0;display:block;width:100%;padding:.4rem .6rem;background:#f8fbf5;color:#4d7277;text-align:center;font-size:.69rem;font-weight:800}
+  .atlas-daily-map{width:650px;max-width:none;max-height:none}
+  .day-map-pair.has-ferry-map .map-ferry-connector{flex-wrap:wrap;gap:.3rem .5rem}
+  .overview-map-zoom-canvas .overview-map{width:1550px}
+}
+@media(max-width:430px){
+  .atlas-overview-detail{grid-template-columns:1fr}
+  .atlas-overview-detail figure,.atlas-overview-detail figure img,.atlas-detail-symbol{min-height:0;max-height:none;aspect-ratio:16/7}
+  .atlas-overview-detail figure img{height:100%}
+}

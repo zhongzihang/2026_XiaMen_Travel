@@ -1,0 +1,11 @@
+# Local operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local tooling and generated output
+.superpowers/
+node_modules/
+.cache/
+dist/
+*.log
