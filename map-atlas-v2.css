@@ -2,7 +2,7 @@
 .route-overview{width:100%;max-width:none;border:0;border-radius:0;box-shadow:none;background:#d8ecea}
 .atlas-overview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;background:#f9fbf5;color:#42616a;font-size:.78rem;font-weight:800}
 .atlas-day-links{display:flex;flex-wrap:wrap;gap:.45rem}
-.atlas-day-links button{min-width:3.8rem;min-height:2.25rem;border:2px solid var(--day-color);border-radius:999px;background:#fff;color:#234a51;font:900 .74rem "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer}
+.atlas-day-links button{min-width:3.8rem;min-height:2.75rem;border:2px solid var(--day-color);border-radius:999px;background:#fff;color:#234a51;font:900 .74rem "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer}
 .atlas-day-links button:hover,.atlas-day-links button:focus-visible,.atlas-day-links button.is-current{background:var(--day-color);color:#fff;outline-offset:2px}
 .atlas-overview-map{background:#c9e7ed}
 .atlas-map-wash{fill:#fffdf4;opacity:.06;pointer-events:none}
@@ -11,11 +11,12 @@
 .atlas-landmark-halo{fill:#fffaf0;opacity:.6;filter:blur(11px);pointer-events:none}
 .atlas-landmark-shadow{fill:#234c54;opacity:.27;filter:blur(7px);pointer-events:none}
 .atlas-landmark-art{mix-blend-mode:multiply;pointer-events:none;overflow:hidden}
+.atlas-new-art{mix-blend-mode:normal;filter:drop-shadow(0 4px 5px rgba(24,58,63,.24))}
 .atlas-anchor{stroke:#fffdf7;stroke-width:2;pointer-events:none}
 .atlas-node-name{fill:#21434b;font:900 17px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fff9e9;stroke-width:4;stroke-linejoin:round;pointer-events:none}
 .atlas-overview-node:hover .atlas-node-name,.atlas-overview-node.is-selected .atlas-node-name,.atlas-overview-node:has(.atlas-node-hit:focus-visible) .atlas-node-name{fill:#b4543f;stroke-width:6}
 .atlas-overview-node:hover .atlas-anchor,.atlas-overview-node.is-selected .atlas-anchor,.atlas-overview-node:has(.atlas-node-hit:focus-visible) .atlas-anchor{stroke:#f9c953;stroke-width:4}
-.atlas-node-hit,.atlas-special-hit,.atlas-date-hit{fill:transparent}
+.atlas-node-hit,.atlas-special-hit{fill:transparent}
 .atlas-node-hit:focus,.atlas-node-hit:focus-visible,.atlas-special-hit:focus,.atlas-special-hit:focus-visible{outline:none}
 .atlas-special circle:first-child{stroke:#fffdf3;stroke-width:4;filter:drop-shadow(0 4px 5px rgba(25,65,65,.25))}
 .atlas-special.is-hotel circle:first-child{fill:#d36e55}
@@ -28,11 +29,6 @@
 .atlas-special-name{fill:#24474d;font:900 19px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fff9e9;stroke-width:4;stroke-linejoin:round;pointer-events:none}
 .atlas-special-node:hover .atlas-special-name,.atlas-special-node.is-selected .atlas-special-name,.atlas-special-node:has(.atlas-special-hit:focus-visible) .atlas-special-name{fill:#b4543f;stroke-width:6}
 .atlas-special-node:hover .atlas-special-anchor,.atlas-special-node.is-selected .atlas-special-anchor,.atlas-special-node:has(.atlas-special-hit:focus-visible) .atlas-special-anchor{stroke:#f9c953;stroke-width:4}
-.atlas-date-bubble{cursor:pointer;outline:none}
-.atlas-date-bubble>circle:first-child{fill:#fffaf0;stroke:var(--day-color);stroke-width:5;filter:drop-shadow(0 5px 7px rgba(24,58,62,.2))}
-.atlas-date-bubble.is-current>circle:first-child,.atlas-date-bubble:hover>circle:first-child,.atlas-date-bubble:focus-visible>circle:first-child{fill:var(--day-color)}
-.atlas-date-bubble text{fill:#28515a;font:900 20px "Microsoft YaHei","PingFang SC",sans-serif;pointer-events:none}
-.atlas-date-bubble.is-current text,.atlas-date-bubble:hover text,.atlas-date-bubble:focus-visible text{fill:#fff}
 .atlas-compass circle{fill:#fffaf0;stroke:#8db9b7;stroke-width:2}
 .atlas-compass path{fill:#2a8694}.atlas-compass text{fill:#235464;font:900 20px sans-serif}
 .atlas-map-caption{fill:#22505a;font:900 20px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#f7fbef;stroke-width:5}
@@ -51,9 +47,11 @@
 .atlas-detail-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-top:.7rem;color:#758987;font-size:.68rem}
 .atlas-detail-actions button{padding:.45rem .8rem;border:0;border-radius:99px;background:#1f737a;color:#fff;font-size:.72rem;font-weight:900;cursor:pointer}
 .overview-map-dialog{width:min(97vw,1450px);max-height:95vh}
-.overview-map-zoom-canvas{max-height:calc(95vh - 102px);overflow:auto;touch-action:pan-x pan-y;overscroll-behavior:contain;scrollbar-color:#72a6a9 #eef3ed}
+.overview-map-zoom-canvas{max-height:calc(95vh - 170px);overflow:auto;touch-action:pan-x pan-y;overscroll-behavior:contain;scrollbar-color:#72a6a9 #eef3ed}
 .overview-map-zoom-canvas .overview-map{width:max(1400px,100%);max-width:none;height:auto}
 .overview-map-dialog>p{font-size:.74rem}
+#overviewMapDialogLinks .atlas-overview-toolbar{justify-content:center}
+#overviewMapDialogLinks .atlas-overview-toolbar>span{display:none}
 .day-map-pair.has-ferry-map{grid-template-columns:1fr}
 .day-map-pair.has-ferry-map .map-ferry-connector{flex-direction:row;min-height:62px;gap:.6rem}
 .day-map-pair.has-ferry-map .map-ferry-arrow{transform:none}
@@ -74,26 +72,149 @@
 .atlas-daily-note{fill:#28535a;font:900 15px "Microsoft YaHei","PingFang SC",sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:4}
 .day-map-heading .mini-heading{font-weight:900}
 .map-legend{border-top:1px solid #dce8de}
+/* Routes sit beneath landmarks; SVG masks reserve clear space for art and text. */
+.atlas-overview-routes,.atlas-daily-routes{pointer-events:none}
+.atlas-route-under,.atlas-route-line,.atlas-route-direction{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.atlas-route-under{stroke:#fffaf0;stroke-width:7;opacity:.88}
+.atlas-route-line{stroke:var(--route-color);stroke-width:3.6}
+.atlas-route-direction{stroke:var(--route-color);stroke-width:2.8;paint-order:stroke}
+.atlas-route-segment.is-ferry .atlas-route-line{stroke-dasharray:9 8}
+.atlas-overview-route-day{opacity:.92}
+.atlas-overview-route-day.is-current{opacity:1}
+.atlas-daily-routes .atlas-route-line{stroke-width:3.8}
+.atlas-daily-routes .atlas-route-under{stroke-width:8}
+.atlas-daily-routes .atlas-route-direction{stroke-width:3.2}
+.atlas-sequence rect{stroke:#fffaf0;stroke-width:2.5;filter:drop-shadow(0 2px 3px #21454d35)}
+.atlas-sequence text{fill:#fff;font:900 13px "Microsoft YaHei",sans-serif;pointer-events:none}
+.atlas-daily-node .atlas-node-name{font-size:17px}
+.atlas-daily-node:is(.is-selected,:hover,:focus-visible) .atlas-sequence rect{stroke:#ffcc62;stroke-width:4}
+.atlas-daily-node:is(.is-selected,:hover,:focus-visible) .atlas-node-name,.atlas-daily-node:is(.is-selected,:hover,:focus-visible) .atlas-special-name{fill:#9b4939}
+.day-map-layout{grid-template-columns:minmax(0,1fr);align-items:start}
+.day-map-pair.has-ferry-map{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+.day-map-pair.has-ferry-map>div:first-child{grid-column:1;grid-row:1}
+.day-map-pair.has-ferry-map .day-island-map{grid-column:2;grid-row:1}
+.day-map-pair.has-ferry-map .map-ferry-connector{grid-column:1/-1;grid-row:2;min-height:60px}
+.day-map-layout>.map-detail{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(0,1.4fr);min-height:0;align-self:start}
+.day-map-layout>.map-detail figure{height:100%;min-height:190px;max-height:260px}
+.day-map-layout>.map-detail .map-detail-copy{padding:1.2rem 1.4rem}
+.day-map-layout>.map-detail .map-detail-copy p{margin-bottom:.6rem}
+.day-map-layout>.map-detail .map-detail-hint{margin-top:.6rem}
+.day-map-layout .atlas-special-detail{background:#e8f0e5}
+.day-map-layout .atlas-special-detail img{object-fit:contain;padding:.8rem}
+.atlas-detail-map-link{color:#bbdfd9;font-size:.8rem;text-underline-offset:4px}
+.atlas-daily-map-heading{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.8rem 1rem;background:#f8faf2;color:#345b60}
+.atlas-daily-map-heading strong{font-size:.86rem}
+.atlas-daily-map-heading>span{font-size:.68rem;color:#69827e}
+.atlas-daily-map{display:block;width:100%;height:auto;max-height:none;aspect-ratio:1.55}
+.atlas-daily-scroll{overflow:auto;touch-action:pan-x pan-y;scrollbar-color:#75afb2 #e3efeb}
+.atlas-daily-map-foot{display:flex;justify-content:space-between;gap:.5rem;padding:.5rem 1rem;background:#f8faf2;color:#68807b;font-size:.68rem;line-height:1.5}
+.atlas-pan-hint{display:none;white-space:nowrap}
+.atlas-transit{margin-top:1.25rem;border:1px solid #dde6dc;border-radius:18px;background:#f7f9f2;padding:1.25rem}
+.atlas-transit-heading{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.atlas-transit-heading .section-kicker{font-size:.64rem;color:var(--day-color)}
+.atlas-transit-heading h4{margin:.2rem 0 0;color:#264c52;font:800 1.35rem "Noto Serif CJK SC","Songti SC",serif}
+.atlas-transit-heading>span{color:#72847d;font-size:.73rem}
+.atlas-transit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.atlas-transit-list>li{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:1rem 1.1rem;border:1px solid #e0e7dc;border-radius:13px;background:#fffefa}
+.atlas-leg-title{display:flex;align-items:center;gap:.65rem;width:100%;margin-bottom:.65rem}
+.atlas-leg-index{flex:none;color:var(--day-color);font-size:.75rem;font-weight:900;letter-spacing:.04em}
+.atlas-leg-index b{color:#a4b1a8;font-weight:400;margin:0 .12rem}
+.atlas-leg-title h5{margin:0;color:#21464d;font-size:.88rem;font-weight:800;line-height:1.55}
+.atlas-leg-title h5 span{color:#9baea6;font-weight:500}
+.atlas-leg-mode{display:flex;align-items:center;gap:.45rem;padding:.35rem .65rem;border-radius:8px;background:#edf3ed;color:#3d6662;font-size:.77rem;margin-bottom:.6rem;max-width:100%;flex-wrap:wrap}
+.atlas-leg-mode svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.atlas-leg-mode>b{padding-left:.45rem;border-left:1px solid #c6d6cd;white-space:nowrap}
+.atlas-transit-list p{margin:0 0 .45rem;color:#4f6664;font-size:.79rem;line-height:1.75}
+.atlas-transit-list p.atlas-leg-alternative{color:#819087;font-size:.72rem}
+.atlas-transit-list a{margin-top:auto;padding-top:.35rem;color:#3a776e;font-size:.72rem;text-underline-offset:3px}
+.atlas-transit-day-note{margin:1rem 0 .7rem;padding-left:.75rem;border-left:3px solid var(--day-color);color:#58706a;font-size:.79rem;line-height:1.7}
+.atlas-transit-sources{padding-top:.7rem;border-top:1px solid #e0e7dc;color:#718079;font-size:.72rem;line-height:1.75}
+.atlas-transit-sources summary{cursor:pointer;font-weight:800;width:fit-content}
+.atlas-transit-sources p{margin:.6rem 0 0}
+.atlas-transit-sources a{color:#42776d;text-underline-offset:3px}
 @media(max-width:720px){
   .route-overview{width:100%;max-width:none}
   .atlas-overview-toolbar{display:block;padding:.75rem}
   .atlas-overview-toolbar>span{display:block;margin-bottom:.55rem;font-size:.72rem}
   .atlas-day-links{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.25rem}
-  .atlas-day-links button{min-width:0;min-height:2.1rem;padding:0;font-size:.68rem}
+  .atlas-day-links button{min-width:0;min-height:2.75rem;padding:0;font-size:.68rem}
   .atlas-overview-detail{grid-template-columns:110px 1fr;gap:.7rem;padding:.7rem}
   .atlas-overview-detail figure,.atlas-overview-detail figure img,.atlas-detail-symbol{min-height:130px}
   .atlas-detail-copy h3{font-size:1.03rem}
   .atlas-detail-copy p{font-size:.7rem;line-height:1.45}
   .atlas-detail-actions{margin-top:.35rem}
   .atlas-detail-symbol{font-size:2.3rem}
-  .day-route-map{overflow-x:auto;overflow-y:hidden;touch-action:pan-x;scrollbar-color:#75afb2 #e3efeb}
-  .day-route-map::after{content:"← 左右滑动查看局部放大图 →";position:sticky;left:0;display:block;width:100%;padding:.4rem .6rem;background:#f8fbf5;color:#4d7277;text-align:center;font-size:.69rem;font-weight:800}
-  .atlas-daily-map{width:650px;max-width:none;max-height:none}
+  .day-route-map{overflow:hidden}
+  .day-route-map::after{content:none}
+  .atlas-daily-map{width:780px;max-width:none;max-height:none}
+  .atlas-pan-hint{display:block}
+  .atlas-daily-map-heading{align-items:flex-start;flex-direction:column;gap:.25rem;padding:.7rem .8rem}
+  .atlas-daily-map-foot{flex-direction:column;padding:.45rem .8rem}
+  .day-map-pair.has-ferry-map{grid-template-columns:minmax(0,1fr)}
+  .day-map-pair.has-ferry-map>div:first-child{grid-column:1;grid-row:1}
+  .day-map-pair.has-ferry-map .day-island-map{grid-column:1;grid-row:3}
+  .day-map-pair.has-ferry-map .map-ferry-connector{grid-column:1;grid-row:2}
   .day-map-pair.has-ferry-map .map-ferry-connector{flex-wrap:wrap;gap:.3rem .5rem}
+  .day-map-layout>.map-detail{grid-template-columns:minmax(0,1fr)}
+  .day-map-layout>.map-detail figure{height:190px;min-height:0;max-height:none}
+  .day-map-layout>.map-detail .map-detail-copy{padding:1rem}
+  .atlas-transit{padding:.85rem;border-radius:14px}
+  .atlas-transit-heading{align-items:flex-start;flex-direction:column;gap:.4rem}
+  .atlas-transit-list{grid-template-columns:minmax(0,1fr)}
+  .atlas-transit-list>li{padding:.9rem}
+  .atlas-leg-title{align-items:flex-start;flex-direction:column;gap:.2rem}
   .overview-map-zoom-canvas .overview-map{width:1550px}
 }
 @media(max-width:430px){
   .atlas-overview-detail{grid-template-columns:1fr}
   .atlas-overview-detail figure,.atlas-overview-detail figure img,.atlas-detail-symbol{min-height:0;max-height:none;aspect-ratio:16/7}
   .atlas-overview-detail figure img{height:100%}
+}
+
+/* Shared real-photo album in overview and daily point details. */
+.atlas-overview-detail:has(.place-gallery){grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:start}
+.place-gallery{min-width:0;width:100%;overflow:hidden;border-radius:13px;background:#f1f3eb;align-self:start}
+.place-gallery-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;touch-action:pan-x pan-y;overscroll-behavior-x:contain}
+.place-gallery-track:focus-visible{outline:3px solid #4a9293;outline-offset:-3px}
+.place-gallery .place-gallery-slide{flex:0 0 100%;width:100%;min-width:0;margin:0;height:auto;min-height:0;max-height:none;aspect-ratio:auto;scroll-snap-align:start;background:transparent}
+.place-gallery-photo{display:block;border:0;padding:0;width:100%;height:240px;overflow:hidden;background:#e2e9e1;cursor:zoom-in}
+.place-gallery .place-gallery-photo img{display:block;width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;object-fit:cover}
+.place-gallery .place-gallery-slide figcaption{position:static;inset:auto;background:transparent;color:#56716a;padding:.65rem .8rem;font-size:.7rem;line-height:1.6;min-height:3.5em}
+.place-gallery figcaption a{color:#3e7874;text-underline-offset:3px}
+.place-gallery-controls{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.55rem .75rem;border-top:1px solid #dce5d8;color:#73857c;font-size:.68rem}
+.place-gallery-controls>div{display:flex;align-items:center;gap:.45rem;flex:none}
+.place-gallery-controls button{border:1px solid #d5dfd3;background:#fffdf7;border-radius:50%;width:32px;height:32px;color:#37645d;cursor:pointer}
+.place-gallery-controls button:disabled{opacity:.3;cursor:default}
+.place-gallery-controls output{font-variant-numeric:tabular-nums;font-weight:700;min-width:2.4em;text-align:center;color:#3d665e}
+.gallery-unavailable{padding:3rem;color:#60756b}
+.place-guide{margin-top:.9rem;padding-top:.8rem;border-top:1px solid #dfe6d9}
+.place-guide-label{font-size:.67rem;font-weight:800;letter-spacing:.13em;color:#a4794c}
+.place-guide p{font-size:.87rem;line-height:1.85;color:#4c655e;margin:.5rem 0 .7rem}
+.place-guide-time{display:inline-block;border-radius:6px;padding:.35rem .65rem;font-size:.74rem;color:#477167;background:#edf3e7;font-weight:700}
+.place-guide p.place-guide-focus{font-size:.74rem;color:#859077;margin:.65rem 0 0}
+.map-detail-copy .place-guide{border-top-color:rgba(220,239,234,.25)}
+.map-detail-copy .place-guide-label{color:#f3c992}
+.map-detail-copy .place-guide p{color:#e2eeea}
+.map-detail-copy .place-guide p.place-guide-focus{color:#bfdad2}
+.day-photo-gallery{margin:1.3rem 0 1.5rem;min-width:0}
+.day-photo-heading{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.65rem}
+.day-photo-heading h4{margin:0;color:#244a50;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:1.02rem}
+.day-photo-heading span{color:#6b827b;font-size:.72rem}
+.day-photo-track{display:flex;gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.1rem .1rem .8rem;scrollbar-width:thin}
+.day-photo-track figure{flex:0 0 clamp(220px,29%,320px);margin:0;scroll-snap-align:start;border-radius:12px;overflow:hidden;background:#f1f5ef;box-shadow:0 5px 15px rgba(26,58,59,.11)}
+.day-photo-track img{display:block;width:100%;height:172px;object-fit:cover;cursor:zoom-in}
+.day-photo-track figcaption{min-height:3em;padding:.55rem .7rem;color:#4c6863;font-size:.72rem;line-height:1.5}
+.food-card-summary{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.73rem;line-height:1.65;color:#6b7f79;margin:.5rem 0 .65rem}
+.atlas-day-options{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:flex-end}
+.atlas-day-options [data-rain-toggle][aria-pressed="true"]{background:#1767bf;color:#fff;border-color:#1767bf}
+.atlas-day-options button:disabled{opacity:.48;cursor:default}
+@media(max-width:720px){
+  .atlas-day-options{width:100%;justify-content:flex-start}
+  .atlas-overview-detail:has(.place-gallery){grid-template-columns:minmax(0,1fr)}
+  .place-gallery-photo{height:215px}
+  .place-gallery .place-gallery-slide{height:auto;min-height:0;max-height:none;aspect-ratio:auto}
+  .place-gallery .place-gallery-photo img{height:100%;aspect-ratio:auto;min-height:0}
+  .atlas-detail-copy .place-guide p{font-size:.82rem;line-height:1.8}
+  .place-guide p.place-guide-focus{font-size:.73rem}
+  .day-photo-track figure{flex-basis:min(78vw,290px)}
 }

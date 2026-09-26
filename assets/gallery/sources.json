@@ -1,0 +1,489 @@
+{
+  "shuzhuang": {
+    "source": "https://you.ctrip.com/sight/xiamen21/2346.html",
+    "name": "菽庄花园",
+    "address": "福建省厦门市思明区港后路3号",
+    "photos": [
+      {
+        "imageId": 1364226962,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo1e12000hs3p2dt5068.webp",
+        "width": 2500,
+        "height": 1669
+      },
+      {
+        "imageId": 484658500,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/100v1d000001ekvka9136.jpg",
+        "width": 895,
+        "height": 640
+      },
+      {
+        "imageId": 1364226912,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo4s12000hs3qine191E.webp",
+        "width": 2500,
+        "height": 1668
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/shuzhuang-1.webp",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/1lo1e12000hs3p2dt5068.webp"
+      },
+      {
+        "path": "assets/gallery/shuzhuang-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/100v1d000001ekvka9136.jpg"
+      }
+    ]
+  },
+  "rock": {
+    "source": "https://you.ctrip.com/sight/xiamen21/2345.html",
+    "name": "日光岩",
+    "address": "晃岩路62号",
+    "photos": [
+      {
+        "imageId": 500116684,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0101t12000825yd946670.jpg",
+        "width": 2500,
+        "height": 1407
+      },
+      {
+        "imageId": 2123151609,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0105q12000sopmzmeEFFC.jpg",
+        "width": 2500,
+        "height": 1788
+      },
+      {
+        "imageId": 500116659,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0106912000825ycvo4ED7.jpg",
+        "width": 2500,
+        "height": 678
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/rock-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0101t12000825yd946670.jpg"
+      },
+      {
+        "path": "assets/gallery/rock-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0105q12000sopmzmeEFFC.jpg"
+      }
+    ]
+  },
+  "nanputuo": {
+    "source": "https://you.ctrip.com/sight/xiamen21/2344.html",
+    "name": "南普陀寺",
+    "address": "厦门市思明区思明南路515号",
+    "photos": [
+      {
+        "imageId": 502573306,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/010451200085bu0o7F8BA.jpg",
+        "width": 2500,
+        "height": 1667
+      },
+      {
+        "imageId": 117935617,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/100b0g0000008nx3w74CD.jpg",
+        "width": 1000,
+        "height": 667
+      },
+      {
+        "imageId": 118267638,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/10041f000001gpadeEECB.jpg",
+        "width": 1000,
+        "height": 667
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/nanputuo-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/010451200085bu0o7F8BA.jpg"
+      },
+      {
+        "path": "assets/gallery/nanputuo-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/100b0g0000008nx3w74CD.jpg"
+      }
+    ]
+  },
+  "baicheng": {
+    "source": "https://you.ctrip.com/sight/xiamen21/145124.html",
+    "name": "白城沙滩",
+    "address": "思明区大学路环岛南路附近",
+    "photos": [
+      {
+        "imageId": 1339589595,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0101412000h45qsnh9E63.jpg",
+        "width": 2048,
+        "height": 1366
+      },
+      {
+        "imageId": 1339589594,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0104d12000h45qy13EA8E.jpg",
+        "width": 2048,
+        "height": 1367
+      },
+      {
+        "imageId": 1339589589,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0101y12000h45rr0c26B3.jpg",
+        "width": 2048,
+        "height": 1109
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/baicheng-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0101412000h45qsnh9E63.jpg"
+      },
+      {
+        "path": "assets/gallery/baicheng-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0104d12000h45qy13EA8E.jpg"
+      }
+    ]
+  },
+  "shapowei": {
+    "source": "https://you.ctrip.com/sight/xiamen21/149967763.html",
+    "name": "沙坡尾",
+    "address": "厦门市思明区沙坡巷沙坡尾艺术西区北侧约90米",
+    "photos": [
+      {
+        "imageId": 1431926701,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0100212000isdpto7AB65.jpg",
+        "width": 2500,
+        "height": 1667
+      },
+      {
+        "imageId": 1914030226,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0HJ5q12000rrodn4b4D57.jpg",
+        "width": 1170,
+        "height": 1539
+      },
+      {
+        "imageId": 1636631629,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0100v12000pcldysd8267.jpg",
+        "width": 2500,
+        "height": 1702
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/shapowei-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0100212000isdpto7AB65.jpg"
+      },
+      {
+        "path": "assets/gallery/shapowei-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0HJ5q12000rrodn4b4D57.jpg"
+      }
+    ]
+  },
+  "botanic": {
+    "source": "https://you.ctrip.com/sight/xiamen21/8625.html",
+    "name": "厦门园林植物园",
+    "address": "福建省厦门市思明区虎园路25号",
+    "photos": [
+      {
+        "imageId": 2258103219,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo2c12000ta6hlctB6DC.jpg",
+        "width": 5120,
+        "height": 2880
+      },
+      {
+        "imageId": 1077561492,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0102a12000f6prceqB206.jpg",
+        "width": 2752,
+        "height": 1835
+      },
+      {
+        "imageId": 1077560424,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo0612000dktngsr0031.jpg",
+        "width": 3040,
+        "height": 1968
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/botanic-2.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0102a12000f6prceqB206.jpg"
+      },
+      {
+        "path": "assets/gallery/botanic-3.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/1lo0612000dktngsr0031.jpg"
+      }
+    ]
+  },
+  "cable": {
+    "source": "https://you.ctrip.com/sight/xiamen21/145125.html",
+    "name": "钟鼓索道",
+    "address": "福建省厦门市思明区虎园路25-110号",
+    "photos": [
+      {
+        "imageId": 2068865147,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo3412000sh702w23598.png",
+        "width": 2560,
+        "height": 1440
+      },
+      {
+        "imageId": 2068865128,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/1lo3u12000sh6zzuuC917.png",
+        "width": 1213,
+        "height": 801
+      },
+      {
+        "imageId": 517078018,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0104h120008jptfasCCCA.jpg",
+        "width": 1644,
+        "height": 2500
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/cable-3.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0104h120008jptfasCCCA.jpg"
+      }
+    ]
+  },
+  "yuehua": {
+    "source": "https://you.ctrip.com/food/xiamen21/5158527.html",
+    "name": "月华沙茶面店(中山路店)",
+    "address": "镇邦路78号",
+    "dishes": [
+      "月华沙茶面",
+      "炸五香",
+      "烧肉粽",
+      "罗汉肉",
+      "鱼丸",
+      "大肠头",
+      "小肠",
+      "豆干",
+      "鸭血面",
+      "猪肝延",
+      "咸蛋黄粽",
+      "海鲜面",
+      "海鲜汤",
+      "卤肉面",
+      "蛋炒米粉",
+      "芋包",
+      "豆芽",
+      "油条",
+      "米血",
+      "瘦肉猪肝汤"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/0103t120009h0wq290E4C.jpg",
+      "https://dimg04.c-ctrip.com/images/0101k120009zihqmrABAD.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/yuehua-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0103t120009h0wq290E4C.jpg"
+      }
+    ]
+  },
+  "huangzehe": {
+    "source": "https://you.ctrip.com/food/xiamen21/319796.html",
+    "name": "黄则和花生汤(中山路店)",
+    "address": "中山路22-24号",
+    "dishes": [
+      "花生汤",
+      "沙茶面",
+      "海蛎煎",
+      "烧肉粽",
+      "面线糊",
+      "韭菜盒",
+      "厦门五香卷",
+      "鲨鱼丸汤",
+      "春卷",
+      "糯米鸡",
+      "花生炸枣",
+      "油条",
+      "水晶包",
+      "炒面线",
+      "八宝饭",
+      "蒸凤爪",
+      "芋头包",
+      "豆蓉枣",
+      "金牌土笋冻",
+      "芋头丝"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/0103x12000t8m4dnvF191.jpg",
+      "https://dimg04.c-ctrip.com/images/1A0d12000000rpnqv9509.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/huangzehe-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0103x12000t8m4dnvF191.jpg"
+      }
+    ]
+  },
+  "minhenan": {
+    "source": "https://you.ctrip.com/food/xiamen21/24684224.html",
+    "name": "闽和南(万象城店)",
+    "address": "湖滨东路99号厦门万象城3楼328商铺",
+    "dishes": [
+      "红焖雪花猪肉",
+      "千番芋泥鸭",
+      "脆肚海鱼羹",
+      "花雕酒醉河田鸡",
+      "闽和南白萝卜饭",
+      "焦脆麻香骨",
+      "黄鱼蟹肉酸辣羹",
+      "葱蓉包和花生汤",
+      "脆笋肠灌肠",
+      "侨乡葱茸包",
+      "滋滋河鳗",
+      "沙茶涮雪花肥牛",
+      "闽南古早润饼",
+      "冷冽芥末酱虾球",
+      "青花椒蒸龙胆鱼",
+      "八臻佛跳墙",
+      "小脆瓜炒雪花猪肉",
+      "枸杞叶炖白螺",
+      "古法八宝芋泥",
+      "刺桐醋肉拼菜粿"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/01040120009qrfp64C956.jpg",
+      "https://dimg04.c-ctrip.com/images/0105f12000984ixtbA8FC.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/minhenan-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/01040120009qrfp64C956.jpg"
+      }
+    ]
+  },
+  "yanyu": {
+    "source": "https://you.ctrip.com/food/xiamen21/22596335.html",
+    "name": "宴遇·福建菜(万象城店)",
+    "address": "湖滨东路99号华润中心万象城第L3层第L327号商铺",
+    "dishes": [
+      "大红袍鲜奶布丁",
+      "原创葱油肉汁焗荔浦芋头",
+      "卤面",
+      "闽式捞汁油蛤",
+      "厦门薄饼",
+      "黑松露台海午鱼焗饭",
+      "经典泉州牛排",
+      "福州榕城醉排骨",
+      "厦门海蛎煎",
+      "古早味手工芋枣",
+      "酱油水煮杂鱼",
+      "烤鸽",
+      "蟹肉蒸蛋",
+      "水煮小管",
+      "厦门红鲟蒸米糕",
+      "台式三杯汁啫手钓鱿鱼",
+      "椒麻汁建瓯竹笋芽",
+      "黑松露扇贝土豆泥",
+      "鹭岛沙茶海鲜锅",
+      "板栗同安封肉"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/1tx5m12000sm4vgvb6F53.webp",
+      "https://dimg04.c-ctrip.com/images/1A0n17000001145uf3156.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/yanyu-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/1A0n17000001145uf3156.jpg"
+      }
+    ]
+  },
+  "wutang": {
+    "source": "https://you.ctrip.com/food/xiamen21/317925.html",
+    "name": "乌糖沙茶面(民族路店)",
+    "address": "民族路76号",
+    "dishes": [
+      "鱿鱼",
+      "海蛎",
+      "米血",
+      "豆干",
+      "鱼丸",
+      "独有自家制沙茶酱汤底",
+      "猪肝",
+      "大肠头",
+      "肉羹",
+      "虾仁",
+      "海蛏",
+      "小青龙沙茶面",
+      "鲍鱼",
+      "芋泥鸭",
+      "手工饺",
+      "肥肠",
+      "闽南炸醋肉",
+      "瘦肉",
+      "鸭血",
+      "小肠"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/100r0z000000nr8a91100.jpg",
+      "https://dimg04.c-ctrip.com/images/100e0g0000007zxcgBEB2.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/wutang-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/100r0z000000nr8a91100.jpg"
+      }
+    ]
+  },
+  "yubao": {
+    "source": "https://you.ctrip.com/food/xiamen21/11561043.html",
+    "name": "芋包嫂(大学路店)",
+    "address": "大学路91号",
+    "dishes": [
+      "芋包",
+      "沙茶面",
+      "肉粽",
+      "海蛎汤",
+      "鱼丸汤",
+      "猪腰汤",
+      "扁食汤",
+      "海蛎煎",
+      "拌面",
+      "海鲜面",
+      "花蛤汤",
+      "什锦骨汤面",
+      "蚵仔煎",
+      "烤冷面",
+      "沙茶扁食",
+      "老蛏汤",
+      "拳头母汤",
+      "麻花",
+      "鱼丸汤拼海蛎汤",
+      "大肠头汤"
+    ],
+    "photos": [
+      "https://dimg04.c-ctrip.com/images/01065120009qrqoohCD01.jpg",
+      "https://dimg04.c-ctrip.com/images/0100t120009zj2pkg99EF.jpg"
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/yubao-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/01065120009qrqoohCD01.jpg"
+      }
+    ]
+  },
+  "longtou": {
+    "source": "https://you.ctrip.com/sight/xiamen21/5709743.html",
+    "name": "龙头路",
+    "photos": [
+      {
+        "imageId": 731065337,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0106x12000f6s1k201C14.jpg",
+        "width": 854,
+        "height": 640
+      },
+      {
+        "imageId": 731065337,
+        "imageUrl": "https://dimg04.c-ctrip.com/images/0106x12000f6s1k201C14.jpg",
+        "width": 854,
+        "height": 640
+      }
+    ],
+    "localPhotos": [
+      {
+        "path": "assets/gallery/longtou-1.jpg",
+        "sourceImage": "https://dimg04.c-ctrip.com/images/0106x12000f6s1k201C14.jpg"
+      }
+    ]
+  }
+}

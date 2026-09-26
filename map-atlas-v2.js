@@ -7,8 +7,8 @@
   const days = [
     { key: '2026-09-30', date: '9.30', title: '抵达文灶', color: '#648d80' },
     { key: '2026-10-01', date: '10.01', title: '鼓浪屿', color: '#d66f56' },
-    { key: '2026-10-02', date: '10.02', title: '人文海岸', color: '#348b98' },
-    { key: '2026-10-03', date: '10.03', title: '山海绿意', color: '#718f4d' },
+    { key: '2026-10-02', date: '10.02', title: '人文海岸', color: '#1767bf' },
+    { key: '2026-10-03', date: '10.03', title: '山海绿意', color: '#4b8031' },
     { key: '2026-10-04', date: '10.04', title: '老城返程', color: '#8a72a2' }
   ];
   const base = 'assets/xiamen-overview-watercolor-v2.png';
@@ -24,7 +24,8 @@
     sanqiutian: [510, 540], longtou: [440, 595], shuzhuang: [425, 712], rock: [348, 637],
     nanputuo: [1050, 645], xmu: [990, 715], baicheng: [1100, 778],
     shapowei: [790, 666], heping: [680, 555], botanic: [1020, 535],
-    cable: [1050, 575], bashi: [745, 465], baijia: [865, 444]
+    cable: [1050, 575], bashi: [640, 380], baijia: [865, 444],
+    zhongshan: [745, 465], yujian: [700, 185]
   };
   // Sprite indices are row-major. Small overview offsets keep nearby landmarks readable.
   const cards = {
@@ -34,33 +35,55 @@
     shuzhuang: { icon: 3, name: '菽庄花园' },
     rock: { icon: 4, name: '日光岩' },
     nanputuo: { icon: 5, name: '南普陀寺', dx: -28, dy: -14, textDx: 62 },
-    xmu: { icon: 6, name: '厦大西门', dy: 15 },
+    xmu: { icon: 6, name: '厦门大学', dy: 15 },
     baicheng: { icon: 7, name: '白城沙滩' },
     shapowei: { icon: 8, name: '沙坡尾' },
     heping: { icon: 9, name: '和平码头' },
     botanic: { icon: 10, name: '园林植物园', dx: -28, dy: -10 },
     cable: { icon: 11, name: '钟鼓索道', dx: 56, dy: -15 },
     bashi: { icon: 12, name: '八市' },
-    baijia: { icon: 13, name: '百家村' }
+    baijia: { icon: 13, name: '百家村' },
+    zhongshan: { art: 'assets/xiamen-zhongshan-watercolor-v1.png', name: '中山路步行街', textDy: -18 },
+    yujian: { art: 'assets/xiamen-yujian-watercolor-v1.png', name: '屿见闽南' }
   };
   const dayLabel = {
     dongdu: '东渡码头', sanqiutian: '三丘田码头', longtou: '龙头路',
     shuzhuang: '菽庄花园', rock: '日光岩', nanputuo: '南普陀寺',
-    xmu: '厦大西门', baicheng: '白城沙滩', shapowei: '沙坡尾',
+    xmu: '厦门大学', baicheng: '白城沙滩', shapowei: '沙坡尾',
     heping: '和平码头', botanic: '植物园西门', cable: '钟鼓索道',
-    bashi: '八市', baijia: '百家村', hotel: '文灶住宿', station: '厦门站'
+    bashi: '八市', baijia: '百家村', zhongshan: '中山路步行街', yujian: '屿见闽南', hotel: '文灶住宿', station: '厦门站'
   };
-  const labelSide = {
-    dongdu: ['right', 16, -12], sanqiutian: ['right', 16, -18],
-    longtou: ['right', 16, 8], shuzhuang: ['right', 16, 25], rock: ['left', -16, -12],
-    nanputuo: ['right', 17, -18], xmu: ['left', -17, 24], baicheng: ['right', 17, 22],
-    shapowei: ['left', -17, -17], heping: ['left', -17, 22],
-    botanic: ['left', -17, -15], cable: ['right', 17, 20],
-    bashi: ['left', -17, -13], baijia: ['right', 17, -15],
-    hotel: ['right', 19, -14], station: ['right', 19, 22]
+  // Each cubic has hand-placed control points. Shared masks protect the artwork
+  // and labels, and the same geometry is used in overview and daily crops.
+  const routeControls = {
+    'station-hotel': [1145, 392, 1080, 392],
+    'hotel-station': [1080, 435, 1165, 435],
+    'hotel-dongdu': [892, 246, 635, 228],
+    'dongdu-sanqiutian': [414, 310, 458, 451],
+    'sanqiutian-longtou': [528, 619, 478, 631],
+    'longtou-shuzhuang': [475, 645, 492, 705],
+    'shuzhuang-rock': [338, 755, 303, 718],
+    'rock-sanqiutian': [405, 699, 581, 684],
+    'sanqiutian-bashi': [555, 520, 615, 446],
+    'hotel-nanputuo': [1280, 400, 1265, 649],
+    'nanputuo-xmu': [871, 648, 870, 773],
+    'xmu-baicheng': [1012, 810, 1077, 841],
+    'nanputuo-baicheng': [1230, 650, 1235, 829],
+    'baicheng-shapowei': [978, 879, 835, 790],
+    'shapowei-heping': [710, 700, 622, 637],
+    'heping-hotel': [825, 579, 929, 458],
+    'hotel-yujian': [924, 195, 790, 165],
+    'yujian-heping': [614, 260, 617, 425],
+    'hotel-botanic': [1024, 420, 940, 473],
+    'botanic-cable': [1034, 606, 1076, 610],
+    'cable-bashi': [1076, 636, 694, 564],
+    'bashi-zhongshan': [660, 340, 725, 410],
+    'hotel-baijia': [957, 388, 925, 417],
+    'baijia-station': [830, 545, 1110, 545]
   };
   let activeDay = 1;
   let skipXmu = false;
+  let rainDay2 = false;
   let activePointIds = new Set();
   let selectedOverviewPoint = null;
 
@@ -71,82 +94,107 @@
   function xy(pointOrId) { return anchors[typeof pointOrId === 'string' ? pointOrId : pointOrId.id]; }
   function isSpecial(point) { return point.locationType === 'hotel' || point.locationType === 'station'; }
   function route(dayIndex) {
-    return dataTools.routeForDay(data, days[dayIndex].key, { skipXmu: skipXmu && dayIndex === 2 });
+    if (dayIndex === 2 && rainDay2) return data.rainRoutes[days[dayIndex].key];
+    const edges = dataTools.routeForDay(data, days[dayIndex].key, { skipXmu: skipXmu && dayIndex === 2 });
+    return edges.filter((edge, index) => !(dayIndex > 0 && index === edges.length - 1 && edge.to === "hotel"));
   }
   function dayForPoint(pointId) {
+    if (pointId === 'yujian') return 2;
     return days.findIndex((_, index) => dataTools.routePointIds(route(index)).includes(pointId));
   }
   function baseImage() {
     return `<image href="${base}" width="${W}" height="${H}" preserveAspectRatio="none"/>`;
   }
-  function specialIcon(point, x, y, large) {
-    const hotel = point.locationType === 'hotel';
-    const r = large ? 24 : 21;
-    const symbol = hotel
-      ? '<path d="M-12-1 0-12 12-1v14H-12Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M-4 13V3H4v10" fill="none" stroke="#fff" stroke-width="3"/>'
-      : '<rect x="-11" y="-11" width="22" height="19" rx="4" fill="none" stroke="#fff" stroke-width="3"/><path d="M-7-4H7M-7 13l4-5m10 5L3 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>';
-    return `<g class="atlas-special ${hotel ? 'is-hotel' : 'is-station'}" transform="translate(${x} ${y})"><circle r="${r}"/>${symbol}</g>`;
+  function markerPosition(point) {
+    const [x, y] = xy(point), card = cards[point.id];
+    return card ? [x + (card.dx || 0), y + 6 + (card.dy || 0)] : [x, y];
   }
-  function cardMarkup(point, color) {
+  function sequenceBadge(x, y, order, color) {
+    const width = order.length > 2 ? 63 : 30;
+    return `<g class="atlas-sequence" transform="translate(${x} ${y})"><rect x="${-width / 2}" y="-13" width="${width}" height="26" rx="13" fill="${color}"/><text y="5" text-anchor="middle">${esc(order)}</text></g>`;
+  }
+  function nodeAttributes(point, daily) {
+    return daily ? `data-day-point-id="${point.id}" role="button" tabindex="0" aria-label="查看${esc(point.name)}详情"` : '';
+  }
+  function hitAttributes(point, daily) {
+    return daily ? '' : `data-overview-point="${point.id}" role="button" tabindex="0" aria-label="查看${esc(point.name)}详情"`;
+  }
+  function cardMarkup(point, color, order = '') {
+    const daily = Boolean(order);
     const card = cards[point.id];
-    const [px, py] = xy(point);
-    const cx = px + (card.dx || 0), cy = py + 6 + (card.dy || 0);
+    const [cx, cy] = markerPosition(point);
     const textX = cx + (card.textDx || 0), textY = cy + 27 + (card.textDy || 0);
     const bw = 82, bh = 82;
     const tx = (card.icon % 4) * bw, ty = Math.floor(card.icon / 4) * bh;
     const selected = selectedOverviewPoint === point.id ? ' is-selected' : '';
-    return `<g class="atlas-overview-node${selected}">` +
+    return `<g class="${daily ? 'atlas-daily-node is-viewable' : 'atlas-overview-node'}${selected}" ${nodeAttributes(point, daily)}>` +
       `<ellipse class="atlas-landmark-halo" cx="${cx}" cy="${cy - 49}" rx="53" ry="44"/>` +
       `<ellipse class="atlas-landmark-shadow" cx="${cx + 3}" cy="${cy - 8}" rx="37" ry="11"/>` +
-      `<svg class="atlas-landmark-art" x="${cx - bw / 2}" y="${cy - bh - 9}" width="${bw}" height="${bh}" overflow="hidden"><image href="${sprite}" x="${-tx}" y="${-ty}" width="${bw * 4}" height="${bh * 4}"/></svg>` +
-      `<circle class="atlas-anchor" cx="${cx}" cy="${cy}" r="5" fill="${color}"/>` +
+      (card.art ? `<image class="atlas-landmark-art atlas-new-art" href="${card.art}" x="${cx - bw / 2}" y="${cy - bh - (daily ? 18 : 9)}" width="${bw}" height="${bh}"/>` : `<svg class="atlas-landmark-art" x="${cx - bw / 2}" y="${cy - bh - (daily ? 18 : 9)}" width="${bw}" height="${bh}" overflow="hidden"><image href="${sprite}" x="${-tx}" y="${-ty}" width="${bw * 4}" height="${bh * 4}"/></svg>`) +
+      (daily ? sequenceBadge(cx, cy, order, color) : `<circle class="atlas-anchor" cx="${cx}" cy="${cy}" r="5" fill="${color}"/>`) +
       `<text class="atlas-node-name" x="${textX}" y="${textY}" text-anchor="middle">${esc(card.name)}</text>` +
-      `<rect class="atlas-node-hit" x="${cx - bw / 2 - 3}" y="${cy - bh - 12}" width="${bw + 6}" height="${bh + 48}" rx="12" data-overview-point="${esc(point.id)}" role="button" tabindex="0" aria-label="查看${esc(point.name)}详情"/>` +
-      (card.textDx ? `<rect class="atlas-node-hit" x="${textX - 54}" y="${textY - 19}" width="108" height="26" data-overview-point="${esc(point.id)}"/>` : '') + `</g>`;
+      `<rect class="atlas-node-hit" x="${cx - bw / 2 - 3}" y="${cy - bh - 20}" width="${bw + 6}" height="${bh + 56}" rx="12" ${hitAttributes(point, daily)}/>` +
+      (card.textDx ? `<rect class="atlas-node-hit" x="${textX - 54}" y="${textY - 19}" width="108" height="26" ${daily ? '' : `data-overview-point="${point.id}"`}/>` : '') + `</g>`;
   }
   function islandLabel() {
     return `<text class="atlas-island-label" x="352" y="790" text-anchor="middle">鼓浪屿景区</text>`;
   }
-  function specialMarkup(point) {
+  function specialMarkup(point, color, order = '') {
+    const daily = Boolean(order);
     const [x, y] = xy(point);
     const hotel = point.locationType === 'hotel';
     const art = hotel
       ? `<image class="atlas-special-art" href="${hotelArt}" x="${x - 50}" y="${y - 105}" width="100" height="100"/>`
       : `<svg class="atlas-special-art atlas-station-art" x="${x - 75}" y="${y - 69}" width="150" height="66" overflow="hidden"><image href="${stationArt}" x="0" y="-47" width="150" height="150"/></svg>`;
-    return `<g class="atlas-overview-node atlas-special-node">` +
+    return `<g class="${daily ? 'atlas-daily-node is-viewable' : 'atlas-overview-node'} atlas-special-node" ${nodeAttributes(point, daily)}>` +
       `<ellipse class="atlas-landmark-halo" cx="${x}" cy="${y - 55}" rx="${hotel ? 58 : 83}" ry="43"/>` +
       `<ellipse class="atlas-landmark-shadow" cx="${x + 3}" cy="${y - 9}" rx="${hotel ? 38 : 68}" ry="11"/>` +
-      art + `<circle class="atlas-special-anchor ${hotel ? 'is-hotel' : 'is-station'}" cx="${x}" cy="${y}" r="6"/>` +
+      `<g transform="translate(0 ${daily ? -10 : 0})">${art}</g>` + (daily ? sequenceBadge(x, y, order, color) : `<circle class="atlas-special-anchor ${hotel ? 'is-hotel' : 'is-station'}" cx="${x}" cy="${y}" r="6"/>`) +
       `<text class="atlas-special-name" x="${x}" y="${y + 30}" text-anchor="middle">${esc(dayLabel[point.id])}</text>` +
-      `<rect class="atlas-special-hit" x="${x - (hotel ? 54 : 80)}" y="${y - (hotel ? 109 : 74)}" width="${hotel ? 108 : 160}" height="${hotel ? 148 : 116}" rx="16" data-overview-point="${point.id}" role="button" tabindex="0" aria-label="查看${esc(point.name)}详情"/></g>`;
+      `<rect class="atlas-special-hit" x="${x - (hotel ? 54 : 80)}" y="${y - (hotel ? 119 : 84)}" width="${hotel ? 108 : 160}" height="${hotel ? 158 : 126}" rx="16" ${hitAttributes(point, daily)}/></g>`;
   }
-  function routePaths(edges, color, prefix, emphasize) {
-    return edges.map((edge, index) => {
-      const a = xy(edge.from), b = xy(edge.to);
-      if (!a || !b) return '';
-      const bend = edge.type === 'ferry' ? -72 : (index % 2 ? 15 : -15);
-      const cx = (a[0] + b[0]) / 2 + bend;
-      const cy = (a[1] + b[1]) / 2 - bend;
-      const path = `M${a[0]} ${a[1]} Q${cx} ${cy} ${b[0]} ${b[1]}`;
-      const cls = edge.type === 'ferry' ? ' is-ferry' : '';
-      return `<path class="${prefix}-route-under${cls}" d="${path}"/><path class="${prefix}-route${cls}${emphasize ? ' is-active' : ''}" d="${path}" stroke="${color}" marker-end="url(#${prefix}-arrow-${color.slice(1)})"/>`;
+  function routeMask(localPoints, id, daily = false) {
+    const cutouts = localPoints.map(point => {
+      const [x, y] = markerPosition(point), card = cards[point.id];
+      const hotel = point.locationType === 'hotel';
+      const width = card ? 98 : hotel ? 112 : 166;
+      const top = card ? 105 : hotel ? 120 : 84;
+      const name = card ? card.name : dayLabel[point.id];
+      const tx = x + (card?.textDx || 0), ty = y + (card ? 27 + (card.textDy || 0) : 30);
+      const textWidth = name.length * (card ? 17 : 19) + 16;
+      return `<rect x="${x - width / 2}" y="${y - top}" width="${width}" height="${top - (daily ? 16 : 10)}" rx="18" fill="black"/>` +
+        `<rect x="${tx - textWidth / 2}" y="${ty - 19}" width="${textWidth}" height="26" rx="8" fill="black"/>`;
     }).join('');
+    return `<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}" style="mask-type:luminance"><rect width="${W}" height="${H}" fill="white"/>${cutouts}</mask>`;
   }
-  function arrowDefs(prefix) {
-    return days.map(day => `<marker id="${prefix}-arrow-${day.color.slice(1)}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="${day.color}"/></marker>`).join('');
-  }
-  function dateBubbles() {
-    return days.map((day, index) => {
-      const x = 84 + index * 105;
-      return `<g class="atlas-date-bubble${index === activeDay ? ' is-current' : ''}" style="--day-color:${day.color}" data-overview-day="${index}" role="button" tabindex="0" aria-label="查看${day.date}${esc(day.title)}每日行程" transform="translate(${x} 78)">` +
-        `<circle r="39"/><text text-anchor="middle" y="6">${day.date}</text><circle class="atlas-date-hit" r="45"/></g>`;
+  function routePaths(edges, color, daily = false) {
+    return edges.filter(edge => edge.to !== "hotel" || edge.from === "station").map(edge => {
+      const a = markerPosition(points.get(edge.from)), b = markerPosition(points.get(edge.to));
+      const controls = routeControls[`${edge.from}-${edge.to}`];
+      if (!controls) return '';
+      const c = controls.slice(0, 2), d = controls.slice(2);
+      function inset(p, toward) {
+        const distance = Math.hypot(toward[0] - p[0], toward[1] - p[1]);
+        const gap = daily ? 19 : 9;
+        return [p[0] + (toward[0] - p[0]) / distance * gap, p[1] + (toward[1] - p[1]) / distance * gap];
+      }
+      const start = inset(a, c), end = inset(b, d);
+      const path = `M${start} C${c} ${d} ${end}`;
+      // A small arrow midway along the cubic leaves the landmark itself clear.
+      const t = .55, u = 1 - t;
+      const arrow = [0, 1].map(i => u ** 3 * start[i] + 3 * u * u * t * c[i] + 3 * u * t * t * d[i] + t ** 3 * end[i]);
+      const tangent = [0, 1].map(i => 3 * u * u * (c[i] - start[i]) + 6 * u * t * (d[i] - c[i]) + 3 * t * t * (end[i] - d[i]));
+      const angle = Math.atan2(tangent[1], tangent[0]) * 180 / Math.PI;
+      const cls = edge.type === 'ferry' ? ' is-ferry' : '';
+      return `<g class="atlas-route-segment${cls}" style="--route-color:${color}"><path class="atlas-route-under" d="${path}"/><path class="atlas-route-line" d="${path}"/><path class="atlas-route-direction" d="M-6-4 0 0-6 4" transform="translate(${arrow}) rotate(${angle})"/></g>`;
     }).join('');
   }
   function allOverviewPoints() {
     const unique = new Map();
-    days.forEach((_, index) => dataTools.pointsForRoute(data, route(index)).forEach(point => {
+    days.forEach((_, index) => dataTools.pointsForRoute(data, dataTools.routeForDay(data, days[index].key, { skipXmu: skipXmu && index === 2 })).forEach(point => {
       if (!unique.has(point.id)) unique.set(point.id, { point, color: days[index].color });
     }));
+    unique.set('yujian', { point: points.get('yujian'), color: days[2].color });
     return Array.from(unique.values());
   }
   function renderOverviewDetail(pointId) {
@@ -156,19 +204,15 @@
     selectedOverviewPoint = pointId;
     const dateIndex = dayForPoint(pointId);
     const date = dateIndex >= 0 ? days[dateIndex].date : '';
-    const image = isSpecial(point) ?
-      `<figure class="atlas-special-detail"><img src="${point.locationType === 'hotel' ? hotelArt : stationArt}" alt="${esc(point.name)}手绘地标插画" loading="lazy"><figcaption>手绘地标 · 非建筑实景照片</figcaption></figure>` :
-      `<figure><img src="${esc(window.SiteImages.resolveImagePath(point.photo))}" alt="${esc(point.name)}实景照片" loading="lazy"><figcaption>景点实景照片 · 上方地图为手绘插画</figcaption></figure>`;
-    target.innerHTML = `${image}<div class="atlas-detail-copy"><span class="atlas-detail-kicker">${date} · ${isSpecial(point) ? '交通与住宿' : '地图景点详情'}</span><h3>${esc(point.name)}</h3><p>${esc(point.address)}</p><p>${esc(point.note)}</p><div class="atlas-detail-actions"><span>游玩示意图 · 位置${point.precision === 'approx' ? '近似' : '按地图点位'}标注</span>${dateIndex >= 0 ? `<button type="button" data-overview-goto="${dateIndex}" data-overview-select="${point.id}">查看当日行程 ↗</button>` : ''}</div></div>`;
-    const img = target.querySelector('img');
-    if (img) img.addEventListener('error', () => {
-      img.replaceWith(Object.assign(document.createElement('div'), { className: 'atlas-detail-symbol', textContent: '图片暂不可用' }));
-    }, { once: true });
+    const gallery = window.XiamenPlaceGallery;
+    target.innerHTML = `${gallery.markup(point)}<div class="atlas-detail-copy"><span class="atlas-detail-kicker">${date} · ${isSpecial(point) ? '交通与住宿' : '沿途风景'}</span><h3>${esc(point.name)}</h3><p>${esc(point.address)}</p>${gallery.guide(point)}<div class="atlas-detail-actions">${dateIndex >= 0 ? `<button type="button" data-overview-goto="${dateIndex}" data-overview-select="${point.id}">查看当日行程 ↗</button>` : ''}</div></div>`;
+    gallery.bind(target);
     document.querySelectorAll('.atlas-overview-node').forEach(node => node.classList.toggle('is-selected', node.querySelector('[data-overview-point]')?.dataset.overviewPoint === pointId));
   }
   function jumpToDay(index, pointId) {
+    if (index === 2 && pointId === 'yujian' && !rainDay2) window.dispatchEvent(new CustomEvent('xiamen:rain-toggle', { detail: { rain: true } }));
     window.dispatchEvent(new CustomEvent('xiamen:map-daychange', { detail: { dayIndex: index, scrollIntoView: true } }));
-    if (pointId && !isSpecial(points.get(pointId))) selectPoint(pointId);
+    if (pointId) selectPoint(pointId);
   }
   function renderOverview() {
     const target = document.getElementById('routeOverview');
@@ -176,15 +220,17 @@
     const canvas = document.getElementById('overviewMapZoomCanvas');
     if (!target) return;
     const all = allOverviewPoints();
-    const markers = all.map(({ point, color }) => isSpecial(point) ? specialMarkup(point) : cardMarkup(point, color)).join('');
-    target.innerHTML = `<div class="atlas-overview-toolbar"><span>五日地图 · 点击手绘地标看详情</span><div class="atlas-day-links">${days.map((day, index) => `<button type="button" class="${index === activeDay ? 'is-current' : ''}" data-overview-day="${index}" style="--day-color:${day.color}" aria-label="查看${day.date}${esc(day.title)}每日行程">${day.date}</button>`).join('')}</div></div>` +
-      `<svg class="overview-map atlas-overview-map" viewBox="0 0 ${W} ${H}" role="group" aria-label="厦门五日游手绘地图，点选地标查看详情。位置为游玩示意，不作导航">` +
+    const markers = all.map(({ point, color }) => isSpecial(point) ? specialMarkup(point, color) : cardMarkup(point, color)).join('');
+    const routes = days.map((day, index) => `<g class="atlas-overview-route-day${index === activeDay ? ' is-current' : ''}">${routePaths(dataTools.routeForDay(data, day.key, { skipXmu: skipXmu && index === 2 }).filter((edge, i, edges) => !(index > 0 && i === edges.length - 1 && edge.to === 'hotel')), day.color)}</g>`).join('');
+    target.innerHTML = `<div class="atlas-overview-toolbar"><span>五日路线 · 同色连线为同一天 · 点击地标看详情</span><div class="atlas-day-links">${days.map((day, index) => `<button type="button" class="${index === activeDay ? 'is-current' : ''}" data-overview-day="${index}" style="--day-color:${day.color}" aria-label="查看${day.date}${esc(day.title)}每日行程">${day.date}</button>`).join('')}</div></div>` +
+      `<svg class="overview-map atlas-overview-map" viewBox="0 0 ${W} ${H}" role="group" aria-label="厦门五日游手绘路线图，点选地标查看详情">` +
+      `<defs>${routeMask(all.map(item => item.point), 'atlas-overview-clear')}</defs>` +
       baseImage() +
       `<rect class="atlas-map-wash" width="${W}" height="${H}"/>` +
+      `<g class="atlas-overview-routes" mask="url(#atlas-overview-clear)">${routes}</g>` +
       islandLabel() + `<g class="atlas-marker-layer">${markers}</g>` +
-      `<g class="atlas-date-layer">${dateBubbles()}</g>` +
       `<g class="atlas-compass" transform="translate(1438 85)"><circle r="33"/><path d="M0-21 7 6 0 1-7 6Z"/><text y="-39" text-anchor="middle">N</text></g>` +
-      `<text class="atlas-map-caption" x="1390" y="990" text-anchor="end">手绘游玩示意 · 非导航图</text></svg>` +
+      `</svg>` +
       `<button class="overview-map-zoom-button" type="button">放大查看完整地图 ↗</button>`;
     if (!document.getElementById('overviewPointDetail')) {
       target.insertAdjacentHTML('afterend', '<div class="atlas-overview-detail" id="overviewPointDetail" aria-live="polite"><p>点击地图上的手绘地标，查看点位信息与对应实景照片。</p></div>');
@@ -196,20 +242,25 @@
       document.getElementById('overviewPointDetail').innerHTML = '<p>点击地图上的手绘地标，查看点位信息与对应实景照片。</p>';
     }
     const map = target.querySelector('svg');
+    const toolbar = target.querySelector('.atlas-overview-toolbar');
+    const dialogLinks = document.getElementById('overviewMapDialogLinks');
+    function restoreMap() {
+      if (dialogLinks.contains(toolbar)) target.prepend(toolbar);
+      if (canvas.contains(map)) target.insertBefore(map, target.querySelector('.overview-map-zoom-button'));
+    }
     function closeMap() {
-      if (canvas && canvas.contains(map)) target.insertBefore(map, target.querySelector('.overview-map-zoom-button'));
+      restoreMap();
       if (dialog && dialog.open) dialog.close();
     }
     target.querySelector('.overview-map-zoom-button').addEventListener('click', () => {
+      dialogLinks.append(toolbar);
       canvas.append(map);
       dialog.showModal();
       canvas.scrollLeft = Math.max(0, (canvas.scrollWidth - canvas.clientWidth) * .32);
       canvas.scrollTop = Math.max(0, (canvas.scrollHeight - canvas.clientHeight) * .24);
     });
     document.getElementById('overviewMapClose').onclick = closeMap;
-    dialog.onclose = () => {
-      if (canvas.contains(map)) target.insertBefore(map, target.querySelector('.overview-map-zoom-button'));
-    };
+    dialog.onclose = restoreMap;
     function activateNode(node) {
       if (node.dataset.overviewDay !== undefined) {
         closeMap();
@@ -233,45 +284,69 @@
       });
     });
   }
-  function dailyCrop(localPoints) {
-    const coords = localPoints.map(xy);
+  function dailyCrop(localPoints, edges) {
+    const coords = localPoints.map(markerPosition);
+    // Include route control points so a return loop never disappears at a crop edge.
+    edges.forEach(edge => {
+      const controls = routeControls[`${edge.from}-${edge.to}`];
+      if (controls) coords.push(controls.slice(0, 2), controls.slice(2));
+    });
     const xs = coords.map(p => p[0]), ys = coords.map(p => p[1]);
-    let width = Math.max(520, Math.max(...xs) - Math.min(...xs) + 230);
-    let height = Math.max(350, Math.max(...ys) - Math.min(...ys) + 185);
+    let width = Math.max(480, Math.max(...xs) - Math.min(...xs) + 160);
+    let height = Math.max(325, Math.max(...ys) - Math.min(...ys) + 185);
     if (width / height < 1.55) width = height * 1.55;
     else height = width / 1.55;
     width = Math.min(W, width); height = Math.min(H, height);
     const mx = (Math.max(...xs) + Math.min(...xs)) / 2;
-    const my = (Math.max(...ys) + Math.min(...ys)) / 2;
+    const my = (Math.max(...ys) + Math.min(...ys)) / 2 - 35;
     const x = Math.max(0, Math.min(W - width, mx - width / 2));
     const y = Math.max(0, Math.min(H - height, my - height / 2));
     return { x, y, width, height };
   }
-  function dailyMarker(point, order, color) {
-    const [x, y] = xy(point), [side, dx, dy] = labelSide[point.id];
-    const align = side === 'left' ? 'end' : 'start';
-    const symbol = isSpecial(point) ? specialIcon(point, x, y, false) :
-      `<g transform="translate(${x} ${y})"><circle class="atlas-daily-pin" r="19" fill="${color}"/><text class="atlas-daily-number" y="6" text-anchor="middle">${String(order).padStart(2, '0')}</text></g>`;
-    const interactive = !isSpecial(point);
-    return `<g class="atlas-daily-node${interactive ? ' is-viewable' : ''}" data-day-point-id="${point.id}" ${interactive ? `role="button" tabindex="0" aria-label="查看${esc(point.name)}实景照片与详情"` : `aria-label="${esc(point.name)}位置"`}>` +
-      symbol + `<text class="atlas-daily-name" x="${x + dx}" y="${y + dy}" text-anchor="${align}">${esc(dayLabel[point.id])}</text><circle class="atlas-daily-hit" cx="${x}" cy="${y}" r="30"/></g>`;
-  }
   function dailyMap(viewName, edges, allPoints, dayIndex) {
     const local = allPoints.filter(point => point.view === viewName);
     if (!local.length) return '';
-    const crop = dailyCrop(local);
-    const order = new Map(dataTools.routePointIds(edges).map((id, index) => [id, index + 1]));
-    const localEdges = edges.filter(edge => points.get(edge.from)?.view === viewName && points.get(edge.to)?.view === viewName && edge.type === 'visit');
-    const markers = local.map(point => dailyMarker(point, order.get(point.id), days[dayIndex].color)).join('');
+    const localEdges = edges.filter(edge => points.get(edge.from)?.view === viewName && points.get(edge.to)?.view === viewName && edge.type === 'visit' && (edge.to !== 'hotel' || edge.from === 'station'));
+    const crop = dailyCrop(local, localEdges);
+    const sequence = [edges[0].from, ...edges.map(edge => edge.to)];
+    const markers = local.map(point => {
+      const order = sequence.flatMap((id, index) => id === point.id ? [String(index + 1).padStart(2, '0')] : []).join('/');
+      return isSpecial(point) ? specialMarkup(point, days[dayIndex].color, order) : cardMarkup(point, days[dayIndex].color, order);
+    }).join('');
     const label = viewName === 'island' ? '鼓浪屿岛上步行' : '厦门岛当日路线';
-    return `<svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览。手绘游玩示意图">` +
-      `<defs>${arrowDefs('atlas-daily')}</defs>${baseImage()}<rect class="atlas-day-wash" width="${W}" height="${H}"/>` +
-      `<g class="atlas-daily-routes">${routePaths(localEdges, days[dayIndex].color, 'atlas-daily', true)}</g>` +
+    const maskId = `atlas-day-clear-${dayIndex}-${viewName}`;
+    return `<div class="atlas-daily-map-heading"><strong>${days[dayIndex].date} · ${label}</strong><span>按编号游览 · 点击手绘地标</span></div><div class="atlas-daily-scroll"><svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览的手绘路线图">` +
+      `<defs>${routeMask(local, maskId, true)}</defs>${baseImage()}<rect class="atlas-day-wash" width="${W}" height="${H}"/>` +
+      `<g class="atlas-daily-routes" mask="url(#${maskId})">${routePaths(localEdges, days[dayIndex].color, true)}</g>` +
       `<g class="atlas-daily-points">${markers}</g>` +
-      `<g class="atlas-daily-title" transform="translate(${crop.x + 23} ${crop.y + 26})"><rect x="-10" y="-22" width="${viewName === 'island' ? 178 : 190}" height="36" rx="17"/><text y="3">${days[dayIndex].date} · ${label}</text></g>` +
-      `<text class="atlas-daily-note" x="${crop.x + crop.width - 18}" y="${crop.y + crop.height - 19}" text-anchor="end">游玩示意 · 非导航</text></svg>`;
+      `</svg></div><div class="atlas-daily-map-foot"><span>数字对应下方交通段；双编号表示同一点的两次到访。</span><span class="atlas-pan-hint">左右滑动查看 ↔</span></div>`;
+  }
+  function transitIcon(mode) {
+    const shapes = {
+      walk: '<circle cx="14" cy="4" r="2"/><path d="m10 20 3-7-3-4 3-3 3 4 4 1M10 9l-4 3m7 1 4 7"/>',
+      taxi: '<path d="m4 10 2-5h12l2 5M3 10h18v8H3zm4 8v2m10-2v2M7 13h2m6 0h2"/>',
+      metro: '<rect x="5" y="3" width="14" height="15" rx="3"/><path d="M5 10h14M8 18l-2 3m10-3 2 3M9 14h.1m6 0h.1"/>',
+      ferry: '<path d="M4 13 12 10l8 3-3 6H7Zm3-2V6h10v5M10 6V3h4v3M3 21l3-1 3 1 3-1 3 1 3-1 3 1"/>',
+      train: '<rect x="4" y="3" width="16" height="15" rx="4"/><path d="M4 11h16M8 18l-2 3m10-3 2 3M8 15h.1m8 0h.1"/>'
+    };
+    return `<svg viewBox="0 0 24 24" aria-hidden="true">${shapes[mode]}</svg>`;
+  }
+  function renderTransit(edges, index) {
+    const target = document.getElementById(`day-transit-${index}`);
+    if (!target) return;
+    const transit = window.XiamenTransit;
+    target.style.setProperty('--day-color', days[index].color);
+    const arrivalTrain = index === 0 ? `<li><div class="atlas-leg-title"><span class="atlas-leg-index">00 <b>→</b> 01</span><h5>深圳北 <span>→</span> 厦门站</h5></div><div class="atlas-leg-mode">${transitIcon('train')}<strong>动车 D672</strong><b>3 小时 54 分钟</b></div><p>15:55 从深圳北站发车，19:49 抵达厦门站。按车票车厢号上车，到站后沿出站指引进入站前交通区。</p><p class="atlas-leg-alternative">当天实景图展示深圳北、厦门站与文灶入夜街景。</p></li>` : '';
+    target.innerHTML = `<div class="atlas-transit-heading"><div><span class="section-kicker">STEP BY STEP</span><h4>这一段，怎么走</h4></div><span>${edges.length + (index === 0 ? 1 : 0)} 段接驳${index === 0 ? ' · 列车段仅见详情' : ' · 与地图编号对应'}</span></div>` +
+      `<ol class="atlas-transit-list">${arrivalTrain}${edges.map((edge, i) => {
+        const leg = transit.legs[`${edge.from}-${edge.to}`];
+        return `<li><div class="atlas-leg-title"><span class="atlas-leg-index">${String(i + 1).padStart(2, '0')} <b>→</b> ${String(i + 2).padStart(2, '0')}</span><h5>${esc(dayLabel[edge.from])} <span>→</span> ${esc(dayLabel[edge.to])}</h5></div><div class="atlas-leg-mode">${transitIcon(leg.mode)}<strong>${esc(transit.modes[leg.mode])}</strong><b>约 ${esc(leg.time.replace(/^约 /, ''))}</b></div><p>${esc(leg.path)}</p>${leg.alternative ? `<p class="atlas-leg-alternative">${esc(leg.alternative)}</p>` : ''}<a href="${esc(points.get(edge.to).mapUrl)}" target="_blank" rel="noopener noreferrer">地图查看终点 ↗</a></li>`;
+      }).join('')}</ol><p class="atlas-transit-day-note">${esc(transit.notes[index])}</p>` +
+      `<details class="atlas-transit-sources"><summary>耗时说明与交通依据</summary><p>步行、打车耗时是按点位与常见路线估算的规划范围，并非实时路况。地铁段含进出站步行；不含景点游览、打车等待、轮渡候船与安检。国庆请另留拥堵和排队缓冲，出发前用地图重查。</p><p>交通入口与航线信息核对于 2026-09-26：${transit.sources.map(source => `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)} ↗</a>`).join(' · ')}。其他点位可通过各段的终点链接核对。</p></details>`;
   }
   function bindDailyNodes(container) {
+    const scroll = container.querySelector('.atlas-daily-scroll');
+    if (scroll) scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
     container.querySelectorAll('.atlas-daily-node.is-viewable').forEach(node => {
       node.addEventListener('click', () => selectPoint(node.dataset.dayPointId));
       node.addEventListener('keydown', event => {
@@ -284,31 +359,13 @@
   function selectPoint(pointId) {
     if (!activePointIds.has(pointId)) return false;
     const point = points.get(pointId);
-    if (!point || isSpecial(point)) return false;
+    if (!point) return false;
     const target = document.getElementById(`day-map-detail-${activeDay}`);
     if (!target) return false;
-    const photo = window.SiteImages.resolveImagePath(point.photo);
-    target.innerHTML = `<figure class="map-detail-photo"><img src="${esc(photo)}" alt="${esc(point.name)}实景照片" loading="lazy"><span class="photo-unavailable" hidden>这张实景照片暂不可用</span><figcaption>${esc(point.name)} · 实景照片 · 点图放大</figcaption></figure>` +
-      `<div class="map-detail-copy"><span class="section-kicker">${days[activeDay].date} · 当日路线点</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p><span class="map-location-quality">${point.precision === 'approx' ? '位置近似标注' : '地图点位'}</span><p>${esc(point.note)}</p><span class="map-detail-hint">手绘图仅表示游玩先后和大致方位，不代表步行导航轨迹。</span></div>`;
-    target.querySelector('img').addEventListener('error', () => {
-      target.querySelector('img').hidden = true;
-      target.querySelector('.photo-unavailable').hidden = false;
-    }, { once: true });
-    const image = target.querySelector('img');
-    image.tabIndex = 0;
-    image.setAttribute('role', 'button');
-    image.setAttribute('aria-label', `放大查看：${point.name}实景照片`);
-    function openPhoto() {
-      const dialog = document.getElementById('photoDialog');
-      document.getElementById('largePhoto').src = image.src;
-      document.getElementById('largePhoto').alt = image.alt;
-      document.getElementById('largeCaption').textContent = point.name + ' · 实景照片';
-      dialog.showModal();
-    }
-    image.addEventListener('click', openPhoto);
-    image.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPhoto(); }
-    });
+    const gallery = window.XiamenPlaceGallery;
+    target.innerHTML = gallery.markup(point) +
+      `<div class="map-detail-copy"><span class="section-kicker">${days[activeDay].date} · ${isSpecial(point) ? '交通与住宿' : '当日路线点'}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}</div>`;
+    gallery.bind(target);
     document.querySelectorAll('.atlas-daily-node').forEach(node => node.classList.toggle('is-selected', node.dataset.dayPointId === pointId));
     return true;
   }
@@ -331,9 +388,10 @@
     const ferryEdge = edges.find(edge => edge.type === 'ferry');
     if (ferry) {
       ferry.hidden = !ferryEdge;
-      ferry.innerHTML = ferryEdge ? '<span class="map-ferry-label">海上接驳 · 不是陆路</span><strong>东渡客运码头</strong><b class="map-ferry-time">10:30 开船</b><span class="map-ferry-arrow" aria-hidden="true">→</span><strong>三丘田码头</strong>' : '';
+      ferry.innerHTML = ferryEdge ? '<span class="map-ferry-label">02 → 03 · 去程轮渡约 20 分钟</span><strong>东渡客运码头</strong><b class="map-ferry-time">10:30 开船</b><span class="map-ferry-arrow" aria-hidden="true">→</span><strong>三丘田码头</strong><span class="map-ferry-label">返厦后按船票上岸码头接八市晚餐</span>' : '';
     }
-    const first = localPoints.find(point => !isSpecial(point));
+    renderTransit(edges, activeDay);
+    const first = localPoints.find(point => !isSpecial(point)) || localPoints[0];
     if (first) selectPoint(first.id);
     else if (detail) detail.innerHTML = `<div class="map-detail-empty"><span class="section-kicker">${days[activeDay].date} · 当日路线</span><h3>到站与入住</h3><p>此日以交通和休息为主，没有安排景点打卡。</p></div>`;
     return { edges, points: localPoints };
@@ -355,6 +413,10 @@
   window.addEventListener('xiamen:xmu-toggle', event => {
     skipXmu = Boolean(event.detail?.skipXmu);
     renderOverview(); if (activeDay === 2) renderDay(activeDay);
+  });
+  window.addEventListener('xiamen:rain-toggle', event => {
+    rainDay2 = Boolean(event.detail?.rain);
+    renderOverview(); if (activeDay === 2) renderDay(2);
   });
   renderOverview(); renderDay(activeDay);
 })();

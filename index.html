@@ -8,12 +8,16 @@
   <title>2026国庆厦门游玩规划</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23103845'/%3E%3Cpath d='M8 41q12-13 24 0t24 0M8 48q12-13 24 0t24 0' fill='none' stroke='%2375d3d0' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='43' cy='22' r='9' fill='%23f3ae61'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css?v=20260926-watercolor10">
-  <link rel="stylesheet" href="map-atlas-v2.css?v=20260926-atlas12">
+  <link rel="stylesheet" href="map-atlas-v2.css?v=20260927-route8">
     <script defer src="map-geometry.js?v=20260926-watercolor10"></script>
     <script defer src="image-path.js?v=20260926-watercolor10"></script>
-    <script defer src="map-data.js?v=20260926-watercolor10"></script>
-    <script defer src="app.js?v=20260926-watercolor11"></script>
-    <script defer src="map-atlas-v2.js?v=20260926-atlas12"></script>
+    <script defer src="map-data.js?v=20260927-route6"></script>
+    <script defer src="map-transit.js?v=20260927-route6"></script>
+    <script defer src="place-photo-data.js?v=20260926-gallery1"></script>
+    <script defer src="place-photo-additions.js?v=20260926-route5"></script>
+    <script defer src="travel-enrichment.js?v=20260926-route5"></script>
+    <script defer src="app.js?v=20260927-route7"></script>
+    <script defer src="map-atlas-v2.js?v=20260927-route8"></script>
 </head>
 <body>
   <a class="skip-link" href="#itinerary">跳转到行程</a>
@@ -46,9 +50,9 @@
     </section>
 
     <section id="map" class="map-section wrap" aria-labelledby="map-title">
-        <div class="section-heading"><div><span class="section-kicker">01 / THE CITY AT A GLANCE</span><h2 id="map-title">厦门五日游路线总览</h2></div><p>按高德点位核对大致方位，以手绘水彩呈现。点击地标看点位详情；点击日期圆钮跳转当日路线。此图是游玩示意，不作导航。</p></div>
-        <div class="map-layout"><div class="map-panel"><div id="routeOverview" class="route-overview" aria-label="厦门五日游全程手绘游玩示意图"></div><div class="map-legend" id="mapLegend" aria-label="地图图例"><span><i class="legend-dot attraction"></i>手绘地标（非实拍）</span><span>● 日期圆钮可跳转</span></div></div></div>
-        <dialog class="overview-map-dialog" id="overviewMapDialog" aria-label="放大查看厦门五日游手绘地图"><div class="overview-map-dialog-bar"><strong>厦门手绘游玩地图</strong><button type="button" id="overviewMapClose">关闭地图 ×</button></div><div class="overview-map-zoom-canvas" id="overviewMapZoomCanvas"></div><p>手机可左右上下滑动查看；点日期圆钮跳到当日行程。位置仅供规划参考。</p></dialog>
+        <div class="section-heading"><div><span class="section-kicker">01 / THE CITY AT A GLANCE</span><h2 id="map-title">厦门五日游路线总览</h2></div><p>五天山海慢游，沿着颜色发现每天的风景。</p></div>
+        <div class="map-layout"><div class="map-panel"><div id="routeOverview" class="route-overview" aria-label="厦门五日游手绘路线图"></div><div class="map-legend" id="mapLegend" aria-label="地图图例"><span><i class="legend-dot attraction"></i>手绘地标（非实拍）</span><span>实线 · 陆上接驳</span><span>虚线 · 轮渡</span><span>日期圆钮可跳转当日路线</span></div></div></div>
+        <dialog class="overview-map-dialog" id="overviewMapDialog" aria-label="放大查看厦门五日游手绘地图"><div class="overview-map-dialog-bar"><strong>厦门手绘游玩地图</strong><button type="button" id="overviewMapClose">关闭地图 ×</button></div><div id="overviewMapDialogLinks"></div><div class="overview-map-zoom-canvas" id="overviewMapZoomCanvas"></div><p>手机可左右上下滑动查看；点上方日期跳到当日行程。</p></dialog>
     </section>
 
     <section id="itinerary" class="itinerary wrap" aria-labelledby="itinerary-title">
@@ -59,8 +63,8 @@
 
     <section id="food" class="food-section" aria-labelledby="food-title">
       <div class="wrap">
-        <div class="section-heading section-heading-light"><div><span class="section-kicker">03 / LOCAL FLAVOURS</span><h2 id="food-title">厦门美食图鉴</h2></div><p>海鲜大菜、小吃甜汤分区收好；点卡片看实拍、招牌菜、两人点单建议和精确店址。</p></div>
-        <div class="food-intro"><div class="chapter-number">先鲜<br>后逛</div><p>海鲜推荐集中在八市、沙坡尾和文灶酒店周边。两个人可先点一份主菜再加小菜；活海鲜先看清单价、重量和加工费，确认后再下单。照片标有“到店实拍”的为游客实拍；其他照片会注明是菜式参考图。</p></div>
+        <div class="section-heading section-heading-light"><div><span class="section-kicker">03 / LOCAL FLAVOURS</span><h2 id="food-title">厦门美食图鉴</h2></div><p>按地点和类别挑一餐；筛选项会只显示有推荐的组合。点卡片看实拍与点单建议。</p></div>
+        <div class="food-intro"><div class="chapter-number">先鲜<br>后逛</div><p>海鲜推荐集中在八市、沙坡尾和文灶酒店周边。两个人可先点一份主菜再加小菜；活海鲜先看清单价、重量和加工费，确认后再下单。每张图片会注明门店实拍、品牌展示或菜式参考。</p></div>
         <div id="foodFilters" class="food-filters" role="group" aria-label="筛选美食分类"></div>
         <div class="food-place-grid" id="foodPlaces"></div>
         <p class="food-note">国庆排队、营业时间、海鲜时价和当日供应会变化；把地址复制到常用地图核对即可，现场优先看价签与菜单。</p>

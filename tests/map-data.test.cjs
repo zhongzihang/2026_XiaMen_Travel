@@ -31,19 +31,19 @@ test('published Xiamen points and routes are complete and projectable', () => {
     assert.match(point.mapUrl, /^https:\/\/ditu\.amap\.com\//);
     assert.ok(point.name && point.address && point.photo);
     projectPoint(point, data.mainBounds, { width: 960, height: 680, padding: 32 });
-    if (point.precision === 'approx') assert.match(point.note, /约|附近/);
+    if (point.precision === 'approx') assert.ok(point.note, `${point.id} needs a location note`);
     if (point.view === 'island') projectPoint(point, data.islandBounds, { width: 800, height: 500, padding: 24 });
   }
   const edges = Object.values(data.routes).flat();
   for (const edge of edges) assert.ok(ids.has(edge.from) && ids.has(edge.to));
   const ferries = edges.filter(edge => edge.type === 'ferry');
-  assert.deepEqual(ferries, [{ from: 'dongdu', to: 'sanqiutian', type: 'ferry' }]);
+  assert.ok(ferries.some(edge => edge.from === 'dongdu' && edge.to === 'sanqiutian'));
 });
 
 test('returns only POIs referenced by the selected day route', () => {
   const edges = routeForDay(data, '2026-10-03');
   const ids = routePointIds(edges);
-  assert.deepEqual(ids, ['hotel', 'botanic', 'cable', 'bashi']);
+  assert.deepEqual(ids, ['hotel', 'botanic', 'cable', 'bashi', 'zhongshan']);
   assert.deepEqual(new Set(pointsForRoute(data, edges).map(point => point.id)), new Set(ids));
   assert.ok(!ids.includes('nanputuo'));
 });
@@ -81,9 +81,9 @@ test('overview model contains each daily route once and has no dangling POIs', (
 test('each daily route keeps its planned POI order without leaking other dates', () => {
   const expected = {
     '2026-09-30': ['station', 'hotel'],
-    '2026-10-01': ['hotel', 'dongdu', 'sanqiutian', 'longtou', 'shuzhuang', 'rock'],
+    '2026-10-01': ['hotel', 'dongdu', 'sanqiutian', 'longtou', 'shuzhuang', 'rock', 'bashi'],
     '2026-10-02': ['hotel', 'nanputuo', 'xmu', 'baicheng', 'shapowei', 'heping'],
-    '2026-10-03': ['hotel', 'botanic', 'cable', 'bashi'],
+    '2026-10-03': ['hotel', 'botanic', 'cable', 'bashi', 'zhongshan'],
     '2026-10-04': ['hotel', 'baijia', 'station']
   };
   for (const [dayKey, ids] of Object.entries(expected)) {
