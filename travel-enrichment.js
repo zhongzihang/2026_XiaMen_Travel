@@ -67,7 +67,13 @@
   const food = (id, area, category, summary, dishes, pair, tip) => {
     const item = research[id];
     const photoProvider = id === 'yanyu' ? '搜狐餐厅实拍' : '携程店铺相册';
-    return {id, area, category, name:item.name, address:item.address, image:item.localPhotos[0]?.path || '', imageAlt:`${item.name} · ${photoProvider}`, photoLabel:photoProvider, summary, dishes, pair, tip, source:id === 'yanyu' ? 'https://www.sohu.com/a/278969973_100287523' : item.source, sourceLabel:'查看门店相册与食客点评 ↗', showPhotoLink:true};
+    const localPhotos = item.localPhotos || [];
+    const gallery = localPhotos.map((photo, index) => ({
+      src: photo.path,
+      alt: `${item.name} · 实拍视角 ${index + 1}`,
+      caption: `${photoProvider} · 实拍视角 ${index + 1}`
+    }));
+    return {id, area, category, name:item.name, address:item.address, image:localPhotos[0]?.path || '', imageAlt:`${item.name} · ${photoProvider}`, photoLabel:photoProvider, gallery, reviews:item.reviews || [], summary, dishes, pair, tip, source:id === 'yanyu' ? 'https://www.sohu.com/a/278969973_100287523' : item.source, sourceLabel:'查看门店相册与食客点评 ↗', showPhotoLink:true};
   };
   window.XiamenExtraFoods = [
     food('yuehua','中山路','厦门小吃','镇邦路上的沙茶面小店，适合中山路散步前后补一顿热食。浓香汤底配自己选的料，点一碗就能吃得满足。',['沙茶面：选豆干、鱼丸，再加一种喜欢的荤料。','炸五香：两人分一份，趁热吃。','烧肉粽：想换主食时可与面二选一。'],'两人各一碗少量加料的面，五香卷共享即可。','适合简餐；加料前看价签，饭点留出等位时间。'),
@@ -117,10 +123,15 @@
     {
       id:'yishuyiye', area:'中山路', category:'甜汤饮品', name:'一树一叶（思北店）', address:'厦门市思明区厦禾路296-135-1号',
       image:'assets/gallery/food-yishuyiye-1.jpg', imageAlt:'一树一叶福建鲜奶茶品牌门店实拍', photoLabel:'品牌门店实拍 · 非思北店',
+      gallery:[
+        {src:'assets/gallery/food-yishuyiye-1.jpg',alt:'一树一叶同品牌门店环境实拍（非思北店）',caption:'品牌门店环境 · 非思北店'},
+        {src:'assets/gallery/food-yishuyiye-xhs-2026.jpg',alt:'小红书实拍：一树一叶茉莉野山楂饮品',caption:'小红书实拍 · 沙坡尾笔记记录的品牌饮品'}
+      ],
       summary:'以福建茶做鲜奶茶和果茶，八市与中山路之间想喝一杯时可作为顺路备选。',
       dishes:['茉莉青乌龙：偏清爽的茶香选择。','闽南茶底鲜奶茶：想喝奶香时先选低糖。'],
       pair:'两人各点一杯不同茶底，少糖更容易尝出茶味。',
-      tip:'配图为同品牌门店，并非思北店；出发前按店名和厦禾路门牌核实营业。',
+      tip:'配图包括同品牌门店环境和一篇沙坡尾笔记中的饮品，均不能当作思北分店实景；出发前按店名和厦禾路门牌核实营业。',
+      reviews:[{source:'小红书 · 豆本豆',date:'2026-09-06',title:'茉莉野山楂饮品实喝',summary:'作者写到在沙坡尾喝到茉莉野山楂，觉得山楂酸感、淡淡茉莉香与咸奶盖搭配清爽，杯底有阿达子；这是单次口味体验，具体配方和门店分店未核对。',url:'https://www.xiaohongshu.com/explore/6a9cfec9000000002900c0a7?xsec_token=ABExRroS6EBOzKMCt1JVcO48chrMOGTB8x5t4TOex1eug='}],
       source:'https://my.trip.com/moments/detail/xiamen-21-128769307', sourceLabel:'查看品牌门店实拍 ↗', showPhotoLink:true
     },
     {
@@ -259,7 +270,10 @@
       pair:'两人先问姜母鸭最小份量，配米饭或一道青菜；如加海鲜，先确认时价、重量与加工费。',
       tip:'核对时大众点评约4.0分、人均约¥76，作为中山路备选更合适。小红书评论提到约68元的姜母鸭，并讨论对应半只还是整只；点单前先问清份量和价格，建议堂食。',
       source:'https://www.xiaohongshu.com/search_result/6a7b0980000000002500b3c3?xsec_token=ABcHs0C8VeVtY6P0DiaxI1Crx-YJSeC3UbNlkvFe43pCY=&xsec_source=',
-      dianpingUrl:'https://m.dianping.com/shop/705493270?msource=applemaps'
+      dianpingUrl:'https://m.dianping.com/shop/705493270?msource=applemaps',
+      reviews:[
+        {source:'小红书 · 知食分子',date:'2026-09-15',title:'姜母鸭与闽菜实吃记录',summary:'作者把这家列作自己偏爱的姜母鸭之一，提到鸭肉入味、姜香明显，并推荐香煎膏蟹、焗鳗鱼等菜。评论区有人认同，也有食客反馈外带品质不稳、出现酸味；口味和体验分歧较大，建议堂食并先确认份量。',url:'https://www.xiaohongshu.com/search_result/6aa916f60000000026021c1f?xsec_token=AB-CXzSJcbaqzEyBKjMx13yYqCkouxaez8AcNBMSGk0Dk=&xsec_source='}
+      ]
     },
     {
       id:'chaisu-tusun-dong', area:'八市', category:'厦门小吃', name:'柴叔土笋冻（八市）',
@@ -421,6 +435,44 @@
         {source:'小红书 · 明天吃什么',date:'2026-06-23',title:'鼓浪屿上岛逛吃记录',summary:'攻略照片标注了蛋满灌，展示灌蛋切面和汤品；适合想尝传统手艺小吃的游客，建议错开人多时段。',url:'https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source='},
         {source:'Trip.com食客评价',date:'近期评价汇总',title:'大众游客评价参考',rating:'约4.2/5 · 142条',summary:'评价中常见反馈是灌蛋制作有特色、汤底清淡；也有游客提到店内空间紧凑，适合把它作为小吃而非完整正餐。',url:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/8638661.html'}
       ]
+    },
+    {
+      id:'zhengyoucai-casserole-congee', area:'中山路', category:'海鲜大餐', name:'郑有财海鲜砂锅粥（中山路店）',
+      address:'厦门市思明区镇邦路28号',
+      image:'assets/gallery/food-zhengyoucai-xhs-1.jpg', imageAlt:'小红书实拍：郑有财海鲜砂锅粥及多道菜品', photoLabel:'小红书食客实拍 · 海鲜与砂锅粥',
+      gallery:[
+        {src:'assets/gallery/food-zhengyoucai-xhs-1.jpg',alt:'郑有财海鲜砂锅粥一桌菜品实拍',caption:'小红书实拍 · 一桌菜品'},
+        {src:'assets/gallery/food-zhengyoucai-xhs-2.jpg',alt:'郑有财豆豉焗海鲜菜品实拍',caption:'小红书实拍 · 豆豉焗海鲜'},
+        {src:'assets/gallery/food-zhengyoucai-xhs-3.jpg',alt:'郑有财海鲜粥锅内实拍',caption:'小红书实拍 · 砂锅海鲜粥'},
+        {src:'assets/gallery/food-zhengyoucai-xhs-4.jpg',alt:'郑有财海鲜与闽南菜实拍，画面含门店点菜单',caption:'小红书实拍 · 海鲜与小炒'}
+      ],
+      summary:'镇邦路上的砂锅粥与闽南海鲜餐馆。笔记作者称自己多次回访，也带父母到店；适合把它作为中山路晚餐或多人分享的一餐。',
+      dishes:['海鲜砂锅粥：现熬等待较久，点单时确认份量。','豆豉焗鳗鱼：近期笔记多次提到。','海蛎煎、干煎鸡：可按人数加一道小菜。'],
+      pair:'两人先点一锅粥和一道小菜；海鲜按当日菜单确认品种、重量与价格，避免按照片估份量。',
+      tip:'两篇近期笔记都指向镇邦路这家店；评论有“好吃”和对打包费用、口味的不同反馈。照片来自单次食客记录，不代表当前菜价或平台评分。',
+      source:'https://www.xiaohongshu.com/search_result/69fb2b7e0000000038036c71?xsec_token=ABl10pt4hSUL3RM9HaaKmH9MMfOOop3jSd6KjM5SJCzIY=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=郑有财海鲜砂锅粥镇邦路28号&city=厦门',
+      reviews:[
+        {source:'小红书 · 饼子',date:'2026-05-06',title:'多次回访的海鲜与砂锅粥',summary:'作者说多次到店并带朋友来，记录了豆豉焗鳗鱼、干煎鸡、海蛎煎和虾粥等菜。评论区有人反馈晚上到店好吃，也有人不喜欢打包收费；食材和计价以现场为准。',url:'https://www.xiaohongshu.com/search_result/69fb2b7e0000000038036c71?xsec_token=ABl10pt4hSUL3RM9HaaKmH9MMfOOop3jSd6KjM5SJCzIY=&xsec_source='},
+        {source:'小红书 · 无语的果冻',date:'2026-07-10',title:'中山路砂锅粥回访',summary:'作者写到这家粥店已来回吃过五六次，提到螃蟹、虾粥和砂锅小炒；评论里也有读者表示到店后觉得不错。属于个人回访体验，不是平台评分。',url:'https://www.xiaohongshu.com/search_result/6a50f57f000000001c024887?xsec_token=ABrxMINFaGxx-gHk_Vk1Erckl76OM3wYqIpWFOCL7pMoI=&xsec_source='}
+      ]
+    },
+    {
+      id:'thickbinyou-braised-rice', area:'沙坡尾', category:'台式小吃', name:'厚彬友·台湾卤肉饭',
+      address:'厦门市思明区沙坡尾交叉口附近（按地图搜索店名核对入口）',
+      image:'assets/gallery/food-thickbinyou-xhs-1.jpg', imageAlt:'小红书实拍：厚彬友卤肉饭门头与台式小吃', photoLabel:'小红书食客实拍 · 门店与菜品',
+      gallery:[
+        {src:'assets/gallery/food-thickbinyou-xhs-1.jpg',alt:'厚彬友卤肉饭门头实拍',caption:'小红书实拍 · 门头'},
+        {src:'assets/gallery/food-thickbinyou-xhs-2.jpg',alt:'厚彬友卤肉饭实物近景',caption:'小红书实拍 · 卤肉饭'},
+        {src:'assets/gallery/food-thickbinyou-xhs-3.jpg',alt:'厚彬友台式香肠实拍',caption:'小红书实拍 · 台式香肠'}
+      ],
+      summary:'沙坡尾交叉口一带的台式小吃店，适合在厦港散步时吃简餐。近期探店笔记对卤肉饭和刈包评价较好，对汤、臭豆腐和鸭血评价普通。',
+      dishes:['卤肉饭：作者反馈咸甜口，适合配米饭。','刈包：笔记评价较好，可与卤肉饭二选一。','台式香肠：适合加作小份分享。'],
+      pair:'两人可各选卤肉饭或刈包，再加一份小吃；店内桌位不多，遇排队可打包。',
+      tip:'探店笔记记录约4张桌、用餐空间紧凑；价格和营业时段会变化，地址入口请按地图店名复核。',
+      source:'https://www.xiaohongshu.com/search_result/69fe131c000000003502a603?xsec_token=ABn7ASltxMykLvu9NMUQ9plTHH0RG-NWj_SfPVSolF_-c=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=厚彬友台湾卤肉饭&city=厦门',
+      reviews:[{source:'小红书 · 阿文未完成的世界旅行',date:'2026-05-09',title:'台式卤肉饭实吃反馈',summary:'作者觉得卤肉饭和刈包值得点，卤肉偏咸甜；汤品普通，臭豆腐和鸭血的味道不够突出，四神汤带一点苦味。店里座位较少，笔记称沙坡尾交叉口附近，属于一篇个人实吃评价。',url:'https://www.xiaohongshu.com/search_result/69fe131c000000003502a603?xsec_token=ABn7ASltxMykLvu9NMUQ9plTHH0RG-NWj_SfPVSolF_-c=&xsec_source='}]
     }
   );
 })();

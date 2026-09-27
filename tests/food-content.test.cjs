@@ -6,10 +6,10 @@ const vm = require('node:vm');
 
 const root = path.join(__dirname, '..');
 
-function loadExtraFoods() {
+function loadExtraFoods(researchOverrides = {}) {
   const item = { name: '测试门店', address: '测试地址', localPhotos: [], source: 'https://example.test' };
   const window = { XiamenPhotoResearch: Object.fromEntries(
-    ['yuehua', 'huangzehe', 'minhenan', 'yanyu', 'wutang', 'yubao'].map(id => [id, item])
+    ['yuehua', 'huangzehe', 'minhenan', 'yanyu', 'wutang', 'yubao'].map(id => [id, { ...item, ...researchOverrides[id] }])
   ) };
   const source = fs.readFileSync(path.join(root, 'travel-enrichment.js'), 'utf8');
   vm.runInNewContext(source, { window });
@@ -66,6 +66,44 @@ test('at least ten destination-area discoveries include photo galleries and sour
   }
   assert.ok(expected.filter(id => foods.find(item => item.id === id).gallery.length > 1).length >= 2,
     'at least two entries should demonstrate multi-photo switching');
+});
+
+test('legacy food cards expose every researched local photo and any supplied reviews', () => {
+  const foods = loadExtraFoods({
+    yuehua: {
+      localPhotos: [
+        { path: 'assets/gallery/yuehua-1.jpg', source: 'https://www.xiaohongshu.com/explore/post-1' },
+        { path: 'assets/gallery/yuehua-2.jpg', source: 'https://www.xiaohongshu.com/explore/post-2' }
+      ],
+      reviews: [{ source: '小红书', title: '近期探店', summary: '汤底浓，料可自选。', url: 'https://www.xiaohongshu.com/explore/post-1' }]
+    }
+  });
+  const yuehua = foods.find(item => item.id === 'yuehua');
+
+  assert.equal(yuehua.gallery.length, 2);
+  assert.match(yuehua.gallery[1].src, /yuehua-2\.jpg$/);
+  assert.equal(yuehua.reviews.length, 1);
+  assert.match(yuehua.reviews[0].summary, /汤底浓/);
+});
+
+test('new XHS discoveries add a seafood rice meal and a Shapowei Taiwanese snack with review galleries', () => {
+  const foods = loadExtraFoods();
+  const expected = [
+    ['zhengyoucai-casserole-congee', '中山路', '海鲜大餐', 4],
+    ['thickbinyou-braised-rice', '沙坡尾', '台式小吃', 3]
+  ];
+
+  for (const [id, area, category, minimumPhotos] of expected) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food, `missing food entry ${id}`);
+    assert.equal(food.area, area);
+    assert.equal(food.category, category);
+    assert.ok(food.gallery.length >= minimumPhotos, `${id} needs multiple matching photos`);
+    assert.ok(food.reviews.length, `${id} needs a sourced evaluation`);
+    assert.match(food.source, /^https:\/\/www\.xiaohongshu\.com\//);
+    for (const photo of food.gallery) assert.ok(fs.existsSync(path.join(root, photo.src)), `missing photo ${photo.src}`);
+    for (const review of food.reviews) assert.match(review.url, /^https:\/\//);
+  }
 });
 
 test('food detail gallery and evaluation markup scales to photo count and escapes review text', () => {
