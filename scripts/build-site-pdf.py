@@ -13,7 +13,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import Flowable, HRFlowable, Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import CondPageBreak, Flowable, HRFlowable, Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 from reportlab.lib.utils import ImageReader
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -199,7 +199,7 @@ def build():
                                       ("RIGHTPADDING",(0,0),(-1,-1),3),("TOPPADDING",(0,0),(-1,-1),3),
                                       ("BOTTOMPADDING",(0,0),(-1,-1),3)]))
             story.append(grid)
-    story += [PageBreak(),p("04 / POCKET NOTES",s["eyebrow"]),Spacer(1,5),p("出门小抄",s["title"])]
+    story += [CondPageBreak(250),p("04 / POCKET NOTES",s["eyebrow"]),Spacer(1,5),p("出门小抄",s["title"])]
     notes=[("随身轻装","身份证、充电宝、运动鞋、帽子、防晒、折叠伞、水杯和薄外套。鼓浪屿当天把大件行李留在酒店。"),
            ("雨天这样改","缩短海边停留；10月2日可改屿见闽南。植物园与索道看天气调整，返程日下雨可取消老城步行。"),
            ("吃饭不赶场","两人先点一份主菜再加小菜。海鲜下单前问清按斤或按只、重量与加工费。"),
@@ -208,13 +208,13 @@ def build():
     farewell=[]
     for path,caption in [("assets/gallery/zhongshan-1.jpg","中山路骑楼夜景实拍"),
                          ("assets/gallery/heping-cruise-1.jpg","鹭江夜色实拍")]:
-        image=photo(path,doc.width/2-5,185)
+        image=photo(path,doc.width/2-5,150)
         if image: farewell.append((image,p(caption,s["detail"])))
     if len(farewell)==2:
         story += [p("把夜色留给厦门",s["section"]),
                   Table([[farewell[0][0],farewell[1][0]],[farewell[0][1],farewell[1][1]]],
                         colWidths=[doc.width/2]*2,hAlign="LEFT"),Spacer(1,8)]
-    story += [Spacer(1,18),HRFlowable(width="100%",thickness=1,color=LINE),Spacer(1,10),
+    story += [Spacer(1,10),HRFlowable(width="100%",thickness=1,color=LINE),Spacer(1,8),
               p("完整可交互地图、景点多视角照片与美食点单详情，请浏览配套网站。",s["note"])]
     doc.build(story,onFirstPage=footer,onLaterPages=footer)
     print(OUTPUT)

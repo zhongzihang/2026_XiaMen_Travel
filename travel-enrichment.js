@@ -170,6 +170,36 @@
       tip:'这是大同路的“百成大同”，不要误导航到小学路的“浮屿大同”。照片为食客旧照，现场陈设可能变化。',
       source:'https://touch.travel.qunar.com/comment/10138575479',
       mapSource:'https://www.amap.com/place/B025002H44'
+    },
+    {
+      id:'linsixi', area:'鼓浪屿', category:'闽南正餐', name:'林四喜·闽南传家菜（鼓浪屿店）', address:'厦门市思明区鼓浪屿龙头路300号',
+      image:'assets/gallery/food-linsixi-2026.jpg', imageAlt:'林四喜鼓浪屿店门面实拍', photoLabel:'大众点评门店图 · 外景',
+      summary:'龙头路上的坐席正餐备选。想在岛上停下来吃闽南菜，可以用沙茶锅和薄饼搭一顿，不必只靠沿街小吃。',
+      dishes:['四喜沙茶锅：两人先问份量，适合配面或主食共享。','林家薄饼：想尝闽南薄饼时选一份。'],
+      pair:'先选一份沙茶锅，再配薄饼或一道蔬菜；午后还要爬日光岩，避免点得过饱。',
+      tip:'小红书评价有好有坏；国庆热门时段可先看候位和菜单，再决定是否入座。',
+      source:'https://m.dianping.com/shop/131589144?msource=applemaps',
+      mapSource:'https://www.amap.com/place/B0FFLBC538'
+    },
+    {
+      id:'sibei-bread', area:'中山路', category:'厦门小吃', name:'思北特香包（第四市场店）', address:'厦门市思明区思明北路第四市场20之3号',
+      image:'assets/gallery/food-sibei-bread-2026.jpg', imageAlt:'思北特香包门店夜间外景与顾客实拍', photoLabel:'旅行者实拍 · 门店外景',
+      summary:'骑楼夜逛时可顺路买一只古早味大面包。刚出炉的特香包偏松软，适合两人分着尝或带回酒店。',
+      dishes:['甜特香包：先问刚出炉时间，买一只分享。','其他糕点：现场看当天品项，不用为了凑单多买。'],
+      pair:'两人买一只特香包即可；若晚餐已吃饱，可留到次日早餐。',
+      tip:'第四市场20之3号，与思明北路同名分店核对后再导航；排队长就不必专程等。',
+      source:'https://classic-blog.udn.com/visa520infinite/181727915',
+      mapSource:'https://www.amap.com/place/B025003BWX'
+    },
+    {
+      id:'sili-jinbang', area:'文灶', category:'厦门小吃', name:'四里沙茶面（金榜店）', address:'厦门市思明区金榜路151-2号',
+      image:'assets/gallery/food-sili-jinbang-2026.jpg', imageAlt:'四里沙茶面金榜店门面及招牌实拍', photoLabel:'携程门店相册 · 金榜店外景',
+      summary:'文灶以北的一碗沙茶面备选，适合想比较不同汤底的早午餐。店面照片上可见金榜店招牌。',
+      dishes:['沙茶面：虾仁、豆腐或猪肝按口味少量加。','猪脚面：想换口味时先问当天供应。'],
+      pair:'两人各点一碗面，各选两三种配料；下单前看加料价格。',
+      tip:'金榜路151-2号，距文灶酒店仍需一段接驳；与湖滨四里老店不是同一地址。',
+      source:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/70454890.html',
+      mapSource:'https://www.amap.com/place/B0HB6SMR7O'
     }
   );
 })();
