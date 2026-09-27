@@ -200,6 +200,42 @@
       tip:'金榜路151-2号，距文灶酒店仍需一段接驳；与湖滨四里老店不是同一地址。',
       source:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/70454890.html',
       mapSource:'https://www.amap.com/place/B0HB6SMR7O'
+    },
+    {
+      id:'xinaqiang', area:'中山路', category:'闽南正餐', name:'鑫阿强·姜母鸭阿强煎蟹（中山路总店）', address:'厦门市思明区思明东路78号',
+      image:'assets/gallery/food-xinaqiang-2026.jpg', imageAlt:'鑫阿强思明东路78号门店夜间外景', photoLabel:'门店外景旧照',
+      summary:'中山路往思明东路步行可到的闽南正餐。姜母鸭与煎蟹是招牌，更适合坐下来吃一顿完整晚餐。',
+      dishes:['姜母鸭：先问半份和咸度。','阿强煎蟹：点前确认蟹的计价与重量。'],
+      pair:'两人可选姜母鸭或煎蟹其中一道主菜，搭配青菜和主食；食量足再加菜。',
+      tip:'配图是该址旧照，招牌可能变化；海鲜需先确认时价、重量和加工费。',
+      source:'https://tw.trip.com/restaurant/china/xiamen/detail/ginger-duck-aqiang-fried-crabxinaqiang-30970890/', mapSource:'https://www.amap.com/place/B0FFGPFIHW'
+    },
+    {
+      id:'taoxi', area:'中山路', category:'闽南正餐', name:'桃喜·老厦门私厨（中山路店）', address:'厦门市思明区思明南路118号',
+      image:'assets/gallery/food-taoxi-2026.jpg', imageAlt:'桃喜老厦门私厨中山路店门口实拍', photoLabel:'旅行者实拍 · 门店外景',
+      summary:'思明南路小巷里的闽南菜备选。姜母鸭之外还可点海鲜与清口小菜，适合想坐下来慢慢吃的晚上。',
+      dishes:['姜母鸭：问清份量后再点。','白灼虾或时令海鲜：先确认当日价格。','水晶萝卜：搭配浓口主菜。'],
+      pair:'两人一份姜母鸭、一道小菜和主食即可；如加海鲜，先看重量与总价。',
+      tip:'门店外景为旅行者拍摄；从中山路主街拐入思明南路，按118号核对入口。',
+      source:'https://m.dianping.com/discovery/2332508866', mapSource:'https://m.dianping.com/discovery/2332508866'
+    },
+    {
+      id:'huangji-siguo', area:'文灶', category:'甜汤饮品', name:'黄记漳州四果汤（九中店）', address:'厦门市思明区后埭溪路84-117号',
+      image:'assets/gallery/food-huangji-2026.jpg', imageAlt:'黄记漳州四果汤九中店招牌外景', photoLabel:'探店实拍 · 九中店外景',
+      summary:'文灶一带的冰甜汤备选。刨冰上可配仙草、石花、豆类与手工丸子，适合午后消暑。',
+      dishes:['漳州四果汤：先选喜欢的配料。','石花冻或仙草：想要清爽口感可加入。'],
+      pair:'两人先分一碗，喜欢再加；正餐前少放糯米类配料。',
+      tip:'九中店在后埭溪路，和中山路四果汤店不是同一处；节日营业以现场为准。',
+      source:'https://www.sohu.com/a/560783260_411869', mapSource:'https://map.360.cn/shenghuo/detail?pguid=b580b3236e1669b6&src=pc_shenbian'
+    },
+    {
+      id:'bapopo', area:'中山路', category:'甜汤饮品', name:'八婆婆烧仙草（中山路店）', address:'厦门市思明区太平路1-2-183号',
+      image:'assets/gallery/food-bapopo-2026.jpg', imageAlt:'八婆婆烧仙草中山路店内饮品展示与点单区', photoLabel:'旅行者实拍 · 店内',
+      summary:'逛骑楼时可外带一杯仙草饮。蜂蜜版偏清爽，奶茶版更浓郁，是当地常见的甜品饮品。',
+      dishes:['蜂蜜烧仙草：适合想喝清爽甜口。','奶茶烧仙草：喜欢奶香可选，先问甜度。'],
+      pair:'两人各选一个口味，先喝再决定是否加其他小吃。',
+      tip:'烧仙草含多种配料，点单时可问冰量、甜度与坚果配料。',
+      source:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'
     }
   );
 })();
