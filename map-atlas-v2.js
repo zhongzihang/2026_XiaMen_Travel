@@ -264,15 +264,15 @@
     const all = allOverviewPoints();
     const markers = all.map(({ point, color }) => isSpecial(point) ? specialMarkup(point, color) : cardMarkup(point, color)).join('');
     const routes = days.map((day, index) => `<g class="atlas-overview-route-day${index === activeDay ? ' is-current' : ''}">${routePaths(dataTools.routeForDay(data, day.key, { skipXmu: skipXmu && index === 2 }).filter((edge, i, edges) => !(index > 0 && i === edges.length - 1 && edge.to === 'hotel')), day.color)}</g>`).join('');
-    target.innerHTML = `<div class="atlas-overview-toolbar"><span>五日路线 · 同色连线为同一天 · 点击地标看详情</span><div class="atlas-day-links">${days.map((day, index) => `<button type="button" class="${index === activeDay ? 'is-current' : ''}" data-overview-day="${index}" style="--day-color:${day.color}" aria-label="查看${day.date}${esc(day.title)}每日行程">${day.date}</button>`).join('')}</div></div>` +
-      `<svg class="overview-map atlas-overview-map" viewBox="0 0 ${W} ${H}" role="group" aria-label="厦门五日游手绘路线图，点选地标查看详情">` +
+    target.innerHTML = `<div class="atlas-overview-toolbar"><div class="atlas-overview-toolbar-main"><span>五日路线 · 同色连线为同一天 · 点击地标看详情</span><div class="map-zoom-controls atlas-inline-zoom" data-zoom-controls="overviewMapInlineScroll" aria-label="总览地图缩放"><button type="button" data-map-zoom="out" aria-label="缩小总览地图">−</button><output aria-live="polite">100%</output><button type="button" data-map-zoom="in" aria-label="放大总览地图">＋</button><button type="button" data-map-zoom="reset" aria-label="总览地图适应屏幕">适应</button></div></div><div class="atlas-day-links">${days.map((day, index) => `<button type="button" class="${index === activeDay ? 'is-current' : ''}" data-overview-day="${index}" style="--day-color:${day.color}" aria-label="查看${day.date}${esc(day.title)}每日行程">${day.date}</button>`).join('')}</div></div>` +
+      `<div class="overview-map-scroll" id="overviewMapInlineScroll"><svg class="overview-map atlas-overview-map" viewBox="0 0 ${W} ${H}" role="group" aria-label="厦门五日游手绘路线图，点选地标查看详情">` +
       `<defs>${routeMask(all.map(item => item.point), 'atlas-overview-clear')}</defs>` +
       baseImage() +
       `<rect class="atlas-map-wash" width="${W}" height="${H}"/>` +
       `<g class="atlas-overview-routes" mask="url(#atlas-overview-clear)">${routes}</g>` +
       islandLabel() + `<g class="atlas-marker-layer">${markers}</g>` +
       `<g class="atlas-compass" transform="translate(1438 85)"><circle r="33"/><path d="M0-21 7 6 0 1-7 6Z"/><text y="-39" text-anchor="middle">N</text></g>` +
-      `</svg>` +
+      `</svg></div>` +
       `<button class="overview-map-zoom-button" type="button">放大查看完整地图 ↗</button>`;
     if (!document.getElementById('overviewPointDetail')) {
       target.insertAdjacentHTML('afterend', '<div class="atlas-overview-detail" id="overviewPointDetail" aria-live="polite"><p>点击地图上的手绘地标，查看点位信息与对应实景照片。</p></div>');
@@ -284,11 +284,18 @@
       document.getElementById('overviewPointDetail').innerHTML = '<p>点击地图上的手绘地标，查看点位信息与对应实景照片。</p>';
     }
     const map = target.querySelector('svg');
+    const inlineScroll = target.querySelector('.overview-map-scroll');
     const toolbar = target.querySelector('.atlas-overview-toolbar');
     const dialogLinks = document.getElementById('overviewMapDialogLinks');
+    bindMapZoom(inlineScroll, map, inlineScroll.clientWidth);
     function restoreMap() {
       if (dialogLinks.contains(toolbar)) target.prepend(toolbar);
-      if (canvas.contains(map)) target.insertBefore(map, target.querySelector('.overview-map-zoom-button'));
+      if (canvas.contains(map)) {
+        inlineScroll.append(map);
+        bindMapZoom(inlineScroll, map, inlineScroll.clientWidth);
+        inlineScroll.scrollLeft = 0;
+        inlineScroll.scrollTop = 0;
+      }
     }
     function closeMap() {
       restoreMap();
@@ -359,7 +366,7 @@
     const label = viewName === 'island' ? '鼓浪屿岛上步行' : '厦门岛当日路线';
     const maskId = `atlas-day-clear-${dayIndex}-${viewName}`;
     const scrollId = `atlas-scroll-${dayIndex}-${viewName}`;
-    return `<div class="atlas-daily-map-heading"><strong>${days[dayIndex].date} · ${label}</strong><span>按编号游览 · 点击手绘地标</span></div><div class="map-zoom-controls" data-zoom-controls="${scrollId}" aria-label="当天地图缩放"><button type="button" data-map-zoom="out" aria-label="缩小地图">−</button><output aria-live="polite">100%</output><button type="button" data-map-zoom="in" aria-label="放大地图">＋</button><button type="button" data-map-zoom="reset">适应屏幕</button></div><div class="atlas-daily-scroll" id="${scrollId}"><svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览的手绘路线图">` +
+    return `<div class="atlas-daily-map-heading"><div class="atlas-daily-heading-copy"><strong>${days[dayIndex].date} · ${label}</strong><span>按编号游览 · 点击手绘地标</span></div><div class="map-zoom-controls atlas-daily-zoom" data-zoom-controls="${scrollId}" aria-label="当天地图缩放"><button type="button" data-map-zoom="out" aria-label="缩小地图">−</button><output aria-live="polite">100%</output><button type="button" data-map-zoom="in" aria-label="放大地图">＋</button><button type="button" data-map-zoom="reset" aria-label="适应屏幕">适应</button></div></div><div class="atlas-daily-scroll" id="${scrollId}"><svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览的手绘路线图">` +
       `<defs>${routeMask(local, maskId, true)}</defs>${baseImage()}<rect class="atlas-day-wash" width="${W}" height="${H}"/>` +
       `<g class="atlas-daily-routes" mask="url(#${maskId})">${routePaths(localEdges, days[dayIndex].color, true)}</g>` +
       `<g class="atlas-daily-points">${markers}</g>` +

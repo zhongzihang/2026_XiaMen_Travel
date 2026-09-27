@@ -567,3 +567,17 @@ html,body{max-width:100%;overflow-x:clip}
   .site-header nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:.45rem;width:100%;order:3;padding-top:.35rem}
   .site-header nav a{display:inline-flex;min-width:0;min-height:46px;padding:.45rem .2rem;font-size:.79rem;white-space:nowrap}
 }
+
+/* A quieter header and one-line day navigation on phones. */
+.site-header nav a{min-height:36px;padding:.33rem .68rem;font-size:.78rem}
+.site-header nav a span{font-size:.85rem}
+.download-button{min-height:36px;padding:.32rem .68rem;font-size:.72rem;box-shadow:none}
+@media(max-width:720px){
+  .topbar{gap:.35rem;padding-block:.38rem}
+  .site-header nav{gap:.3rem;padding-top:.18rem}
+  .site-header nav a{min-height:37px;padding:.3rem .15rem;font-size:.7rem}
+  .site-header nav a span{font-size:.72rem}
+  .download-button{min-height:34px;padding:.28rem .55rem;font-size:.67rem}
+  .day-bottom-nav{display:flex;flex-wrap:nowrap;gap:.3rem}
+  .day-bottom-nav button,.day-bottom-nav a{flex:1 1 0;min-width:0;min-height:38px;padding:.35rem .2rem;font-size:.66rem;white-space:nowrap}
+}

@@ -229,3 +229,30 @@
   .place-guide p.place-guide-focus{font-size:.73rem}
   .day-photo-track figure{flex-basis:min(78vw,290px)}
 }
+
+/* Compact map tools: keep zoom next to each map title. */
+.overview-map-scroll{overflow:auto;max-height:min(72vh,680px);touch-action:pan-x pan-y;overscroll-behavior:contain;scrollbar-color:#75afb2 #e3efeb}
+.overview-map-scroll .overview-map{max-width:none;height:auto}
+.atlas-overview-toolbar-main{display:flex;align-items:center;gap:.55rem;min-width:0}
+.atlas-overview-toolbar-main>span{min-width:0}
+.atlas-daily-map-heading{gap:.5rem;padding:.48rem .7rem}
+.atlas-daily-heading-copy{display:flex;flex-direction:column;min-width:0;line-height:1.4}
+.atlas-daily-heading-copy strong{font-size:.8rem}
+.atlas-daily-heading-copy span{font-size:.63rem;color:#69827e}
+.map-zoom-controls.atlas-daily-zoom,.map-zoom-controls.atlas-inline-zoom{flex:none;gap:.18rem;padding:0;border:0;background:transparent}
+.map-zoom-controls.atlas-daily-zoom button,.map-zoom-controls.atlas-inline-zoom button{min-width:29px;min-height:29px;width:29px;height:29px;padding:0;border-radius:7px;font-size:.96rem;line-height:1}
+.map-zoom-controls.atlas-daily-zoom button:last-child,.map-zoom-controls.atlas-inline-zoom button:last-child{width:auto;min-width:35px;padding:0 .28rem;font-size:.62rem}
+.map-zoom-controls.atlas-daily-zoom output,.map-zoom-controls.atlas-inline-zoom output{min-width:2.5rem;font-size:.68rem}
+#overviewMapDialogLinks .atlas-overview-toolbar-main{display:none}
+@media(max-width:720px){
+  .atlas-overview-toolbar{padding:.45rem .55rem .55rem}
+  .atlas-overview-toolbar-main{justify-content:space-between;margin-bottom:.4rem}
+  .atlas-overview-toolbar-main>span{font-size:.66rem;line-height:1.25}
+  .atlas-overview-toolbar .atlas-day-links button{min-height:2.15rem;font-size:.64rem}
+  .atlas-daily-map-heading{flex-direction:row;align-items:center;padding:.42rem .5rem}
+  .atlas-daily-heading-copy strong{font-size:.7rem}
+  .atlas-daily-heading-copy span{display:none}
+  .map-zoom-controls.atlas-daily-zoom output,.map-zoom-controls.atlas-inline-zoom output{display:none}
+  .map-zoom-controls.atlas-daily-zoom button,.map-zoom-controls.atlas-inline-zoom button{min-width:28px;min-height:28px;width:28px;height:28px}
+  .map-zoom-controls.atlas-daily-zoom button:last-child,.map-zoom-controls.atlas-inline-zoom button:last-child{width:auto;min-width:32px}
+}
