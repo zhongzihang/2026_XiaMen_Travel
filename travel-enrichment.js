@@ -260,6 +260,167 @@
       tip:'核对时大众点评约4.0分、人均约¥76，作为中山路备选更合适。小红书评论提到约68元的姜母鸭，并讨论对应半只还是整只；点单前先问清份量和价格，建议堂食。',
       source:'https://www.xiaohongshu.com/search_result/6a7b0980000000002500b3c3?xsec_token=ABcHs0C8VeVtY6P0DiaxI1Crx-YJSeC3UbNlkvFe43pCY=&xsec_source=',
       dianpingUrl:'https://m.dianping.com/shop/705493270?msource=applemaps'
+    },
+    {
+      id:'chaisu-tusun-dong', area:'八市', category:'厦门小吃', name:'柴叔土笋冻（八市）',
+      address:'八市开禾路片区，认“柴叔土笋冻”招牌；巷口摊位，以地图搜索结果为准',
+      image:'assets/gallery/food-chaisu-xhs-1.jpg', imageAlt:'小红书实拍：柴叔土笋冻门店与土笋冻', photoLabel:'小红书实拍 · 土笋冻',
+      photoNote:'小红书实拍 · 一杯冰美式、咩咩小探长',
+      gallery:[
+        {src:'assets/gallery/food-chaisu-xhs-1.jpg',alt:'柴叔土笋冻门店招牌与实物',caption:'小红书实拍 · 一杯冰美式'},
+        {src:'assets/gallery/food-chaisu-xhs-2.jpg',alt:'柴叔土笋冻门店与双拼实物',caption:'小红书实拍 · 咩咩小探长'}
+      ],
+      summary:'八市里的闽南凉菜小吃。土笋冻口感爽弹，蒜蓉、醋汁与香菜可按喜好搭配；第一次尝试建议先买小份。',
+      dishes:['土笋冻：先点小份，蒜蓉和醋汁按口味加。','海蜇皮或海蛎等其他凉菜：先看当日价签。'],
+      pair:'两人分一小盒尝味即可，留胃口给后续热食。',
+      tip:'两篇攻略都标出这家摊位；摊位营业、售罄时间和价格会变，早市信息以当天现场为准。',
+      source:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=柴叔土笋冻&city=厦门',
+      reviews:[
+        {source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'八市逛吃实地记录',summary:'笔记记录了摊位招牌、土笋冻实物和搭配方式；作者把它列作八市传统小吃，建议按个人接受度先少量尝。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='},
+        {source:'小红书 · 咩咩小探长',date:'2026-01-30',title:'近期八市攻略补充',summary:'另一篇逛吃笔记也拍到同一招牌，并提到口感弹、酱汁和香菜搭配；属于个人体验，不代表平台评分。',url:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source='}
+      ]
+    },
+    {
+      id:'zhonglijun-manjian', area:'八市', category:'厦门小吃', name:'钟丽君满煎糕（八市）',
+      address:'厦门市思明区开禾路30号附近',
+      image:'assets/gallery/food-zhonglijun-xhs.jpg', imageAlt:'小红书实拍：钟丽君满煎糕', photoLabel:'小红书实拍 · 满煎糕',
+      photoNote:'小红书实拍 · 一杯冰美式',
+      gallery:[{src:'assets/gallery/food-zhonglijun-xhs.jpg',alt:'钟丽君满煎糕切面与馅料',caption:'小红书实拍 · 一杯冰美式'}],
+      summary:'八市附近的闽南传统点心，现切的满煎糕外层松软，内馅带红糖与花生香。适合当作逛市场时的小份甜口。',
+      dishes:['满煎糕：可选红糖、花生等口味，先买小块。','八市其他咸口小吃：建议与甜点错开吃。'],
+      pair:'两人买一块分食，趁新鲜吃口感更好。',
+      tip:'具体口味与出炉批次以当日柜台为准；平台评价样本有限，不用单篇高热度笔记代替门店评分。',
+      source:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=钟丽君满煎糕&city=厦门',
+      reviews:[{source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'八市甜点实吃记录',summary:'作者描述糕体松软、红糖味明显，内馅存在感足；适合喜欢软糯甜口的人，甜度偏好不同可先买小份。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='}]
+    },
+    {
+      id:'chenjia-dessert', area:'中山路', category:'甜汤饮品', name:'陈佳甜品（镇邦路店）',
+      address:'厦门市思明区镇邦路65号',
+      image:'assets/gallery/food-chenjia-xhs-1.jpg', imageAlt:'小红书实拍：陈佳甜品糖水与西多士', photoLabel:'小红书实拍 · 糖水',
+      photoNote:'小红书实拍 · 一杯冰美式、今天也吃撑了捏',
+      gallery:[
+        {src:'assets/gallery/food-chenjia-xhs-1.jpg',alt:'陈佳甜品龟苓膏与西多士组合',caption:'小红书实拍 · 一杯冰美式'},
+        {src:'assets/gallery/food-chenjia-xhs-2.jpg',alt:'陈佳甜品西多士近景',caption:'小红书实拍 · 今天也吃撑了捏'}
+      ],
+      summary:'镇邦路老甜品店，适合中山路逛街后坐下来歇一会。龟苓膏药苦回甘，西多士趁热更香；组合偏甜腻，适合分食。',
+      dishes:['龟苓膏：苦味较明显，可按喜好加糖水或淡奶。','西多士：现炸趁热吃，建议一人半份。','杨枝甘露：想喝清爽甜汤时可先问当日供应。'],
+      pair:'一份龟苓膏配一份西多士，两人分着吃；不嗜甜可只点龟苓膏。',
+      tip:'个人反馈有口味差异；苦味较重的龟苓膏不一定适合所有人。',
+      source:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=',
+      dianpingUrl:'https://www.dianping.com/shop/546992',
+      reviews:[
+        {source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'八市—中山路甜品体验',summary:'笔记中的糖水与炸西多士评价偏正面，描述口感顺滑、甜而不腻；可作为常规甜品口味参考。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='},
+        {source:'小红书 · 今天也吃撑了捏',date:'2026-09-12',title:'龟苓膏与西多士实吃',summary:'近期体验认为西多士热吃更合适，龟苓膏保留明显苦味和回甘；喜欢清苦口感的人更容易接受。',url:'https://www.xiaohongshu.com/search_result/6aa552f10000000026016149?xsec_token=ABa8aqyAoplOLQ1oGslWCHKymN2bdhNFtdjlAvPWNcJmk=&xsec_source='}
+      ]
+    },
+    {
+      id:'haoxiang-pork-skewer', area:'中山路', category:'厦门小吃', name:'豪香里脊肉串（大中路店）',
+      address:'厦门市思明区大中路1-2号附近',
+      image:'assets/gallery/food-haoxiang-xhs.jpg', imageAlt:'小红书实拍：豪香里脊肉串', photoLabel:'小红书实拍 · 里脊肉串',
+      photoNote:'小红书实拍 · 一杯冰美式',
+      gallery:[{src:'assets/gallery/food-haoxiang-xhs.jpg',alt:'豪香里脊肉串现烤实物',caption:'小红书实拍 · 一杯冰美式'}],
+      summary:'适合在中山路与八市之间买一份现烤肉串边走边吃。近期攻略提到肉串入味、外焦里嫩，适合作为路上加餐。',
+      dishes:['里脊肉串：现烤趁热吃。','按食量少量购买，避免影响后续正餐。'],
+      pair:'两人先买一份分食；如遇排队，附近替代小吃很多，不必久等。',
+      tip:'Trip.com评价约4.5/5，但样本约15条，参考价值有限；门店座位和营业以現場为准。',
+      source:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=豪香里脊肉串大中路店&city=厦门',
+      reviews:[{source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'八市沿线街头小吃',summary:'笔记拍到现烤里脊肉串，食客反馈腌制入味、烤后外焦里嫩；属于边走边吃的加餐型小吃。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='}]
+    },
+    {
+      id:'jukou-noodles', area:'中山路', category:'厦门小吃', name:'局口拌面（思明南路店）',
+      address:'厦门市思明区思明南路28号102',
+      image:'assets/gallery/food-jukou-xhs.jpg', imageAlt:'小红书实拍：局口拌面与猪杂汤', photoLabel:'小红书实拍 · 拌面猪杂汤',
+      photoNote:'小红书实拍 · 一杯冰美式',
+      gallery:[{src:'assets/gallery/food-jukou-xhs.jpg',alt:'局口拌面与猪杂汤实拍',caption:'小红书实拍 · 一杯冰美式'}],
+      summary:'思明南路上的拌面小店，常见搭配是花生酱拌面与猪杂汤。味道偏浓，适合需要正经吃一顿的中午。',
+      dishes:['花生酱拌面：酱香较浓，趁热拌匀。','猪杂汤：与面搭配，先确认当日供应。'],
+      pair:'两人点一份拌面、一碗汤共享；更饿时再加主食。',
+      tip:'点评与地图评价数量和分店标注可能变化；定位前核对“思明南路店”，到店看菜单和卫生情况。',
+      source:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=局口拌面思明南路店&city=厦门',
+      reviews:[{source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'经典面汤组合',summary:'食客把花生酱拌面和猪杂汤作为一组推荐，反馈面条有嚼劲、汤味鲜；适合喜欢浓酱和内脏汤的人。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='}]
+    },
+    {
+      id:'laosixi-egg-burger', area:'中山路', category:'厦门小吃', name:'林记老思西鸡蛋汉堡',
+      address:'思明西路山仔顶巷内；地图平台门牌号不一致，按店名定位后核对',
+      image:'assets/gallery/food-laosixi-xhs-1.jpg', imageAlt:'小红书实拍：老思西鸡蛋汉堡现煎过程', photoLabel:'小红书实拍 · 鸡蛋汉堡',
+      photoNote:'小红书实拍 · 老思西鸡蛋汉堡',
+      gallery:[
+        {src:'assets/gallery/food-laosixi-xhs-1.jpg',alt:'老思西鸡蛋汉堡打包实物',caption:'小红书实拍 · 鸡蛋汉堡到手实物'},
+        {src:'assets/gallery/food-laosixi-xhs-2.jpg',alt:'老思西鸡蛋汉堡现煎过程',caption:'小红书实拍 · 现煎过程'}
+      ],
+      summary:'老巷里的现煎鸡蛋汉堡，鸡蛋、肉馅与酱料叠在一起，适合当作轻食或路上加餐。摊位位置不显眼，店名搜索结果可能指向不同门牌。',
+      dishes:['鸡蛋汉堡：现做趁热吃，可按喜好选酱。','先买一个尝味，再决定是否加量。'],
+      pair:'一人一个即可，附近巷道狭窄，建议打包后在不挡路处食用。',
+      tip:'Trip.com约4.0/5、仅5条评价；地址在平台间存在差异，出发前再次核对定位。',
+      source:'https://www.xiaohongshu.com/search_result/6ab0b1f7000000000d027875?xsec_token=ABsFXiatFLXc4WmYEM1JHPVp2J-cxwE61Lsw-rTVdfhe0=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=林记老思西鸡蛋汉堡&city=厦门',
+      reviews:[
+        {source:'小红书 · 近期探店',date:'2026-09-21',title:'老巷现煎小吃体验',summary:'笔记记录了现煎过程与打包实物，作者把它作为小时候风味的街头小吃；门店环境和座位较简单。',url:'https://www.xiaohongshu.com/search_result/6ab0b1f7000000000d027875?xsec_token=ABsFXiatFLXc4WmYEM1JHPVp2J-cxwE61Lsw-rTVdfhe0=&xsec_source='},
+        {source:'Trip.com食客评价',date:'近期评价汇总',title:'少量点评参考',rating:'约4.0/5 · 5条',summary:'少量评价提到现做、肉馅足和外酥内软，也有人觉得外壳偏硬；样本很小，仅作口味参考。',url:'https://us.trip.com/restaurant/china/xiamen/detail/restaurant-31213424/'}
+      ]
+    },
+    {
+      id:'daixifu-gingerduck', area:'八市', category:'闽南正餐', name:'戴熹福厦门菜·姜母鸭（八市店）',
+      address:'八市开禾路片区；地图搜索门店名确认具体入口',
+      image:'assets/gallery/food-daixifu-xhs.jpg', imageAlt:'小红书实拍：戴熹福八市店姜母鸭与厦门菜', photoLabel:'小红书实拍 · 姜母鸭',
+      photoNote:'小红书实拍 · 咩咩小探长',
+      gallery:[{src:'assets/gallery/food-daixifu-xhs.jpg',alt:'戴熹福姜母鸭、煎蟹和五香酥拼图',caption:'小红书实拍 · 咩咩小探长'}],
+      summary:'八市里的姜母鸭与闽南菜选择。攻略同时记录了姜母鸭、煎蟹和五香酥，适合想坐下来吃热菜的一餐。',
+      dishes:['姜母鸭：先问人数对应份量与价格。','煎蟹：按时价确认品种、重量和加工费。','五香酥：可作为共享小菜。'],
+      pair:'两人先选姜母鸭或煎蟹作主菜，再加一份五香酥和米饭；海鲜先问清总价。',
+      tip:'笔记称该店为八市老店，但营业年限未独立核实；不展示平台高分，国庆到店前请核对营业和点单价格。',
+      source:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=戴熹福厦门菜姜母鸭八市店&city=厦门',
+      reviews:[{source:'小红书 · 咩咩小探长',date:'2026-01-30',title:'八市姜母鸭与闽南菜实吃',summary:'攻略记录姜母鸭、煎蟹和五香酥，作者认为价格与口味适合本地家常菜一餐；点海鲜时建议现场确认时价。',url:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source='}]
+    },
+    {
+      id:'laobashi-fried', area:'八市', category:'厦门小吃', name:'老八市手作炸货铺',
+      address:'八市开禾路市场片区，招牌写“老八市手作炸货铺”',
+      image:'assets/gallery/food-laobashi-fried-xhs.jpg', imageAlt:'小红书实拍：老八市手作炸货铺门店与炸物', photoLabel:'小红书实拍 · 闽南炸货',
+      photoNote:'小红书实拍 · 咩咩小探长',
+      gallery:[{src:'assets/gallery/food-laobashi-fried-xhs.jpg',alt:'老八市手作炸货铺门面与炸货',caption:'小红书实拍 · 咩咩小探长'}],
+      summary:'八市现场制作的闽南炸物摊，适合逛市场途中买一盒分享。攻略提到沙茶里脊串、炸醋肉和蒜香排骨。',
+      dishes:['沙茶里脊串：趁热吃，按辣度选调味。','炸醋肉：酸香咸口。','蒜香排骨：建议与同伴分享一份。'],
+      pair:'两人选两种炸物分着尝，刚出锅较烫，先稍放凉。',
+      tip:'定位以现场招牌为准，路边摊营业时段与菜单可能调整；攻略是单次到访体验。',
+      source:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=老八市手作炸货铺&city=厦门',
+      reviews:[{source:'小红书 · 咩咩小探长',date:'2026-01-30',title:'八市现炸小吃记录',summary:'作者在摊位现场拍到炸制过程，推荐沙茶里脊串、炸醋肉和蒜香排骨；适合偏爱热炸物的人。',url:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source='}]
+    },
+    {
+      id:'hengzhu-steamed-bun', area:'八市', category:'厦门小吃', name:'横竹路小笼包（无名摊）',
+      address:'厦门市思明区横竹路35号附近，摊位无明显店名',
+      image:'assets/gallery/food-hengzhu-buns-xhs.jpg', imageAlt:'小红书实拍：横竹路无名小笼包摊位与汤包', photoLabel:'小红书实拍 · 小笼包',
+      photoNote:'小红书实拍 · 咩咩小探长',
+      gallery:[{src:'assets/gallery/food-hengzhu-buns-xhs.jpg',alt:'横竹路小笼包摊位与现蒸汤包',caption:'小红书实拍 · 咩咩小探长'}],
+      summary:'八市横竹路入口附近的街坊小摊，现蒸小笼包配猪心汤，适合想简单吃点早餐的人。店面朴素，按街道地址寻找。',
+      dishes:['小笼包：现蒸出笼时小心汤汁烫口。','猪心汤：笔记记录为常见搭配，供应以现场为准。'],
+      pair:'两人先点一笼包子和一碗汤共享，再按食量加点。',
+      tip:'没有确认到正式店名或平台评分；帖子描述环境简单、价格亲民，适合把街坊小摊当作轻量备选。',
+      source:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=横竹路35号小笼包&city=厦门',
+      reviews:[{source:'小红书 · 咩咩小探长',date:'2026-01-30',title:'街坊小摊实吃记录',summary:'作者在横竹路入口拍到摊位和包子，评价现蒸口感不错、猪心汤可搭配；同时提醒摊位环境简陋，没有网络店名。',url:'https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source='}]
+    },
+    {
+      id:'danmanguan-gulangyu', area:'鼓浪屿', category:'厦门小吃', name:'蛋满灌·非遗手工灌蛋（龙头路店）',
+      address:'厦门市思明区鼓浪屿龙头路175号',
+      image:'assets/gallery/food-danmanguan-xhs.jpg', imageAlt:'小红书实拍：鼓浪屿蛋满灌手工灌蛋', photoLabel:'小红书实拍 · 手工灌蛋',
+      photoNote:'小红书实拍 · 明天吃什么',
+      gallery:[{src:'assets/gallery/food-danmanguan-xhs.jpg',alt:'鼓浪屿蛋满灌与汤品实拍',caption:'小红书实拍 · 明天吃什么'}],
+      summary:'龙头路的闽南手工灌蛋小吃，把肉馅灌入鸡蛋后煮成汤食。可作为鼓浪屿步行间隙的热食体验，份量不大。',
+      dishes:['手工灌蛋：尝一碗原味汤，留意肉馅与蛋的口感。','鱼丸汤或其他小吃：先看当天菜单和价格。'],
+      pair:'一碗灌蛋两人分着尝，想吃饱再搭配一份主食。',
+      tip:'Trip.com约4.2/5、142条评价；属于游客集中街区，可能排队且座位有限。',
+      source:'https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYtjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source=',
+      mapUrl:'https://uri.amap.com/search?keyword=蛋满灌非遗手工灌蛋龙头路店&city=厦门',
+      reviews:[
+        {source:'小红书 · 明天吃什么',date:'2026-06-23',title:'鼓浪屿上岛逛吃记录',summary:'攻略照片标注了蛋满灌，展示灌蛋切面和汤品；适合想尝传统手艺小吃的游客，建议错开人多时段。',url:'https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source='},
+        {source:'Trip.com食客评价',date:'近期评价汇总',title:'大众游客评价参考',rating:'约4.2/5 · 142条',summary:'评价中常见反馈是灌蛋制作有特色、汤底清淡；也有游客提到店内空间紧凑，适合把它作为小吃而非完整正餐。',url:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/8638661.html'}
+      ]
     }
   );
 })();
