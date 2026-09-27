@@ -3,6 +3,7 @@
 import html
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 from reportlab.lib import colors
@@ -93,4 +94,4 @@ def build():
 
 
 if __name__ == "__main__":
-    build()
+    subprocess.run([sys.executable, str(Path(__file__).with_name("build-site-pdf.py"))], check=True)

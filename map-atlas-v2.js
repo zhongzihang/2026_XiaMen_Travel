@@ -363,7 +363,7 @@
       `<defs>${routeMask(local, maskId, true)}</defs>${baseImage()}<rect class="atlas-day-wash" width="${W}" height="${H}"/>` +
       `<g class="atlas-daily-routes" mask="url(#${maskId})">${routePaths(localEdges, days[dayIndex].color, true)}</g>` +
       `<g class="atlas-daily-points">${markers}</g>` +
-      `</svg></div><div class="atlas-daily-map-foot"><span>数字对应下方交通段；双编号表示同一点的两次到访。</span><span class="atlas-pan-hint">左右滑动查看 ↔</span></div>`;
+      `</svg></div><div class="atlas-daily-map-foot"><span>数字对应下方交通段；双编号表示同一点的两次到访。</span><span class="atlas-pan-hint">默认显示完整路线 · 放大后滑动细看</span></div>`;
   }
   function transitIcon(mode) {
     const shapes = {
@@ -391,8 +391,9 @@
   function bindDailyNodes(container) {
     const scroll = container.querySelector('.atlas-daily-scroll');
     if (scroll) {
-      bindMapZoom(scroll, scroll.querySelector('svg'), window.innerWidth <= 720 ? 780 : scroll.clientWidth);
-      scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
+      bindMapZoom(scroll, scroll.querySelector('svg'), scroll.clientWidth);
+      scroll.scrollLeft = 0;
+      scroll.scrollTop = 0;
     }
     container.querySelectorAll('.atlas-daily-node.is-viewable').forEach(node => {
       node.addEventListener('click', () => selectPoint(node.dataset.dayPointId));

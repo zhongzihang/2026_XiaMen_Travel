@@ -20,7 +20,7 @@ node --test tests/*.test.cjs
 
 站点文件和完整 `assets/` 位于项目目录。`main` 分支已配置 GitHub 远端；以后每次调整先在本地提交，只有旅行者明确要求时才推送。
 
-右上角的「下载 PDF」直接下载 `assets/xiamen-itinerary-2026.pdf`，内容从 `app.js` 的五日时间线生成。行程改动后重新生成：
+右上角的「下载 PDF」直接下载 `assets/xiamen-itinerary-2026.pdf`，内容涵盖路线总览、每日地图与实景图、按地点整理的美食和出门提示。行程或美食改动后重新生成：
 
 ```powershell
 python scripts/build-itinerary-pdf.py
@@ -37,4 +37,4 @@ python scripts/build-itinerary-pdf.py
 - 每日行程、美食卡片和日期联动逻辑位于 `app.js`；地图绘制与点位详情位于 `map-atlas-v2.js`。`map-ui.js` 是未被当前页面加载的旧版实现。
 - 景点开放、轮渡与夜游班次、餐饮营业及海鲜时价均可能变化，出行前以当日现场信息为准。
 
-网站包含旅行者提供的动车票原图。若使用公开 GitHub Pages，请确认愿意公开票面上的个人信息；下载版 PDF 只含行程文字，不含票图。
+网站包含旅行者提供的动车票原图。若使用公开 GitHub Pages，请确认愿意公开票面上的个人信息；下载版 PDF 不含票图。
