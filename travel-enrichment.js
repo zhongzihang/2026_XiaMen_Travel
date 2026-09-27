@@ -131,6 +131,45 @@
       pair:'两人先点一小份分享，不必为尝鲜打乱正餐。',
       tip:'图为该店门面，非菜品图；冷食注意个人口味和当天保存条件。',
       source:'https://www.amap.com/place/B025001MZM', sourceLabel:'查看门店位置与实拍 ↗', showPhotoLink:true
+    },
+    {
+      id:'ajie-wuxiang', area:'八市', category:'厦门小吃', name:'八市阿杰五香（开禾路店）', address:'厦门市思明区开禾路111号',
+      image:'assets/gallery/food-ajie-2026.jpg', imageAlt:'阿杰五香现炸五香卷的食客照片', photoLabel:'携程门店相册 · 现炸实拍',
+      summary:'在八市边走边吃的一站。豆皮裹肉馅炸成五香卷，趁热吃更能尝到外皮的酥脆。',
+      dishes:['现炸五香卷：先点少量，两人分着吃。','沙茶面或鱼丸汤：想坐下来吃时再选一份。'],
+      pair:'逛市场时先买一两条五香卷尝味；后面还要吃海鲜就别一次点满。',
+      tip:'开禾路与担水巷交口；八市也有其他同名点位，按开禾路111号找这家。',
+      source:'https://tw.trip.com/restaurant/china/xiamen/detail/ba-shi-a-jie-11312796/'
+    },
+    {
+      id:'huiyuan-bread', area:'八市', category:'厦门小吃', name:'惠源面包店（开禾路店）', address:'厦门市思明区开禾路22号',
+      image:'assets/gallery/food-huiyuan-2026.jpg', imageAlt:'惠源面包店招牌与食客购买的面包拼图', photoLabel:'携程旅行者实拍 · 门店与面包',
+      summary:'八市里的一口古早味。炸面包有咸香内馅，适合逛市场时买一份路上分享。',
+      dishes:['炸面包：问问是否刚出锅，热着吃口感更好。','火腿面包或手指面包：想带走时可挑一种。'],
+      pair:'两人先买一份炸面包分享，再按胃口决定要不要带普通面包。',
+      tip:'位于开禾路市场段；这张图是食客的门店与面包拼图，节日当天供应以现场为准。',
+      source:'https://www.trip.com/moments/theme/poi-eighth-market-10530087-store-993139/',
+      mapSource:'https://www.amap.com/place/B0FFG0388Z'
+    },
+    {
+      id:'yousheng', area:'八市', category:'厦门小吃', name:'友生风味小吃（营平市场店）', address:'厦门市思明区开元路147号夏商营平农产品市场',
+      image:'assets/gallery/food-yousheng-2026.jpg', imageAlt:'友生风味小吃门店相册里的沙茶面', photoLabel:'携程门店相册 · 菜品实拍',
+      summary:'从八市往营平市场走可顺路吃一碗沙茶面。市场里的小店适合想吃热食、又不想安排正式餐厅的一站。',
+      dishes:['沙茶面：豆腐泡与喜欢的荤料选两三样即可。','卤面：想换汤底时可问当天是否有供应。'],
+      pair:'两人各点一碗面，少量加料；后面还想吃海鲜就把这站当轻午餐。',
+      tip:'店在营平农产品市场内，别与八市开禾路上的沙茶面店混淆。',
+      source:'https://tw.trip.com/restaurant/china/xiamen/detail/restaurant-11309262/',
+      mapSource:'https://www.amap.com/place/B02500S1OP'
+    },
+    {
+      id:'baicheng-duck-porridge', area:'中山路', category:'厦门小吃', name:'百成大同鸭肉粥（大同路总店）', address:'厦门市思明区大同路128—130号',
+      image:'assets/gallery/food-baicheng-2026.jpg', imageAlt:'百成大同鸭肉粥食客拍摄的粥档和配料', photoLabel:'去哪儿食客实拍 · 粥档',
+      summary:'中山路街区附近的热粥选择。鸭肉、油条和卤味可以按食量配，适合逛街后吃一顿简单的夜宵。',
+      dishes:['鸭肉粥：先选小碗，再看鸭肉和内脏配料。','油条：掰进粥里，适合两人分一根。'],
+      pair:'两人各一碗粥，鸭肉与油条少量加；若刚吃过晚餐，可只分一碗。',
+      tip:'这是大同路的“百成大同”，不要误导航到小学路的“浮屿大同”。照片为食客旧照，现场陈设可能变化。',
+      source:'https://touch.travel.qunar.com/comment/10138575479',
+      mapSource:'https://www.amap.com/place/B025002H44'
     }
   );
 })();
