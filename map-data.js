@@ -55,6 +55,18 @@
     });
   }
 
+  function amapDestinationUrl(point) {
+    const poiId = /\/place\/(B[A-Z0-9]+)/i.exec(point.mapUrl || '')?.[1];
+    const params = new URLSearchParams({ src: 'xiamen-guide-site', callnative: '1' });
+    if (poiId) params.set('poiid', poiId);
+    else {
+      params.set('position', `${point.lng},${point.lat}`);
+      params.set('name', point.name);
+      params.set('coordinate', 'gaode');
+    }
+    return `https://uri.amap.com/marker?${params}`;
+  }
+
   const days = {
     arrival: '2026-09-30', island: '2026-10-01', coast: '2026-10-02', green: '2026-10-03', return: '2026-10-04'
   };
@@ -112,5 +124,5 @@
     }
   };
   validateMapData(data);
-  return { validateMapData, routeForDay, routePointIds, pointsForRoute, overviewRoutes, data };
+  return { validateMapData, routeForDay, routePointIds, pointsForRoute, overviewRoutes, amapDestinationUrl, data };
 });

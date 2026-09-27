@@ -18,6 +18,20 @@ img{display:block;max-width:100%}
 .print-button{border:1px solid rgba(255,255,255,.55);border-radius:99px;padding:.58rem 1rem;background:transparent;color:white;font:inherit;font-size:.85rem;cursor:pointer;white-space:nowrap}
 .print-button:hover,.print-button:focus-visible{background:var(--aqua);color:var(--navy);border-color:var(--aqua)}
 .header-actions{display:flex;gap:.5rem;align-items:center}.header-actions a{text-decoration:none}
+
+/* Clear, thumb-sized section navigation and the local PDF download. */
+.site-header nav{gap:.45rem}
+.site-header nav a{display:inline-flex;align-items:center;justify-content:center;gap:.25rem;min-height:44px;padding:.5rem .9rem;border:1px solid rgba(209,239,231,.28);border-radius:999px;background:rgba(255,255,255,.07);font-size:.9rem;font-weight:800;transition:background .18s,border-color .18s,transform .18s}
+.site-header nav a:hover,.site-header nav a:focus-visible{background:rgba(129,211,208,.2);border-color:var(--aqua);color:#fff;transform:translateY(-1px)}
+.site-header nav a span{font-size:1rem;color:var(--aqua)}
+.download-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem 1rem;border:1px solid #e7c17f;border-radius:999px;background:#f1c77e;color:#173845;font-size:.82rem;font-weight:900;white-space:nowrap;text-decoration:none;box-shadow:0 3px 10px rgba(5,30,36,.15)}
+.download-button:hover,.download-button:focus-visible{background:#ffe0a9;color:#173845}
+.day-bottom-nav{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.45rem;padding-top:1.15rem;border-top:1px solid #dde9e5}
+.day-bottom-nav button,.day-bottom-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.55rem .85rem;border:1px solid #bcd9d5;border-radius:999px;background:#eaf5f0;color:#235862;font:800 .8rem "Microsoft YaHei","PingFang SC",sans-serif;text-decoration:none;cursor:pointer}
+.day-bottom-nav button:hover,.day-bottom-nav a:hover,.day-bottom-nav button:focus-visible,.day-bottom-nav a:focus-visible{background:#1c727a;color:#fff;border-color:#1c727a}
+#map,#itinerary,.day-switcher{scroll-margin-top:7rem}
+@media(max-width:720px){.topbar{gap:.5rem;padding-block:.55rem}.site-header nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));order:3;width:100%;gap:.45rem;padding-top:.35rem;margin-left:0;overflow:visible}.site-header nav a{min-width:0;min-height:46px;padding:.45rem .2rem;font-size:.79rem;white-space:nowrap}.site-header nav a span{font-size:.9rem}.brand{font-size:.7rem}.download-button{min-height:38px;padding:.35rem .7rem;font-size:.73rem}.day-bottom-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.day-bottom-nav button,.day-bottom-nav a{font-size:.73rem;padding:.45rem .25rem}#map,#itinerary,.day-switcher{scroll-margin-top:7.7rem}}
+@media print{.day-bottom-nav{display:none!important}}
 .masthead{display:grid;grid-template-columns:1fr .95fr;gap:3rem;align-items:stretch;padding-block:3.3rem 3.7rem}
 .masthead-copy{display:flex;flex-direction:column;justify-content:center}
 .eyebrow,.section-kicker{color:var(--teal);font-size:.77rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
@@ -548,4 +562,8 @@ html,body{max-width:100%;overflow-x:clip}
   .map-detail-copy{padding:.9rem 1rem 1rem}
   .map-detail h3{font-size:1.3rem}
   .map-detail p{font-size:.82rem;line-height:1.6}
+}
+@media(max-width:720px){
+  .site-header nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:.45rem;width:100%;order:3;padding-top:.35rem}
+  .site-header nav a{display:inline-flex;min-width:0;min-height:46px;padding:.45rem .2rem;font-size:.79rem;white-space:nowrap}
 }

@@ -1,6 +1,23 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { validateMapData, data, routeForDay, routePointIds, pointsForRoute, overviewRoutes } = require('../map-data.js');
+const { validateMapData, data, routeForDay, routePointIds, pointsForRoute, overviewRoutes, amapDestinationUrl } = require('../map-data.js');
+
+test('every route destination opens the named Amap POI or its coordinate marker', () => {
+  const destinations = new Set(Object.values(data.routes).flat().map(edge => edge.to));
+  for (const id of destinations) {
+    const point = data.points.find(item => item.id === id);
+    const url = new URL(amapDestinationUrl(point));
+    assert.equal(url.origin, 'https://uri.amap.com');
+    assert.equal(url.pathname, '/marker');
+    assert.equal(url.searchParams.get('callnative'), '1');
+    const poiId = /\/place\/(B[A-Z0-9]+)/i.exec(point.mapUrl)?.[1];
+    if (poiId) assert.equal(url.searchParams.get('poiid'), poiId);
+    else {
+      assert.equal(url.searchParams.get('position'), `${point.lng},${point.lat}`);
+      assert.equal(url.searchParams.get('name'), point.name);
+    }
+  }
+});
 const { projectPoint } = require('../map-geometry.js');
 
 const fixture = {

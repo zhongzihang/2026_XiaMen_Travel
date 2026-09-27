@@ -7,17 +7,17 @@
   <meta name="description" content="2026年9月30日至10月4日，两人国庆厦门五日游图文路线。含鼓浪屿、南普陀、厦门大学、植物园、钟鼓索道、八市与美食实拍。">
   <title>2026国庆厦门游玩规划</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23103845'/%3E%3Cpath d='M8 41q12-13 24 0t24 0M8 48q12-13 24 0t24 0' fill='none' stroke='%2375d3d0' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='43' cy='22' r='9' fill='%23f3ae61'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=20260926-watercolor10">
-  <link rel="stylesheet" href="map-atlas-v2.css?v=20260927-route8">
+  <link rel="stylesheet" href="styles.css?v=20260927-mobile-controls1">
+  <link rel="stylesheet" href="map-atlas-v2.css?v=20260927-mobile-controls1">
     <script defer src="map-geometry.js?v=20260926-watercolor10"></script>
     <script defer src="image-path.js?v=20260926-watercolor10"></script>
-    <script defer src="map-data.js?v=20260927-route6"></script>
-    <script defer src="map-transit.js?v=20260927-route6"></script>
+    <script defer src="map-data.js?v=20260927-mobile-controls1"></script>
+    <script defer src="map-transit.js?v=20260927-mobile-controls1"></script>
     <script defer src="place-photo-data.js?v=20260926-gallery1"></script>
     <script defer src="place-photo-additions.js?v=20260926-route5"></script>
     <script defer src="travel-enrichment.js?v=20260926-route5"></script>
-    <script defer src="app.js?v=20260927-route7"></script>
-    <script defer src="map-atlas-v2.js?v=20260927-route8"></script>
+    <script defer src="app.js?v=20260927-mobile-controls1"></script>
+    <script defer src="map-atlas-v2.js?v=20260927-mobile-controls1"></script>
 </head>
 <body>
   <a class="skip-link" href="#itinerary">跳转到行程</a>
@@ -25,9 +25,9 @@
     <div class="topbar wrap">
       <a class="brand" href="#top" aria-label="返回行程顶部"><span class="brand-mark">厦</span><span>XIAMEN / 2026</span></a>
       <nav aria-label="章节导航">
-        <a href="#map">景点地图</a><a href="#itinerary">每日行程</a><a href="#food">美食图鉴</a>
+        <a href="#map"><span aria-hidden="true">⌖</span> 景点地图</a><a href="#itinerary"><span aria-hidden="true">▣</span> 每日行程</a><a href="#food"><span aria-hidden="true">✦</span> 美食图鉴</a>
       </nav>
-      <div class="header-actions"><button class="print-button" type="button" id="printButton">打印行程</button></div>
+      <div class="header-actions"><a class="download-button" href="assets/xiamen-itinerary-2026.pdf" download="2026厦门五日游行程.pdf" type="application/pdf">↓ 下载 PDF</a></div>
     </div>
   </header>
 
@@ -52,7 +52,7 @@
     <section id="map" class="map-section wrap" aria-labelledby="map-title">
         <div class="section-heading"><div><span class="section-kicker">01 / THE CITY AT A GLANCE</span><h2 id="map-title">厦门五日游路线总览</h2></div><p>五天山海慢游，沿着颜色发现每天的风景。</p></div>
         <div class="map-layout"><div class="map-panel"><div id="routeOverview" class="route-overview" aria-label="厦门五日游手绘路线图"></div><div class="map-legend" id="mapLegend" aria-label="地图图例"><span><i class="legend-dot attraction"></i>手绘地标（非实拍）</span><span>实线 · 陆上接驳</span><span>虚线 · 轮渡</span><span>日期圆钮可跳转当日路线</span></div></div></div>
-        <dialog class="overview-map-dialog" id="overviewMapDialog" aria-label="放大查看厦门五日游手绘地图"><div class="overview-map-dialog-bar"><strong>厦门手绘游玩地图</strong><button type="button" id="overviewMapClose">关闭地图 ×</button></div><div id="overviewMapDialogLinks"></div><div class="overview-map-zoom-canvas" id="overviewMapZoomCanvas"></div><p>手机可左右上下滑动查看；点上方日期跳到当日行程。</p></dialog>
+        <dialog class="overview-map-dialog" id="overviewMapDialog" aria-label="放大查看厦门五日游手绘地图"><div class="overview-map-dialog-bar"><strong>厦门手绘游玩地图</strong><button type="button" id="overviewMapClose">关闭 ×</button></div><div id="overviewMapDialogLinks"></div><div class="map-zoom-controls" data-zoom-controls="overviewMapZoomCanvas" aria-label="总览地图缩放"><button type="button" data-map-zoom="out" aria-label="缩小地图">−</button><output aria-live="polite">100%</output><button type="button" data-map-zoom="in" aria-label="放大地图">＋</button><button type="button" data-map-zoom="reset">适应屏幕</button></div><div class="overview-map-zoom-canvas" id="overviewMapZoomCanvas"></div><p>双指缩放地图，单指滑动查看；点日期可跳到当天行程。</p></dialog>
     </section>
 
     <section id="itinerary" class="itinerary wrap" aria-labelledby="itinerary-title">

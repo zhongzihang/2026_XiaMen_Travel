@@ -95,7 +95,7 @@ const days = [
       {time:"09:20",place:"植物园西门",hint:"沿主路入园",leg:"园内步行"},
       {time:"09:30—11:30",place:"雨林世界",hint:"雾森与栈道",leg:"园内步行"},
       {time:"11:40",place:"多肉区",hint:"巨型仙人掌",leg:"出园 + 午休"},
-      {time:"15:40",place:"钟鼓索道",hint:"16:00—17:00 入场时段",leg:"短程车"},
+      {time:"16:00—16:30",place:"钟鼓索道",hint:"16:00—17:00 入场时段",leg:"短程车"},
       {time:"17:30",place:"八市",hint:"开禾路慢逛",leg:"步行 / 短程车"},
       {time:"19:00",place:"中山路步行街",hint:"晚餐与骑楼街区夜逛"}
     ], schedule:[
@@ -103,8 +103,8 @@ const days = [
       ["09:30—11:30","雨林世界雾森","园方公布的国庆季上午喷雾时段为09:30—11:30；出发前再看当日公告，木栈道湿滑。"],
       ["11:40","多肉植物区","遮阴较少，拍照后及时补水，返回西门。"],
       ["13:00","西门附近午餐与休息","植物园和索道下站就在同一片区，下午不要安排远处景点。"],
-      ["15:40","回钟鼓索道入口","持16:00—17:00时段票，给检票和排队留余量；雷雨、大风可能停运。"],
-      ["16:00","钟鼓索道往返","10月3日日落约17:53，乘坐时更可能看到傍晚柔光，不能保证看到太阳落下。"],
+      ["16:00—16:30","回钟鼓索道入口","持16:00—17:00时段票，给检票和排队留余量；雷雨、大风可能停运。"],
+      ["16:30","钟鼓索道往返","10月3日日落约17:53，乘坐时更可能看到傍晚柔光，不能保证看到太阳落下。"],
       ["17:30","八市游逛","从索道下来后前往开禾路，逛市场与小吃街；不把这一站当作正式晚餐。"],
       ["19:00","中山路骑楼晚餐与夜景","从八市步行或短程车前往，吃晚餐后沿骑楼慢走拍夜景。"]
     ], photos:[
@@ -112,7 +112,7 @@ const days = [
       ["cacti_commons.jpg","植物园多肉植物区实拍"],
       ["assets/gallery/zhongshan-1.jpg","中山路骑楼夜景实拍"]
     ], note:"西门进园、西门出园，雨林世界与多肉区连走。索道16:00—17:00是入场时段，不代表17:00以后仍在缆车上；是否遇上日落光线受排队与天气影响。",
-    transport:{kind:"cable",title:"钟鼓索道 · 16:00—17:00时段",detail:"建议15:40左右回到索道入口。日落景色受排队、天气与运营影响；雷雨和大风时留意当日通知。"}
+    transport:{kind:"cable",title:"钟鼓索道 · 16:00—17:00时段",detail:"建议16:00—16:30到索道入口。日落景色受排队、天气与运营影响；雷雨和大风时留意当日通知。"}
   },
   {
     date: "10.04", weekday: "周日", short: "老城返程", detail: "华新路 → 厦门站", label: "DAY 4 / 老城返程",
@@ -338,8 +338,11 @@ function renderDays(){
     const mapMarkup='<div class="day-map-layout"><div class="day-map-pair'+(hasIsland?' has-ferry-map':'')+'"><div id="day-map-'+i+'" class="day-route-map"></div><div id="day-ferry-'+i+'" class="map-ferry-connector" hidden></div><div id="day-island-map-'+i+'" class="day-route-map day-island-map" hidden></div></div><aside id="day-map-detail-'+i+'" class="map-detail" aria-live="polite"></aside></div><section id="day-transit-'+i+'" class="atlas-transit" aria-label="当天分段交通与参考耗时"></section>';
     const dayPhotos=day.photos?.length?`<section class="day-photo-gallery" aria-label="${safe(day.date)}当天实景照片"><div class="day-photo-heading"><h4>当天实景图</h4><span>左右滑动 · 点图放大</span></div><div class="day-photo-track">${day.photos.map(([src,caption])=>`<figure><img src="${safe(SiteImages.resolveImagePath(src))}" alt="${safe(caption)}" loading="lazy"><figcaption>${safe(caption)}</figcaption></figure>`).join('')}</div></section>`:'';
     const transport=day.transport?`<aside class="day-transport"><div class="day-transport-copy"><span class="day-transport-kicker">当天交通</span><h4>${safe(day.transport.title)}</h4><p>${safe(day.transport.detail)}</p></div>${day.transport.ticket?`<figure class="day-ticket"><img src="${safe(SiteImages.resolveImagePath(day.transport.ticket))}" alt="${safe(day.transport.alt)}" loading="lazy"><span class="photo-unavailable" hidden>票图暂不可用</span><figcaption>${safe(day.transport.caption)} · 点图放大</figcaption></figure>`:""}</aside>`:"";
-    panel.innerHTML=`<div class="day-header"><div><small>${safe(day.label)} · ${safe(day.date)} ${safe(day.weekday)}</small><h3>${safe(day.title)}</h3><p>${safe(day.summary)}</p></div><span class="day-badge">${safe(day.badge)}</span></div><div class="day-grid"><div><div class="mini-heading">当天路线 · 纵向时间链</div><ol class="schedule" data-day-schedule>${schedule}</ol></div></div>${mapHeading}${mapMarkup}${dayPhotos}${transport}<aside class="day-note"><strong>当天提示</strong><p>${safe(day.note)}</p></aside>`;
+    const dayNav=`<nav class="day-bottom-nav" aria-label="继续浏览行程">${i>0?`<button type="button" data-day-go="${i-1}">← ${safe(days[i-1].date)} 前一天</button>`:''}<button type="button" data-day-choose>选择其他日期 ↑</button>${i<days.length-1?`<button type="button" data-day-go="${i+1}">${safe(days[i+1].date)} 后一天 →</button>`:''}<a href="#map">返回路线总览 ↑</a></nav>`;
+    panel.innerHTML=`<div class="day-header"><div><small>${safe(day.label)} · ${safe(day.date)} ${safe(day.weekday)}</small><h3>${safe(day.title)}</h3><p>${safe(day.summary)}</p></div><span class="day-badge">${safe(day.badge)}</span></div><div class="day-grid"><div><div class="mini-heading">当天路线 · 纵向时间链</div><ol class="schedule" data-day-schedule>${schedule}</ol></div></div>${mapHeading}${mapMarkup}${dayPhotos}${transport}<aside class="day-note"><strong>当天提示</strong><p>${safe(day.note)}</p></aside>${dayNav}`;
     panels.append(panel);
+    panel.querySelectorAll('[data-day-go]').forEach(button=>button.addEventListener('click',()=>{const next=Number(button.dataset.dayGo);activateDay(next);document.getElementById('itinerary').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById(`tab-${next}`).scrollIntoView({inline:'center',block:'nearest'});}));
+    panel.querySelector('[data-day-choose]').addEventListener('click',()=>tabs.scrollIntoView({behavior:'smooth',block:'start'}));
     const xmuToggle=panel.querySelector("[data-xmu-toggle]");
     if(xmuToggle)xmuToggle.addEventListener("click",()=>{
       skipXmuRoute=!skipXmuRoute;
@@ -424,7 +427,6 @@ function renderSources(){
   document.getElementById("imageCredits").innerHTML=imageCredits.map(([label,credit,url])=>`<li><a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${safe(label)}</a> · ${safe(credit)}</li>`).join("");
 }
 renderDays();renderFood();activateDay(1);
-document.getElementById("printButton").addEventListener("click",()=>window.print());
 const photoDialog=document.getElementById("photoDialog");
 function bindZoom(root){root.querySelectorAll("figure img").forEach(img=>{
   if(img.dataset.zoomBound)return;img.dataset.zoomBound="true";

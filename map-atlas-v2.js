@@ -214,6 +214,48 @@
     window.dispatchEvent(new CustomEvent('xiamen:map-daychange', { detail: { dayIndex: index, scrollIntoView: true } }));
     if (pointId) selectPoint(pointId);
   }
+  function bindMapZoom(scroller, svg, preferredWidth) {
+    if (!scroller || !svg) return;
+    const controls = scroller.parentElement.querySelector(`[data-zoom-controls="${scroller.id}"]`);
+    controls?._zoomAbort?.abort();
+    const zoomAbort = new AbortController();
+    if (controls) controls._zoomAbort = zoomAbort;
+    const output = controls?.querySelector('output');
+    let baseWidth = Math.max(scroller.clientWidth, preferredWidth);
+    function setWidth(value, focalX = scroller.clientWidth / 2, focalY = scroller.clientHeight / 2) {
+      const oldWidth = svg.getBoundingClientRect().width || baseWidth;
+      const width = Math.max(scroller.clientWidth, Math.min(2600, Math.round(value)));
+      const ratio = width / oldWidth;
+      const left = (scroller.scrollLeft + focalX) * ratio - focalX;
+      const top = (scroller.scrollTop + focalY) * ratio - focalY;
+      svg.style.width = `${width}px`;
+      scroller.scrollLeft = left;
+      scroller.scrollTop = top;
+      if (output) output.textContent = `${Math.round(width / baseWidth * 100)}%`;
+    }
+    setWidth(baseWidth, 0, 0);
+    controls?.addEventListener('click', event => {
+      const button = event.target.closest('[data-map-zoom]');
+      if (!button) return;
+      const action = button.dataset.mapZoom;
+      if (action === 'reset') setWidth(scroller.clientWidth);
+      else setWidth(svg.getBoundingClientRect().width * (action === 'in' ? 1.25 : .8));
+    }, { signal: zoomAbort.signal });
+    let gesture = null;
+    const distance = touches => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+    scroller.addEventListener('touchstart', event => {
+      if (event.touches.length === 2) gesture = { distance: distance(event.touches), width: svg.getBoundingClientRect().width };
+    }, { passive: true, signal: zoomAbort.signal });
+    scroller.addEventListener('touchmove', event => {
+      if (!gesture || event.touches.length !== 2) return;
+      event.preventDefault();
+      const bounds = scroller.getBoundingClientRect();
+      const centerX = (event.touches[0].clientX + event.touches[1].clientX) / 2 - bounds.left;
+      const centerY = (event.touches[0].clientY + event.touches[1].clientY) / 2 - bounds.top;
+      setWidth(gesture.width * distance(event.touches) / gesture.distance, centerX, centerY);
+    }, { passive: false, signal: zoomAbort.signal });
+    scroller.addEventListener('touchend', event => { if (event.touches.length < 2) gesture = null; }, { passive: true, signal: zoomAbort.signal });
+  }
   function renderOverview() {
     const target = document.getElementById('routeOverview');
     const dialog = document.getElementById('overviewMapDialog');
@@ -256,6 +298,7 @@
       dialogLinks.append(toolbar);
       canvas.append(map);
       dialog.showModal();
+      bindMapZoom(canvas, map, 1100);
       canvas.scrollLeft = Math.max(0, (canvas.scrollWidth - canvas.clientWidth) * .32);
       canvas.scrollTop = Math.max(0, (canvas.scrollHeight - canvas.clientHeight) * .24);
     });
@@ -315,7 +358,8 @@
     }).join('');
     const label = viewName === 'island' ? '鼓浪屿岛上步行' : '厦门岛当日路线';
     const maskId = `atlas-day-clear-${dayIndex}-${viewName}`;
-    return `<div class="atlas-daily-map-heading"><strong>${days[dayIndex].date} · ${label}</strong><span>按编号游览 · 点击手绘地标</span></div><div class="atlas-daily-scroll"><svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览的手绘路线图">` +
+    const scrollId = `atlas-scroll-${dayIndex}-${viewName}`;
+    return `<div class="atlas-daily-map-heading"><strong>${days[dayIndex].date} · ${label}</strong><span>按编号游览 · 点击手绘地标</span></div><div class="map-zoom-controls" data-zoom-controls="${scrollId}" aria-label="当天地图缩放"><button type="button" data-map-zoom="out" aria-label="缩小地图">−</button><output aria-live="polite">100%</output><button type="button" data-map-zoom="in" aria-label="放大地图">＋</button><button type="button" data-map-zoom="reset">适应屏幕</button></div><div class="atlas-daily-scroll" id="${scrollId}"><svg class="day-map-svg atlas-daily-map" viewBox="${crop.x} ${crop.y} ${crop.width} ${crop.height}" role="group" aria-label="${days[dayIndex].date}${label}，按数字顺序浏览的手绘路线图">` +
       `<defs>${routeMask(local, maskId, true)}</defs>${baseImage()}<rect class="atlas-day-wash" width="${W}" height="${H}"/>` +
       `<g class="atlas-daily-routes" mask="url(#${maskId})">${routePaths(localEdges, days[dayIndex].color, true)}</g>` +
       `<g class="atlas-daily-points">${markers}</g>` +
@@ -340,13 +384,16 @@
     target.innerHTML = `<div class="atlas-transit-heading"><div><span class="section-kicker">STEP BY STEP</span><h4>这一段，怎么走</h4></div><span>${edges.length + (index === 0 ? 1 : 0)} 段接驳${index === 0 ? ' · 列车段仅见详情' : ' · 与地图编号对应'}</span></div>` +
       `<ol class="atlas-transit-list">${arrivalTrain}${edges.map((edge, i) => {
         const leg = transit.legs[`${edge.from}-${edge.to}`];
-        return `<li><div class="atlas-leg-title"><span class="atlas-leg-index">${String(i + 1).padStart(2, '0')} <b>→</b> ${String(i + 2).padStart(2, '0')}</span><h5>${esc(dayLabel[edge.from])} <span>→</span> ${esc(dayLabel[edge.to])}</h5></div><div class="atlas-leg-mode">${transitIcon(leg.mode)}<strong>${esc(transit.modes[leg.mode])}</strong><b>约 ${esc(leg.time.replace(/^约 /, ''))}</b></div><p>${esc(leg.path)}</p>${leg.alternative ? `<p class="atlas-leg-alternative">${esc(leg.alternative)}</p>` : ''}<a href="${esc(points.get(edge.to).mapUrl)}" target="_blank" rel="noopener noreferrer">地图查看终点 ↗</a></li>`;
-      }).join('')}</ol><p class="atlas-transit-day-note">${esc(transit.notes[index])}</p>` +
-      `<details class="atlas-transit-sources"><summary>耗时说明与交通依据</summary><p>步行、打车耗时是按点位与常见路线估算的规划范围，并非实时路况。地铁段含进出站步行；不含景点游览、打车等待、轮渡候船与安检。国庆请另留拥堵和排队缓冲，出发前用地图重查。</p><p>交通入口与航线信息核对于 2026-09-26：${transit.sources.map(source => `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)} ↗</a>`).join(' · ')}。其他点位可通过各段的终点链接核对。</p></details>`;
+        const destination = points.get(edge.to);
+        return `<li><div class="atlas-leg-title"><span class="atlas-leg-index">${String(i + 1).padStart(2, '0')} <b>→</b> ${String(i + 2).padStart(2, '0')}</span><h5>${esc(dayLabel[edge.from])} <span>→</span> ${esc(dayLabel[edge.to])}</h5></div><div class="atlas-leg-mode">${transitIcon(leg.mode)}<strong>${esc(transit.modes[leg.mode])}</strong><b>约 ${esc(leg.time.replace(/^约 /, ''))}</b></div><p>${esc(leg.path)}</p>${leg.alternative ? `<p class="atlas-leg-alternative">${esc(leg.alternative)}</p>` : ''}<a class="atlas-destination-link" href="${esc(dataTools.amapDestinationUrl(destination))}" target="_blank" rel="noopener noreferrer" aria-label="在高德地图打开终点${esc(destination.name)}">在高德打开终点 · ${esc(destination.name)} ↗</a></li>`;
+      }).join('')}</ol><p class="atlas-transit-day-note">${esc(transit.notes[index])}</p>`;
   }
   function bindDailyNodes(container) {
     const scroll = container.querySelector('.atlas-daily-scroll');
-    if (scroll) scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
+    if (scroll) {
+      bindMapZoom(scroll, scroll.querySelector('svg'), window.innerWidth <= 720 ? 780 : scroll.clientWidth);
+      scroll.scrollLeft = Math.max(0, (scroll.scrollWidth - scroll.clientWidth) / 2);
+    }
     container.querySelectorAll('.atlas-daily-node.is-viewable').forEach(node => {
       node.addEventListener('click', () => selectPoint(node.dataset.dayPointId));
       node.addEventListener('keydown', event => {

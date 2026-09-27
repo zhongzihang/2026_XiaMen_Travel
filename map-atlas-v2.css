@@ -1,6 +1,15 @@
 /* 2026-09-26: watercolour atlas. Geographic anchors remain separate from art. */
 .route-overview{width:100%;max-width:none;border:0;border-radius:0;box-shadow:none;background:#d8ecea}
 .atlas-overview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;background:#f9fbf5;color:#42616a;font-size:.78rem;font-weight:800}
+.map-zoom-controls{display:flex;align-items:center;justify-content:flex-end;gap:.35rem;padding:.45rem .7rem;background:#f6f9f3;border-top:1px solid #d8e7df;border-bottom:1px solid #d8e7df}
+.map-zoom-controls button{display:grid;place-items:center;min-width:42px;min-height:42px;padding:.3rem .65rem;border:1px solid #b7d2cd;border-radius:10px;background:#fff;color:#245c66;font:900 1.25rem "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer}
+.map-zoom-controls button:last-child{font-size:.72rem;white-space:nowrap}
+.map-zoom-controls button:hover,.map-zoom-controls button:focus-visible{background:#d8efeb;border-color:#5c999a}
+.map-zoom-controls output{min-width:3.4rem;text-align:center;color:#3d686a;font-size:.76rem;font-weight:900}
+.overview-map-zoom-canvas,.atlas-daily-scroll{touch-action:pan-x pan-y;overscroll-behavior:contain}
+.overview-map-zoom-canvas .overview-map,.atlas-daily-scroll .atlas-daily-map{max-width:none;display:block;height:auto}
+@media(max-width:720px){.map-zoom-controls{justify-content:center}.map-zoom-controls button{min-height:44px}.overview-map-dialog{max-height:96dvh}.overview-map-zoom-canvas{max-height:calc(96dvh - 220px)}.atlas-daily-scroll{max-height:min(58vh,470px)}}
+@media print{.map-zoom-controls{display:none!important}}
 .atlas-day-links{display:flex;flex-wrap:wrap;gap:.45rem}
 .atlas-day-links button{min-width:3.8rem;min-height:2.75rem;border:2px solid var(--day-color);border-radius:999px;background:#fff;color:#234a51;font:900 .74rem "Microsoft YaHei","PingFang SC",sans-serif;cursor:pointer}
 .atlas-day-links button:hover,.atlas-day-links button:focus-visible,.atlas-day-links button.is-current{background:var(--day-color);color:#fff;outline-offset:2px}
@@ -127,6 +136,8 @@
 .atlas-transit-list p{margin:0 0 .45rem;color:#4f6664;font-size:.79rem;line-height:1.75}
 .atlas-transit-list p.atlas-leg-alternative{color:#819087;font-size:.72rem}
 .atlas-transit-list a{margin-top:auto;padding-top:.35rem;color:#3a776e;font-size:.72rem;text-underline-offset:3px}
+.atlas-transit-list a.atlas-destination-link{display:inline-flex;align-items:center;min-height:44px;margin-top:.35rem;padding:.35rem .7rem;border:1px solid #bcd9d4;border-radius:9px;background:#edf7f3;color:#226e72;font-size:.77rem;font-weight:850;text-decoration:none}
+.atlas-transit-list a.atlas-destination-link:hover,.atlas-transit-list a.atlas-destination-link:focus-visible{background:#d8efea;border-color:#6ca8a3}
 .atlas-transit-day-note{margin:1rem 0 .7rem;padding-left:.75rem;border-left:3px solid var(--day-color);color:#58706a;font-size:.79rem;line-height:1.7}
 .atlas-transit-sources{padding-top:.7rem;border-top:1px solid #e0e7dc;color:#718079;font-size:.72rem;line-height:1.75}
 .atlas-transit-sources summary{cursor:pointer;font-weight:800;width:fit-content}
