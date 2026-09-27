@@ -236,6 +236,30 @@
       pair:'两人各选一个口味，先喝再决定是否加其他小吃。',
       tip:'烧仙草含多种配料，点单时可问冰量、甜度与坚果配料。',
       source:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'
+    },
+    {
+      id:'diaoyuchuan-shapowei', area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
+      address:'沙坡尾片区（以大众点评门店定位为准；小红书笔记称“打渔船·老厦门本地菜·姜母鸭”）',
+      image:'assets/gallery/food-diaoyuchuan-xhs-2026.jpg', imageAlt:'小红书探店实拍：打渔船的海鲜沙茶面与小菜', photoLabel:'小红书探店实拍 · 海鲜沙茶面',
+      photoNote:'小红书探店实拍 · 海鲜沙茶面（笔记作者：糯米就是Nommy）',
+      summary:'厦大、沙坡尾片区的海鲜与闽南菜备选。2026年9月的探店笔记记录了海鲜沙茶面；评论回复写出“打渔船·老厦门本地菜·姜母鸭”，大众点评检索到沙坡尾同品牌门店。',
+      dishes:['海鲜沙茶面：虾、鲍鱼、鱿鱼等加料前先看价目。','姜母鸭：点前确认份量和套餐价。','清蒸波龙或酱油水海鲜：鲜货先称重，问清加工费。'],
+      pair:'两人先分享一份海鲜沙茶面，再从姜母鸭或一道海鲜中选一份主菜；加菜前先问清计价方式。',
+      tip:'核对时大众点评沙坡尾门店页显示约13,953条评价、人均约¥90；评分未能稳定确认，因此列作热门备选，不标为高分店。小红书互动热度不等于门店评分。',
+      source:'https://www.xiaohongshu.com/search_result/6aaa0f5e000000001001e4fb?xsec_token=ABsbaxOhZ6BsCrmVOxFCCrhEnHvC0s5xAhasjh-OGLhd4=&xsec_source=',
+      dianpingUrl:'https://www.dianping.com/shop/jDgraZ2KYLC8zGnk'
+    },
+    {
+      id:'xinwutang-gingerduck', area:'中山路', category:'闽南正餐', name:'鑫坞堂姜母鸭·海鲜热炒（中山路总店）',
+      address:'中山路镇邦路片区（以大众点评门店定位为准；小红书笔记称“鑫坞堂姜母鸭·闽菜香煎蟹”）',
+      image:'assets/gallery/food-xinwutang-xhs-2026.jpg', imageAlt:'小红书探店实拍：鑫坞堂招牌姜母鸭', photoLabel:'小红书探店实拍 · 姜母鸭',
+      photoNote:'小红书探店实拍 · 姜母鸭（笔记作者：吃不饱的苏大强）',
+      summary:'中山路附近的姜母鸭备选。小红书探店笔记和评论讨论了门店、份量与菜品；大众点评检索到同一中山路总店。',
+      dishes:['招牌姜母鸭：先问半份或最小份量。','香煎蟹：按当天价牌确认品种、重量和总价。','砂锅葱姜焗海鲜：与姜母鸭二选一，避免点多。'],
+      pair:'两人先问姜母鸭最小份量，配米饭或一道青菜；如加海鲜，先确认时价、重量与加工费。',
+      tip:'核对时大众点评约4.0分、人均约¥76，作为中山路备选更合适。小红书评论提到约68元的姜母鸭，并讨论对应半只还是整只；点单前先问清份量和价格，建议堂食。',
+      source:'https://www.xiaohongshu.com/search_result/6a7b0980000000002500b3c3?xsec_token=ABcHs0C8VeVtY6P0DiaxI1Crx-YJSeC3UbNlkvFe43pCY=&xsec_source=',
+      dianpingUrl:'https://m.dianping.com/shop/705493270?msource=applemaps'
     }
   );
 })();

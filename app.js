@@ -278,6 +278,8 @@ const socialSources = [
   ["小红书 · 马铃薯大王《记录在鼓浪屿半天的超详细攻略》","https://www.xiaohongshu.com/search_result/6aa3b5bd000000002603b195?xsec_token=AB-wadG5JAT9WradJaBUFSdeFKCytzJ533PuqrbgZElgs=&xsec_source=","2026-09-11 · 轻量街巷和园林走法"],
   ["小红书 · 偶尔暴躁的汤圆麻麻《厦门幸福路Citywalk》","https://www.xiaohongshu.com/search_result/6a828a6800000000270237c4?xsec_token=AB7iSQGLTIm0j0vLl10zHWfZSzjsmy2TP42vlS46IrQRE=&xsec_source=","2026-08-17 · 百家村—幸福路—华新路步行"],
   ["小红书 · 小小旅行家Mama《厦门三天两夜逛吃攻略｜不绕路版》","https://www.xiaohongshu.com/search_result/6a3a3aa2000000001702eac1?xsec_token=ABmXa5cXIyYtjMlAY5gFhtxdl1MmsQT8Z1Pj3t0JFJOiE=&xsec_source=","2026-06-23 · 按片区组合景点；其雾森时间未采用"],
+  ["小红书 · 糯米就是Nommy《厦门沙坡尾top级nb好吃的！！！》","https://www.xiaohongshu.com/search_result/6aaa0f5e000000001001e4fb?xsec_token=ABsbaxOhZ6BsCrmVOxFCCrhEnHvC0s5xAhasjh-OGLhd4=&xsec_source=","2026-09-16 · 评论区补充打渔船店名；笔记含海鲜沙茶面实拍"],
+  ["小红书 · 吃不饱的苏大强《吃完当场打包三只鸭，厦门中山路没白来！！！》","https://www.xiaohongshu.com/search_result/6a7b0980000000002500b3c3?xsec_token=ABcHs0C8VeVtY6P0DiaxI1Crx-YJSeC3UbNlkvFe43pCY=&xsec_source=","2026-08-11 · 鑫坞堂姜母鸭探店；评论讨论68元对应的份量"],
   ["小红书 · 一只白白《厦门吃逛日记》","https://www.xiaohongshu.com/search_result/6ab0c6ad000000003400059e?xsec_token=ABsFXiatFLXc4WmYEM1JHPVoVrGReJWhLeSYhlvLgrJXM=&xsec_source=","2026-09-21 · 近期餐饮个人口味记录"],
   ["小红书 · 一杯冰美式《八市逛吃地图》","https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source=","2026-02-13 · 八市开禾路小吃动线"],
   ["小红书 · 明天吃什么《鼓浪屿一上岛直奔这些店》","https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYtjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source=","2026-06-23 · 龙头路小吃参考"],
@@ -300,7 +302,9 @@ const imageCredits = [
   ["土笋冻","Hhaithait · CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Tusundong_Xiamen.jpg"],
   ["姜母鸭","fullfen666 · CC BY-SA 2.0","https://commons.wikimedia.org/wiki/File:%E5%98%89%E5%91%B3%E8%96%91%E6%AF%8D%E9%B4%A8_(30998743825).jpg"],
   ["花生汤","HualinXMN · CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Huang_Zehe_peanut_soup.jpg"],
-  ["叶氏麻糍 / 龙头路145号","携程旅行者麻糍菜品实拍","https://gs.ctrip.com/html5/you/foods/fooddetail/120058/319760.html"]
+  ["叶氏麻糍 / 龙头路145号","携程旅行者麻糍菜品实拍","https://gs.ctrip.com/html5/you/foods/fooddetail/120058/319760.html"],
+  ["打渔船沙坡尾店 · 海鲜沙茶面","小红书用户糯米就是Nommy的探店实拍","https://www.xiaohongshu.com/search_result/6aaa0f5e000000001001e4fb?xsec_token=ABsbaxOhZ6BsCrmVOxFCCrhEnHvC0s5xAhasjh-OGLhd4=&xsec_source="],
+  ["鑫坞堂中山路总店 · 姜母鸭","小红书用户吃不饱的苏大强的探店实拍","https://www.xiaohongshu.com/search_result/6a7b0980000000002500b3c3?xsec_token=ABcHs0C8VeVtY6P0DiaxI1Crx-YJSeC3UbNlkvFe43pCY=&xsec_source="]
 ];
 
 const storeSources = [
@@ -311,7 +315,9 @@ const storeSources = [
   ["阿杰五香","https://gs.ctrip.com/html5/you/foods/fooddetail/21/5163180.html"],
   ["钟丽君满煎糕","https://gs.ctrip.com/html5/you/foods/Xiamen21/5163496.html"],
   ["惠源面包店","https://www.amap.com/place/B0FFG0388Z"],
-  ["1980烧肉粽（中山路店）","https://you.ctrip.com/yougourmet/restdetail/xiamen21/354171.html"]
+  ["1980烧肉粽（中山路店）","https://you.ctrip.com/yougourmet/restdetail/xiamen21/354171.html"],
+  ["打渔船厦门菜·正宗姜母鸭（沙坡尾店）","https://www.dianping.com/shop/jDgraZ2KYLC8zGnk"],
+  ["鑫坞堂姜母鸭·海鲜热炒（中山路总店）","https://m.dianping.com/shop/705493270?msource=applemaps"]
 ];
 
 function safe(str){return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;")}
@@ -409,7 +415,8 @@ function showFoodDetail(id){
   const food=foods.find(f=>f.id===id);if(!food)return;
   const photo=foodPhoto(food);
   const photoNote=food.photoNote||food.photoLabel||"菜式照片";
-  document.getElementById("foodDialogContent").innerHTML=`<div class="food-detail-layout"><figure class="food-detail-photo">${photo?`<img src="${safe(photo)}" alt="${safe(food.imageAlt)}" data-food-detail-image="${safe(food.id)}">`:`<span class="photo-unavailable food-photo-empty">暂无匹配的店内实拍照片</span>`}<span class="photo-unavailable" hidden>照片暂时无法载入</span><figcaption>${safe(photoNote)}</figcaption></figure><div class="food-detail-copy"><span class="food-detail-kicker">${safe(food.area)}　/　${safe(food.category)}</span><h2 id="foodDialogTitle">${safe(food.name)}</h2><p class="food-detail-address">${safe(food.address)}</p><p class="food-detail-summary">${safe(food.summary)}</p><h3>这几道值得看</h3><ul class="food-dish-list">${food.dishes.map(d=>`<li>${safe(d)}</li>`).join("")}</ul><aside class="food-order-tip"><strong>两人点单思路</strong><p>${safe(food.pair)}</p></aside><p class="food-detail-tip">${safe(food.tip)}</p>${food.meituanUrl?`<a class="food-source-link" href="${safe(food.meituanUrl)}">在美团查看这家门店 ↗</a>`:""}</div></div>`;
+  const storeLink=food.meituanUrl?`<a class="food-source-link" href="${safe(food.meituanUrl)}">在美团查看这家门店 ↗</a>`:food.dianpingUrl?`<a class="food-source-link" href="${safe(food.dianpingUrl)}" target="_blank" rel="noopener noreferrer">在大众点评查看这家门店 ↗</a>`:"";
+  document.getElementById("foodDialogContent").innerHTML=`<div class="food-detail-layout"><figure class="food-detail-photo">${photo?`<img src="${safe(photo)}" alt="${safe(food.imageAlt)}" data-food-detail-image="${safe(food.id)}">`:`<span class="photo-unavailable food-photo-empty">暂无匹配的店内实拍照片</span>`}<span class="photo-unavailable" hidden>照片暂时无法载入</span><figcaption>${safe(photoNote)}</figcaption></figure><div class="food-detail-copy"><span class="food-detail-kicker">${safe(food.area)}　/　${safe(food.category)}</span><h2 id="foodDialogTitle">${safe(food.name)}</h2><p class="food-detail-address">${safe(food.address)}</p><p class="food-detail-summary">${safe(food.summary)}</p><h3>这几道值得看</h3><ul class="food-dish-list">${food.dishes.map(d=>`<li>${safe(d)}</li>`).join("")}</ul><aside class="food-order-tip"><strong>两人点单思路</strong><p>${safe(food.pair)}</p></aside><p class="food-detail-tip">${safe(food.tip)}</p>${storeLink}</div></div>`;
   const image=document.querySelector(".food-detail-photo img");
   if(image)watchFoodImage(image,food);
   document.getElementById("foodDialog").showModal();
