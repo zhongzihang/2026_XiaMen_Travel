@@ -323,7 +323,7 @@
       source:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'
     },
     {
-      id:'diaoyuchuan-shapowei', area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
+      id:'diaoyuchuan-shapowei', featuredRank:2, area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
       address:'沙坡尾片区（以大众点评门店定位为准；小红书笔记称“打渔船·老厦门本地菜·姜母鸭”）',
       image:'assets/gallery/food-diaoyuchuan-xhs-2026.jpg', imageAlt:'小红书探店实拍：打渔船的海鲜沙茶面与小菜', photoLabel:'小红书探店实拍 · 海鲜沙茶面',
       photoNote:'小红书探店实拍 · 海鲜沙茶面（笔记作者：糯米就是Nommy）',
@@ -572,6 +572,25 @@
     ]
   });
 
+  window.XiamenExtraFoods.push({
+    id:'jinhaiwan-shapowei', featuredRank:1, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
+    address:'厦门大学、沙坡尾片区（原帖描述；门牌未核实，出发前按店名查地图）',
+    photoLabel:'原帖实拍图待补',
+    summary:'厦大、沙坡尾附近的海鲜大排档。近期探店笔记提到蒜蓉虾、海鲜捞面、香辣大虾和苔条年糕虾；明档点单先确认时价与总价。',
+    dishes:['蒜蓉虾、香辣大虾：按当日鲜货和份量点。','海鲜捞面：笔记作者喜欢拌面口感，适合两人分享。','苔条年糕虾、鲍鱼板栗鸡：多人用餐时先问份量和价格。'],
+    pair:'两人先选一道虾或海鲜面，再搭配一份蔬菜；多人同行再考虑鸡类或年糕菜。海鲜明档仍先确认规格、时价和总价。',
+    tip:'笔记称店在厦大附近、沙坡尾逛街后可顺路前往，饭点常排队。评论有明显分歧：有读者说大学期间常吃，也有近期食客对价格和部分菜品体验不满；将其视为个人体验，不等同门店评分。',
+    mapUrl:'https://uri.amap.com/search?keyword=%E9%87%91%E6%B5%B7%E6%B9%BE%E6%B5%B7%E9%B2%9C%E5%8E%A6%E9%97%A8%E8%8F%9C&city=%E5%8E%A6%E9%97%A8',
+    source:'https://www.xiaohongshu.com/explore/6aadea1b0000000026021a3f?xsec_token=AB5Xkki5peuTklet5-ao-_3Rh9hiC4G-pCdPPBxAzR7Zg=&xsec_source=pc_search&source=web_explore_feed'
+  });
+  const jinhaiwan = window.XiamenExtraFoods.find(food => food.id === 'jinhaiwan-shapowei');
+  if (jinhaiwan) jinhaiwan.reviews = [{
+    source:'小红书 · 喜欢喝咖啡乱拍照的大棒儿',
+    title:'在厦门！吃完用一生怀念的🥹！！！',
+    summary:'作者说这家在厦大附近，逛沙坡尾后顺路吃，推荐蒜蓉虾、海鲜捞面、香辣大虾、苔条年糕虾和鲍鱼板栗鸡，并提醒饭点排队。页面显示704赞、536收藏、84条评论（笔记互动，不是门店评分）。评论里既有老顾客称大学期间常吃，也有近期食客对价格及部分菜品提出强烈异议，评价分化明显。',
+    url:'https://www.xiaohongshu.com/explore/6aadea1b0000000026021a3f?xsec_token=AB5Xkki5peuTklet5-ao-_3Rh9hiC4G-pCdPPBxAzR7Zg=&xsec_source=pc_search&source=web_explore_feed'
+  }];
+
   const foodById = id => window.XiamenExtraFoods.find(food => food.id === id);
   function appendReviews(id, reviews) {
     const food = foodById(id);
@@ -658,7 +677,8 @@
     {source:'Trip.com食客点评',date:'2022-05-23',title:'烧仙草配料足，蜂蜜和奶茶口味都有人喜欢',summary:'中山路店食客觉得一杯价格实惠、底料丰富；其他游客喜欢蜂蜜和奶茶两种口味，提醒用勺子吃更方便。此处展示个人体验，不代表每家分店的配方完全相同。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'}
   ]);
   appendReviews('diaoyuchuan-shapowei', [
-    {source:'Trip.com旅行者实评',date:'Trip Moment（页面显示1月6日）',title:'姜母鸭、沙茶锅和海蛎捞饭',summary:'作者称由本地朋友带路，喜欢炒年糕蟹捞面、海蛎捞饭和咸甜葱茸包，也推荐姜母鸭与沙茶锅；这是单次探店体验，不能代表每桌出品。',url:'https://hk.trip.com/moments/detail/xiamen-21-140202476/'}
+    {source:'Trip.com旅行者实评',date:'Trip Moment（页面显示1月6日）',title:'姜母鸭、沙茶锅和海蛎捞饭',summary:'作者称由本地朋友带路，喜欢炒年糕蟹捞面、海蛎捞饭和咸甜葱茸包，也推荐姜母鸭与沙茶锅；这是单次探店体验，不能代表每桌出品。',url:'https://hk.trip.com/moments/detail/xiamen-21-140202476/'},
+    {source:'小红书 · desson',title:'感觉是厦门沙坡尾top级好吃的！！！',summary:'作者称在厦大附近由本地朋友带路，推荐海鲜沙茶面，并提到小青龙、膏蟹、鲍鱼、大虾、鱿鱼、醋肉等加料，也喜欢松子排骨、金丝蛋黄卷和椒盐蛏子。页面显示362赞、326收藏、42条评论；评论有人说正排队等体验，尚未见其后续反馈。互动热度不代表门店评分。',url:'https://www.xiaohongshu.com/explore/6ab0f2060000000036017667?xsec_token=ABsFXiatFLXc4WmYEM1JHPVvXIf_ZaBKuyB6Uaetb-NRY=&xsec_source=pc_search&source=web_explore_feed'}
   ]);
 
   appendPhotos('minhenan', [

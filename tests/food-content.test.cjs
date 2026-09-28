@@ -46,6 +46,18 @@ test('Xiaohongshu-matched ginger duck shops have Dianping destinations and bundl
   }
 });
 
+test('the two user-selected Xiaohongshu guides are featured first with matched shop reviews', () => {
+  const foods = loadExtraFoods();
+  const jinhaiwan = foods.find(item => item.id === 'jinhaiwan-shapowei');
+  const diaoyuchuan = foods.find(item => item.id === 'diaoyuchuan-shapowei');
+
+  assert.equal(jinhaiwan?.featuredRank, 1);
+  assert.equal(diaoyuchuan?.featuredRank, 2);
+  assert.ok(jinhaiwan.reviews.some(review => review.url.includes('/explore/6aadea1b0000000026021a3f')));
+  assert.ok(diaoyuchuan.reviews.some(review => review.url.includes('/explore/6ab0f2060000000036017667')));
+  assert.equal(diaoyuchuan.image, 'assets/gallery/food-diaoyuchuan-xhs-2026.jpg');
+});
+
 test('food details render a direct Dianping destination while keeping existing Meituan links', () => {
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   assert.match(app, /food\.meituanUrl[\s\S]{0,240}在美团查看这家门店/);

@@ -39,7 +39,11 @@
 
   function sort(foods, now = Date.now()) {
     return foods.map((food, index) => ({ food, index, score: score(food, now) }))
-      .sort((a, b) => b.score - a.score || a.index - b.index)
+      .sort((a, b) => {
+        const rankA = Number.isFinite(Number(a.food?.featuredRank)) ? Number(a.food.featuredRank) : Infinity;
+        const rankB = Number.isFinite(Number(b.food?.featuredRank)) ? Number(b.food.featuredRank) : Infinity;
+        return rankA - rankB || b.score - a.score || a.index - b.index;
+      })
       .map(item => item.food);
   }
 

@@ -32,3 +32,15 @@ test('recommendation order balances aggregate rating, review volume, recency and
   assert.match(ranking.badgeMarkup(foods[1]), /4\.5分.*21,621评/);
   assert.equal(ranking.badgeMarkup(foods[2]), '');
 });
+
+test('explicit featured order stays ahead of the score-based recommendation order', () => {
+  const ranking = loadRanking();
+  const foods = [
+    { id: 'score-winner', reviews: [{ source: '大众点评', rating: '5/5 · 100,000条评价', date: '2026-09-29' }] },
+    { id: 'featured-second', featuredRank: 2, reviews: [] },
+    { id: 'featured-first', featuredRank: 1, reviews: [] }
+  ];
+  assert.deepEqual(ranking.sort(foods, Date.UTC(2026, 8, 29)).map(food => food.id), [
+    'featured-first', 'featured-second', 'score-winner'
+  ]);
+});
