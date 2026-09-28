@@ -417,7 +417,7 @@
     const kind = isSpecial(point) ? '交通与住宿' : '当日路线点';
     const hiddenAttribute = hidden ? ' hidden' : '';
     return `<article id="day-place-${dayIndex}-${esc(point.id)}" class="map-detail day-place-card${isSpecial(point) ? ' is-special' : ''}" data-day-place-detail="${esc(point.id)}" tabindex="-1" style="--day-color:${days[dayIndex].color}"${hiddenAttribute}>` +
-      `${gallery.markup(point)}<div class="map-detail-copy"><div class="day-place-order"><span class="day-place-order-number">${esc(orders.join(' / '))}</span><span class="day-place-order-label">游览顺序</span></div><span class="section-kicker">${days[dayIndex].date} · ${kind}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div></article>`;
+      `${gallery.markup(point)}<div class="map-detail-copy"><span class="section-kicker">${days[dayIndex].date} · ${kind}</span><div class="day-place-title"><h3>${esc(point.name)}</h3><div class="day-place-order"><span class="day-place-order-number">${esc(orders.join(' / '))}</span><span class="day-place-order-label">游览顺序</span></div></div><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div></article>`;
   }
   function placeDetailsMarkup(details, dayIndex) {
     const cards = details.places.map(item => placeDetailCard(item, dayIndex)).join('');

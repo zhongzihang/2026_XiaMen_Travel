@@ -151,7 +151,9 @@
 .day-place-card .place-gallery-photo{height:100%;min-height:230px;max-height:360px;flex:1}
 .day-place-card .place-gallery-slide figcaption{min-height:0}
 .day-place-card .map-detail-copy{min-width:0;padding:1.1rem 1.25rem}
-.day-place-order{display:flex;align-items:center;gap:.55rem;margin-bottom:.55rem}
+.day-place-title{display:flex;align-items:center;justify-content:space-between;gap:.7rem;margin:.45rem 0 .55rem}
+.day-place-title h3{flex:1;min-width:0;margin:0}
+.day-place-order{display:flex;align-items:center;gap:.55rem;flex:none;margin:0}
 .day-place-order-number{display:inline-flex;align-items:center;justify-content:center;min-width:2.55rem;min-height:2rem;padding:.1rem .6rem;border:1px solid rgba(255,255,255,.62);border-radius:999px;background:var(--day-color);color:#fff;font-size:.82rem;font-weight:950;letter-spacing:.03em;line-height:1;box-shadow:0 3px 9px rgba(9,35,42,.17)}
 .day-place-order-label{color:#a6d4cc;font-size:.68rem;font-weight:800;letter-spacing:.08em}
 .day-place-card.is-selected .day-place-order-number{box-shadow:0 0 0 3px rgba(255,213,107,.3),0 3px 9px rgba(9,35,42,.18)}

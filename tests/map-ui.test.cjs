@@ -49,3 +49,11 @@ test('daily ordered place cards sit above transit and map pins scroll to their d
   assert.match(css, /\.day-place-card\{[^}]*grid-template-columns:minmax\(220px/);
   assert.match(css, /\.day-place-card\{[^}]*grid-template-columns:minmax\(0,1fr\)\}/);
 });
+
+test('daily place order badge sits beside the place name on the same row', () => {
+  const atlas = read('map-atlas-v2.js');
+  const css = read('map-atlas-v2.css');
+  assert.match(atlas, /class="day-place-title"><h3>\$\{esc\(point\.name\)\}<\/h3><div class="day-place-order"/);
+  assert.match(css, /\.day-place-title\{[^}]*display:flex[^}]*align-items:center/);
+  assert.match(css, /\.day-place-order\{[^}]*flex:none/);
+});
