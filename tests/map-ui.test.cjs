@@ -13,6 +13,13 @@ test('published page loads the active atlas and not the retired map renderer', (
   assert.match(html, /id="overviewMapDialogLinks"/);
 });
 
+test('light-only palette is declared to prevent mobile browsers from auto-darkening map labels', () => {
+  const html = read('index.html');
+  const css = read('styles.css');
+  assert.match(html, /<meta name="color-scheme" content="only light">/);
+  assert.match(css, /:root\{color-scheme:\s*only light;/);
+});
+
 test('one date navigator remains above the overview map and follows it into zoom', () => {
   const js = read('map-atlas-v2.js');
   assert.match(js, /class="atlas-day-links"/);
