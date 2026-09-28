@@ -8,7 +8,7 @@
   function reviewLinkMarkup(rawUrl, searchKeyword = '') {
     if (searchKeyword) {
       const keyword = encodeURIComponent(searchKeyword);
-      return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://search/result?keyword=${escapeHtml(keyword)}">在小红书搜索这条笔记 ↗</a><a class="food-review-web-link" href="https://www.xiaohongshu.com/explore" target="_blank" rel="noopener noreferrer">网页端小红书（搜索原标题） ↗</a></div>`;
+      return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://search/result?keyword=${escapeHtml(keyword)}">在小红书 App 搜索这条攻略 ↗</a></div>`;
     }
     let url;
     try { url = new URL(rawUrl); } catch { return ''; }
@@ -18,9 +18,9 @@
       const match = url.pathname.match(/^\/(?:search_result|explore)\/([\w-]+)\/?$/i);
       if (match) {
         const noteId = match[1];
-        const webUrl = `https://www.xiaohongshu.com/explore/${encodeURIComponent(noteId)}`;
-        return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://item/${escapeHtml(noteId)}">打开小红书 App ↗</a><a class="food-review-web-link" href="${escapeHtml(webUrl)}" target="_blank" rel="noopener noreferrer">网页查看原帖 ↗</a></div>`;
+        return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://item/${escapeHtml(noteId)}">打开小红书 App 查看这条笔记 ↗</a></div>`;
       }
+      return '';
     }
     return `<a class="food-review-web-link" href="${escapeHtml(url.href)}" target="_blank" rel="noopener noreferrer">查看评测原帖 ↗</a>`;
   }

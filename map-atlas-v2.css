@@ -216,6 +216,9 @@
 .place-experience .food-review-links a{font-size:.7rem}
 .place-experience .food-review-app-link{color:#176b70!important}
 .place-experience .food-review-web-link{color:#1e7076}
+.place-experience-stack{display:grid;gap:.65rem;margin-top:1rem}
+.place-experience-stack .place-experience{margin:0;padding:.75rem .82rem}
+.place-experience-stack .food-review-app-link{min-height:44px;padding:.42rem .72rem}
 .day-photo-gallery{margin:1.3rem 0 1.5rem;min-width:0}
 .day-photo-heading{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.65rem}
 .day-photo-heading h4{margin:0;color:#244a50;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:1.02rem}

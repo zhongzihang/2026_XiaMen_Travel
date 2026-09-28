@@ -36,6 +36,22 @@ test('unresolved XHS note IDs get the documented in-app search route without cla
   const markup = window.XiamenFoodDetails.reviewLinkMarkup('', '厦门屿见闽南详细版游玩攻略 泥巴酱');
 
   assert.match(markup, /xhsdiscover:\/\/search\/result\?keyword=/);
-  assert.match(markup, /在小红书搜索这条笔记/);
-  assert.match(markup, /网页端小红书/);
+  assert.match(markup, /在小红书 App 搜索这条攻略/);
+  assert.doesNotMatch(markup, /网页端小红书|xiaohongshu\.com/);
+});
+
+test('selected attractions show related Xiaohongshu guides as vertically stacked app-only cards', () => {
+  const window = loadPlaceExperience();
+  const cases = [
+    ['sanqiutian', '6a8484f50000000008011746'],
+    ['longtou', '6aa3b5bd000000002603b195'],
+    ['bashi', '697c793d0000000022039a0f']
+  ];
+
+  for (const [id, noteId] of cases) {
+    const markup = window.XiamenPlaceGallery.experience({ id, name: id });
+    assert.ok((markup.match(/class="place-experience"/g) || []).length >= 2, `${id} needs multiple guide cards`);
+    assert.match(markup, new RegExp(`xhsdiscover:\/\/item\/${noteId}`), `${id} should link to the matching note`);
+    assert.doesNotMatch(markup, /网页查看原帖|xiaohongshu\.com/);
+  }
 });

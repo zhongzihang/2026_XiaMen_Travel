@@ -141,7 +141,7 @@ test('food detail gallery and evaluation markup scales to photo count and escape
   assert.match(reviews, /https:\/\/example\.com\/review/);
 });
 
-test('Xiaohongshu review links use a note-id app deep link and a stable token-free web fallback', () => {
+test('Xiaohongshu review links use the app deep link without exposing a broken web fallback', () => {
   const window = {};
   vm.runInNewContext(fs.readFileSync(path.join(root, 'food-details.js'), 'utf8'), { window, URL });
   const markup = window.XiamenFoodDetails.reviewsMarkup([{
@@ -151,9 +151,28 @@ test('Xiaohongshu review links use a note-id app deep link and a stable token-fr
 
   assert.match(markup, /href="xhsdiscover:\/\/item\/66ab1234567890ab"/);
   assert.match(markup, /打开小红书 App/);
-  assert.match(markup, /href="https:\/\/www\.xiaohongshu\.com\/explore\/66ab1234567890ab"/);
-  assert.match(markup, /网页查看原帖/);
+  assert.doesNotMatch(markup, /href="https:\/\/www\.xiaohongshu\.com|网页查看原帖/);
   assert.doesNotMatch(markup, /volatile-token|search_result/);
+});
+
+test('every Xiaohongshu review card links to the note ID carried by its source URL', () => {
+  const foods = loadFoodCatalog();
+  const window = {};
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'food-details.js'), 'utf8'), { window, URL });
+  const helper = window.XiamenFoodDetails;
+  const xhsReviews = foods.flatMap(food => (food.reviews || [])
+    .filter(review => /小红书/.test(review.source || ''))
+    .map(review => ({ food: food.name, review })));
+
+  assert.ok(xhsReviews.length >= 10, 'expected the current XHS review cards to be audited');
+  for (const { food, review } of xhsReviews) {
+    const sourceUrl = new URL(review.url);
+    const noteId = sourceUrl.pathname.match(/^\/(?:search_result|explore)\/([\w-]+)\/?$/)?.[1];
+    assert.ok(noteId, `${food}: XHS source URL must contain a note ID`);
+    const markup = helper.reviewsMarkup([review]);
+    assert.match(markup, new RegExp(`href="xhsdiscover:\\/\\/item\\/${noteId}"`), `${food}: app destination must match source note`);
+    assert.doesNotMatch(markup, /网页查看原帖|https:\/\/www\.xiaohongshu\.com/);
+  }
 });
 
 test('researched reviews and append-only photo galleries preserve existing Wenzao hero photos', () => {

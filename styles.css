@@ -308,10 +308,8 @@ html,body{max-width:100%;overflow-x:clip}
 .food-review-card a:hover{text-decoration:underline}
 .food-review-links{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .7rem;margin-top:.45rem}
 .food-review-links a{margin-top:0}
-.food-review-app-link{display:none;padding:.42rem .65rem;border-radius:999px;background:#e9f4f1;color:#176b70!important}
+.food-review-app-link{display:inline-flex;align-items:center;min-height:44px;padding:.42rem .75rem;border-radius:999px;background:#e9f4f1;color:#176b70!important}
 .food-review-note{margin:.45rem 0 0;color:#778986;font-size:.68rem;line-height:1.5}
-@media (hover:none) and (pointer:coarse){.food-review-app-link{display:inline-flex;align-items:center;min-height:36px}}
-@media (max-width:720px){.food-review-app-link{display:inline-flex;align-items:center;min-height:36px}}
 
 @media(max-width:980px){
   .map-layout{grid-template-columns:1fr}
@@ -603,4 +601,20 @@ html,body{max-width:100%;overflow-x:clip}
   .download-button{min-height:34px;padding:.28rem .55rem;font-size:.67rem}
   .day-bottom-nav{display:flex;flex-wrap:nowrap;gap:.3rem}
   .day-bottom-nav button,.day-bottom-nav a{flex:1 1 0;min-width:0;min-height:38px;padding:.35rem .2rem;font-size:.66rem;white-space:nowrap}
+}
+
+.food-ranking-badge{display:inline-flex;align-items:center;gap:.2rem;max-width:100%;margin-top:.38rem;padding:.2rem .45rem;border:1px solid #f0dfbd;border-radius:999px;background:#fff8e9;color:#96672e;font-size:.65rem;font-weight:850;line-height:1.35;white-space:nowrap}
+
+/* Keep recommendation cards readable on narrow phone viewports. */
+@media(max-width:520px){
+  .food-place-grid{grid-template-columns:minmax(0,1fr);gap:.8rem}
+  .food-image-wrap{aspect-ratio:1.72}
+  .food-place-copy{padding:.8rem .9rem .9rem}
+  .food-place .area{font-size:.7rem}
+  .food-ranking-badge{font-size:.7rem}
+  .food-card-title{font-size:1rem;line-height:1.45}
+  .food-dish-teaser{font-size:.82rem}
+  .food-card-summary{font-size:.81rem;line-height:1.55}
+  .food-address{font-size:.74rem}
+  .food-card-cta{min-height:44px;font-size:.78rem}
 }

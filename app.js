@@ -499,16 +499,16 @@ function watchFoodImage(image,food){
     image.closest(".food-image-wrap,.food-detail-photo")?.querySelector(".photo-unavailable")?.removeAttribute("hidden");
   });
 }
-const foodSelection={area:"全部地点",category:"全部类别"};
-function matchesFoodFilter(food){return (foodSelection.area==="全部地点"||food.area===foodSelection.area)&&(foodSelection.category==="全部类别"||food.category===foodSelection.category)}
+const foodSelection={area:"全部片区",category:"全部类型"};
+function matchesFoodFilter(food){return (foodSelection.area==="全部片区"||food.area===foodSelection.area)&&(foodSelection.category==="全部类型"||food.category===foodSelection.category)}
 function renderFood(){
-  const areas=["全部地点",...new Set(foods.filter(food=>foodSelection.category==="全部类别"||food.category===foodSelection.category).map(food=>food.area))];
-  const categories=["全部类别",...new Set(foods.filter(food=>foodSelection.area==="全部地点"||food.area===foodSelection.area).map(food=>food.category))];
+  const areas=["全部片区",...new Set(foods.filter(food=>foodSelection.category==="全部类型"||food.category===foodSelection.category).map(food=>food.area))];
+  const categories=["全部类型",...new Set(foods.filter(food=>foodSelection.area==="全部片区"||food.area===foodSelection.area).map(food=>food.category))];
   const filters=document.getElementById("foodFilters");
   const row=(label,kind,items)=>`<div class="food-filter-row"><span class="food-filter-label">${label}</span><div class="food-filter-options" role="group" aria-label="${label}">${items.map(value=>`<button type="button" data-food-kind="${kind}" data-filter="${safe(value)}" class="food-filter${foodSelection[kind]===value?" active":""}" aria-pressed="${foodSelection[kind]===value}">${safe(value)}</button>`).join("")}</div></div>`;
-  filters.innerHTML=row("按地点","area",areas)+row("按美食类别","category",categories);
-  const shown=foods.filter(matchesFoodFilter);
-  document.getElementById("foodPlaces").innerHTML=shown.length?shown.map(f=>{const photo=foodPhoto(f);return `<button type="button" class="food-place${f.category==="海鲜大餐"?" food-place-seafood":""}" data-food-id="${safe(f.id)}" aria-haspopup="dialog"><span class="food-image-wrap">${photo?`<img src="${safe(photo)}" alt="${safe(f.imageAlt)}" loading="lazy" data-food-image="${safe(f.id)}"><span class="photo-unavailable food-photo-fallback" hidden>对应实拍图暂不可用<br>点卡片看图文攻略</span>`:`<span class="photo-unavailable food-photo-empty">暂无匹配的店内实拍图<br>点卡片查看近期照片</span>`}<span class="food-photo-label" data-photo-label="${safe(f.id)}">${safe(f.photoLabel)}</span></span><span class="food-place-copy"><span class="area">${safe(f.area)} · ${safe(f.category)}</span><strong class="food-card-title">${safe(f.name)}</strong><span class="food-dish-teaser">${safe(f.dishes[0]?.split("：")[0]||f.summary)}</span><span class="food-card-summary">${safe(f.summary)}</span><span class="food-address">${safe(f.address)}</span><span class="food-card-cta">查看点单攻略 <b aria-hidden="true">↗</b></span></span></button>`}).join(""):'<p class="food-empty">这个地点暂时没有所选类别；换一个地点或类别看看。</p>';
+  filters.innerHTML=row("游玩片区","area",areas)+row("美食类型","category",categories);
+  const shown=window.XiamenFoodRanking.sort(foods.filter(matchesFoodFilter));
+  document.getElementById("foodPlaces").innerHTML=shown.length?shown.map(f=>{const photo=foodPhoto(f);const ranking=window.XiamenFoodRanking.badgeMarkup(f);return `<button type="button" class="food-place${f.category==="海鲜大餐"?" food-place-seafood":""}" data-food-id="${safe(f.id)}" aria-haspopup="dialog"><span class="food-image-wrap">${photo?`<img src="${safe(photo)}" alt="${safe(f.imageAlt)}" loading="lazy" data-food-image="${safe(f.id)}"><span class="photo-unavailable food-photo-fallback" hidden>对应实拍图暂不可用<br>点卡片看图文攻略</span>`:`<span class="photo-unavailable food-photo-empty">暂无匹配的店内实拍图<br>点卡片查看近期照片</span>`}<span class="food-photo-label" data-photo-label="${safe(f.id)}">${safe(f.photoLabel)}</span></span><span class="food-place-copy"><span class="area">${safe(f.area)} · ${safe(f.category)}</span>${ranking}<strong class="food-card-title">${safe(f.name)}</strong><span class="food-dish-teaser">${safe(f.dishes[0]?.split("：")[0]||f.summary)}</span><span class="food-card-summary">${safe(f.summary)}</span><span class="food-address">${safe(f.address)}</span><span class="food-card-cta">查看点单攻略 <b aria-hidden="true">↗</b></span></span></button>`}).join(""):'<p class="food-empty">这个地点暂时没有所选类型；换一个片区或类型看看。</p>';
   document.querySelectorAll("[data-food-image]").forEach(img=>watchFoodImage(img,foods.find(food=>food.id===img.dataset.foodImage)));
 }
 function showFoodDetail(id){
