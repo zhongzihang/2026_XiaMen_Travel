@@ -575,7 +575,10 @@
   window.XiamenExtraFoods.push({
     id:'jinhaiwan-shapowei', featuredRank:1, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
     address:'厦门大学、沙坡尾片区（原帖描述；门牌未核实，出发前按店名查地图）',
-    photoLabel:'原帖实拍图待补',
+    image:'assets/gallery/food-jinhaiwan-user-01.jpg',
+    imageAlt:'金海湾海鲜厦门菜 · 小红书原帖实拍多款海鲜拼盘',
+    photoLabel:'小红书原帖实拍',
+    photoNote:'小红书原帖实拍 · 多款海鲜拼盘',
     summary:'厦大、沙坡尾附近的海鲜大排档。近期探店笔记提到蒜蓉虾、海鲜捞面、香辣大虾和苔条年糕虾；明档点单先确认时价与总价。',
     dishes:['蒜蓉虾、香辣大虾：按当日鲜货和份量点。','海鲜捞面：笔记作者喜欢拌面口感，适合两人分享。','苔条年糕虾、鲍鱼板栗鸡：多人用餐时先问份量和价格。'],
     pair:'两人先选一道虾或海鲜面，再搭配一份蔬菜；多人同行再考虑鸡类或年糕菜。海鲜明档仍先确认规格、时价和总价。',
@@ -711,5 +714,10 @@
   appendPhotos('yousheng', [
     {src:'assets/gallery/food-yousheng-remote-01.jpg',alt:'友生风味小吃营平市场店食客上传的沙茶面照片',caption:'Trip.com食客实拍 · 友生沙茶面'},
     {src:'assets/gallery/food-yousheng-remote-02.jpg',alt:'友生风味小吃营平市场店食客上传的第二张照片',caption:'Trip.com食客实拍 · 营平市场店'}
+  ]);
+  appendPhotos('jinhaiwan-shapowei', [
+    {src:'assets/gallery/food-jinhaiwan-user-02.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍海鲜捞面与拼盘',caption:'小红书原帖实拍 · 海鲜捞面与拼盘'},
+    {src:'assets/gallery/food-jinhaiwan-user-03.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍蒜蓉大虾',caption:'小红书原帖实拍 · 蒜蓉大虾'},
+    {src:'assets/gallery/food-jinhaiwan-user-04.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍多人海鲜桌菜',caption:'小红书原帖实拍 · 多人海鲜桌菜'}
   ]);
 })();

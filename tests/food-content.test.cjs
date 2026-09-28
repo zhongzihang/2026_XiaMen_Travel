@@ -58,6 +58,22 @@ test('the two user-selected Xiaohongshu guides are featured first with matched s
   assert.equal(diaoyuchuan.image, 'assets/gallery/food-diaoyuchuan-xhs-2026.jpg');
 });
 
+test('Jinhaiwan adds the four supplied local photos to its real-photo gallery', () => {
+  const foods = loadExtraFoods();
+  const jinhaiwan = foods.find(item => item.id === 'jinhaiwan-shapowei');
+  const expected = [
+    'assets/gallery/food-jinhaiwan-user-01.jpg',
+    'assets/gallery/food-jinhaiwan-user-02.jpg',
+    'assets/gallery/food-jinhaiwan-user-03.jpg',
+    'assets/gallery/food-jinhaiwan-user-04.jpg'
+  ];
+
+  assert.equal(jinhaiwan?.image, expected[0]);
+  assert.equal(jinhaiwan?.photoLabel, '小红书原帖实拍');
+  assert.deepEqual(Array.from(jinhaiwan.gallery, photo => photo.src), expected);
+  for (const image of expected) assert.ok(fs.existsSync(path.join(root, image)), `missing local photo ${image}`);
+});
+
 test('food details render a direct Dianping destination while keeping existing Meituan links', () => {
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   assert.match(app, /food\.meituanUrl[\s\S]{0,240}在美团查看这家门店/);
