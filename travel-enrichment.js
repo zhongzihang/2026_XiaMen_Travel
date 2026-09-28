@@ -22,6 +22,27 @@
     station: { intro: '厦门站既是到达点，也是返程起点。9月30日按出站通道指引前往站前交通区；10月4日从百家村午餐后直接前往，预留节日路况、安检和找进站口的时间。', time: '10月4日建议约15:00到站', focus: '16:33 D2387 返程 · 核对进站口', originalCaption: '厦门站南广场外景与站名', captions: ['厦门站候车大厅', '厦门站北出站通道与指示牌'] }
   };
   window.XiamenPlaceStories = stories;
+  const experiences = {
+    hotel: { source:'小红书 · 是柒柒呀', date:'2025-07-27', engagement:'103赞 · 54评', title:'我要夸夸厦门这家酒店', summary:'作者分享住在夏商怡翔新语酒店文灶店的体验：文灶交通方便，行李寄存、洗衣和公共茶区实用，工作人员还给了手写游览建议。属于当次入住感受，房型配置以订单为准。', url:'https://www.xiaohongshu.com/explore/6884fcea000000001d00e9e1' },
+    station: { source:'小红书 · Yakult🥕', date:'2025-05-17', engagement:'152赞 · 12评', title:'到厦门站乘车看这一篇就够啦！', summary:'作者按进出站体验梳理南北广场、候车区和站内服务，建议给安检与找检票口预留时间。站内入口和客流以车票、现场指引为准。', url:'https://www.xiaohongshu.com/explore/6828025f000000001200353a' },
+    dongdu: { source:'小红书 · 省心游一厦（晰晰妈）', date:'2026-03-26', engagement:'550赞', title:'鼓浪屿坐船提前多久到？', summary:'笔记重点提醒先核对船票上的航线与检票口，并给安检、候船和登船留出余量；作者建议约提前半小时到码头。节假日请以订单和现场安排为准。', url:'https://www.xiaohongshu.com/explore/69c4aafd0000000021005244' },
+    sanqiutian: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'这篇压缩版路线把三丘田作为离岛节点之一，提醒先确认进出岛码头，再按体力取舍岛上景点。作者走的是速通节奏，实际游玩建议为返程候船留足时间。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0' },
+    longtou: { source:'小红书 · 明天吃什么', date:'2026-06-23', title:'鼓浪屿一上岛直奔这些店', summary:'上岛逛吃笔记把龙头路作为小吃集中片区，记录了手工灌蛋等选择。街上可以边走边选，热门店排队时换一家也不影响逛岛节奏。', url:'https://www.xiaohongshu.com/explore/6a3a529c00000000220090e6' },
+    shuzhuang: { source:'小红书 · 马铃薯大王', date:'2026-09-11', title:'记录在鼓浪屿半天的超详细攻略', summary:'半日步行攻略把街巷和园林排成较轻松的顺路走法。到菽庄花园可留出时间看园林与海景，不必为了赶下一站压缩停留。', url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195' },
+    rock: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'作者提到天气热时没有勉强登日光岩，提醒把体力和排队情况放在打卡前面。若当天炎热或队伍长，可以改为沿海慢走。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0' },
+    zhongshan: { source:'小红书 · 咩咩小探长', date:'2025-09-27', engagement:'1.4万赞', title:'厦门中山路 / 八市逛吃攻略', summary:'攻略把八市和中山路安排在同一片区逛吃，建议按胃口选小吃、晚间再慢逛骑楼街。热门店的排队和口味偏好因人而异，不必挨家复刻。', url:'https://www.xiaohongshu.com/explore/68d76399000000001301c793' },
+    yujian: { source:'小红书 · 泥巴酱（不生气专家）', date:'2026-07-07', engagement:'1905赞 · 147评', title:'厦门屿见闽南｜详细版游玩攻略', summary:'作者建议入园先在服务台取地图，再按当天演出表安排顺序；沉浸演艺是体验重点，互动项目和文创可按兴趣取舍。演出场次以景区当天公告为准。', searchKeyword:'厦门屿见闽南｜详细版游玩攻略 泥巴酱（不生气专家）' },
+    nanputuo: { source:'小红书 · 叁三.', date:'2025-12-18', engagement:'7868赞 · 128评', title:'厦门南普陀寺｜一年来南普 三年不受苦', summary:'参观笔记按寺院入口与中轴线整理游览顺序，建议慢走看殿宇和池畔。预约、开放区域和入寺安排以寺院当日通知为准。', url:'https://www.xiaohongshu.com/explore/6943a059000000001e03915b' },
+    xmu: { source:'小红书 · 波霸鲜奶', date:'2025-08-03', engagement:'8575赞 · 563评', title:'听劝！！！厦大参观入口与路线', summary:'作者刚到访后提醒，游客入口不等同于学校正门，按访客预约页面的入口和时段走能少绕路。入校安排先看厦门大学当日预约规则。', searchKeyword:'厦门大学 听劝 波霸鲜奶 游客入口 2025-08-03' },
+    baicheng: { source:'小红书 · 鱼破冰', date:'2025-05-19', engagement:'4818赞 · 74评', title:'厦门环岛路 citywalk 一日游拍照打卡全攻略', summary:'这条海岸 citywalk 把白城沙滩作为看海和拍日落的一站，晴天视野更好；沿海停留记得补水、防晒并留意潮汐与天气。', searchKeyword:'厦门环岛路citywalk一日游 拍照打卡全攻略 鱼破冰' },
+    shapowei: { source:'小红书 · 鹭岛小师妹', date:'2025-11-07', engagement:'1.3万赞', title:'第①次来厦门，别去 vs 要去', summary:'作者把沙坡尾列入值得慢逛的片区，提到避风坞、彩色街景和街边小店的组合。可先沿港湾散步，再接大学路，不必只围着拍照点走。', url:'https://www.xiaohongshu.com/explore/690db0070000000003022f7a' },
+    heping: { source:'小红书 · Hey Joey!', date:'2025-11-09', engagement:'798赞', title:'把厦门夜晚交给这艘游轮', summary:'乘船笔记分享了海上看城市灯光、吹海风和船上讲解的感受。登船口、船型和开航时间以当天订单为准，夜间建议带一件薄外套。', url:'https://www.xiaohongshu.com/explore/690f98ae0000000003036d96' },
+    botanic: { source:'小红书 · XUtopia', date:'2026-03-03', engagement:'2817赞 · 73评', title:'厦门植物园｜攻略及避雷', summary:'作者建议先选好入口，再按兴趣安排雨林与多肉区；园内坡路较多，接驳车可能排队，半日游别把园区排得太满。', url:'https://www.xiaohongshu.com/explore/69a6aa36000000002202c03d' },
+    cable: { source:'小红书 · 晚风拌汤圆', date:'2026-03-03', engagement:'1291赞 · 64评', title:'厦门钟鼓索道攻略：40分钟看山看海', summary:'体验笔记提到往返乘坐约40分钟、车厢视野开阔且山风明显，建议提前选时段；傍晚景色更柔和，实际排队和运营看当天情况。', searchKeyword:'厦门钟鼓索道攻略 40分钟看山看海 晚风拌汤圆 2026-03-03' },
+    bashi: { source:'小红书 · 咩咩小探长', date:'2025-09-04', engagement:'1.6万赞 · 200评', title:'厦门八市会惩罚每一个不做攻略的人', summary:'作者记录了八市的市场氛围和常见逛吃选择，也提醒留意海鲜计价、加工费和游客摊位报价。先问清单价与总价，再决定买不买。', url:'https://www.xiaohongshu.com/explore/68b8ec2c000000001d01e586' },
+    baijia: { source:'小红书 · 偶尔暴躁的汤圆麻麻', date:'2026-08-17', title:'厦门幸福路 Citywalk', summary:'本地步行路线从百家村附近接到幸福路、华新路，体验重点是老街巷和沿途小店的生活感。带行李时可以只选平缓的一段慢走。', url:'https://www.xiaohongshu.com/explore/6a828a6800000000270237c4' }
+  };
+  window.XiamenPlaceExperiences = experiences;
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function photos(point) {
     const story = stories[point.id] || {}, item = research[point.id];
@@ -36,6 +57,12 @@
     guide(point) {
       const story = stories[point.id];
       return story ? `<div class="place-guide"><span class="place-guide-label">沿途听一段</span><p>${esc(story.intro)}</p><div class="place-guide-time">◷ ${esc(story.time)}</div><p class="place-guide-focus">${esc(story.focus)}</p></div>` : `<p>${esc(point.note)}</p>`;
+    },
+    experience(point) {
+      const review = experiences[point.id];
+      if (!review) return '';
+      const link = window.XiamenFoodDetails?.reviewLinkMarkup(review.url || '', review.searchKeyword || '') || '';
+      return `<section class="place-experience" aria-label="${esc(point.name)}游客体验"><div class="place-experience-meta"><strong>游客体验 · ${esc(review.source.replace(/^小红书 · /, ''))}</strong><time>${esc(review.date)}</time>${review.engagement ? `<span>${esc(review.engagement)}</span>` : ''}</div><h4>${esc(review.title)}</h4><p>${esc(review.summary)}</p>${link}</section>`;
     },
     bind(root) {
       root.querySelectorAll('.place-gallery').forEach(gallery => {

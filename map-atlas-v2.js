@@ -419,7 +419,7 @@
     if (!target) return false;
     const gallery = window.XiamenPlaceGallery;
     target.innerHTML = gallery.markup(point) +
-      `<div class="map-detail-copy"><span class="section-kicker">${days[activeDay].date} · ${isSpecial(point) ? '交通与住宿' : '当日路线点'}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}</div>`;
+      `<div class="map-detail-copy"><span class="section-kicker">${days[activeDay].date} · ${isSpecial(point) ? '交通与住宿' : '当日路线点'}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div>`;
     gallery.bind(target);
     document.querySelectorAll('.atlas-daily-node').forEach(node => node.classList.toggle('is-selected', node.dataset.dayPointId === pointId));
     return true;

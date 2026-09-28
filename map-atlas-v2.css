@@ -207,6 +207,15 @@
 .map-detail-copy .place-guide-label{color:#f3c992}
 .map-detail-copy .place-guide p{color:#e2eeea}
 .map-detail-copy .place-guide p.place-guide-focus{color:#bfdad2}
+.place-experience{margin-top:1rem;padding:.8rem .9rem;border:1px solid #dce7df;border-radius:14px;background:#f8faf5;color:#425d5b;box-shadow:0 5px 14px rgba(9,35,42,.12)}
+.place-experience-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .55rem;color:#758985;font-size:.68rem;line-height:1.4}
+.place-experience-meta strong{color:#287176;font-size:.72rem}
+.place-experience h4{margin:.38rem 0 .25rem;color:#294c50;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:.91rem;line-height:1.45}
+.place-experience p{margin:0;color:#506967;font-size:.77rem;line-height:1.7}
+.place-experience .food-review-links{margin-top:.45rem}
+.place-experience .food-review-links a{font-size:.7rem}
+.place-experience .food-review-app-link{color:#176b70!important}
+.place-experience .food-review-web-link{color:#1e7076}
 .day-photo-gallery{margin:1.3rem 0 1.5rem;min-width:0}
 .day-photo-heading{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.65rem}
 .day-photo-heading h4{margin:0;color:#244a50;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:1.02rem}
