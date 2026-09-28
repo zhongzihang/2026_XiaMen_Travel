@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { validateMapData, data, routeForDay, routePointIds, pointsForRoute, overviewRoutes, amapDestinationUrl } = require('../map-data.js');
+const { validateMapData, data, routeForDay, routePointIds, pointsForRoute, overviewRoutes, amapDestinationUrl, routePlaceDetails } = require('../map-data.js');
 
 test('every route destination opens the named Amap POI or its coordinate marker', () => {
   const destinations = new Set(Object.values(data.routes).flat().map(edge => edge.to));
@@ -106,4 +106,20 @@ test('each daily route keeps its planned POI order without leaking other dates',
   for (const [dayKey, ids] of Object.entries(expected)) {
     assert.deepEqual(routePointIds(routeForDay(data, dayKey)), ids);
   }
+});
+
+test('daily place details follow visit order, omit the starting hotel, and combine repeat visits', () => {
+  const island = routePlaceDetails(data, routeForDay(data, '2026-10-01'));
+  assert.deepEqual(island.places.map(item => item.point.id), ['dongdu', 'sanqiutian', 'longtou', 'shuzhuang', 'rock', 'bashi']);
+  assert.deepEqual(island.places.find(item => item.point.id === 'sanqiutian').orders, [3, 7]);
+  assert.deepEqual(island.startHotel.orders, [1]);
+
+  const coastEdges = routeForDay(data, '2026-10-02').filter((edge, index, edges) => !(index === edges.length - 1 && edge.to === 'hotel'));
+  const coast = routePlaceDetails(data, coastEdges);
+  assert.deepEqual(coast.places.map(item => item.point.id), ['nanputuo', 'xmu', 'baicheng', 'shapowei', 'heping']);
+  assert.deepEqual(coast.startHotel.orders, [1]);
+
+  const arrival = routePlaceDetails(data, routeForDay(data, '2026-09-30'));
+  assert.deepEqual(arrival.places.map(item => item.point.id), ['station', 'hotel']);
+  assert.equal(arrival.startHotel, null);
 });

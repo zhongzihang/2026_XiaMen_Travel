@@ -403,25 +403,40 @@
       scroll.scrollTop = 0;
     }
     container.querySelectorAll('.atlas-daily-node.is-viewable').forEach(node => {
-      node.addEventListener('click', () => selectPoint(node.dataset.dayPointId));
+      node.addEventListener('click', () => selectPoint(node.dataset.dayPointId, { scroll: true }));
       node.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault(); selectPoint(node.dataset.dayPointId);
+          event.preventDefault(); selectPoint(node.dataset.dayPointId, { scroll: true });
         }
       });
     });
   }
-  function selectPoint(pointId) {
+  function placeDetailCard(item, dayIndex, { hidden = false } = {}) {
+    const { point, orders } = item;
+    const gallery = window.XiamenPlaceGallery;
+    const kind = isSpecial(point) ? '交通与住宿' : '当日路线点';
+    const hiddenAttribute = hidden ? ' hidden' : '';
+    return `<article id="day-place-${dayIndex}-${esc(point.id)}" class="map-detail day-place-card${isSpecial(point) ? ' is-special' : ''}" data-day-place-detail="${esc(point.id)}" tabindex="-1" style="--day-color:${days[dayIndex].color}"${hiddenAttribute}>` +
+      `${gallery.markup(point)}<div class="map-detail-copy"><div class="day-place-order"><span class="day-place-order-number">${esc(orders.join(' / '))}</span><span class="day-place-order-label">游览顺序</span></div><span class="section-kicker">${days[dayIndex].date} · ${kind}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div></article>`;
+  }
+  function placeDetailsMarkup(details, dayIndex) {
+    const cards = details.places.map(item => placeDetailCard(item, dayIndex)).join('');
+    const startHotel = details.startHotel ? placeDetailCard(details.startHotel, dayIndex, { hidden: true }) : '';
+    return `<div class="day-place-list-heading"><span class="section-kicker">VISIT NOTES</span><h4>当天地点 · 按游玩顺序</h4></div><div class="day-place-stack">${startHotel}${cards}</div>`;
+  }
+  function selectPoint(pointId, { scroll = false } = {}) {
     if (!activePointIds.has(pointId)) return false;
     const point = points.get(pointId);
     if (!point) return false;
     const target = document.getElementById(`day-map-detail-${activeDay}`);
     if (!target) return false;
-    const gallery = window.XiamenPlaceGallery;
-    target.innerHTML = gallery.markup(point) +
-      `<div class="map-detail-copy"><span class="section-kicker">${days[activeDay].date} · ${isSpecial(point) ? '交通与住宿' : '当日路线点'}</span><h3>${esc(point.name)}</h3><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div>`;
-    gallery.bind(target);
+    const card = [...target.querySelectorAll('[data-day-place-detail]')]
+      .find(item => item.dataset.dayPlaceDetail === pointId);
+    if (!card) return false;
+    card.hidden = false;
+    target.querySelectorAll('.day-place-card').forEach(item => item.classList.toggle('is-selected', item === card));
     document.querySelectorAll('.atlas-daily-node').forEach(node => node.classList.toggle('is-selected', node.dataset.dayPointId === pointId));
+    if (scroll) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return true;
   }
   function renderDay(index) {
@@ -434,6 +449,11 @@
     const island = document.getElementById(`day-island-map-${activeDay}`);
     const ferry = document.getElementById(`day-ferry-${activeDay}`);
     const detail = document.getElementById(`day-map-detail-${activeDay}`);
+    const placeDetails = dataTools.routePlaceDetails(data, edges);
+    if (detail) {
+      detail.innerHTML = placeDetailsMarkup(placeDetails, activeDay);
+      window.XiamenPlaceGallery.bind(detail);
+    }
     if (main) { main.innerHTML = dailyMap('main', edges, localPoints, activeDay); bindDailyNodes(main); }
     if (island) {
       island.hidden = !localPoints.some(point => point.view === 'island');
@@ -446,8 +466,8 @@
       ferry.innerHTML = ferryEdge ? '<span class="map-ferry-label">02 → 03 · 去程轮渡约 20 分钟</span><strong>东渡客运码头</strong><b class="map-ferry-time">10:30 开船</b><span class="map-ferry-arrow" aria-hidden="true">→</span><strong>三丘田码头</strong><span class="map-ferry-label">返厦后按船票上岸码头接八市晚餐</span>' : '';
     }
     renderTransit(edges, activeDay);
-    const first = localPoints.find(point => !isSpecial(point)) || localPoints[0];
-    if (first) selectPoint(first.id);
+    const first = placeDetails.places.find(item => !isSpecial(item.point)) || placeDetails.places[0] || placeDetails.startHotel;
+    if (first) selectPoint(first.point.id);
     else if (detail) detail.innerHTML = `<div class="map-detail-empty"><span class="section-kicker">${days[activeDay].date} · 当日路线</span><h3>到站与入住</h3><p>此日以交通和休息为主，没有安排景点打卡。</p></div>`;
     return { edges, points: localPoints };
   }

@@ -27,3 +27,18 @@ test('mobile dates retain five readable tap targets without horizontal page over
   assert.match(css, /\.atlas-day-links button\{min-width:0;min-height:2\.75rem/);
   assert.match(css, /\.overview-map-zoom-canvas\{[^}]*overflow:auto/);
 });
+
+test('daily ordered place cards sit above transit and map pins scroll to their details', () => {
+  const app = read('app.js');
+  const atlas = read('map-atlas-v2.js');
+  const css = read('map-atlas-v2.css');
+  assert.ok(app.indexOf('class="day-place-list"') < app.indexOf('class="atlas-transit"'));
+  assert.match(atlas, /function placeDetailsMarkup\(details, dayIndex\)/);
+  assert.match(atlas, /orders\.join\(' \/ '\)/);
+  assert.match(atlas, /day-place-stack">\$\{startHotel\}\$\{cards\}/);
+  assert.match(atlas, /selectPoint\(node\.dataset\.dayPointId, \{ scroll: true \}\)/);
+  assert.match(atlas, /card\.scrollIntoView\(\{ behavior: 'smooth', block: 'center' \}\)/);
+  assert.match(css, /\.day-place-card\[hidden\]\{display:none!important\}/);
+  assert.match(css, /\.day-place-card\{[^}]*grid-template-columns:minmax\(220px/);
+  assert.match(css, /\.day-place-card\{[^}]*grid-template-columns:minmax\(0,1fr\)\}/);
+});

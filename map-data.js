@@ -34,6 +34,28 @@
     return [...new Set([edges[0].from, ...edges.map(edge => edge.to)])];
   }
 
+  function routePlaceDetails(data, edges) {
+    if (!Array.isArray(edges) || edges.length === 0) return { places: [], startHotel: null };
+    const points = new Map(data.points.map(point => [point.id, point]));
+    const sequence = [edges[0].from, ...edges.map(edge => edge.to)];
+    const visits = new Map();
+    sequence.forEach((id, index) => {
+      const point = points.get(id);
+      if (!point) return;
+      if (!visits.has(id)) visits.set(id, { point, orders: [] });
+      visits.get(id).orders.push(index + 1);
+    });
+    const ordered = [...visits.values()];
+    const firstPoint = points.get(sequence[0]);
+    const startHotel = firstPoint?.locationType === 'hotel'
+      ? ordered.find(item => item.point.id === firstPoint.id) || null
+      : null;
+    return {
+      places: ordered.filter(item => item !== startHotel),
+      startHotel
+    };
+  }
+
   function pointsForRoute(data, edges) {
     const ids = new Set(routePointIds(edges));
     return data.points.filter(point => ids.has(point.id));
@@ -124,5 +146,5 @@
     }
   };
   validateMapData(data);
-  return { validateMapData, routeForDay, routePointIds, pointsForRoute, overviewRoutes, amapDestinationUrl, data };
+  return { validateMapData, routeForDay, routePointIds, routePlaceDetails, pointsForRoute, overviewRoutes, amapDestinationUrl, data };
 });
