@@ -12,7 +12,7 @@ function loadExtraFoods(researchOverrides = {}) {
     ['yuehua', 'huangzehe', 'minhenan', 'yanyu', 'wutang', 'yubao'].map(id => [id, { ...item, ...researchOverrides[id] }])
   ) };
   const source = fs.readFileSync(path.join(root, 'travel-enrichment.js'), 'utf8');
-  vm.runInNewContext(source, { window });
+  vm.runInNewContext(source, { window, URL });
   return window.XiamenExtraFoods;
 }
 
@@ -124,7 +124,7 @@ test('new XHS discoveries add a seafood rice meal and a Shapowei Taiwanese snack
 test('food detail gallery and evaluation markup scales to photo count and escapes review text', () => {
   const window = {};
   const source = fs.readFileSync(path.join(root, 'food-details.js'), 'utf8');
-  vm.runInNewContext(source, { window });
+  vm.runInNewContext(source, { window, URL });
   const helper = window.XiamenFoodDetails;
   const multi = helper.galleryMarkup({
     name: '店名', gallery: [{ src: 'one.jpg', caption: '第一张' }, { src: 'two.jpg', caption: '第二张' }]
@@ -139,6 +139,21 @@ test('food detail gallery and evaluation markup scales to photo count and escape
   assert.match(reviews, /食客评测/);
   assert.match(reviews, /&lt;b&gt;口感&lt;\/b&gt;不错/);
   assert.match(reviews, /https:\/\/example\.com\/review/);
+});
+
+test('Xiaohongshu review links use a note-id app deep link and a stable token-free web fallback', () => {
+  const window = {};
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'food-details.js'), 'utf8'), { window, URL });
+  const markup = window.XiamenFoodDetails.reviewsMarkup([{
+    source: '小红书 · 食客', title: '到店记录', summary: '现场体验摘要',
+    url: 'https://www.xiaohongshu.com/search_result/66ab1234567890ab?xsec_token=volatile-token&xsec_source='
+  }]);
+
+  assert.match(markup, /href="xhsdiscover:\/\/item\/66ab1234567890ab"/);
+  assert.match(markup, /打开小红书 App/);
+  assert.match(markup, /href="https:\/\/www\.xiaohongshu\.com\/explore\/66ab1234567890ab"/);
+  assert.match(markup, /网页查看原帖/);
+  assert.doesNotMatch(markup, /volatile-token|search_result/);
 });
 
 test('researched reviews and append-only photo galleries preserve existing Wenzao hero photos', () => {

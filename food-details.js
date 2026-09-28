@@ -5,6 +5,22 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[character]);
 
+  function reviewLinkMarkup(rawUrl) {
+    let url;
+    try { url = new URL(rawUrl); } catch { return ''; }
+    if (url.protocol !== 'https:') return '';
+    const host = url.hostname.toLowerCase();
+    if (host === 'xiaohongshu.com' || host.endsWith('.xiaohongshu.com')) {
+      const match = url.pathname.match(/^\/(?:search_result|explore)\/([\w-]+)\/?$/i);
+      if (match) {
+        const noteId = match[1];
+        const webUrl = `https://www.xiaohongshu.com/explore/${encodeURIComponent(noteId)}`;
+        return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://item/${escapeHtml(noteId)}">打开小红书 App ↗</a><a class="food-review-web-link" href="${escapeHtml(webUrl)}" target="_blank" rel="noopener noreferrer">网页查看原帖 ↗</a></div>`;
+      }
+    }
+    return `<a class="food-review-web-link" href="${escapeHtml(url.href)}" target="_blank" rel="noopener noreferrer">查看评测原帖 ↗</a>`;
+  }
+
   function photos(food) {
     const gallery = Array.isArray(food.gallery) ? food.gallery.filter(photo => photo && photo.src) : [];
     if (gallery.length) return gallery;
@@ -26,7 +42,7 @@
 
   function reviewsMarkup(reviews) {
     if (!Array.isArray(reviews) || !reviews.length) return '';
-    const cards = reviews.map(review => `<article class="food-review-card"><div class="food-review-meta"><strong>${escapeHtml(review.source || '食客评测')}</strong>${review.date ? `<time>${escapeHtml(review.date)}</time>` : ''}${review.rating ? `<span class="food-review-rating">${escapeHtml(review.rating)}</span>` : ''}</div><h4>${escapeHtml(review.title || '到店体验')}</h4><p>${escapeHtml(review.summary)}</p>${review.url ? `<a href="${escapeHtml(review.url)}" target="_blank" rel="noopener noreferrer">查看评测原帖 ↗</a>` : ''}</article>`).join('');
+    const cards = reviews.map(review => `<article class="food-review-card"><div class="food-review-meta"><strong>${escapeHtml(review.source || '食客评测')}</strong>${review.date ? `<time>${escapeHtml(review.date)}</time>` : ''}${review.rating ? `<span class="food-review-rating">${escapeHtml(review.rating)}</span>` : ''}</div><h4>${escapeHtml(review.title || '到店体验')}</h4><p>${escapeHtml(review.summary)}</p>${review.url ? reviewLinkMarkup(review.url) : ''}</article>`).join('');
     return `<section class="food-reviews" aria-label="食客评测"><h3>食客评测</h3><div class="food-review-list">${cards}</div><p class="food-review-note">个人体验与平台评分分开展示；实际口味、排队与营业情况以到店为准。</p></section>`;
   }
 
@@ -78,5 +94,5 @@
     image.addEventListener('error', () => gallery.querySelector('[data-gallery-unavailable]')?.removeAttribute('hidden'));
   }
 
-  window.XiamenFoodDetails = { photos, galleryMarkup, reviewsMarkup, bind };
+  window.XiamenFoodDetails = { photos, galleryMarkup, reviewsMarkup, reviewLinkMarkup, bind };
 })();
