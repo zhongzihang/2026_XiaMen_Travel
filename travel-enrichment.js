@@ -83,6 +83,25 @@
     food('wutang','沙坡尾','厦门小吃','民族路上的沙茶面选择，适合把午餐安排在厦港一带时顺路去。汤底浓，海鲜和豆干可按口味搭配。',['沙茶面配鱿鱼：先确认当日加料价格。','海蛎与豆干：鲜味与吸汤口感搭配。','米血或鱼丸：按食量选一两样即可。'],'每人一碗面、每碗两三种料，避免一次加太多。','民族路76号，距沙坡尾需再步行一段；更适合早餐或午餐，勿默认晚间营业。'),
     food('yubao','沙坡尾','厦门小吃','大学路上可以轻量尝鲜的一站。芋包的芋香外皮配咸口内馅，适合逛沙坡尾中途垫垫肚子。',['芋包：先点一份，两人分着尝。','海蛎汤：配芋包作为轻食。','鱼丸汤：不吃海蛎时可换这一碗。'],'一份芋包加两碗汤，或每人一份芋包；吃完再决定是否加餐。','大学路91号，适合沙坡尾散步中途停留；芋包较顶饱，正餐前少量尝鲜。'),
   ];
+  const yuehua = window.XiamenExtraFoods.find(item => item.id === 'yuehua');
+  if (yuehua) {
+    yuehua.gallery.push({src:'https://www.woshiji.cn/uploadfile/2023/0905/20230905013442743.jpg',alt:'蜗食记食客拍摄的月华沙茶面镇邦路门店',caption:'蜗食记食客实拍 · 镇邦路门店'});
+    yuehua.reviews = [...(yuehua.reviews || []),
+      {source:'携程食客点评',date:'2022-02-05',rating:'4/5',title:'海鲜沙茶面用料丰富',summary:'食客觉得沙茶面种类多、海鲜口味更好，环境和服务也不错；这是中山路店的旧评价，价格不作当前参考。',url:'https://you.ctrip.com/food/xiamen21/5158527-dianpingCategory5.html'},
+      {source:'携程食客点评',date:'2022-01-15',rating:'5/5',title:'老字号与新鲜选料',summary:'另一位食客称招牌沙茶面好吃、选料新鲜。不同食客对汤底浓淡感受不同，建议先按个人口味选择加料。',url:'https://you.ctrip.com/food/xiamen21/5158527-dianpingCategory5.html'}
+    ];
+  }
+  const huangzehe = window.XiamenExtraFoods.find(item => item.id === 'huangzehe');
+  if (huangzehe) {
+    huangzehe.gallery.push(
+      {src:'https://ak-d.tripcdn.com/images/1mi1p12000h2xwjdhD036.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍黄则和中山路店内柜台',caption:'Trip.com旅行者实拍 · 中山路店'},
+      {src:'https://ak-d.tripcdn.com/images/1mi5r224x955i1ydk6509.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍黄则和花生汤',caption:'Trip.com旅行者实拍 · 花生汤'}
+    );
+    huangzehe.reviews = [...(huangzehe.reviews || []),
+      {source:'携程食客点评',date:'2024-05-26',rating:'5/5',title:'花生汤和海蛎羹',summary:'食客觉得花生汤软糯，另外点了海蛎羹，评价鲜嫩；同一餐也尝了姜母鸭。单次体验不代表每道菜都适合所有人口味。',url:'https://you.ctrip.com/food/xiamen21/319796.html'},
+      {source:'携程食客点评',date:'2023-09-01',rating:'4/5',title:'甜汤适合喜欢软糯口感的人',summary:'食客喜欢热花生汤，也提到店内生意忙时服务一般；另一位评价认为花生汤偏甜、烧卖偏油，说明甜度和炸物油感的接受度有差异。',url:'https://you.ctrip.com/food/xiamen21/319796.html'}
+    ];
+  }
   window.XiamenExtraFoods.push(
     {
       id:'haodelai', area:'百家村', category:'闽南正餐', name:'百家春好德来姜母鸭', address:'厦门市思明区中兴路40号',
@@ -105,19 +124,37 @@
     {
       id:'qingjun', area:'文灶', category:'厦门小吃', name:'庆君汤包·沙茶面（文灶店）', address:'厦门市思明区厦禾路873号1-2-3',
       image:'assets/gallery/food-qingjun-bao-3.jpg', imageAlt:'庆君汤包店铺相册中的汤包与汤品', photoLabel:'店铺相册 · 汤包实拍',
+      gallery:[
+        {src:'assets/gallery/food-qingjun-bao-3.jpg',alt:'庆君汤包店铺相册中的汤包与汤品',caption:'现有庆君汤包实拍'},
+        {src:'https://ak-d.tripcdn.com/images/1mh1b12000c812am65F36_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'Trip.com食客上传的庆君汤包实拍',caption:'Trip.com食客实拍 · 庆君汤包'},
+        {src:'https://ak-d.tripcdn.com/images/0104f120009kxzqr9D9BE_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'Trip.com食客上传的庆君汤包第二张实拍',caption:'Trip.com食客相册 · 庆君汤包'}
+      ],
       summary:'文灶附近的汤包和拌面选择，适合抵达夜或返程前吃一顿热乎的简餐。',
       dishes:['原香味或蟹黄汤包：先点一笼，留意汤汁烫口。','拌面或酸笋豆腐汤：两人择一搭配。'],
       pair:'一笼汤包配一份拌面或汤共享，按当天胃口加点。',
       tip:'店铺页面列出的汤包、拌面与酸笋汤可作点单参考；节日期间营业以门店为准。',
+      reviews:[
+        {source:'携程食客评价',date:'2023-09-23',rating:'4/5',title:'蟹黄汤包、拌面与酸笋豆腐汤',summary:'食客评价店内整洁、上菜快；蟹黄汤包皮薄汤足，花生酱拌面香，酸笋豆腐汤够味。评论也提醒汤包刚上桌时很烫。',url:'https://you.ctrip.com/food/21/7105787.html'},
+        {source:'携程食客评价',date:'2021-11-12',rating:'5/5',title:'晚餐时段人气较高',summary:'一位回访食客推荐原味与蟹黄汤包、酸笋豆腐汤和自制辣酱，并提到饭点常排队；节假日建议留出等候时间。',url:'https://you.ctrip.com/food/21/7105787.html'}
+      ],
       source:'https://you.ctrip.com/food/21/7105787.html', sourceLabel:'查看门店相册与食客点评 ↗', showPhotoLink:true
     },
     {
       id:'xiaoyanjing', area:'文灶', category:'海鲜大餐', name:'小眼镜大排档（湖滨中路店）', address:'厦门市思明区湖滨中路7号',
       image:'assets/gallery/food-xiaoyanjing-1.jpg', imageAlt:'小眼镜大排档湖滨中路店门面实拍', photoLabel:'湖滨中路店实拍',
+      gallery:[
+        {src:'assets/gallery/food-xiaoyanjing-1.jpg',alt:'小眼镜大排档湖滨中路店门面实拍',caption:'现有湖滨中路店门面实拍'},
+        {src:'https://ak-d.tripcdn.com/images/100r050000000m8x7C7A8.jpg?proc=source%2Ftrip',alt:'Trip.com旅客上传的小眼镜大排档汇成总店门面照片',caption:'Trip.com旅客实拍 · 汇成总店门面'}
+      ],
       summary:'文灶附近的海鲜大排档备选，适合想坐下来吃酱油水海鲜和炒面线的晚上。',
       dishes:['酱油水海鲜：按当天鲜货选鱼或鱿鱼。','炒面线与时蔬：给海鲜配一份主食和青菜。'],
       pair:'两人选一道海鲜主菜、一份青菜和炒面线；点单前看清重量、加工方式和总价。',
       tip:'照片是湖滨中路门面旧照，招牌与现场可能变化；营业和鲜货以当日为准。',
+      reviews:[
+        {source:'大众点评门店评分',date:'2026-09-28',rating:'4.5/5 · 21,621条评价',title:'门店综合评分参考',summary:'大众点评当前检索到湖滨中路汇成总店评分4.5/5。这里展示平台汇总分，不把它当作单条食客评语。',url:'https://www.dianping.com/shop/k1E5jbsQYdlETttn'},
+        {source:'Tripadvisor食客评价',date:'2018',title:'排队与点菜体验',summary:'一位周日晚到访者称两人约等半小时，认为海鲜值得尝、菜单标价清楚；同时觉得饮品选择少、茶味淡。该评论较旧，节假日等位可能更久。',url:'https://cn.tripadvisor.com/Restaurant_Review-g297407-d3494940-Reviews-XiaoYan_Jing_DaPai_Dang_HuBin_Middle_Road-Xiamen_Fujian.html'},
+        {source:'高德地图用户评价',date:'2016-05-03',rating:'4.4/5',title:'较早的到店反馈',summary:'早期评论提到菜品味道不错、两人消费约180元；年代较久，价格信息不作当前参考。',url:'https://www.amap.com/place/B025003TAE'}
+      ],
       source:'https://4travel.jp/os_shisetsu/10440355', sourceLabel:'查看到店照片与点评 ↗', showPhotoLink:true
     },
     {
@@ -475,4 +512,147 @@
       reviews:[{source:'小红书 · 阿文未完成的世界旅行',date:'2026-05-09',title:'台式卤肉饭实吃反馈',summary:'作者觉得卤肉饭和刈包值得点，卤肉偏咸甜；汤品普通，臭豆腐和鸭血的味道不够突出，四神汤带一点苦味。店里座位较少，笔记称沙坡尾交叉口附近，属于一篇个人实吃评价。',url:'https://www.xiaohongshu.com/search_result/69fe131c000000003502a603?xsec_token=ABn7ASltxMykLvu9NMUQ9plTHH0RG-NWj_SfPVSolF_-c=&xsec_source='}]
     }
   );
+  window.XiamenExtraFoods.push({
+    id:'menglinxi-shaojiu', area:'文灶', category:'闽南正餐', name:'梦林夕烧酒档',
+    address:'厦门市思明区后埭溪路105号附近（各平台门牌标注有差异）',
+    image:'https://ak-d.tripcdn.com/images/1mi1w224x8w4h2t380A85_R_600_400_R5_Q90.jpg?proc=source%2Ftrip',
+    imageAlt:'Trip.com旅行者实拍的文灶林夕烧酒档门头', photoLabel:'Trip.com旅行者实拍 · 文灶店',
+    gallery:[
+      {src:'https://ak-d.tripcdn.com/images/1mi1w224x8w4h2t380A85_R_600_400_R5_Q90.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍的林夕烧酒档门头',caption:'Trip.com旅行者实拍 · 林夕烧酒档门头'},
+      {src:'https://ak-d.tripcdn.com/images/1mi0p224x8w4f0c4c4E8F_W_200_0_R5_Q50.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者相册中的林夕烧酒档照片',caption:'Trip.com旅行者相册实拍'},
+      {src:'https://ak-d.tripcdn.com/images/1mi54224x8w4hhpy06AF4_W_200_0_R5_Q50.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者相册中的林夕烧酒档第二张照片',caption:'Trip.com旅行者相册实拍'}
+    ],
+    summary:'文灶后埭溪路的闽南烧酒档，离住宿片区近，适合晚餐吃海鲜和家常热菜。近期小红书仍有店名明确的探店笔记；可读取的食客评论推荐皮皮虾与炸鳗鱼。',
+    dishes:['皮皮虾：旅行者实评提到虾肉鲜甜，按当天鲜货和价格确认。','炸鳗鱼：评论者喜欢酥脆口感，趁热分享。','其他海鲜与闽南菜：看当日水牌，点单前确认重量和总价。'],
+    pair:'两人先选一道海鲜主菜，再搭配炸鳗鱼或青菜与米饭；海鲜先让店员报重量和总价。',
+    tip:'大众点评、高德与携程对门牌分别标作后埭溪路105-101、105-104、105-108附近，写法不一致；地图搜“梦林夕烧酒档”并现场核对。小红书9月24日、27日仍有新笔记，但详情页暂无法读取，未据标题扩写菜品评价。',
+    source:'https://www.xiaohongshu.com/search_result/6ab8010a000000001b02c2b8?xsec_token=ABe_xEllw8dMu28xxcYSEddFEEnvESKP6lNGm55FzwDpk=&xsec_source=',
+    mapUrl:'https://uri.amap.com/search?keyword=梦林夕烧酒档后埭溪路105号&city=厦门',
+    dianpingUrl:'https://www.dianping.com/shop/l5la92Ek3ZooBixA',
+    reviews:[
+      {source:'大众点评门店评分',date:'2026-09-28',rating:'4.5/5 · 8,109条评价',title:'文灶店综合口碑参考',summary:'大众点评按“梦林夕烧酒档”检索到后埭溪路门店，当前评分4.5/5。此为平台汇总分，不代表每位食客的个人留言。',url:'https://www.dianping.com/shop/l5la92Ek3ZooBixA'},
+      {source:'Trip.com旅行者实评',date:'2024-08-29',title:'皮皮虾、炸鳗鱼与排队号',summary:'作者由当地朋友带路，推荐皮皮虾和炸鳗鱼，喜欢后者酥脆的口感；饭点现场取号且排队较多，建议早点到。',url:'https://tw.trip.com/moments/detail/xiamen-21-124020997/'}
+    ]
+  });
+
+  const foodById = id => window.XiamenExtraFoods.find(food => food.id === id);
+  function appendReviews(id, reviews) {
+    const food = foodById(id);
+    if (food) food.reviews = [...(food.reviews || []), ...reviews];
+  }
+  function appendPhotos(id, photos) {
+    const food = foodById(id);
+    if (!food) return;
+    if (!Array.isArray(food.gallery)) {
+      food.gallery = food.image ? [{
+        src: food.image,
+        alt: food.imageAlt || food.name,
+        caption: food.photoNote || food.photoLabel || `${food.name} · 现有首图`
+      }] : [];
+    } else if (food.image && !food.gallery.some(photo => photo.src === food.image)) {
+      food.gallery.unshift({
+        src: food.image,
+        alt: food.imageAlt || food.name,
+        caption: food.photoNote || food.photoLabel || `${food.name} · 现有首图`
+      });
+    }
+    const known = new Set(food.gallery.map(photo => photo.src));
+    for (const photo of photos) {
+      if (!known.has(photo.src)) {
+        food.gallery.push(photo);
+        known.add(photo.src);
+      }
+    }
+  }
+
+  appendReviews('minhenan', [
+    {source:'携程食客点评',date:'携程点评页收录',title:'侨乡葱茸包与闽南萝卜饭',rating:'4.7/5 · 12条点评',summary:'万象城店食客喜欢侨乡葱茸包的甜咸口和湿润嚼劲，也称赞花雕酒醉河田鸡、萝卜饭；另一位食客提到招牌包子有售罄情况，并觉得脆肚海鱼羹略腥。',url:'https://gs.ctrip.com/html5/you/foods/fooddetail/2016005/24684224.html'}
+  ]);
+  appendReviews('yanyu', [
+    {source:'携程食客点评',date:'2022-12-31',title:'鹅肝虾仁炒饭与芝麻汤圆',rating:'4/5',summary:'食客觉得万象城店环境复古、服务热情，鹅肝虾仁炒饭分量比预期大、米粒分明，但口味稍咸；茉莉花黑芝麻汤圆香甜软糯。',url:'https://you.ctrip.com/food/xiamen21/22596335-dianping174433899.html'},
+    {source:'携程旅行者实评',date:'2020-05-24',title:'海虎虾与胡椒猪肚肉骨茶',rating:'5/5',summary:'食客评价工作日高峰仍接近满座，服务态度好；避风塘黑醋海虎虾肉质弹，胡椒猪肚肉骨茶的胡椒味不重。菜品会随季节调整。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/restaurant-57273917/'}
+  ]);
+  appendReviews('wutang', [
+    {source:'携程食客点评',date:'携程点评页收录',title:'配料充足，但价格和汤底口味有分歧',rating:'4.6/5 · 703条点评',summary:'有食客提到一早排队、配料足，认为是自己尝过几家里最好的一碗；也有食客觉得价格偏高、汤底偏甜而面味清淡。想吃建议早点到，按喜好少量选料。',url:'https://gs.ctrip.com/html5/you/foods/Xiamen21/317925.html'}
+  ]);
+  appendReviews('yubao', [
+    {source:'Trip.com旅行者实评',date:'2022-04-01',title:'芋包咸甜软糯，鱼丸汤适合搭配',rating:'4/5',summary:'食客沿沙坡尾逛到大学路店，觉得芋包口感特别，芋泥香、馅料丰富，蘸酱后咸甜交织；配鱼丸汤吃比较舒服。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/yubaosao-22767561/'}
+  ]);
+  appendReviews('haodelai', [
+    {source:'Trip.com食客点评',date:'2021-05-05',title:'姜母鸭香浓下饭，街边环境较简朴',rating:'4/5',summary:'食客称姜母鸭开锅香气浓，姜片能缓和油腻，鸭肉大多肥瘦适中、配饭合适；评论也明确提到店外小桌和街边环境比较简朴。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/bai-jia-chun-hao-de-lai-jiang-mu-ya-11309499/'},
+    {source:'Trip.com食客点评',date:'2023-09-29',title:'姜味比鸭肉更突出',rating:'4/5',summary:'另一位食客的反馈较保留，觉得姜比鸭肉更有味道；口味偏好不同，点单前可先确认份量。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/bai-jia-chun-hao-de-lai-jiang-mu-ya-11309499/'}
+  ]);
+  appendReviews('tusun', [
+    {source:'携程食客点评',date:'携程点评页收录',title:'土笋冻口感评价不一',rating:'4.8/5 · 192条点评',summary:'有食客喜欢店里透明胶质的土笋冻和新鲜选料，也有游客觉得土笋冻脆感一般、章鱼价格偏高；初次尝试可先点小份，并现场看价牌。',url:'https://gs.ctrip.com/html5/you/foods/GuanxunTown2099212/4926278.html'},
+    {source:'高德地图用户评价',date:'2017-06-23',title:'有食客觉得味道偏淡',rating:'1/5',summary:'一条较早的高德评价认为土笋冻味道偏淡。年代较久，仅作口味分歧参考，不代表当前出品。',url:'https://www.amap.com/place/B025001MZM'}
+  ]);
+  appendReviews('ajie-wuxiang', [
+    {source:'去哪儿旅行者食记',date:'2021-02-20',title:'现炸五香卷外酥里软',summary:'作者把八市开禾路111号的阿杰五香列为自己喜欢的五香店，提到现炸外皮酥脆、内馅软糯有肉粒；原帖也介绍了生五香可买回家再炸。价格为旧帖信息，不沿用。',url:'https://touch.travel.qunar.com/poi/7841457'}
+  ]);
+  appendReviews('huiyuan-bread', [
+    {source:'十六番食客分享',date:'2020-02-06',title:'老式面包便宜亲切，热门时段会排队',summary:'作者把惠源称作八市菜市场口的老式面包店，觉得价格实惠、带怀旧味道，也坦言口感不算特别惊艳；店面较旧，排队时常能看到人流。',url:'https://live.16fan.com/info/154487.html'},
+    {source:'高德地图用户评价',date:'2022-06-13',title:'便宜好吃，服务亲切',rating:'5/5',summary:'开禾路22号门店的高德用户评价称面包便宜好吃、物有所值，并表扬老板服务态度好。',url:'https://www.amap.com/place/B0FFG0388Z'}
+  ]);
+  appendReviews('yousheng', [
+    {source:'Trip.com食客点评',date:'2020-04-07',title:'配料新鲜足量，沙茶味偏浓',rating:'4/5',summary:'食客在营平市场入口的小店点了猪脚面、沙茶面和卤面，觉得猪脚有嚼劲、配料新鲜足量；同时认为沙茶的花生味较浓、卤面带辣，未必合每个人口味。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/restaurant-11309262/'},
+    {source:'Trip.com食客点评',date:'2020-01-04',title:'街边小摊的浓汤与鲜配料',rating:'4/5',summary:'另一位食客提到沙茶汤浓郁，鸭血、猪肝细嫩，海蛎新鲜、豆干入味；觉得面条韧度普通。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/restaurant-11309262/'}
+  ]);
+  appendReviews('baicheng-duck-porridge', [
+    {source:'携程食客点评',date:'携程点评页收录',title:'鸭粥绵密，热天凉天都有人点',rating:'4.6/5 · 117条点评',summary:'食客称鸭肉粥口味不错、入口绵密，鸭腿和油条也受好评；另有评价提到店内干净、服务热情。',url:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/5159093.html'}
+  ]);
+  appendReviews('linsixi', [
+    {source:'Trip.com旅行者实评',date:'2022-08-08',title:'鼓浪屿正餐热门，午饭需留意候位',rating:'5/5',summary:'旅行者喜欢店内复古建筑氛围，认为菜品和服务不错；中午客人较多，入座需要等候，鼓浪屿热门时段建议预留排队时间。',url:'https://jp.trip.com/restaurant/china/xiamen/detail/lim-suhi-73142261/'}
+  ]);
+  appendReviews('sibei-bread', [
+    {source:'美篇食客分享',date:'2023-03-20',title:'特香包扎实有奶香，甜口略干',summary:'作者在思北店排队买到特香包，觉得面包扎实、奶香足，复烤后外脆里嫩；甜口比咸口干一些，也提醒不必为了它排很久。',url:'https://www.meipian.cn/4oat191l'}
+  ]);
+  appendReviews('xinaqiang', [
+    {source:'去哪儿旅行者点评',date:'2019-12-29',title:'海鲜池醒目，芒果汁受到好评',summary:'食客记录思明东路78号门店有海鲜池，上菜快、服务态度不错，喜欢海鲜炒饭和酸甜芒果汁；这次没有点姜母鸭，原帖表示下次再试。',url:'https://touch.travel.qunar.com/comment/10162469847'},
+    {source:'携程食客点评',date:'2023-09-24',title:'姜母鸭与海鲜体验有好有坏',summary:'一位食客觉得姜母鸭姜香明显、海鲜新鲜，但嫌鸭肉偏油；另有同行体验提到煎蟹蟹脚不完整，店家提供了处理。点海鲜前应确认份量和做法。',url:'https://you.ctrip.com/food/xiamen21/15475179-dianping159521412.html'}
+  ]);
+  appendReviews('taoxi', [
+    {source:'Apple Maps用户评价',date:'平台评论汇总',rating:'4.7/5 · 5,829条',title:'新鲜海鲜与个别菜品意见不一',summary:'该店汇总评价较高；可见评论中有人称海鲜、竹笋和米饭表现好，也有食客不喜欢当次螃蟹的苦味、鱿鱼的咸腥。海鲜和时令菜最好先看当天鲜货。',url:'https://maps.apple.com/place?_provider=57879&place-id=H2710I3F97D1544514C'}
+  ]);
+  appendReviews('huangji-siguo', [
+    {source:'携程食客点评',date:'2020-10-30',title:'手工配料多，刨冰清凉解暑',rating:'5/5',summary:'食客提到红豆、仙草、凉粉、阿达子和手工汤圆等配料，觉得四果汤正宗、价格亲民，适合在附近逛吃时消暑。',url:'https://you.ctrip.com/food/21/12548005.html'},
+    {source:'携程食客点评',date:'2020-12-18',title:'一碗份量足，适合九中附近顺路尝',rating:'5/5',summary:'另一位食客写到店面不大、座位有限，但配料丰富、份量足，刨冰淋菠萝糖水后清凉开胃。原帖价格不作为当前参考。',url:'https://you.ctrip.com/food/21/12548005.html'}
+  ]);
+  appendReviews('bapopo', [
+    {source:'Trip.com食客点评',date:'2022-05-23',title:'烧仙草配料足，蜂蜜和奶茶口味都有人喜欢',summary:'中山路店食客觉得一杯价格实惠、底料丰富；其他游客喜欢蜂蜜和奶茶两种口味，提醒用勺子吃更方便。此处展示个人体验，不代表每家分店的配方完全相同。',url:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'}
+  ]);
+  appendReviews('diaoyuchuan-shapowei', [
+    {source:'Trip.com旅行者实评',date:'Trip Moment（页面显示1月6日）',title:'姜母鸭、沙茶锅和海蛎捞饭',summary:'作者称由本地朋友带路，喜欢炒年糕蟹捞面、海蛎捞饭和咸甜葱茸包，也推荐姜母鸭与沙茶锅；这是单次探店体验，不能代表每桌出品。',url:'https://hk.trip.com/moments/detail/xiamen-21-140202476/'}
+  ]);
+
+  appendPhotos('minhenan', [
+    {src:'https://dimg04.c-ctrip.com/images/0105c1200084oq5nz4FCF_D_180_180.jpg?proc=autoorient',alt:'携程食客上传的闽和南万象城店菜品照片',caption:'携程食客实拍 · 闽和南菜品'},
+    {src:'https://dimg04.c-ctrip.com/images/0104g1200084oq5ny6C83_D_180_180.jpg?proc=autoorient',alt:'携程食客上传的闽和南万象城店第二张菜品照片',caption:'携程食客实拍 · 万象城店菜品'}
+  ]);
+  appendPhotos('yanyu', [
+    {src:'https://ak-d.tripcdn.com/images/0106h12000acrudukA106_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'宴遇万象城店食客上传的菜品实拍',caption:'Trip.com食客实拍 · 万象城店菜品'},
+    {src:'https://ak-d.tripcdn.com/images/0102912000acruq3l8226_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'宴遇万象城店食客上传的第二张菜品实拍',caption:'Trip.com食客实拍 · 福建菜'}
+  ]);
+  appendPhotos('yubao', [
+    {src:'https://ak-d.tripcdn.com/images/01029120009e2gyva9623_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'芋包嫂大学路店食客上传的菜品照片',caption:'Trip.com食客实拍 · 芋包嫂菜品'},
+    {src:'https://ak-d.tripcdn.com/images/01044120009e2irlg4621_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'芋包嫂大学路店食客上传的第二张照片',caption:'Trip.com食客实拍 · 大学路店'}
+  ]);
+  appendPhotos('haodelai', [
+    {src:'https://ak-d.tripcdn.com/images/0103s120008n09b7q9BE1_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'百家春好德来姜母鸭食客上传的菜品实拍',caption:'Trip.com食客实拍 · 百家村好德来'},
+    {src:'https://ak-d.tripcdn.com/images/0104o120008n0azpb7DDE_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'百家春好德来姜母鸭食客上传的第二张照片',caption:'Trip.com食客实拍 · 姜母鸭'}
+  ]);
+  appendPhotos('linsixi', [
+    {src:'https://ak-d.tripcdn.com/images/0100p120009sihx5tFAEF_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'林四喜鼓浪屿店旅行者上传的菜品照片',caption:'Trip.com旅行者实拍 · 林四喜菜品'},
+    {src:'https://ak-d.tripcdn.com/images/0100n120009sijwzt1600_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'林四喜鼓浪屿店旅行者上传的第二张照片',caption:'Trip.com旅行者实拍 · 鼓浪屿店'}
+  ]);
+  appendPhotos('ajie-wuxiang', [
+    {src:'https://tr-osdcp.qunarzz.com/tr-osd-tr-mapi/img/214ab2a8771058d746cb00ee0edf9cc1.jpg_600x600x70_c3f8bca3.jpg',alt:'去哪儿食客上传的八市阿杰五香照片',caption:'去哪儿食客实拍 · 阿杰五香'}
+  ]);
+  appendPhotos('bapopo', [
+    {src:'https://ak-d.tripcdn.com/images/0104i120009ha83cx1CF1_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'八婆婆中山路店旅行者上传的烧仙草实拍',caption:'Trip.com旅行者实拍 · 烧仙草'},
+    {src:'https://ak-d.tripcdn.com/images/01025120009ha8rqg6687_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'八婆婆中山路店旅行者上传的第二张实拍',caption:'Trip.com旅行者实拍 · 中山路店'}
+  ]);
+  appendPhotos('yousheng', [
+    {src:'https://ak-d.tripcdn.com/images/0100k1200084l7xae3710_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'友生风味小吃营平市场店食客上传的沙茶面照片',caption:'Trip.com食客实拍 · 友生沙茶面'},
+    {src:'https://ak-d.tripcdn.com/images/0100z1200084l9ffr030B_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'友生风味小吃营平市场店食客上传的第二张照片',caption:'Trip.com食客实拍 · 营平市场店'}
+  ]);
 })();

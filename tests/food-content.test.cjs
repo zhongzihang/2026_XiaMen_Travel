@@ -16,6 +16,18 @@ function loadExtraFoods(researchOverrides = {}) {
   return window.XiamenExtraFoods;
 }
 
+function loadFoodCatalog() {
+  const context = { window: {} };
+  for (const file of ['place-photo-data.js', 'place-photo-additions.js', 'travel-enrichment.js']) {
+    vm.runInNewContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
+  }
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const start = app.indexOf('const foods = [');
+  const end = app.indexOf('const officialSources =', start);
+  vm.runInNewContext(`${app.slice(start, end)}\nthis.foodCatalog = foods;`, context);
+  return context.foodCatalog;
+}
+
 test('Xiaohongshu-matched ginger duck shops have Dianping destinations and bundled real photos', () => {
   const foods = loadExtraFoods();
   const expected = [
@@ -80,9 +92,11 @@ test('legacy food cards expose every researched local photo and any supplied rev
   });
   const yuehua = foods.find(item => item.id === 'yuehua');
 
-  assert.equal(yuehua.gallery.length, 2);
+  assert.equal(yuehua.gallery.length, 3);
   assert.match(yuehua.gallery[1].src, /yuehua-2\.jpg$/);
-  assert.equal(yuehua.reviews.length, 1);
+  assert.match(yuehua.gallery[2].src, /woshiji\.cn/);
+  assert.equal(yuehua.reviews[0].source, '小红书');
+  assert.equal(yuehua.reviews.length, 3);
   assert.match(yuehua.reviews[0].summary, /汤底浓/);
 });
 
@@ -124,4 +138,76 @@ test('food detail gallery and evaluation markup scales to photo count and escape
   assert.match(reviews, /食客评测/);
   assert.match(reviews, /&lt;b&gt;口感&lt;\/b&gt;不错/);
   assert.match(reviews, /https:\/\/example\.com\/review/);
+});
+
+test('researched reviews and append-only photo galleries preserve existing Wenzao hero photos', () => {
+  const foods = loadFoodCatalog();
+  const expectedImages = {
+    qingjun: 'assets/gallery/food-qingjun-bao-3.jpg',
+    xiaoyanjing: 'assets/gallery/food-xiaoyanjing-1.jpg',
+    wufanpo: 'assets/food_shacha.jpg',
+    lailai: 'assets/gallery/food-lailai.jpg',
+    alian: 'assets/gallery/food-alian.jpg',
+    aming: 'assets/gallery/food-aming.jpg',
+    shangqing: 'assets/gallery/food-shangqing.jpg',
+    huanghai: 'assets/food_oyster.jpg',
+    '1980': 'assets/gallery/food-1980.jpg',
+    'longtou-fishball': 'assets/gallery/food-longtou-fishball-new.jpg'
+  };
+
+  for (const [id, originalImage] of Object.entries(expectedImages)) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food, `missing food entry ${id}`);
+    assert.equal(food.image, originalImage, `${id} primary photo must stay unchanged`);
+    assert.ok(food.reviews?.length, `${id} needs researched comments`);
+    assert.ok(food.reviews.every(review => /^https:\/\//.test(review.url)), `${id} reviews need source links`);
+  }
+
+  const galleryIds = ['qingjun', 'xiaoyanjing', 'lailai', 'alian', 'aming', 'shangqing', 'huanghai', '1980', 'longtou-fishball'];
+  for (const id of galleryIds) {
+    const food = foods.find(item => item.id === id);
+    assert.equal(food.gallery?.[0]?.src, expectedImages[id], `${id} carousel must start with its original photo`);
+    assert.ok(food.gallery.length > 1, `${id} needs appended real photos for swiping`);
+  }
+
+  const linxi = foods.find(item => item.id === 'menglinxi-shaojiu');
+  assert.ok(linxi, 'missing Wenzao recommendation 梦林夕烧酒档');
+  assert.equal(linxi.area, '文灶');
+  assert.ok(linxi.gallery.length >= 2, '梦林夕 needs multiple real photos');
+  assert.ok(linxi.reviews.length, '梦林夕 needs sourced diner feedback');
+  assert.match(linxi.dianpingUrl, /^https:\/\/www\.dianping\.com\/shop\//);
+
+  const researchedIds = ['alian', 'aming', 'shangqing', 'wuhongying', 'aqing', 'lailai', 'wufanpo', 'ye', 'huanghai', '1980', 'yuehua', 'huangzehe', 'longtou-fishball'];
+  for (const id of researchedIds) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food?.reviews?.length, `${id} needs a researched evaluation`);
+    assert.ok(food.reviews.every(review => /^https:\/\//.test(review.url)), `${id} reviews need source links`);
+  }
+});
+
+test('unreviewed destination cards gain sourced diner notes and append-only photo galleries', () => {
+  const foods = loadFoodCatalog();
+  const researchedReviewIds = [
+    'caomei', 'minhenan', 'yanyu', 'wutang', 'yubao', 'haodelai', 'tusun', 'ajie-wuxiang',
+    'huiyuan-bread', 'yousheng', 'baicheng-duck-porridge', 'linsixi', 'sibei-bread', 'xinaqiang',
+    'taoxi', 'huangji-siguo', 'bapopo', 'diaoyuchuan-shapowei', 'gongtang'
+  ];
+
+  for (const id of researchedReviewIds) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food?.reviews?.length, `${id} needs researched diner feedback`);
+    assert.ok(food.reviews.every(review => /^https:\/\//.test(review.url)), `${id} reviews need source links`);
+    assert.ok(food.reviews.every(review => review.summary), `${id} reviews need a useful summary`);
+  }
+
+  const photoIds = ['minhenan', 'yanyu', 'yubao', 'haodelai', 'linsixi', 'ajie-wuxiang', 'bapopo', 'yousheng', 'gongtang'];
+  for (const id of photoIds) {
+    const food = foods.find(item => item.id === id);
+    assert.equal(food.gallery?.[0]?.src, food.image, `${id} original photo must remain first`);
+    assert.ok(food.gallery.length > 1, `${id} needs additional swipeable real photos`);
+    assert.ok(food.gallery.slice(1).every(photo => /^https:\/\//.test(photo.src)), `${id} appended photos need source URLs`);
+  }
+
+  const remainingWithoutVerifiedReviews = Array.from(foods.filter(item => !item.reviews?.length), item => item.id).sort();
+  assert.deepEqual(remainingWithoutVerifiedReviews, ['ayu', 'shangguan', 'sili-jinbang']);
 });
