@@ -85,7 +85,7 @@
   ];
   const yuehua = window.XiamenExtraFoods.find(item => item.id === 'yuehua');
   if (yuehua) {
-    yuehua.gallery.push({src:'https://www.woshiji.cn/uploadfile/2023/0905/20230905013442743.jpg',alt:'蜗食记食客拍摄的月华沙茶面镇邦路门店',caption:'蜗食记食客实拍 · 镇邦路门店'});
+    yuehua.gallery.push({src:'assets/gallery/food-yuehua-remote-01.jpg',alt:'蜗食记食客拍摄的月华沙茶面镇邦路门店',caption:'蜗食记食客实拍 · 镇邦路门店'});
     yuehua.reviews = [...(yuehua.reviews || []),
       {source:'携程食客点评',date:'2022-02-05',rating:'4/5',title:'海鲜沙茶面用料丰富',summary:'食客觉得沙茶面种类多、海鲜口味更好，环境和服务也不错；这是中山路店的旧评价，价格不作当前参考。',url:'https://you.ctrip.com/food/xiamen21/5158527-dianpingCategory5.html'},
       {source:'携程食客点评',date:'2022-01-15',rating:'5/5',title:'老字号与新鲜选料',summary:'另一位食客称招牌沙茶面好吃、选料新鲜。不同食客对汤底浓淡感受不同，建议先按个人口味选择加料。',url:'https://you.ctrip.com/food/xiamen21/5158527-dianpingCategory5.html'}
@@ -94,8 +94,8 @@
   const huangzehe = window.XiamenExtraFoods.find(item => item.id === 'huangzehe');
   if (huangzehe) {
     huangzehe.gallery.push(
-      {src:'https://ak-d.tripcdn.com/images/1mi1p12000h2xwjdhD036.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍黄则和中山路店内柜台',caption:'Trip.com旅行者实拍 · 中山路店'},
-      {src:'https://ak-d.tripcdn.com/images/1mi5r224x955i1ydk6509.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍黄则和花生汤',caption:'Trip.com旅行者实拍 · 花生汤'}
+      {src:'assets/gallery/food-huangzehe-remote-01.jpg',alt:'Trip.com旅行者实拍黄则和中山路店内柜台',caption:'Trip.com旅行者实拍 · 中山路店'},
+      {src:'assets/gallery/food-huangzehe-remote-02.jpg',alt:'Trip.com旅行者实拍黄则和花生汤',caption:'Trip.com旅行者实拍 · 花生汤'}
     );
     huangzehe.reviews = [...(huangzehe.reviews || []),
       {source:'携程食客点评',date:'2024-05-26',rating:'5/5',title:'花生汤和海蛎羹',summary:'食客觉得花生汤软糯，另外点了海蛎羹，评价鲜嫩；同一餐也尝了姜母鸭。单次体验不代表每道菜都适合所有人口味。',url:'https://you.ctrip.com/food/xiamen21/319796.html'},
@@ -126,8 +126,8 @@
       image:'assets/gallery/food-qingjun-bao-3.jpg', imageAlt:'庆君汤包店铺相册中的汤包与汤品', photoLabel:'店铺相册 · 汤包实拍',
       gallery:[
         {src:'assets/gallery/food-qingjun-bao-3.jpg',alt:'庆君汤包店铺相册中的汤包与汤品',caption:'现有庆君汤包实拍'},
-        {src:'https://ak-d.tripcdn.com/images/1mh1b12000c812am65F36_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'Trip.com食客上传的庆君汤包实拍',caption:'Trip.com食客实拍 · 庆君汤包'},
-        {src:'https://ak-d.tripcdn.com/images/0104f120009kxzqr9D9BE_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'Trip.com食客上传的庆君汤包第二张实拍',caption:'Trip.com食客相册 · 庆君汤包'}
+        {src:'assets/gallery/food-qingjun-remote-01.jpg',alt:'Trip.com食客上传的庆君汤包实拍',caption:'Trip.com食客实拍 · 庆君汤包'},
+        {src:'assets/gallery/food-qingjun-remote-02.jpg',alt:'Trip.com食客上传的庆君汤包第二张实拍',caption:'Trip.com食客相册 · 庆君汤包'}
       ],
       summary:'文灶附近的汤包和拌面选择，适合抵达夜或返程前吃一顿热乎的简餐。',
       dishes:['原香味或蟹黄汤包：先点一笼，留意汤汁烫口。','拌面或酸笋豆腐汤：两人择一搭配。'],
@@ -144,7 +144,7 @@
       image:'assets/gallery/food-xiaoyanjing-1.jpg', imageAlt:'小眼镜大排档湖滨中路店门面实拍', photoLabel:'湖滨中路店实拍',
       gallery:[
         {src:'assets/gallery/food-xiaoyanjing-1.jpg',alt:'小眼镜大排档湖滨中路店门面实拍',caption:'现有湖滨中路店门面实拍'},
-        {src:'https://ak-d.tripcdn.com/images/100r050000000m8x7C7A8.jpg?proc=source%2Ftrip',alt:'Trip.com旅客上传的小眼镜大排档汇成总店门面照片',caption:'Trip.com旅客实拍 · 汇成总店门面'}
+        {src:'assets/gallery/food-xiaoyanjing-remote-01.jpg',alt:'Trip.com旅客上传的小眼镜大排档汇成总店门面照片',caption:'Trip.com旅客实拍 · 汇成总店门面'}
       ],
       summary:'文灶附近的海鲜大排档备选，适合想坐下来吃酱油水海鲜和炒面线的晚上。',
       dishes:['酱油水海鲜：按当天鲜货选鱼或鱿鱼。','炒面线与时蔬：给海鲜配一份主食和青菜。'],
@@ -515,12 +515,12 @@
   window.XiamenExtraFoods.push({
     id:'menglinxi-shaojiu', area:'文灶', category:'闽南正餐', name:'梦林夕烧酒档',
     address:'厦门市思明区后埭溪路105号附近（各平台门牌标注有差异）',
-    image:'https://ak-d.tripcdn.com/images/1mi1w224x8w4h2t380A85_R_600_400_R5_Q90.jpg?proc=source%2Ftrip',
+    image:'assets/gallery/food-menglinxi-shaojiu-remote-01.jpg',
     imageAlt:'Trip.com旅行者实拍的文灶林夕烧酒档门头', photoLabel:'Trip.com旅行者实拍 · 文灶店',
     gallery:[
-      {src:'https://ak-d.tripcdn.com/images/1mi1w224x8w4h2t380A85_R_600_400_R5_Q90.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者实拍的林夕烧酒档门头',caption:'Trip.com旅行者实拍 · 林夕烧酒档门头'},
-      {src:'https://ak-d.tripcdn.com/images/1mi0p224x8w4f0c4c4E8F_W_200_0_R5_Q50.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者相册中的林夕烧酒档照片',caption:'Trip.com旅行者相册实拍'},
-      {src:'https://ak-d.tripcdn.com/images/1mi54224x8w4hhpy06AF4_W_200_0_R5_Q50.jpg?proc=source%2Ftrip',alt:'Trip.com旅行者相册中的林夕烧酒档第二张照片',caption:'Trip.com旅行者相册实拍'}
+      {src:'assets/gallery/food-menglinxi-shaojiu-remote-01.jpg',alt:'Trip.com旅行者实拍的林夕烧酒档门头',caption:'Trip.com旅行者实拍 · 林夕烧酒档门头'},
+      {src:'assets/gallery/food-menglinxi-shaojiu-remote-02.jpg',alt:'Trip.com旅行者相册中的林夕烧酒档照片',caption:'Trip.com旅行者相册实拍'},
+      {src:'assets/gallery/food-menglinxi-shaojiu-remote-03.jpg',alt:'Trip.com旅行者相册中的林夕烧酒档第二张照片',caption:'Trip.com旅行者相册实拍'}
     ],
     summary:'文灶后埭溪路的闽南烧酒档，离住宿片区近，适合晚餐吃海鲜和家常热菜。近期小红书仍有店名明确的探店笔记；可读取的食客评论推荐皮皮虾与炸鳗鱼。',
     dishes:['皮皮虾：旅行者实评提到虾肉鲜甜，按当天鲜货和价格确认。','炸鳗鱼：评论者喜欢酥脆口感，趁热分享。','其他海鲜与闽南菜：看当日水牌，点单前确认重量和总价。'],
@@ -625,34 +625,34 @@
   ]);
 
   appendPhotos('minhenan', [
-    {src:'https://dimg04.c-ctrip.com/images/0105c1200084oq5nz4FCF_D_180_180.jpg?proc=autoorient',alt:'携程食客上传的闽和南万象城店菜品照片',caption:'携程食客实拍 · 闽和南菜品'},
-    {src:'https://dimg04.c-ctrip.com/images/0104g1200084oq5ny6C83_D_180_180.jpg?proc=autoorient',alt:'携程食客上传的闽和南万象城店第二张菜品照片',caption:'携程食客实拍 · 万象城店菜品'}
+    {src:'assets/gallery/food-minhenan-remote-01.jpg',alt:'携程食客上传的闽和南万象城店菜品照片',caption:'携程食客实拍 · 闽和南菜品'},
+    {src:'assets/gallery/food-minhenan-remote-02.jpg',alt:'携程食客上传的闽和南万象城店第二张菜品照片',caption:'携程食客实拍 · 万象城店菜品'}
   ]);
   appendPhotos('yanyu', [
-    {src:'https://ak-d.tripcdn.com/images/0106h12000acrudukA106_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'宴遇万象城店食客上传的菜品实拍',caption:'Trip.com食客实拍 · 万象城店菜品'},
-    {src:'https://ak-d.tripcdn.com/images/0102912000acruq3l8226_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'宴遇万象城店食客上传的第二张菜品实拍',caption:'Trip.com食客实拍 · 福建菜'}
+    {src:'assets/gallery/food-yanyu-remote-01.jpg',alt:'宴遇万象城店食客上传的菜品实拍',caption:'Trip.com食客实拍 · 万象城店菜品'},
+    {src:'assets/gallery/food-yanyu-remote-02.jpg',alt:'宴遇万象城店食客上传的第二张菜品实拍',caption:'Trip.com食客实拍 · 福建菜'}
   ]);
   appendPhotos('yubao', [
-    {src:'https://ak-d.tripcdn.com/images/01029120009e2gyva9623_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'芋包嫂大学路店食客上传的菜品照片',caption:'Trip.com食客实拍 · 芋包嫂菜品'},
-    {src:'https://ak-d.tripcdn.com/images/01044120009e2irlg4621_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'芋包嫂大学路店食客上传的第二张照片',caption:'Trip.com食客实拍 · 大学路店'}
+    {src:'assets/gallery/food-yubao-remote-01.jpg',alt:'芋包嫂大学路店食客上传的菜品照片',caption:'Trip.com食客实拍 · 芋包嫂菜品'},
+    {src:'assets/gallery/food-yubao-remote-02.jpg',alt:'芋包嫂大学路店食客上传的第二张照片',caption:'Trip.com食客实拍 · 大学路店'}
   ]);
   appendPhotos('haodelai', [
-    {src:'https://ak-d.tripcdn.com/images/0103s120008n09b7q9BE1_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'百家春好德来姜母鸭食客上传的菜品实拍',caption:'Trip.com食客实拍 · 百家村好德来'},
-    {src:'https://ak-d.tripcdn.com/images/0104o120008n0azpb7DDE_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'百家春好德来姜母鸭食客上传的第二张照片',caption:'Trip.com食客实拍 · 姜母鸭'}
+    {src:'assets/gallery/food-haodelai-remote-01.jpg',alt:'百家春好德来姜母鸭食客上传的菜品实拍',caption:'Trip.com食客实拍 · 百家村好德来'},
+    {src:'assets/gallery/food-haodelai-remote-02.jpg',alt:'百家春好德来姜母鸭食客上传的第二张照片',caption:'Trip.com食客实拍 · 姜母鸭'}
   ]);
   appendPhotos('linsixi', [
-    {src:'https://ak-d.tripcdn.com/images/0100p120009sihx5tFAEF_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'林四喜鼓浪屿店旅行者上传的菜品照片',caption:'Trip.com旅行者实拍 · 林四喜菜品'},
-    {src:'https://ak-d.tripcdn.com/images/0100n120009sijwzt1600_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'林四喜鼓浪屿店旅行者上传的第二张照片',caption:'Trip.com旅行者实拍 · 鼓浪屿店'}
+    {src:'assets/gallery/food-linsixi-remote-01.jpg',alt:'林四喜鼓浪屿店旅行者上传的菜品照片',caption:'Trip.com旅行者实拍 · 林四喜菜品'},
+    {src:'assets/gallery/food-linsixi-remote-02.jpg',alt:'林四喜鼓浪屿店旅行者上传的第二张照片',caption:'Trip.com旅行者实拍 · 鼓浪屿店'}
   ]);
   appendPhotos('ajie-wuxiang', [
-    {src:'https://tr-osdcp.qunarzz.com/tr-osd-tr-mapi/img/214ab2a8771058d746cb00ee0edf9cc1.jpg_600x600x70_c3f8bca3.jpg',alt:'去哪儿食客上传的八市阿杰五香照片',caption:'去哪儿食客实拍 · 阿杰五香'}
+    {src:'assets/gallery/food-ajie-wuxiang-remote-01.jpg',alt:'去哪儿食客上传的八市阿杰五香照片',caption:'去哪儿食客实拍 · 阿杰五香'}
   ]);
   appendPhotos('bapopo', [
-    {src:'https://ak-d.tripcdn.com/images/0104i120009ha83cx1CF1_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'八婆婆中山路店旅行者上传的烧仙草实拍',caption:'Trip.com旅行者实拍 · 烧仙草'},
-    {src:'https://ak-d.tripcdn.com/images/01025120009ha8rqg6687_C_340_230_R5_Q70.jpg?proc=source%2Ftrip',alt:'八婆婆中山路店旅行者上传的第二张实拍',caption:'Trip.com旅行者实拍 · 中山路店'}
+    {src:'assets/gallery/food-bapopo-remote-01.jpg',alt:'八婆婆中山路店旅行者上传的烧仙草实拍',caption:'Trip.com旅行者实拍 · 烧仙草'},
+    {src:'assets/gallery/food-bapopo-remote-02.jpg',alt:'八婆婆中山路店旅行者上传的第二张实拍',caption:'Trip.com旅行者实拍 · 中山路店'}
   ]);
   appendPhotos('yousheng', [
-    {src:'https://ak-d.tripcdn.com/images/0100k1200084l7xae3710_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'友生风味小吃营平市场店食客上传的沙茶面照片',caption:'Trip.com食客实拍 · 友生沙茶面'},
-    {src:'https://ak-d.tripcdn.com/images/0100z1200084l9ffr030B_C_340_230_R5.jpg?proc=source%2Ftrip',alt:'友生风味小吃营平市场店食客上传的第二张照片',caption:'Trip.com食客实拍 · 营平市场店'}
+    {src:'assets/gallery/food-yousheng-remote-01.jpg',alt:'友生风味小吃营平市场店食客上传的沙茶面照片',caption:'Trip.com食客实拍 · 友生沙茶面'},
+    {src:'assets/gallery/food-yousheng-remote-02.jpg',alt:'友生风味小吃营平市场店食客上传的第二张照片',caption:'Trip.com食客实拍 · 营平市场店'}
   ]);
 })();

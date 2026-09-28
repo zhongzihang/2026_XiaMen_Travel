@@ -94,7 +94,8 @@ test('legacy food cards expose every researched local photo and any supplied rev
 
   assert.equal(yuehua.gallery.length, 3);
   assert.match(yuehua.gallery[1].src, /yuehua-2\.jpg$/);
-  assert.match(yuehua.gallery[2].src, /woshiji\.cn/);
+  assert.equal(yuehua.gallery[2].src, 'assets/gallery/food-yuehua-remote-01.jpg');
+  assert.ok(fs.existsSync(path.join(root, yuehua.gallery[2].src)));
   assert.equal(yuehua.reviews[0].source, '小红书');
   assert.equal(yuehua.reviews.length, 3);
   assert.match(yuehua.reviews[0].summary, /汤底浓/);
@@ -205,9 +206,32 @@ test('unreviewed destination cards gain sourced diner notes and append-only phot
     const food = foods.find(item => item.id === id);
     assert.equal(food.gallery?.[0]?.src, food.image, `${id} original photo must remain first`);
     assert.ok(food.gallery.length > 1, `${id} needs additional swipeable real photos`);
-    assert.ok(food.gallery.slice(1).every(photo => /^https:\/\//.test(photo.src)), `${id} appended photos need source URLs`);
+    assert.ok(food.gallery.slice(1).every(photo => photo.src.startsWith('assets/')), `${id} appended photos need local assets`);
+    for (const photo of food.gallery.slice(1)) {
+      assert.ok(fs.existsSync(path.join(root, photo.src)), `missing bundled photo ${photo.src}`);
+    }
   }
 
   const remainingWithoutVerifiedReviews = Array.from(foods.filter(item => !item.reviews?.length), item => item.id).sort();
   assert.deepEqual(remainingWithoutVerifiedReviews, ['ayu', 'shangguan', 'sili-jinbang']);
+});
+
+test('newly researched food photos are bundled locally and do not depend on remote image hosts', () => {
+  const foods = loadFoodCatalog();
+  const localPhotoIds = [
+    'alian', 'aming', 'shangqing', 'lailai', 'huanghai', '1980', 'gongtang', 'longtou-fishball',
+    'yuehua', 'huangzehe', 'qingjun', 'xiaoyanjing', 'menglinxi-shaojiu', 'minhenan', 'yanyu',
+    'yubao', 'haodelai', 'linsixi', 'ajie-wuxiang', 'bapopo', 'yousheng'
+  ];
+
+  for (const id of localPhotoIds) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food, `missing food entry ${id}`);
+    assert.ok(food.gallery?.length, `${id} needs its photo gallery`);
+    assert.ok(!/^https?:\/\//.test(food.image || ''), `${id} hero photo must be local`);
+    for (const photo of food.gallery) {
+      assert.ok(photo.src.startsWith('assets/'), `${id} photo should use an assets path: ${photo.src}`);
+      assert.ok(fs.existsSync(path.join(root, photo.src)), `missing bundled photo ${photo.src}`);
+    }
+  }
 });

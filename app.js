@@ -142,7 +142,7 @@ const foods = [
     image:"assets/gallery/food-alian.jpg",imageAlt:"阿莲海鲜加工游客近期到店菜品实拍",photoLabel:"近期到店菜式实拍",
     gallery:[
       {src:"assets/gallery/food-alian.jpg",alt:"阿莲海鲜加工现有食客菜品照片",caption:"现有阿莲海鲜食客实拍"},
-      {src:"https://ak-d.tripcdn.com/images/1tx5j12000sm4vp401C4A_D_1200_675_R5_Q70.webp?proc=autoorient",alt:"Trip.com阿莲海鲜食客照片",caption:"Trip.com食客实拍 · 阿莲海鲜"}
+      {src:"assets/gallery/food-alian-remote-01.webp",alt:"Trip.com阿莲海鲜食客照片",caption:"Trip.com食客实拍 · 阿莲海鲜"}
     ],
     summary:"现挑现做的海鲜排档，适合把逛八市和晚餐排在一起。热门时段人多，早些去更从容。",
     dishes:["蒜蓉粉丝蒸波龙：蒜汁和虾汁浸入粉丝，主菜与主食一次兼顾。","姜葱炒蟹：姜葱香提鲜，适合两人分食。","避风塘富贵虾 / 清蒸石斑：按当天鲜货与价签挑一份。"],
@@ -168,8 +168,8 @@ const foods = [
     image:"assets/gallery/food-aming.jpg",imageAlt:"阿明海鲜加工蒜蓉粉丝小青龙探店实拍",photoLabel:"店内探店 · 小青龙",
     gallery:[
       {src:"assets/gallery/food-aming.jpg",alt:"阿明海鲜加工现有探店照片",caption:"现有阿明海鲜实拍"},
-      {src:"https://dimg04.c-ctrip.com/images/0103c120008u5flvu9254_W_640_0_Q90.jpg?proc=autoorient",alt:"携程旅行者实拍阿明海鲜加工店内与海鲜池",caption:"携程旅行者实拍 · 八市阿明海鲜"},
-      {src:"https://dimg04.c-ctrip.com/images/0106x120008u5fumk1700_W_640_0_Q90.jpg?proc=autoorient",alt:"携程旅行者实拍阿明海鲜加工门店",caption:"携程旅行者实拍 · 阿明门店"}
+      {src:"assets/gallery/food-aming-remote-01.jpg",alt:"携程旅行者实拍阿明海鲜加工店内与海鲜池",caption:"携程旅行者实拍 · 八市阿明海鲜"},
+      {src:"assets/gallery/food-aming-remote-02.jpg",alt:"携程旅行者实拍阿明海鲜加工门店",caption:"携程旅行者实拍 · 阿明门店"}
     ],
     summary:"八市中段的海鲜加工老店，食客实拍记录了蒜蓉小青龙、膏蟹、椒盐皮皮虾等，适合想看着鲜货选、两人共享几道菜。",
     dishes:["蒜蓉粉丝小青龙：粉丝吸足虾汁，适合做两人主菜。","姜葱炒膏蟹：鲜甜下饭，点前问当天规格与重量。","椒盐皮皮虾 / 糖醋话梅鱼：二选一做第二道，避免点多吃不完。"],
@@ -183,8 +183,8 @@ const foods = [
     image:"assets/gallery/food-shangqing.jpg",imageAlt:"尚青海鲜加工实拍海鲜拼盘",photoLabel:"门店游客实拍",
     gallery:[
       {src:"assets/gallery/food-shangqing.jpg",alt:"尚青海鲜加工现有菜品实拍",caption:"现有尚青海鲜实拍"},
-      {src:"https://dimg04.c-ctrip.com/images/100p0y000000m39sk1A62_D_750_450_Q90.jpg?proc=autoorient",alt:"携程食客上传的尚青海鲜加工照片",caption:"携程食客实拍 · 尚青海鲜"},
-      {src:"https://dimg04.c-ctrip.com/images/0103f120008qpdmjcE757_D_750_450_Q90.jpg?proc=autoorient",alt:"携程食客上传的尚青海鲜加工第二张照片",caption:"携程食客实拍 · 八市门店"}
+      {src:"assets/gallery/food-shangqing-remote-01.jpg",alt:"携程食客上传的尚青海鲜加工照片",caption:"携程食客实拍 · 尚青海鲜"},
+      {src:"assets/gallery/food-shangqing-remote-02.jpg",alt:"携程食客上传的尚青海鲜加工第二张照片",caption:"携程食客实拍 · 八市门店"}
     ],
     summary:"八市里做蒸汽海鲜与闽南菜的选择，菜单里有龙虾和炒蟹；适合不想自己买海鲜再找加工店的走法。",
     dishes:["清蒸龙虾：做法简单，重点看当天鲜度。","爆炒蟹：适合两人配米饭分享。","椒盐皮皮虾、白灼虾或闽南海鲜粥：可按口味补一份。"],
@@ -234,8 +234,8 @@ const foods = [
     image:"assets/gallery/food-lailai.jpg",imageAlt:"来来海鲜大排档食客实拍冬蟹菜式",photoLabel:"来来海鲜实拍菜式",
     gallery:[
       {src:"assets/gallery/food-lailai.jpg",alt:"来来海鲜大排档现有食客菜品照片",caption:"现有来来海鲜实拍"},
-      {src:"https://dimg04.c-ctrip.com/images/1mf3e12000ehacby85C6D_W_671_0_Q90.jpg?proc=autoorient",alt:"携程旅行者实拍来来海鲜大排档门店",caption:"携程旅行者实拍 · 来来海鲜"},
-      {src:"https://dimg04.c-ctrip.com/images/0101z1200099zgk7o9D92_W_640_0_Q90.jpg?proc=autoorient",alt:"携程旅行者实拍来来海鲜大排档用餐环境",caption:"携程旅行者实拍 · 店内环境"}
+      {src:"assets/gallery/food-lailai-remote-01.jpg",alt:"携程旅行者实拍来来海鲜大排档门店",caption:"携程旅行者实拍 · 来来海鲜"},
+      {src:"assets/gallery/food-lailai-remote-02.jpg",alt:"携程旅行者实拍来来海鲜大排档用餐环境",caption:"携程旅行者实拍 · 店内环境"}
     ],
     summary:"靠近文灶住宿片区的海鲜大排档，适合不想跑八市、想在酒店周边吃龙虾和螃蟹的晚上。",
     dishes:["小青龙：蒜蓉粉丝蒸或清蒸，先问当天规格。","姜葱红花蟹 / 冬蟹：按季节和鲜度选，当天供应为准。","富贵虾：两人可分享一份，搭配时蔬与主食。"],
@@ -277,8 +277,8 @@ const foods = [
     image:"assets/food_oyster.jpg",imageAlt:"厦门海蛎煎菜式实拍参考图",photoLabel:"海蛎煎菜式实拍",
     gallery:[
       {src:"assets/food_oyster.jpg",alt:"现有厦门海蛎煎参考照片",caption:"现有海蛎煎照片"},
-      {src:"https://aos-comment.amap.com/B02500S0HE/comment/CA7BBAEE_7A81_40AE_BA46_A7302B13F7C9_L0_001_1440_175_1772668432886_19178884.jpg",alt:"高德地图用户上传的莲欢海蛎煎与门店招牌照片",caption:"高德地图食客实拍 · 莲欢海蛎煎"},
-      {src:"https://ak-d.tripcdn.com/images/1mi52224x8z8mzplf2CF5.jpg?proc=source%2Ftrip",alt:"Trip.com旅行者拍摄的莲欢海蛎煎巷口门店",caption:"Trip.com旅行者实拍 · 局口横巷门店"}
+      {src:"assets/gallery/food-huanghai-remote-01.jpg",alt:"高德地图用户上传的莲欢海蛎煎与门店招牌照片",caption:"高德地图食客实拍 · 莲欢海蛎煎"},
+      {src:"assets/gallery/food-huanghai-remote-02.jpg",alt:"Trip.com旅行者拍摄的莲欢海蛎煎巷口门店",caption:"Trip.com旅行者实拍 · 局口横巷门店"}
     ],
     summary:"中山路与八市之间可安排的小份热食，适合逛街时两人分食。",
     dishes:["海蛎煎：外缘煎香，海蛎与鸡蛋带出鲜味。","可搭鱼丸汤或花生汤：按当天胃口加，不必都点。"],
@@ -294,8 +294,8 @@ const foods = [
     image:"assets/gallery/food-1980.jpg",imageAlt:"1980烧肉粽店内食客实拍肉粽",photoLabel:"1980烧肉粽食客实拍",
     gallery:[
       {src:"assets/gallery/food-1980.jpg",alt:"1980烧肉粽现有店内实拍",caption:"现有1980烧肉粽实拍"},
-      {src:"https://ak-d.tripcdn.com/images/0105f120008qcmfseA419.jpg?proc=source%2Ftrip",alt:"Trip.com食客实拍1980烧肉粽中山路门店",caption:"Trip.com食客实拍 · 中山路店门面"},
-      {src:"https://dimg04.c-ctrip.com/images/0100l120008npsoquD562_W_640_0_Q90.jpg?proc=autoorient",alt:"携程旅行者拍摄的1980烧肉粽用餐环境",caption:"携程旅行者实拍 · 店内环境"}
+      {src:"assets/gallery/food-1980-remote-01.jpg",alt:"Trip.com食客实拍1980烧肉粽中山路门店",caption:"Trip.com食客实拍 · 中山路店门面"},
+      {src:"assets/gallery/food-1980-remote-02.jpg",alt:"携程旅行者拍摄的1980烧肉粽用餐环境",caption:"携程旅行者实拍 · 店内环境"}
     ],
     summary:"鼓浪屿返岛后或返程日前的老城简餐选择，吃完顺着骑楼慢慢逛。",
     dishes:["烧肉粽：糯米、肉馅与配料扎实。","扁食汤：适合两人配粽子分食。"],
@@ -315,8 +315,8 @@ foods.push(
     image:"assets/gallery/food-gongtang-new.jpg",imageAlt:"八市开元路99号贡糖沙茶面门店外景实拍",photoLabel:"门店外景实拍",
     gallery:[
       {src:"assets/gallery/food-gongtang-new.jpg",alt:"贡糖沙茶面开元路99号现有门店外景",caption:"现有贡糖沙茶面门店实拍"},
-      {src:"https://ak-d.tripcdn.com/images/0104r120008w62m9oA660_C_340_230_R5_Q70.jpg?proc=source%2Ftrip",alt:"贡糖沙茶面八市店食客上传的菜品照片",caption:"Trip.com食客实拍 · 贡糖沙茶面"},
-      {src:"https://ak-d.tripcdn.com/images/01055120008w5stb4D58E_C_340_230_R5_Q70.jpg?proc=source%2Ftrip",alt:"贡糖沙茶面八市店食客上传的第二张照片",caption:"Trip.com食客实拍 · 八市店"}
+      {src:"assets/gallery/food-gongtang-remote-01.jpg",alt:"贡糖沙茶面八市店食客上传的菜品照片",caption:"Trip.com食客实拍 · 贡糖沙茶面"},
+      {src:"assets/gallery/food-gongtang-remote-02.jpg",alt:"贡糖沙茶面八市店食客上传的第二张照片",caption:"Trip.com食客实拍 · 八市店"}
     ],
     summary:"八市入口的沙茶面老店。先选一碗沙茶面，再按胃口加海鲜或五香条，适合逛市场前后吃。",
     dishes:["古法沙茶面：汤底带花生与香料香气，加料按价签选择。","五香条：趁热两人分食。","手撕鸡：想再加一道冷盘时可考虑。"],
@@ -332,8 +332,8 @@ foods.push(
     image:"assets/gallery/food-longtou-fishball-new.jpg",imageAlt:"鼓浪屿龙头路183号龙头鱼丸店门面实拍",photoLabel:"门店外景实拍",
     gallery:[
       {src:"assets/gallery/food-longtou-fishball-new.jpg",alt:"现有龙头鱼丸店门面实拍",caption:"现有龙头鱼丸店实拍"},
-      {src:"https://ak-d.tripcdn.com/images/0102l1200088l4mc3B1E0.jpg?proc=source%2Ftrip",alt:"Trip.com食客实拍龙头鱼丸店老字号招牌",caption:"Trip.com食客实拍 · 龙头路门店"},
-      {src:"https://ak-d.tripcdn.com/images/01060120008g12avfDB6E.jpg",alt:"Trip.com食客实拍龙头鱼丸店排队与门面",caption:"Trip.com食客实拍 · 门店排队"}
+      {src:"assets/gallery/food-longtou-fishball-remote-01.jpg",alt:"Trip.com食客实拍龙头鱼丸店老字号招牌",caption:"Trip.com食客实拍 · 龙头路门店"},
+      {src:"assets/gallery/food-longtou-fishball-remote-02.jpg",alt:"Trip.com食客实拍龙头鱼丸店排队与门面",caption:"Trip.com食客实拍 · 门店排队"}
     ],
     summary:"龙头路上的手工鱼丸老店，逛岛时可停下来喝一碗热汤，与麻糍错开吃更合适。",
     dishes:["手工鲨鱼丸汤：以鱼丸口感和清汤为主。","包心鱼丸：喜欢更丰富馅料时可选。"],
