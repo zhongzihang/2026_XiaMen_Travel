@@ -447,7 +447,7 @@ function renderDays(){
     const hasIsland=dayPoints.some(point=>point.view==='island');
     const mapHeading='<div class="day-map-heading"><div class="mini-heading">当天地图 · 手绘地标与顺序路线</div>'+(i===2?'<div class="atlas-day-options"><button type="button" class="xmu-map-toggle" data-xmu-toggle aria-pressed="false">切换为未入校备选路线</button><button type="button" class="xmu-map-toggle" data-rain-toggle aria-pressed="false">查看雨天 · 屿见闽南</button></div>':'')+'</div>';
     const mapMarkup='<div class="day-map-layout"><div class="day-map-pair'+(hasIsland?' has-ferry-map':'')+'"><div id="day-map-'+i+'" class="day-route-map"></div><div id="day-ferry-'+i+'" class="map-ferry-connector" hidden></div><div id="day-island-map-'+i+'" class="day-route-map day-island-map" hidden></div></div></div><section id="day-map-detail-'+i+'" class="day-place-list" aria-label="当天路线点详情"></section><section id="day-transit-'+i+'" class="atlas-transit" aria-label="当天分段交通与参考耗时"></section>';
-    const dayPhotos=day.photos?.length?`<section class="day-photo-gallery" aria-label="${safe(day.date)}当天实景照片"><div class="day-photo-heading"><h4>当天实景图</h4><span>左右滑动 · 点图放大</span></div><div class="day-photo-track">${day.photos.map(([src,caption])=>`<figure><img src="${safe(SiteImages.resolveImagePath(src))}" alt="${safe(caption)}" loading="lazy"><figcaption>${safe(caption)}</figcaption></figure>`).join('')}</div></section>`:'';
+    const dayPhotos=day.photos?.length?`<section class="day-photo-gallery" aria-label="${safe(day.date)}当天实景照片"><div class="day-photo-heading"><h4>当天实景图</h4><span>左右滑动 · 点图放大</span></div><div class="day-photo-track">${day.photos.map(([src,caption])=>`<figure><img src="${safe(SiteImages.previewImagePath(src))}" alt="${safe(caption)}" loading="lazy" decoding="async"><figcaption>${safe(caption)}</figcaption></figure>`).join('')}</div></section>`:'';
     const transport=day.transport?`<aside class="day-transport"><div class="day-transport-copy"><span class="day-transport-kicker">当天交通</span><h4>${safe(day.transport.title)}</h4><p>${safe(day.transport.detail)}</p></div>${day.transport.ticket?`<figure class="day-ticket"><img src="${safe(SiteImages.resolveImagePath(day.transport.ticket))}" alt="${safe(day.transport.alt)}" loading="lazy"><span class="photo-unavailable" hidden>票图暂不可用</span><figcaption>${safe(day.transport.caption)} · 点图放大</figcaption></figure>`:""}</aside>`:"";
     const dayNav=`<nav class="day-bottom-nav" aria-label="继续浏览行程">${i>0?`<button type="button" data-day-go="${i-1}">← ${safe(days[i-1].date)} 前一天</button>`:''}${i<days.length-1?`<button type="button" data-day-go="${i+1}">${safe(days[i+1].date)} 后一天 →</button>`:''}<a href="#map">返回路线总览 ↑</a></nav>`;
     panel.innerHTML=`<div class="day-header"><div><small>${safe(day.label)} · ${safe(day.date)} ${safe(day.weekday)}</small><h3>${safe(day.title)}</h3><p>${safe(day.summary)}</p></div><span class="day-badge">${safe(day.badge)}</span></div><div class="day-grid"><div><div class="mini-heading">当天路线 · 纵向时间链</div><ol class="schedule" data-day-schedule>${schedule}</ol></div></div>${mapHeading}${mapMarkup}${dayPhotos}${transport}<aside class="day-note"><strong>当天提示</strong><p>${safe(day.note)}</p></aside>${dayNav}`;
@@ -491,7 +491,7 @@ window.addEventListener("xiamen:map-daychange",event=>{
 const foodPhotoFallbacks={};
 const failedFoodPhotos=new Set();
 function fallbackFoodPhoto(id){return SiteImages.resolveImagePath(foodPhotoFallbacks[id])}
-function foodPhoto(food){return SiteImages.resolveImagePath(food.image)}
+function foodPhoto(food){return SiteImages.previewImagePath(food.image)}
 function watchFoodImage(image,food){
   image.addEventListener("error",()=>{
     const fallback=foodPhotoFallbacks[food.id];
@@ -521,11 +521,11 @@ function showFoodDetail(id){
   const photo=foodPhoto(food);
   const photoNote=food.photoNote||food.photoLabel||"菜式照片";
   const storeLink=food.meituanUrl?`<a class="food-source-link" href="${safe(food.meituanUrl)}">在美团查看这家门店 ↗</a>`:food.dianpingUrl?`<a class="food-source-link" href="${safe(food.dianpingUrl)}" target="_blank" rel="noopener noreferrer">在大众点评查看这家门店 ↗</a>`:food.mapUrl?`<a class="food-source-link" href="${safe(food.mapUrl)}" target="_blank" rel="noopener noreferrer">在地图中查找门店 ↗</a>`:"";
-  const photoGallery=window.XiamenFoodDetails.galleryMarkup(food,source=>SiteImages.resolveImagePath(source));
+  const photoGallery=window.XiamenFoodDetails.galleryMarkup(food,source=>SiteImages.previewImagePath(source));
   const reviewSection=window.XiamenFoodDetails.reviewsMarkup(food.reviews);
   const dialogContent=document.getElementById("foodDialogContent");
   dialogContent.innerHTML=`<div class="food-detail-layout">${photoGallery}<div class="food-detail-copy"><span class="food-detail-kicker">${safe(food.area)}　/　${safe(food.category)}</span><h2 id="foodDialogTitle">${safe(food.name)}</h2><p class="food-detail-address">${safe(food.address)}</p><p class="food-detail-summary">${safe(food.summary)}</p>${reviewSection}<h3>这几道值得看</h3><ul class="food-dish-list">${food.dishes.map(d=>`<li>${safe(d)}</li>`).join("")}</ul><aside class="food-order-tip"><strong>两人点单思路</strong><p>${safe(food.pair)}</p></aside><p class="food-detail-tip">${safe(food.tip)}</p>${storeLink}</div></div>`;
-  window.XiamenFoodDetails.bind(dialogContent,food,source=>SiteImages.resolveImagePath(source));
+  window.XiamenFoodDetails.bind(dialogContent,food,source=>SiteImages.previewImagePath(source));
   bindZoom(dialogContent);
   document.getElementById("foodDialog").showModal();
 }

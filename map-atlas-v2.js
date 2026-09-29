@@ -11,10 +11,10 @@
     { key: '2026-10-03', date: '10.03', title: '山海绿意', color: '#4b8031' },
     { key: '2026-10-04', date: '10.04', title: '老城返程', color: '#8a72a2' }
   ];
-  const base = 'assets/xiamen-overview-watercolor-v2.png';
-  const sprite = 'assets/xiamen-landmarks-v2.png';
-  const hotelArt = 'assets/xiamen-hotel-watercolor-v1.png';
-  const stationArt = 'assets/xiamen-station-watercolor-v1.png';
+  const base = 'assets/preview/xiamen-overview-watercolor-v2.webp';
+  const sprite = 'assets/preview/xiamen-landmarks-v2.webp';
+  const hotelArt = 'assets/preview/xiamen-hotel-watercolor-v1.webp';
+  const stationArt = 'assets/preview/xiamen-station-watercolor-v1.webp';
   const W = 1536, H = 1024;
 
   // Positions are calibrated on the new watercolor map using the current Amap
@@ -43,8 +43,8 @@
     cable: { icon: 11, name: '钟鼓索道', dx: 56, dy: -15 },
     bashi: { icon: 12, name: '八市' },
     baijia: { icon: 13, name: '百家村' },
-    zhongshan: { art: 'assets/xiamen-zhongshan-watercolor-v1.png', name: '中山路步行街', textDy: -18 },
-    yujian: { art: 'assets/xiamen-yujian-watercolor-v1.png', name: '屿见闽南' }
+    zhongshan: { art: 'assets/preview/xiamen-zhongshan-watercolor-v1.webp', name: '中山路步行街', textDy: -18 },
+    yujian: { art: 'assets/preview/xiamen-yujian-watercolor-v1.webp', name: '屿见闽南' }
   };
   const dayLabel = {
     dongdu: '东渡码头', sanqiutian: '三丘田码头', longtou: '龙头路',
