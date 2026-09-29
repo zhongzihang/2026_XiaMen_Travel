@@ -20,13 +20,16 @@ node --test tests/*.test.cjs
 
 站点文件和完整 `assets/` 位于项目目录。`main` 分支已配置 GitHub 远端；以后每次调整先在本地提交，只有旅行者明确要求时才推送。
 
-右上角的「下载 PDF」直接下载 `assets/xiamen-itinerary-2026.pdf`，内容涵盖路线总览、每日地图与实景图、按地点整理的美食和出门提示。行程或美食改动后重新生成：
+右上角的「下载 PDF」直接下载 `assets/xiamen-itinerary-2026.pdf`。完整离线版收录五日时间线、9幅网站地图（包括未入校与雨天备选）、分段交通、18个点位的完整相册与游客体验、全部57家美食门店和93条测评，以及出门小抄和摄影署名。相册、折叠和切换内容均静态展开；中文字体和照片嵌入文件，不含超链接、表单或跳转按钮。行程或美食改动后重新生成：
 
 ```powershell
-python scripts/build-itinerary-pdf.py
+python scripts/build-complete-pdf.py
+python scripts/check-guide-pdf.py
 ```
 
-生成脚本需要 `reportlab` 和 Windows 系统的 `SimHei` 字体。
+生成脚本需要 Python 的 `reportlab`、`Pillow`、`pypdf`，校验另需 `pdfplumber`，以及 Windows 的微软雅黑字体。地图导出使用 Node.js、Playwright 与本机 Edge（可用 `PDF_BROWSER_CHANNEL` 指定其他已安装的 Chromium 通道）。脚本优先使用本地 Playwright，其次使用 Codex 自带依赖；不会安装依赖。它通过临时的本地静态服务读取同一份网站数据并渲染现有地图，缓存与核对报告写入 `.cache/pdf/`，不提交缓存。旧的两个 PDF 生成命令均转到完整版本，避免意外覆盖成精简版。
+
+生成后需要用 Poppler 渲染全部页面进行目视检查；核对脚本检查内容与图片覆盖、索引页码、字体嵌入、无交互注释和文字边界。更新下载链接中的版本号后，在手机与桌面浏览器点击下载并核对文件哈希。2026-09-30 完整版保留网站的原比例照片、旧照标注、品牌与分店限制说明；地图始终明确为插画示意。
 
 ## 内容维护
 
@@ -37,4 +40,4 @@ python scripts/build-itinerary-pdf.py
 - 每日行程、美食卡片和日期联动逻辑位于 `app.js`；地图绘制与点位详情位于 `map-atlas-v2.js`。`map-ui.js` 是未被当前页面加载的旧版实现。
 - 景点开放、轮渡与夜游班次、餐饮营业及海鲜时价均可能变化，出行前以当日现场信息为准。
 
-网站包含旅行者提供的动车票原图。若使用公开 GitHub Pages，请确认愿意公开票面上的个人信息；下载版 PDF 不含票图。
+网站与完整下载版 PDF 均包含旅行者提供的两张动车票原图，分别收录于去程和返程日期，保留原票面信息。

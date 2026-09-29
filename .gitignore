@@ -9,3 +9,7 @@ node_modules/
 .cache/
 dist/
 *.log
+
+# PDF tooling bytecode
+__pycache__/
+*.pyc
