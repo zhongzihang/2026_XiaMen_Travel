@@ -71,3 +71,16 @@ test('daily attraction experiences do not reuse a Xiaohongshu post across places
     }
   }
 });
+
+test('all displayed attraction reviews use direct note links with one label', () => {
+  const window = loadPlaceExperience();
+  for (const [placeId, experience] of Object.entries(window.XiamenPlaceExperiences)) {
+    for (const entry of [experience, ...(experience.related || [])]) {
+      assert.ok(!entry.searchKeyword, `${placeId} still uses a search-only destination`);
+      if (!entry.url?.includes('xiaohongshu.com')) continue;
+      const markup = window.XiamenPlaceGallery.experience({ id: placeId, name: placeId });
+      assert.match(markup, /打开小红书App查看这条笔记/);
+      assert.doesNotMatch(markup, /在小红书 App 搜索这条攻略/);
+    }
+  }
+});

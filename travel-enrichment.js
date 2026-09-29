@@ -33,15 +33,15 @@
     rock: { source:'小红书 · 泛泛', date:'2026-05-16', engagement:'37赞 · 24评', title:'鼓浪屿日光岩｜登顶第一人｜0排队攻略', summary:'作者回顾2025年端午从西林门较早入园的体验：最后一段台阶陡窄，避开高峰会更从容。笔记也提到不同时期开门时间有变化，出发前按景区当日公告确认。', url:'https://www.xiaohongshu.com/search_result/6a07f1c00000000035024fcf?xsec_token=ABMlvFSPTDIn32Www824WlkcJJCS5M2Px3e_HIDObX-BQ=&xsec_source=' },
     zhongshan: { source:'小红书 · 咩咩小探长', date:'2025-09-27', engagement:'1.4万赞', title:'厦门中山路 / 八市逛吃攻略', summary:'攻略把八市和中山路安排在同一片区逛吃，建议按胃口选小吃、晚间再慢逛骑楼街。热门店的排队和口味偏好因人而异，不必挨家复刻。', url:'https://www.xiaohongshu.com/explore/68d76399000000001301c793', related:[
       {source:'小红书 · 小小旅行家Mama',date:'2026-06-23',title:'厦门三天两夜逛吃攻略｜不绕路版',summary:'这篇近期城市行程按片区组合景点与吃饭，可用来参考把八市和中山路放在同一晚慢逛，实际顺序按返程交通与排队情况灵活调整。',url:'https://www.xiaohongshu.com/explore/6a3a3aa2000000001702eac1'}] },
-    yujian: { source:'小红书 · 泥巴酱（不生气专家）', date:'2026-07-07', engagement:'1905赞 · 147评', title:'厦门屿见闽南｜详细版游玩攻略', summary:'作者建议入园先在服务台取地图，再按当天演出表安排顺序；沉浸演艺是体验重点，互动项目和文创可按兴趣取舍。演出场次以景区当天公告为准。', searchKeyword:'厦门屿见闽南｜详细版游玩攻略 泥巴酱（不生气专家）' },
+    yujian: { source:'小红书 · 泥巴酱（不生气专家）', date:'2026-07-07', engagement:'1916赞', title:'厦门屿见闽南｜详细版游玩攻略📝', summary:'作者建议入园先在服务台取地图，再按当天演出表安排顺序；沉浸演艺是体验重点，互动项目和文创可按兴趣取舍。演出场次以景区当天公告为准。', url:'https://www.xiaohongshu.com/search_result/6a4bd112000000001603f2dc?xsec_token=ABBUzis1Qde8Mh18sE1ZlJHDC1woYApcWnHc764eggBsM=&xsec_source=' },
     nanputuo: { source:'小红书 · 叁三.', date:'2025-12-18', engagement:'7868赞 · 128评', title:'厦门南普陀寺｜一年来南普 三年不受苦', summary:'参观笔记按寺院入口与中轴线整理游览顺序，建议慢走看殿宇和池畔。预约、开放区域和入寺安排以寺院当日通知为准。', url:'https://www.xiaohongshu.com/explore/6943a059000000001e03915b' },
-    xmu: { source:'小红书 · 波霸鲜奶', date:'2025-08-03', engagement:'8575赞 · 563评', title:'听劝！！！厦大参观入口与路线', summary:'作者刚到访后提醒，游客入口不等同于学校正门，按访客预约页面的入口和时段走能少绕路。入校安排先看厦门大学当日预约规则。', searchKeyword:'厦门大学 听劝 波霸鲜奶 游客入口 2025-08-03' },
-    baicheng: { source:'小红书 · 鱼破冰', date:'2025-05-19', engagement:'4818赞 · 74评', title:'厦门环岛路 citywalk 一日游拍照打卡全攻略', summary:'这条海岸 citywalk 把白城沙滩作为看海和拍日落的一站，晴天视野更好；沿海停留记得补水、防晒并留意潮汐与天气。', searchKeyword:'厦门环岛路citywalk一日游 拍照打卡全攻略 鱼破冰' },
+    xmu: { source:'小红书 · 麦格教授的小猫咪', date:'2026-07-13', engagement:'335赞 · 48评', title:'游客怎么进入厦门大学', summary:'作者从南普陀寺出发，记录了经游客访问中心前往访客闸机的走法，并提醒找入口和步行需预留时间。具体入口、预约与校内用餐规则以厦门大学当天通知为准。', url:'https://www.xiaohongshu.com/search_result/6a54aacd0000000011007c39?xsec_token=AB50De2qpFwEGokPg8NzxL9rxTJ4G5KeN_9kSwT8HZnmo=&xsec_source=' },
+    baicheng: { source:'小红书 · 咚那个东', date:'2026-07-19', engagement:'104赞 · 5评', title:'白城沙滩+避坑攻略', summary:'作者从白城沙滩中段拍日落与双子塔，也记录了海边木栈道的逆光视角。日落效果受天气与潮位影响，出门前仍要看当天情况。', url:'https://www.xiaohongshu.com/search_result/6a5bfdd8000000000f01115a?xsec_token=ABpEyKxWYU4QfOqgX7cpBfewtPMCoJi_Ehu4cfXbu3fjs=&xsec_source=' },
     shapowei: { source:'小红书 · 鹭岛小师妹', date:'2025-11-07', engagement:'1.3万赞', title:'第①次来厦门，别去 vs 要去', summary:'作者把沙坡尾列入值得慢逛的片区，提到避风坞、彩色街景和街边小店的组合。可先沿港湾散步，再接大学路，不必只围着拍照点走。', url:'https://www.xiaohongshu.com/explore/690db0070000000003022f7a', related:[
       {source:'小红书 · 糯米就是Nommy',date:'2026-09-16',title:'厦门沙坡尾top级nb好吃的！！！',summary:'这篇较新的沙坡尾探店记录了海鲜沙茶面，评论区补充了打渔船·老厦门本地菜·姜母鸭的店名；适合散步时作为逛吃备选，门店分店需按地图再次核对。',url:'https://www.xiaohongshu.com/explore/6aaa0f5e000000001001e4fb'}] },
     heping: { source:'小红书 · Hey Joey!', date:'2025-11-09', engagement:'798赞', title:'把厦门夜晚交给这艘游轮', summary:'乘船笔记分享了海上看城市灯光、吹海风和船上讲解的感受。登船口、船型和开航时间以当天订单为准，夜间建议带一件薄外套。', url:'https://www.xiaohongshu.com/explore/690f98ae0000000003036d96' },
     botanic: { source:'小红书 · XUtopia', date:'2026-03-03', engagement:'2817赞 · 73评', title:'厦门植物园｜攻略及避雷', summary:'作者建议先选好入口，再按兴趣安排雨林与多肉区；园内坡路较多，接驳车可能排队，半日游别把园区排得太满。', url:'https://www.xiaohongshu.com/explore/69a6aa36000000002202c03d' },
-    cable: { source:'小红书 · 晚风拌汤圆', date:'2026-03-03', engagement:'1291赞 · 64评', title:'厦门钟鼓索道攻略：40分钟看山看海', summary:'体验笔记提到往返乘坐约40分钟、车厢视野开阔且山风明显，建议提前选时段；傍晚景色更柔和，实际排队和运营看当天情况。', searchKeyword:'厦门钟鼓索道攻略 40分钟看山看海 晚风拌汤圆 2026-03-03' },
+    cable: { source:'小红书 · 菜菜子', date:'2026-05-06', engagement:'202赞 · 35评', title:'厦门钟鼓索道！40分钟带你解锁山&海', summary:'作者从植物园西门一带前往钟鼓索道，记录了约40分钟的乘坐体验和沿途山海视野。实际班次、排队与时长以景区当天安排为准。', url:'https://www.xiaohongshu.com/search_result/69faa8d2000000003701fe5d?xsec_token=ABJpGbcFZKvOMq9wkM-qcM5vXKZt8yLcyn5tWAaGfBE3c=&xsec_source=' },
     bashi: { source:'小红书 · 咩咩小探长', date:'2025-09-04', engagement:'1.6万赞 · 200评', title:'厦门八市会惩罚每一个不做攻略的人', summary:'作者记录了八市的市场氛围和常见逛吃选择，也提醒留意海鲜计价、加工费和游客摊位报价。先问清单价与总价，再决定买不买。', url:'https://www.xiaohongshu.com/explore/68b8ec2c000000001d01e586', related:[
       {source:'小红书 · 咩咩小探长',date:'2026-01-30',title:'厦门八市逛吃攻略',summary:'另一篇八市实地逛吃笔记记录了姜母鸭、炸货、小笼包和土笋冻等选择；把它当作店名线索，到店前仍建议核对分店和营业状态。',url:'https://www.xiaohongshu.com/explore/697c793d0000000022039a0f'}] },
     baijia: { source:'小红书 · 偶尔暴躁的汤圆麻麻', date:'2026-08-17', title:'厦门幸福路 Citywalk', summary:'本地步行路线从百家村附近接到幸福路、华新路，体验重点是老街巷和沿途小店的生活感。带行李时可以只选平缓的一段慢走。', url:'https://www.xiaohongshu.com/explore/6a828a6800000000270237c4' }
@@ -153,7 +153,11 @@
       dishes:['招牌四果汤：先问甜度与冰量。','栗子：想带一份路上吃时可少量买。'],
       pair:'两人先点一小碗分着尝，正餐后无需再多点甜食。',
       tip:'配图是品牌菜品图，不是厦禾路分店出品照；门店当日供应与营业请现场确认。',
-      source:'https://you.ctrip.com/food/xiamen21/122826201.html', sourceLabel:'查看门店与近期点评 ↗', showPhotoLink:true
+      source:'https://you.ctrip.com/food/xiamen21/122826201.html', sourceLabel:'查看门店与近期点评 ↗', showPhotoLink:true,
+      reviews:[
+        {source:'小红书 · 哈咯',date:'2026-09-29',title:'经典四果汤的个人偏好',summary:'作者连吃几天上官栗子，喜欢海石花、芋圆和阿达子，推荐经典口味。笔记谈的是连锁品牌，未注明厦禾路这家分店。',url:'https://www.xiaohongshu.com/search_result/6abb7b98000000001803bcdb?xsec_token=ABISTefUlAZIcCgykOnpitf_H-nXk2-5CupbP2Q0jmM4Y=&xsec_source='},
+        {source:'小红书 · 消费降级严谨购物再也不买乱七八糟',date:'2026-04-24',title:'水果份量与芋圆口感的不同评价',summary:'另一位食客觉得水果少、芋圆偏硬，取餐时还需另问加冰；未注明具体分店，作为品牌口味分歧参考。',url:'https://www.xiaohongshu.com/search_result/69eb6023000000003601a9c9?xsec_token=AB2XBP0CX8au-PDBRy_4THcoHkgnSJm9iZjxkReIT7J_s=&xsec_source='}
+      ]
     },
     {
       id:'qingjun', area:'文灶', category:'厦门小吃', name:'庆君汤包·沙茶面（文灶店）', address:'厦门市思明区厦禾路873号1-2-3',
@@ -281,6 +285,7 @@
       pair:'两人各点一碗面，各选两三种配料；下单前看加料价格。',
       tip:'金榜路151-2号，距文灶酒店仍需一段接驳；与湖滨四里老店不是同一地址。',
       source:'https://gs.ctrip.com/html5/you/foods/fooddetail/21/70454890.html',
+      reviews:[{source:'小红书 · 杨枝甘露不加柚',date:'2026-08-23',title:'金榜路四里沙茶面实吃',summary:'作者说原湖滨四里店已迁到金榜路一带，喜欢浓郁汤头和可选配料，也提醒看店内食谱与价签；旧帖价格不作当日参考。',url:'https://www.xiaohongshu.com/search_result/6a8af0280000000014028ee0?xsec_token=ABPPriCyKivTNKQoIIotaqs2ZpZY0AUkYB23SUahlSzQM=&xsec_source='}],
       mapSource:'https://www.amap.com/place/B0HB6SMR7O'
     },
     {
@@ -594,11 +599,17 @@
   window.XiamenExtraFoods.push(
     {
       id:'zhengbaishun-gulangyu', area:'鼓浪屿', category:'闽南正餐', name:'郑百顺姜母鸭（鼓浪屿龙头路店）',
-      address:'厦门市思明区鼓浪屿龙头路272号', image:'', photoLabel:'暂无对应实拍',
+      address:'厦门市思明区鼓浪屿龙头路272号',
+      image:'assets/gallery/food-zhengbaishun-xhs-01.jpg', imageAlt:'小红书食客实拍郑百顺姜母鸭菜品', photoLabel:'小红书食客实拍 · 姜母鸭',
+      gallery:[
+        {src:'assets/gallery/food-zhengbaishun-xhs-01.jpg',alt:'郑百顺姜母鸭与配菜实拍',caption:'小红书 · 咩咩小探长实拍 · 姜母鸭'},
+        {src:'assets/gallery/food-zhengbaishun-xhs-02.jpg',alt:'郑百顺姜母鸭鼓浪屿门头实拍',caption:'小红书 · 咩咩小探长实拍 · 门头'},
+        {src:'assets/gallery/food-zhengbaishun-xhs-03.jpg',alt:'郑百顺砂锅黄花鱼实拍',caption:'小红书 · 咩咩小探长实拍 · 砂锅黄花鱼'}
+      ],
       summary:'龙头路上的姜母鸭正餐备选，适合10月1日逛街时坐下吃热菜；食客评价提到砂锅姜母鸭与黄花鱼。',
       dishes:['姜母鸭：先问套餐与单点的份量、价格。','砂锅黄花鱼：两人吃饭时可与其他海鲜二选一。'],
       pair:'两人先选一份姜母鸭，配米饭与青菜；若加海鲜，先问清总价。',
-      tip:'店址由岛内美食路线笔记标为龙头路272号；店内暂无可核实的对应实拍图。排队与套餐内容以当天门店为准。',
+      tip:'店址由岛内美食路线笔记标为龙头路272号；门头与菜品图出自同一篇到店笔记。排队与套餐内容以当天门店为准。',
       mapUrl:'https://uri.amap.com/search?keyword=郑百顺姜母鸭 鼓浪屿 龙头路272号&city=厦门',
       source:'https://www.xiaohongshu.com/search_result/69379a7b000000001b02497d?xsec_token=ABhqF_gZnxoMO6xJsrUxcPFZUxc9VD-2YYhrooQ_GN_Qc=&xsec_source=',
       reviews:[
@@ -608,7 +619,12 @@
     },
     {
       id:'adai-datong', area:'中山路', category:'闽南正餐', name:'阿呆姜母鸭（大同路店）',
-      address:'厦门市思明区大同路332-101号', image:'', photoLabel:'暂无对应实拍',
+      address:'厦门市思明区大同路332-101号',
+      image:'assets/gallery/food-adai-datong-xhs-01.jpg', imageAlt:'小红书食客实拍阿呆姜母鸭大同路店菜品', photoLabel:'小红书食客实拍 · 姜母鸭',
+      gallery:[
+        {src:'assets/gallery/food-adai-datong-xhs-01.jpg',alt:'阿呆大同路店姜母鸭实拍',caption:'小红书 · 周围走Flora实拍 · 姜母鸭'},
+        {src:'assets/gallery/food-adai-datong-xhs-02.jpg',alt:'阿呆姜母鸭大同路店门头实拍',caption:'小红书 · 周围走Flora实拍 · 大同路店门头'}
+      ],
       summary:'中山路与八市附近的小店，适合10月3日晚逛街时吃姜母鸭；不同食客对姜味和咸度的感受不一。',
       dishes:['姜母鸭：姜片多，先问鸭肉份量与单价。','炒饭或米饭：适合配姜母鸭酱汁；按食量选一种。'],
       pair:'两人先点一份姜母鸭与主食，吃过再决定是否加菜。',
@@ -622,7 +638,12 @@
     },
     {
       id:'linjinji-fishball', area:'鼓浪屿', category:'厦门小吃', name:'林锦记鱼丸（龙头路店）',
-      address:'厦门市思明区鼓浪屿龙头路414号', image:'', photoLabel:'暂无对应实拍',
+      address:'厦门市思明区鼓浪屿龙头路414号',
+      image:'assets/gallery/food-linjinji-xhs-01.jpg', imageAlt:'小红书食客实拍林锦记鱼丸及写有店名的结账单', photoLabel:'小红书食客实拍 · 鱼丸汤',
+      gallery:[
+        {src:'assets/gallery/food-linjinji-xhs-01.jpg',alt:'林锦记鱼丸汤与写有店名的结账单实拍',caption:'小红书 · 十一学霸干货铺实拍 · 鱼丸与店名小票'},
+        {src:'assets/gallery/food-linjinji-xhs-02.jpg',alt:'林锦记食客拍摄的鱼丸切面',caption:'小红书 · 十一学霸干货铺实拍 · 鱼丸切面'}
+      ],
       summary:'龙头路鱼丸汤备选。与现有的龙头鱼丸店是不同门店，适合10月1日只买一小碗比较口味。',
       dishes:['包心鱼丸汤：先点小碗，现做趁热吃。','鱼丸拼碗：若有多种丸子，可先问清份量。'],
       pair:'两人分一碗鱼丸汤，再留胃口给岛上其他小吃。',
@@ -635,7 +656,12 @@
     },
     {
       id:'luama-dessert', area:'鼓浪屿', category:'甜汤饮品', name:'卢阿嬷的手艺·闽南甜品',
-      address:'鼓浪屿龙头路新华书店附近（多处历史门牌，按门店导航核对）', image:'', photoLabel:'暂无对应实拍',
+      address:'鼓浪屿龙头路新华书店附近（多处历史门牌，按门店导航核对）',
+      image:'assets/gallery/food-luama-xhs-01.jpg', imageAlt:'小红书食客实拍卢阿嬷的手艺鼓浪屿店柜台', photoLabel:'小红书食客实拍 · 门店柜台',
+      gallery:[
+        {src:'assets/gallery/food-luama-xhs-01.jpg',alt:'卢阿嬷的手艺鼓浪屿店招牌与甜品柜台实拍',caption:'小红书 · momo实拍 · 门店柜台'},
+        {src:'assets/gallery/food-luama-xhs-02.jpg',alt:'卢阿嬷的手艺食客手持饮品实拍',caption:'小红书 · momo实拍 · 仙草饮品'}
+      ],
       summary:'龙头路步行间隙的甜汤饮品备选。近期食客提到四果汤、花生汤和烧仙草，适合炎热时歇脚。',
       dishes:['四果汤：近期食客觉得冰凉且份量较足。','花生汤或烧仙草：喜欢温热甜汤可选花生汤。'],
       pair:'两人先分一碗四果汤或花生汤，再决定是否试第二种。',

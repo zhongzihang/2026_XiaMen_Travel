@@ -18,7 +18,7 @@
       const match = url.pathname.match(/^\/(?:search_result|explore)\/([\w-]+)\/?$/i);
       if (match) {
         const noteId = match[1];
-        return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://item/${escapeHtml(noteId)}">打开小红书 App 查看这条笔记 ↗</a></div>`;
+        return `<div class="food-review-links food-review-links-xhs"><a class="food-review-app-link" href="xhsdiscover://item/${escapeHtml(noteId)}">打开小红书App查看这条笔记 ↗</a></div>`;
       }
       return '';
     }

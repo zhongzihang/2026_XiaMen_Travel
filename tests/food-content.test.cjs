@@ -74,7 +74,7 @@ test('Jinhaiwan adds the four supplied local photos to its real-photo gallery', 
   for (const image of expected) assert.ok(fs.existsSync(path.join(root, image)), `missing local photo ${image}`);
 });
 
-test('new route-area food cards have distinct sourced reviews and honest photo state', () => {
+test('new route-area food cards have distinct sourced reviews and matching real photos', () => {
   const foods = loadExtraFoods();
   const expected = [
     ['zhengbaishun-gulangyu', '鼓浪屿', '闽南正餐'],
@@ -88,8 +88,11 @@ test('new route-area food cards have distinct sourced reviews and honest photo s
     assert.ok(food, `missing ${id}`);
     assert.equal(food.area, area);
     assert.equal(food.category, category);
-    assert.equal(food.image, '');
-    assert.match(food.photoLabel, /暂无对应实拍/);
+    assert.match(food.image, /^assets\/gallery\/food-.*-xhs-01\.jpg$/);
+    assert.match(food.photoLabel, /小红书.*实拍/);
+    assert.ok(food.gallery?.length >= 2, `${id} needs more than one matching photo`);
+    assert.equal(food.gallery[0].src, food.image);
+    for (const photo of food.gallery) assert.ok(fs.existsSync(path.join(root, photo.src)), `missing ${photo.src}`);
     assert.match(food.mapUrl, /^https:\/\/(?:uri|ditu)\.amap\.com\//);
     assert.ok(food.reviews?.length, `${id} needs a first-hand review`);
     for (const review of food.reviews) {
@@ -215,7 +218,7 @@ test('Xiaohongshu review links use the app deep link without exposing a broken w
   }]);
 
   assert.match(markup, /href="xhsdiscover:\/\/item\/66ab1234567890ab"/);
-  assert.match(markup, /打开小红书 App/);
+  assert.match(markup, /打开小红书App查看这条笔记/);
   assert.doesNotMatch(markup, /href="https:\/\/www\.xiaohongshu\.com|网页查看原帖/);
   assert.doesNotMatch(markup, /volatile-token|search_result/);
 });
@@ -312,7 +315,7 @@ test('unreviewed destination cards gain sourced diner notes and append-only phot
   }
 
   const remainingWithoutVerifiedReviews = Array.from(foods.filter(item => !item.reviews?.length), item => item.id).sort();
-  assert.deepEqual(remainingWithoutVerifiedReviews, ['ayu', 'shangguan', 'sili-jinbang']);
+  assert.deepEqual(remainingWithoutVerifiedReviews, []);
 });
 
 test('newly researched food photos are bundled locally and do not depend on remote image hosts', () => {

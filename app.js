@@ -161,7 +161,8 @@ const foods = [
     dishes:["小青龙：食客提到现场挑选，具体规格和做法到店看当天鲜货。","梭子蟹：先确认品种、重量、总价与做法，再决定是否点。","皮皮虾：作为第二道海鲜份量较合适，价格以现场价牌为准。"],
     pair:"两人点单：龙虾与蟹先二选一，称重确认总价；再补一份贝类或青菜和主食。",
     tip:"照片是八市海鲜菜式参考图，不冒充阿玉门店照片。海鲜规格和价格每天变化，现场看鲜货与价牌后再下单。",
-    source:"https://www.xiaohongshu.com/search_result/6ab389e7000000000a024489?xsec_token=ABEJO8fLKVIV5m9SwRTh2zfxQf2Zxg147PHaTS2iCetLc=&xsec_source="
+    source:"https://www.xiaohongshu.com/search_result/6ab389e7000000000a024489?xsec_token=ABEJO8fLKVIV5m9SwRTh2zfxQf2Zxg147PHaTS2iCetLc=&xsec_source=",
+    reviews:[{source:"小红书 · Aurora",date:"2026-09-23",title:"厦门阿玉海鲜加工已吃",summary:"作者独自到店点小青龙、皮皮虾和梭子蟹，觉得食材新鲜、做法合口；店主还陪同挑海鲜。属于一次到店体验，价格和鲜货以当天为准。",url:"https://www.xiaohongshu.com/search_result/6ab389e7000000000a024489?xsec_token=ABU-hXavV5impIeF6Xt85v0LsI9lmuwBmNsqa5WIw0uFs=&xsec_source="}]
   },
   {
     id:"aming",area:"八市",category:"海鲜大餐",name:"阿明海鲜加工（八市中段）",address:"厦门市思明区开禾路71号（八市中段）",
@@ -394,7 +395,11 @@ const imageCredits = [
   ["八市小吃照片 · 咩咩小探长","小红书笔记实拍：戴熹福姜母鸭、老八市炸货、横竹路小笼包、柴叔土笋冻","https://www.xiaohongshu.com/search_result/697c793d0000000022039a0f?xsec_token=AB_yT2-08-ioEDhBorAr5b60IBMIya9p_T9r93umOTwpc=&xsec_source="],
   ["陈佳甜品照片 · 今天也吃撑了捏","小红书笔记实拍：镇邦路店龟苓膏与西多士","https://www.xiaohongshu.com/search_result/6aa552f10000000026016149?xsec_token=ABa8aqyAoplOLQ1oGslWCHKymN2bdhNFtdjlAvPWNcJmk=&xsec_source="],
   ["老思西鸡蛋汉堡照片 · 近期探店","小红书笔记实拍：老巷现煎过程","https://www.xiaohongshu.com/search_result/6ab0b1f7000000000d027875?xsec_token=ABsFXiatFLXc4WmYEM1JHPVp2J-cxwE61Lsw-rTVdfhe0=&xsec_source="],
-  ["鼓浪屿灌蛋实拍 · 明天吃什么","小红书笔记实拍：龙头路蛋满灌","https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYtjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source="]
+  ["鼓浪屿灌蛋实拍 · 明天吃什么","小红书笔记实拍：龙头路蛋满灌","https://www.xiaohongshu.com/search_result/6a3a529c00000000220090e6?xsec_token=ABmXa5cXIyYtjMlAY5gFhtxeK5_h_HSE7PkJUs3NKk2xc=&xsec_source="],
+  ["郑百顺姜母鸭菜品与门头","小红书用户咩咩小探长到店实拍","https://www.xiaohongshu.com/search_result/69379a7b000000001b02497d?xsec_token=ABhqF_gZnxoMO6xJsrUxcPFZUxc9VD-2YYhrooQ_GN_Qc=&xsec_source="],
+  ["阿呆姜母鸭大同路店","小红书用户周围走Flora到店实拍","https://www.xiaohongshu.com/search_result/6980bd560000000022009192?xsec_token=ABYAyG6FOQhcT86Y7q4yARIUi5fkamm1qNJQGGIcyMnVA=&xsec_source="],
+  ["林锦记鱼丸与店名小票","小红书用户十一学霸干货铺到店实拍","https://www.xiaohongshu.com/search_result/68984c6000000000030337b5?xsec_token=ABbDEqtSE-MwHfl6NmniFnUUeuzTlWbO97KhR1liocww0=&xsec_source="],
+  ["卢阿嬷的手艺柜台与饮品","小红书用户momo到店实拍","https://www.xiaohongshu.com/search_result/69df6fb9000000001d01ea27?xsec_token=ABxnYw9kQKDp_VD1ClbWKhe4is2qSb8h5B3A8l0a-K8eo=&xsec_source="]
 ];
 
 const storeSources = [
