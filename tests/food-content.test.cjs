@@ -74,6 +74,43 @@ test('Jinhaiwan adds the four supplied local photos to its real-photo gallery', 
   for (const image of expected) assert.ok(fs.existsSync(path.join(root, image)), `missing local photo ${image}`);
 });
 
+test('new route-area food cards have distinct sourced reviews and honest photo state', () => {
+  const foods = loadExtraFoods();
+  const expected = [
+    ['zhengbaishun-gulangyu', '鼓浪屿', '闽南正餐'],
+    ['adai-datong', '中山路', '闽南正餐'],
+    ['linjinji-fishball', '鼓浪屿', '厦门小吃'],
+    ['luama-dessert', '鼓浪屿', '甜汤饮品']
+  ];
+  const noteIds = new Set();
+  for (const [id, area, category] of expected) {
+    const food = foods.find(item => item.id === id);
+    assert.ok(food, `missing ${id}`);
+    assert.equal(food.area, area);
+    assert.equal(food.category, category);
+    assert.equal(food.image, '');
+    assert.match(food.photoLabel, /暂无对应实拍/);
+    assert.match(food.mapUrl, /^https:\/\/(?:uri|ditu)\.amap\.com\//);
+    assert.ok(food.reviews?.length, `${id} needs a first-hand review`);
+    for (const review of food.reviews) {
+      assert.ok(review.summary);
+      const noteId = /\/search_result\/([a-f0-9]+)/.exec(review.url)?.[1];
+      assert.ok(noteId, `${id} needs a direct XHS note`);
+      assert.ok(!noteIds.has(noteId), `${id} repeats note ${noteId}`);
+      noteIds.add(noteId);
+    }
+  }
+});
+
+test('cards without a matching photo do not promise one in their fallback copy', () => {
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const details = fs.readFileSync(path.join(root, 'food-details.js'), 'utf8');
+  assert.doesNotMatch(app, /暂无匹配的店内实拍图<br>点卡片查看近期照片/);
+  assert.match(app, /暂无匹配的店内实拍图<br>点卡片看食客评测/);
+  assert.match(details, /暂无匹配的店内实拍/);
+  assert.match(details, /images\.length === 1 \? '单张实拍照片' : '暂无匹配的店内实拍照片'/);
+});
+
 test('food details render a direct Dianping destination while keeping existing Meituan links', () => {
   const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   assert.match(app, /food\.meituanUrl[\s\S]{0,240}在美团查看这家门店/);

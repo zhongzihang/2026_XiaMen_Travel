@@ -41,7 +41,8 @@
       ? `<img src="${escapeHtml(resolveImagePath(current.src))}" alt="${escapeHtml(current.alt || current.caption || food.name)}" data-gallery-image><span class="photo-unavailable" data-gallery-unavailable hidden>照片暂时无法载入</span>`
       : `<span class="photo-unavailable food-photo-empty">暂无匹配的店内实拍照片</span>`;
     const caption = current?.caption || current?.alt || food.photoNote || food.photoLabel || '实拍图';
-    return `<figure class="food-detail-photo${images.length > 1 ? ' food-gallery-active' : ''}" data-food-carousel data-gallery-length="${images.length}" tabindex="0" aria-label="${escapeHtml(food.name)}实拍照片，${images.length > 1 ? '可左右切换' : '单张照片'}">${imageMarkup}${controls}<figcaption data-gallery-caption>${escapeHtml(caption)}</figcaption></figure>`;
+    const photoDescription = images.length > 1 ? '实拍照片，可左右切换' : images.length === 1 ? '单张实拍照片' : '暂无匹配的店内实拍照片';
+    return `<figure class="food-detail-photo${images.length > 1 ? ' food-gallery-active' : ''}" data-food-carousel data-gallery-length="${images.length}" tabindex="0" aria-label="${escapeHtml(food.name)}，${photoDescription}">${imageMarkup}${controls}<figcaption data-gallery-caption>${escapeHtml(caption)}</figcaption></figure>`;
   }
 
   function reviewsMarkup(reviews) {

@@ -43,10 +43,10 @@ test('unresolved XHS note IDs get the documented in-app search route without cla
 test('selected attractions open distinct Xiaohongshu notes through app-only cards', () => {
   const window = loadPlaceExperience();
   const cases = [
-    ['sanqiutian', '6a8484f50000000008011746'],
+    ['sanqiutian', '6a2d10ef000000001702d0cd'],
     ['longtou', '6a3a529c00000000220090e6'],
-    ['shuzhuang', '6aa3b5bd000000002603b195'],
-    ['rock', '68a2c3f7000000001b0228d0'],
+    ['shuzhuang', '6a81d581000000003302fe7b'],
+    ['rock', '6a07f1c00000000035024fcf'],
     ['bashi', '697c793d0000000022039a0f']
   ];
 

@@ -26,10 +26,11 @@
     hotel: { source:'小红书 · 是柒柒呀', date:'2025-07-27', engagement:'103赞 · 54评', title:'我要夸夸厦门这家酒店', summary:'作者分享住在夏商怡翔新语酒店文灶店的体验：文灶交通方便，行李寄存、洗衣和公共茶区实用，工作人员还给了手写游览建议。属于当次入住感受，房型配置以订单为准。', url:'https://www.xiaohongshu.com/explore/6884fcea000000001d00e9e1' },
     station: { source:'小红书 · Yakult🥕', date:'2025-05-17', engagement:'152赞 · 12评', title:'到厦门站乘车看这一篇就够啦！', summary:'作者按进出站体验梳理南北广场、候车区和站内服务，建议给安检与找检票口预留时间。站内入口和客流以车票、现场指引为准。', url:'https://www.xiaohongshu.com/explore/6828025f000000001200353a' },
     dongdu: { source:'小红书 · 省心游一厦（晰晰妈）', date:'2026-03-26', engagement:'550赞', title:'鼓浪屿坐船提前多久到？', summary:'笔记重点提醒先核对船票上的航线与检票口，并给安检、候船和登船留出余量；作者建议约提前半小时到码头。节假日请以订单和现场安排为准。', url:'https://www.xiaohongshu.com/explore/69c4aafd0000000021005244' },
-    sanqiutian: { source:'小红书 · 小魚冻干', date:'2026-08-19', title:'鼓浪屿一日环岛路线（步行版）', summary:'这篇步行路线以环岛游览为主，适合先核对上岛与返程码头，再按体力安排岛上停留；节假日返程候船时间要单独预留。', url:'https://www.xiaohongshu.com/explore/6a8484f50000000008011746' },
+    sanqiutian: { source:'小红书 · 饭饭', date:'2026-06-13', engagement:'4035赞 · 124评', title:'6.12 厦门鼓浪屿 当天往返6h游玩路线', summary:'作者当天从内厝澳上岛、三丘田返程，离岛后接中山路与八市晚餐。本文去程码头不同，只借鉴三丘田离岛衔接；航线、班次和票价仍以船票为准。', url:'https://www.xiaohongshu.com/search_result/6a2d10ef000000001702d0cd?xsec_token=AByo23XgutM1wFL6I_qApMOf3K6FsJHu1Jdp6MhFQ4og0=&xsec_source=' },
     longtou: { source:'小红书 · 明天吃什么', date:'2026-06-23', title:'鼓浪屿一上岛直奔这些店', summary:'上岛逛吃笔记把龙头路作为小吃集中片区，记录了手工灌蛋等选择。街上可以边走边选，热门店排队时换一家也不影响逛岛节奏。', url:'https://www.xiaohongshu.com/explore/6a3a529c00000000220090e6' },
-    shuzhuang: { source:'小红书 · 马铃薯大王', date:'2026-09-11', title:'记录在鼓浪屿半天的超详细攻略', summary:'半日步行攻略把街巷和园林排成较轻松的顺路走法。到菽庄花园可留出时间看园林与海景，不必为了赶下一站压缩停留。', url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195' },
-    rock: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'作者提到天气热时没有勉强登日光岩，提醒把体力和排队情况放在打卡前面。若当天炎热或队伍长，可以改为沿海慢走。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0' },
+    shuzhuang: { source:'小红书 · 🌸', date:'2026-08-16', engagement:'36赞 · 4评', title:'厦门|鼓浪屿菽庄花园旅游攻略', summary:'作者在雨天走访菽庄花园，喜欢四十四桥的海景，也提醒石板路湿滑，建议穿防滑鞋；笔记中的路线与历史细节属于个人分享，以园区现场导览为准。', url:'https://www.xiaohongshu.com/search_result/6a81d581000000003302fe7b?xsec_token=ABAWAebC3pHw5OXPw5AZxFAicTDaljVYAjgyj6NDE-bjw=&xsec_source=', related:[
+      {source:'小红书 · StroNger🐮',date:'2026-07-12',title:'鼓浪屿菽庄花园很美，但是不适合幼儿',summary:'作者带推车到访时发现园内台阶较多，炎热天气里搬运推车很费力；带幼儿或行动不便的同伴建议先评估步行条件。',url:'https://www.xiaohongshu.com/search_result/6a532e68000000001c025e8e?xsec_token=ABzzrTXmYIAVPFj-n8f_eYqlC2ckjnAEmhAx2GjPp0EsE=&xsec_source='}] },
+    rock: { source:'小红书 · 泛泛', date:'2026-05-16', engagement:'37赞 · 24评', title:'鼓浪屿日光岩｜登顶第一人｜0排队攻略', summary:'作者回顾2025年端午从西林门较早入园的体验：最后一段台阶陡窄，避开高峰会更从容。笔记也提到不同时期开门时间有变化，出发前按景区当日公告确认。', url:'https://www.xiaohongshu.com/search_result/6a07f1c00000000035024fcf?xsec_token=ABMlvFSPTDIn32Www824WlkcJJCS5M2Px3e_HIDObX-BQ=&xsec_source=' },
     zhongshan: { source:'小红书 · 咩咩小探长', date:'2025-09-27', engagement:'1.4万赞', title:'厦门中山路 / 八市逛吃攻略', summary:'攻略把八市和中山路安排在同一片区逛吃，建议按胃口选小吃、晚间再慢逛骑楼街。热门店的排队和口味偏好因人而异，不必挨家复刻。', url:'https://www.xiaohongshu.com/explore/68d76399000000001301c793', related:[
       {source:'小红书 · 小小旅行家Mama',date:'2026-06-23',title:'厦门三天两夜逛吃攻略｜不绕路版',summary:'这篇近期城市行程按片区组合景点与吃饭，可用来参考把八市和中山路放在同一晚慢逛，实际顺序按返程交通与排队情况灵活调整。',url:'https://www.xiaohongshu.com/explore/6a3a3aa2000000001702eac1'}] },
     yujian: { source:'小红书 · 泥巴酱（不生气专家）', date:'2026-07-07', engagement:'1905赞 · 147评', title:'厦门屿见闽南｜详细版游玩攻略', summary:'作者建议入园先在服务台取地图，再按当天演出表安排顺序；沉浸演艺是体验重点，互动项目和文创可按兴趣取舍。演出场次以景区当天公告为准。', searchKeyword:'厦门屿见闽南｜详细版游玩攻略 泥巴酱（不生气专家）' },
@@ -589,6 +590,64 @@
     summary:'作者说这家在厦大附近，逛沙坡尾后顺路吃，推荐蒜蓉虾、海鲜捞面、香辣大虾、苔条年糕虾和鲍鱼板栗鸡，并提醒饭点排队。页面显示704赞、536收藏、84条评论（笔记互动，不是门店评分）。评论里既有老顾客称大学期间常吃，也有近期食客对价格及部分菜品提出强烈异议，评价分化明显。',
     url:'https://www.xiaohongshu.com/explore/6aadea1b0000000026021a3f?xsec_token=AB5Xkki5peuTklet5-ao-_3Rh9hiC4G-pCdPPBxAzR7Zg=&xsec_source=pc_search&source=web_explore_feed'
   }];
+
+  window.XiamenExtraFoods.push(
+    {
+      id:'zhengbaishun-gulangyu', area:'鼓浪屿', category:'闽南正餐', name:'郑百顺姜母鸭（鼓浪屿龙头路店）',
+      address:'厦门市思明区鼓浪屿龙头路272号', image:'', photoLabel:'暂无对应实拍',
+      summary:'龙头路上的姜母鸭正餐备选，适合10月1日逛街时坐下吃热菜；食客评价提到砂锅姜母鸭与黄花鱼。',
+      dishes:['姜母鸭：先问套餐与单点的份量、价格。','砂锅黄花鱼：两人吃饭时可与其他海鲜二选一。'],
+      pair:'两人先选一份姜母鸭，配米饭与青菜；若加海鲜，先问清总价。',
+      tip:'店址由岛内美食路线笔记标为龙头路272号；店内暂无可核实的对应实拍图。排队与套餐内容以当天门店为准。',
+      mapUrl:'https://uri.amap.com/search?keyword=郑百顺姜母鸭 鼓浪屿 龙头路272号&city=厦门',
+      source:'https://www.xiaohongshu.com/search_result/69379a7b000000001b02497d?xsec_token=ABhqF_gZnxoMO6xJsrUxcPFZUxc9VD-2YYhrooQ_GN_Qc=&xsec_source=',
+      reviews:[
+        {source:'小红书 · 咩咩小探长',date:'2025-12-09',title:'鼓浪屿姜母鸭实吃',summary:'作者点双人餐后觉得姜母鸭肉质不柴、姜香明显，也提到砂锅黄花鱼与黄油焗虾；人均费用和份量是当次体验，点单前重新核对。',url:'https://www.xiaohongshu.com/search_result/69379a7b000000001b02497d?xsec_token=ABhqF_gZnxoMO6xJsrUxcPFZUxc9VD-2YYhrooQ_GN_Qc=&xsec_source='},
+        {source:'小红书 · 一面湖水',date:'2026-09-18',title:'鼓浪屿就吃郑百顺姜母鸭吧！',summary:'作者与同伴点套餐，认为口味和性价比不错；帖子互动较少，作为另一位食客的单次体验参考。',url:'https://www.xiaohongshu.com/search_result/6aacd04d000000000b00259d?xsec_token=ABweJiqP3QF2lzRLorZKsFLOgSQUPYkZRFIbLxo1FOjSw=&xsec_source='}
+      ]
+    },
+    {
+      id:'adai-datong', area:'中山路', category:'闽南正餐', name:'阿呆姜母鸭（大同路店）',
+      address:'厦门市思明区大同路332-101号', image:'', photoLabel:'暂无对应实拍',
+      summary:'中山路与八市附近的小店，适合10月3日晚逛街时吃姜母鸭；不同食客对姜味和咸度的感受不一。',
+      dishes:['姜母鸭：姜片多，先问鸭肉份量与单价。','炒饭或米饭：适合配姜母鸭酱汁；按食量选一种。'],
+      pair:'两人先点一份姜母鸭与主食，吃过再决定是否加菜。',
+      tip:'有食客称店内仅数张桌，饭点可能等位；另一篇到店笔记认为收尾略咸。位置以高德门店点位为准。',
+      mapUrl:'https://ditu.amap.com/place/B0FFJ5AIDL',
+      source:'https://www.xiaohongshu.com/search_result/6980bd560000000022009192?xsec_token=ABYAyG6FOQhcT86Y7q4yARIUi5fkamm1qNJQGGIcyMnVA=&xsec_source=',
+      reviews:[
+        {source:'小红书 · 周围走Flora',date:'2026-02-02',title:'阿呆大同路店到店体验',summary:'作者觉得鸭与姜煸炒后的味道浓，喜欢用锅里余油拌饭；也指出店小、鸭肉偏少，饭点可能排队。',url:'https://www.xiaohongshu.com/search_result/6980bd560000000022009192?xsec_token=ABYAyG6FOQhcT86Y7q4yARIUi5fkamm1qNJQGGIcyMnVA=&xsec_source='},
+        {source:'小红书 · 熊崽吃吃吃-',date:'2025-07-07',title:'姜母鸭必吃榜·阿呆',summary:'作者在大同店吃到的姜母鸭和姜片都合口味，提到夜间人多，并觉得吃到最后稍咸；口味是个人体验。',url:'https://www.xiaohongshu.com/search_result/686b52fe000000001c03165c?xsec_token=ABdVRwJIyIvrCzdLY7OlwpFOPpz80cByTEMVZyCNpDO5I=&xsec_source='}
+      ]
+    },
+    {
+      id:'linjinji-fishball', area:'鼓浪屿', category:'厦门小吃', name:'林锦记鱼丸（龙头路店）',
+      address:'厦门市思明区鼓浪屿龙头路414号', image:'', photoLabel:'暂无对应实拍',
+      summary:'龙头路鱼丸汤备选。与现有的龙头鱼丸店是不同门店，适合10月1日只买一小碗比较口味。',
+      dishes:['包心鱼丸汤：先点小碗，现做趁热吃。','鱼丸拼碗：若有多种丸子，可先问清份量。'],
+      pair:'两人分一碗鱼丸汤，再留胃口给岛上其他小吃。',
+      tip:'店址由鼓浪屿美食路线笔记标为龙头路414号；名称与龙头鱼丸店容易混淆，按完整店名核对门头。',
+      mapUrl:'https://uri.amap.com/search?keyword=林锦记鱼丸 龙头路414号&city=厦门',
+      source:'https://www.xiaohongshu.com/search_result/68984c6000000000030337b5?xsec_token=ABbDEqtSE-MwHfl6NmniFnUUeuzTlWbO97KhR1liocww0=&xsec_source=',
+      reviews:[
+        {source:'小红书 · 十一学霸干货铺',date:'2025-08-10',title:'岛上多家鱼丸比较',summary:'作者试过多家岛上鱼丸后更喜欢林锦记，尤其喜欢其鱼丸组合；这是个人口味对比，现有龙头鱼丸卡片保留供选择。',url:'https://www.xiaohongshu.com/search_result/68984c6000000000030337b5?xsec_token=ABbDEqtSE-MwHfl6NmniFnUUeuzTlWbO97KhR1liocww0=&xsec_source='}
+      ]
+    },
+    {
+      id:'luama-dessert', area:'鼓浪屿', category:'甜汤饮品', name:'卢阿嬷的手艺·闽南甜品',
+      address:'鼓浪屿龙头路新华书店附近（多处历史门牌，按门店导航核对）', image:'', photoLabel:'暂无对应实拍',
+      summary:'龙头路步行间隙的甜汤饮品备选。近期食客提到四果汤、花生汤和烧仙草，适合炎热时歇脚。',
+      dishes:['四果汤：近期食客觉得冰凉且份量较足。','花生汤或烧仙草：喜欢温热甜汤可选花生汤。'],
+      pair:'两人先分一碗四果汤或花生汤，再决定是否试第二种。',
+      tip:'不同食客认为口味不错，但也提到价位偏高；出发前核对门店位置与当日价目。',
+      mapUrl:'https://uri.amap.com/search?keyword=卢阿嬷的手艺 鼓浪屿&city=厦门',
+      source:'https://www.xiaohongshu.com/search_result/6a7dda100000000022014790?xsec_token=ABF055ujwnle7bmmuqKIlBc-Vs9viQiGGbhWvQRJJtDIM=&xsec_source=',
+      reviews:[
+        {source:'小红书 · Le.design',date:'2026-08-13',title:'鼓浪屿刚回的四果汤体验',summary:'作者在龙头路吃四果汤，觉得冰凉、份量较足，适合炎热时解暑；评价为单次体验。',url:'https://www.xiaohongshu.com/search_result/6a7dda100000000022014790?xsec_token=ABF055ujwnle7bmmuqKIlBc-Vs9viQiGGbhWvQRJJtDIM=&xsec_source='},
+        {source:'小红书 · 你听一下',date:'2026-01-05',title:'岛上甜汤口味与价格比较',summary:'作者喜欢这里的花生汤和烧仙草，但认为比岛上另一家烧仙草贵；可先看价目再选。',url:'https://www.xiaohongshu.com/search_result/695b6469000000002103c7c2?xsec_token=ABD-eMI3DNHTKuwgNQulfNvZYxHC8lAOhyf1sGQ6GH0DE=&xsec_source='}
+      ]
+    }
+  );
 
   const foodById = id => window.XiamenExtraFoods.find(food => food.id === id);
   function appendReviews(id, reviews) {
