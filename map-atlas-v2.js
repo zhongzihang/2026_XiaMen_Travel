@@ -360,7 +360,8 @@
     const crop = dailyCrop(local, localEdges);
     const sequence = [edges[0].from, ...edges.map(edge => edge.to)];
     const markers = local.map(point => {
-      const order = sequence.flatMap((id, index) => id === point.id ? [String(index + 1).padStart(2, '0')] : []).join('/');
+      const orderStart = dataTools.routeOrderStart(data, edges);
+      const order = sequence.flatMap((id, index) => id === point.id ? [String(index + orderStart).padStart(2, '0')] : []).join('/');
       return isSpecial(point) ? specialMarkup(point, days[dayIndex].color, order) : cardMarkup(point, days[dayIndex].color, order);
     }).join('');
     const label = viewName === 'island' ? '鼓浪屿岛上步行' : '厦门岛当日路线';
@@ -392,7 +393,8 @@
       `<ol class="atlas-transit-list">${arrivalTrain}${edges.map((edge, i) => {
         const leg = transit.legs[`${edge.from}-${edge.to}`];
         const destination = points.get(edge.to);
-        return `<li><div class="atlas-leg-title"><span class="atlas-leg-index">${String(i + 1).padStart(2, '0')} <b>→</b> ${String(i + 2).padStart(2, '0')}</span><h5>${esc(dayLabel[edge.from])} <span>→</span> ${esc(dayLabel[edge.to])}</h5></div><div class="atlas-leg-mode">${transitIcon(leg.mode)}<strong>${esc(transit.modes[leg.mode])}</strong><b>约 ${esc(leg.time.replace(/^约 /, ''))}</b></div><p>${esc(leg.path)}</p>${leg.alternative ? `<p class="atlas-leg-alternative">${esc(leg.alternative)}</p>` : ''}<a class="atlas-destination-link" href="${esc(dataTools.amapDestinationUrl(destination))}" target="_blank" rel="noopener noreferrer" aria-label="在高德地图打开终点${esc(destination.name)}">在高德打开终点 · ${esc(destination.name)} ↗</a></li>`;
+        const orderStart = dataTools.routeOrderStart(data, edges);
+        return `<li><div class="atlas-leg-title"><span class="atlas-leg-index">${String(i + orderStart).padStart(2, '0')} <b>→</b> ${String(i + orderStart + 1).padStart(2, '0')}</span><h5>${esc(dayLabel[edge.from])} <span>→</span> ${esc(dayLabel[edge.to])}</h5></div><div class="atlas-leg-mode">${transitIcon(leg.mode)}<strong>${esc(transit.modes[leg.mode])}</strong><b>约 ${esc(leg.time.replace(/^约 /, ''))}</b></div><p>${esc(leg.path)}</p>${leg.alternative ? `<p class="atlas-leg-alternative">${esc(leg.alternative)}</p>` : ''}<a class="atlas-destination-link" href="${esc(dataTools.amapDestinationUrl(destination))}" target="_blank" rel="noopener noreferrer" aria-label="在高德地图打开终点${esc(destination.name)}">在高德打开终点 · ${esc(destination.name)} ↗</a></li>`;
       }).join('')}</ol><p class="atlas-transit-day-note">${esc(transit.notes[index])}</p>`;
   }
   function bindDailyNodes(container) {
@@ -417,7 +419,7 @@
     const kind = isSpecial(point) ? '交通与住宿' : '当日路线点';
     const hiddenAttribute = hidden ? ' hidden' : '';
     return `<article id="day-place-${dayIndex}-${esc(point.id)}" class="map-detail day-place-card${isSpecial(point) ? ' is-special' : ''}" data-day-place-detail="${esc(point.id)}" tabindex="-1" style="--day-color:${days[dayIndex].color}"${hiddenAttribute}>` +
-      `${gallery.markup(point)}<div class="map-detail-copy"><span class="section-kicker">${days[dayIndex].date} · ${kind}</span><div class="day-place-title"><h3>${esc(point.name)}</h3><div class="day-place-order"><span class="day-place-order-number">${esc(orders.join(' / '))}</span><span class="day-place-order-label">游览顺序</span></div></div><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div></article>`;
+      `${gallery.markup(point)}<div class="map-detail-copy"><span class="section-kicker">${days[dayIndex].date} · ${kind}</span><div class="day-place-title"><h3>${esc(point.name)}</h3><div class="day-place-order"><span class="day-place-order-number">${esc(orders.map(order => String(order).padStart(2, '0')).join(' / '))}</span><span class="day-place-order-label">游览顺序</span></div></div><p class="map-detail-address">${esc(point.address)}</p>${gallery.guide(point)}${gallery.experience(point)}</div></article>`;
   }
   function placeDetailsMarkup(details, dayIndex) {
     const cards = details.places.map(item => placeDetailCard(item, dayIndex)).join('');
@@ -463,7 +465,7 @@
     const ferryEdge = edges.find(edge => edge.type === 'ferry');
     if (ferry) {
       ferry.hidden = !ferryEdge;
-      ferry.innerHTML = ferryEdge ? '<span class="map-ferry-label">02 → 03 · 去程轮渡约 20 分钟</span><strong>东渡客运码头</strong><b class="map-ferry-time">10:30 开船</b><span class="map-ferry-arrow" aria-hidden="true">→</span><strong>三丘田码头</strong><span class="map-ferry-label">返厦后按船票上岸码头接八市晚餐</span>' : '';
+      ferry.innerHTML = ferryEdge ? '<span class="map-ferry-label">01 → 02 · 去程轮渡约 20 分钟</span><strong>东渡客运码头</strong><b class="map-ferry-time">10:30 开船</b><span class="map-ferry-arrow" aria-hidden="true">→</span><strong>三丘田码头</strong><span class="map-ferry-label">返厦后按船票上岸码头接八市晚餐</span>' : '';
     }
     renderTransit(edges, activeDay);
     const first = placeDetails.places.find(item => !isSpecial(item.point)) || placeDetails.places[0] || placeDetails.startHotel;

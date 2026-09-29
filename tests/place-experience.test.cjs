@@ -40,18 +40,34 @@ test('unresolved XHS note IDs get the documented in-app search route without cla
   assert.doesNotMatch(markup, /网页端小红书|xiaohongshu\.com/);
 });
 
-test('selected attractions show related Xiaohongshu guides as vertically stacked app-only cards', () => {
+test('selected attractions open distinct Xiaohongshu notes through app-only cards', () => {
   const window = loadPlaceExperience();
   const cases = [
     ['sanqiutian', '6a8484f50000000008011746'],
-    ['longtou', '6aa3b5bd000000002603b195'],
+    ['longtou', '6a3a529c00000000220090e6'],
+    ['shuzhuang', '6aa3b5bd000000002603b195'],
+    ['rock', '68a2c3f7000000001b0228d0'],
     ['bashi', '697c793d0000000022039a0f']
   ];
 
   for (const [id, noteId] of cases) {
     const markup = window.XiamenPlaceGallery.experience({ id, name: id });
-    assert.ok((markup.match(/class="place-experience"/g) || []).length >= 2, `${id} needs multiple guide cards`);
+    assert.ok((markup.match(/class="place-experience"/g) || []).length >= 1, `${id} needs a guide card`);
     assert.match(markup, new RegExp(`xhsdiscover:\/\/item\/${noteId}`), `${id} should link to the matching note`);
     assert.doesNotMatch(markup, /网页查看原帖|xiaohongshu\.com/);
+  }
+});
+
+test('daily attraction experiences do not reuse a Xiaohongshu post across places', () => {
+  const experiences = loadPlaceExperience().XiamenPlaceExperiences;
+  const seen = new Map();
+  for (const [placeId, experience] of Object.entries(experiences)) {
+    for (const entry of [experience, ...(experience.related || [])]) {
+      if (!entry.url?.includes('xiaohongshu.com')) continue;
+      const noteId = /\/(?:explore|search_result)\/([a-f0-9]+)/.exec(entry.url)?.[1];
+      assert.ok(noteId, `${placeId} needs a note ID`);
+      assert.ok(!seen.has(noteId), `${placeId} repeats ${seen.get(noteId)} via ${noteId}`);
+      seen.set(noteId, placeId);
+    }
   }
 });

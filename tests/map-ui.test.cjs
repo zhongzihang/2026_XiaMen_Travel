@@ -41,7 +41,7 @@ test('daily ordered place cards sit above transit and map pins scroll to their d
   const css = read('map-atlas-v2.css');
   assert.ok(app.indexOf('class="day-place-list"') < app.indexOf('class="atlas-transit"'));
   assert.match(atlas, /function placeDetailsMarkup\(details, dayIndex\)/);
-  assert.match(atlas, /orders\.join\(' \/ '\)/);
+  assert.match(atlas, /orders\.map\(order => String\(order\)\.padStart\(2, '0'\)\)\.join\(' \/ '\)/);
   assert.match(atlas, /day-place-stack">\$\{startHotel\}\$\{cards\}/);
   assert.match(atlas, /selectPoint\(node\.dataset\.dayPointId, \{ scroll: true \}\)/);
   assert.match(atlas, /card\.scrollIntoView\(\{ behavior: 'smooth', block: 'center' \}\)/);

@@ -34,6 +34,11 @@
     return [...new Set([edges[0].from, ...edges.map(edge => edge.to)])];
   }
 
+  function routeOrderStart(data, edges) {
+    const firstId = edges?.[0]?.from;
+    return data.points.find(point => point.id === firstId)?.locationType === 'hotel' ? 0 : 1;
+  }
+
   function routePlaceDetails(data, edges) {
     if (!Array.isArray(edges) || edges.length === 0) return { places: [], startHotel: null };
     const points = new Map(data.points.map(point => [point.id, point]));
@@ -43,7 +48,7 @@
       const point = points.get(id);
       if (!point) return;
       if (!visits.has(id)) visits.set(id, { point, orders: [] });
-      visits.get(id).orders.push(index + 1);
+      visits.get(id).orders.push(index + routeOrderStart(data, edges));
     });
     const ordered = [...visits.values()];
     const firstPoint = points.get(sequence[0]);
@@ -146,5 +151,5 @@
     }
   };
   validateMapData(data);
-  return { validateMapData, routeForDay, routePointIds, routePlaceDetails, pointsForRoute, overviewRoutes, amapDestinationUrl, data };
+  return { validateMapData, routeForDay, routePointIds, routeOrderStart, routePlaceDetails, pointsForRoute, overviewRoutes, amapDestinationUrl, data };
 });

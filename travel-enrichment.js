@@ -26,14 +26,10 @@
     hotel: { source:'小红书 · 是柒柒呀', date:'2025-07-27', engagement:'103赞 · 54评', title:'我要夸夸厦门这家酒店', summary:'作者分享住在夏商怡翔新语酒店文灶店的体验：文灶交通方便，行李寄存、洗衣和公共茶区实用，工作人员还给了手写游览建议。属于当次入住感受，房型配置以订单为准。', url:'https://www.xiaohongshu.com/explore/6884fcea000000001d00e9e1' },
     station: { source:'小红书 · Yakult🥕', date:'2025-05-17', engagement:'152赞 · 12评', title:'到厦门站乘车看这一篇就够啦！', summary:'作者按进出站体验梳理南北广场、候车区和站内服务，建议给安检与找检票口预留时间。站内入口和客流以车票、现场指引为准。', url:'https://www.xiaohongshu.com/explore/6828025f000000001200353a' },
     dongdu: { source:'小红书 · 省心游一厦（晰晰妈）', date:'2026-03-26', engagement:'550赞', title:'鼓浪屿坐船提前多久到？', summary:'笔记重点提醒先核对船票上的航线与检票口，并给安检、候船和登船留出余量；作者建议约提前半小时到码头。节假日请以订单和现场安排为准。', url:'https://www.xiaohongshu.com/explore/69c4aafd0000000021005244' },
-    sanqiutian: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'这篇压缩版路线把三丘田作为离岛节点之一，提醒先确认进出岛码头，再按体力取舍岛上景点。作者走的是速通节奏，实际游玩建议为返程候船留足时间。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0', related:[
-      {source:'小红书 · 小魚冻干',date:'2026-08-19',title:'鼓浪屿一日环岛路线（步行版）',summary:'这篇步行路线以环岛游览为主，适合先核对上岛与返程码头，再按体力安排岛上停留；节假日返程候船时间要单独预留。',url:'https://www.xiaohongshu.com/explore/6a8484f50000000008011746'}] },
-    longtou: { source:'小红书 · 明天吃什么', date:'2026-06-23', title:'鼓浪屿一上岛直奔这些店', summary:'上岛逛吃笔记把龙头路作为小吃集中片区，记录了手工灌蛋等选择。街上可以边走边选，热门店排队时换一家也不影响逛岛节奏。', url:'https://www.xiaohongshu.com/explore/6a3a529c00000000220090e6', related:[
-      {source:'小红书 · 马铃薯大王',date:'2026-09-11',title:'记录在鼓浪屿半天的超详细攻略',summary:'近期半日游攻略按街巷与园林组合行程，可作为龙头路逛吃后继续游览的参考；具体开放时间和预约以景点当日信息为准。',url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195'}] },
-    shuzhuang: { source:'小红书 · 马铃薯大王', date:'2026-09-11', title:'记录在鼓浪屿半天的超详细攻略', summary:'半日步行攻略把街巷和园林排成较轻松的顺路走法。到菽庄花园可留出时间看园林与海景，不必为了赶下一站压缩停留。', url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195', related:[
-      {source:'小红书 · 小魚冻干',date:'2026-08-19',title:'鼓浪屿一日环岛路线（步行版）',summary:'环岛步行攻略可用来对照菽庄花园与沿海散步的整体衔接；登岛后以现场开放和个人步速调整停留。',url:'https://www.xiaohongshu.com/explore/6a8484f50000000008011746'}] },
-    rock: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'作者提到天气热时没有勉强登日光岩，提醒把体力和排队情况放在打卡前面。若当天炎热或队伍长，可以改为沿海慢走。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0', related:[
-      {source:'小红书 · 马铃薯大王',date:'2026-09-11',title:'记录在鼓浪屿半天的超详细攻略',summary:'这篇较新的半日游攻略提供轻量步行思路，可对照日光岩与岛上街巷的安排；登顶与否按天气、排队和体力决定。',url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195'}] },
+    sanqiutian: { source:'小红书 · 小魚冻干', date:'2026-08-19', title:'鼓浪屿一日环岛路线（步行版）', summary:'这篇步行路线以环岛游览为主，适合先核对上岛与返程码头，再按体力安排岛上停留；节假日返程候船时间要单独预留。', url:'https://www.xiaohongshu.com/explore/6a8484f50000000008011746' },
+    longtou: { source:'小红书 · 明天吃什么', date:'2026-06-23', title:'鼓浪屿一上岛直奔这些店', summary:'上岛逛吃笔记把龙头路作为小吃集中片区，记录了手工灌蛋等选择。街上可以边走边选，热门店排队时换一家也不影响逛岛节奏。', url:'https://www.xiaohongshu.com/explore/6a3a529c00000000220090e6' },
+    shuzhuang: { source:'小红书 · 马铃薯大王', date:'2026-09-11', title:'记录在鼓浪屿半天的超详细攻略', summary:'半日步行攻略把街巷和园林排成较轻松的顺路走法。到菽庄花园可留出时间看园林与海景，不必为了赶下一站压缩停留。', url:'https://www.xiaohongshu.com/explore/6aa3b5bd000000002603b195' },
+    rock: { source:'小红书 · 攻略狂魔（迷茫中）', date:'2025-08-18', engagement:'5861赞 · 223评', title:'鼓浪屿3小时速通最权威攻略', summary:'作者提到天气热时没有勉强登日光岩，提醒把体力和排队情况放在打卡前面。若当天炎热或队伍长，可以改为沿海慢走。', url:'https://www.xiaohongshu.com/explore/68a2c3f7000000001b0228d0' },
     zhongshan: { source:'小红书 · 咩咩小探长', date:'2025-09-27', engagement:'1.4万赞', title:'厦门中山路 / 八市逛吃攻略', summary:'攻略把八市和中山路安排在同一片区逛吃，建议按胃口选小吃、晚间再慢逛骑楼街。热门店的排队和口味偏好因人而异，不必挨家复刻。', url:'https://www.xiaohongshu.com/explore/68d76399000000001301c793', related:[
       {source:'小红书 · 小小旅行家Mama',date:'2026-06-23',title:'厦门三天两夜逛吃攻略｜不绕路版',summary:'这篇近期城市行程按片区组合景点与吃饭，可用来参考把八市和中山路放在同一晚慢逛，实际顺序按返程交通与排队情况灵活调整。',url:'https://www.xiaohongshu.com/explore/6a3a3aa2000000001702eac1'}] },
     yujian: { source:'小红书 · 泥巴酱（不生气专家）', date:'2026-07-07', engagement:'1905赞 · 147评', title:'厦门屿见闽南｜详细版游玩攻略', summary:'作者建议入园先在服务台取地图，再按当天演出表安排顺序；沉浸演艺是体验重点，互动项目和文创可按兴趣取舍。演出场次以景区当天公告为准。', searchKeyword:'厦门屿见闽南｜详细版游玩攻略 泥巴酱（不生气专家）' },
@@ -323,7 +319,7 @@
       source:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'
     },
     {
-      id:'diaoyuchuan-shapowei', featuredRank:2, area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
+      id:'diaoyuchuan-shapowei', featuredRank:1, area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
       address:'沙坡尾片区（以大众点评门店定位为准；小红书笔记称“打渔船·老厦门本地菜·姜母鸭”）',
       image:'assets/gallery/food-diaoyuchuan-xhs-2026.jpg', imageAlt:'小红书探店实拍：打渔船的海鲜沙茶面与小菜', photoLabel:'小红书探店实拍 · 海鲜沙茶面',
       photoNote:'小红书探店实拍 · 海鲜沙茶面（笔记作者：糯米就是Nommy）',
@@ -573,12 +569,12 @@
   });
 
   window.XiamenExtraFoods.push({
-    id:'jinhaiwan-shapowei', featuredRank:1, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
+    id:'jinhaiwan-shapowei', featuredRank:2, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
     address:'厦门大学、沙坡尾片区（原帖描述；门牌未核实，出发前按店名查地图）',
-    image:'assets/gallery/food-jinhaiwan-user-01.jpg',
-    imageAlt:'金海湾海鲜厦门菜 · 小红书原帖实拍多款海鲜拼盘',
-    photoLabel:'小红书原帖实拍',
-    photoNote:'小红书原帖实拍 · 多款海鲜拼盘',
+    image:'assets/gallery/food-jinhaiwan-user-01.png',
+    imageAlt:'用户提供的金海湾海鲜厦门菜实拍：海鲜面、蒜蓉虾和螃蟹',
+    photoLabel:'用户提供实拍',
+    photoNote:'用户提供实拍 · 海鲜面、蒜蓉虾与螃蟹',
     summary:'厦大、沙坡尾附近的海鲜大排档。近期探店笔记提到蒜蓉虾、海鲜捞面、香辣大虾和苔条年糕虾；明档点单先确认时价与总价。',
     dishes:['蒜蓉虾、香辣大虾：按当日鲜货和份量点。','海鲜捞面：笔记作者喜欢拌面口感，适合两人分享。','苔条年糕虾、鲍鱼板栗鸡：多人用餐时先问份量和价格。'],
     pair:'两人先选一道虾或海鲜面，再搭配一份蔬菜；多人同行再考虑鸡类或年糕菜。海鲜明档仍先确认规格、时价和总价。',
@@ -716,8 +712,8 @@
     {src:'assets/gallery/food-yousheng-remote-02.jpg',alt:'友生风味小吃营平市场店食客上传的第二张照片',caption:'Trip.com食客实拍 · 营平市场店'}
   ]);
   appendPhotos('jinhaiwan-shapowei', [
-    {src:'assets/gallery/food-jinhaiwan-user-02.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍海鲜捞面与拼盘',caption:'小红书原帖实拍 · 海鲜捞面与拼盘'},
-    {src:'assets/gallery/food-jinhaiwan-user-03.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍蒜蓉大虾',caption:'小红书原帖实拍 · 蒜蓉大虾'},
-    {src:'assets/gallery/food-jinhaiwan-user-04.jpg',alt:'金海湾海鲜厦门菜 · 小红书原帖实拍多人海鲜桌菜',caption:'小红书原帖实拍 · 多人海鲜桌菜'}
+    {src:'assets/gallery/food-jinhaiwan-user-02.png',alt:'用户提供的金海湾海鲜厦门菜实拍：两盘海鲜捞面',caption:'用户提供实拍 · 海鲜捞面'},
+    {src:'assets/gallery/food-jinhaiwan-user-03.png',alt:'用户提供的金海湾海鲜厦门菜实拍：多人海鲜桌菜',caption:'用户提供实拍 · 多人海鲜桌菜'},
+    {src:'assets/gallery/food-jinhaiwan-user-04.png',alt:'用户提供的金海湾海鲜厦门菜实拍：两盘虾与年糕',caption:'用户提供实拍 · 虾与年糕'}
   ]);
 })();
