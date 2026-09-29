@@ -197,16 +197,19 @@
     },
     {
       id:'yishuyiye', featuredRank:6, area:'中山路', category:'甜汤饮品', name:'一树一叶（思北店）', address:'厦门市思明区厦禾路296-135-1号',
-      image:'assets/gallery/food-yishuyiye-1.jpg', imageAlt:'一树一叶福建鲜奶茶品牌门店实拍', photoLabel:'品牌门店实拍 · 非思北店',
+      image:'assets/gallery/food-yishuyiye-xhs-2026.jpg', imageAlt:'小红书实拍：一树一叶茉莉野山楂饮品（沙坡尾笔记，非思北店）', photoLabel:'小红书实拍 · 品牌饮品 · 非思北店',
       gallery:[
-        {src:'assets/gallery/food-yishuyiye-1.jpg',alt:'一树一叶同品牌门店环境实拍（非思北店）',caption:'品牌门店环境 · 非思北店'},
-        {src:'assets/gallery/food-yishuyiye-xhs-2026.jpg',alt:'小红书实拍：一树一叶茉莉野山楂饮品',caption:'小红书实拍 · 沙坡尾笔记记录的品牌饮品'}
+        {src:'assets/gallery/food-yishuyiye-xhs-2026.jpg',alt:'小红书实拍：一树一叶茉莉野山楂饮品（沙坡尾笔记，非思北店）',caption:'小红书实拍 · 沙坡尾笔记中的品牌饮品（非思北店）'},
+        {src:'assets/gallery/food-yishuyiye-1.jpg',alt:'一树一叶同品牌门店环境实拍（非思北店）',caption:'品牌门店环境 · 非思北店'}
       ],
       summary:'以福建茶做鲜奶茶和果茶，八市与中山路之间想喝一杯时可作为顺路备选。',
       dishes:['茉莉青乌龙：偏清爽的茶香选择。','闽南茶底鲜奶茶：想喝奶香时先选低糖。'],
       pair:'两人各点一杯不同茶底，少糖更容易尝出茶味。',
-      tip:'配图包括同品牌门店环境和一篇沙坡尾笔记中的饮品，均不能当作思北分店实景；出发前按店名和厦禾路门牌核实营业。',
-      reviews:[{source:'小红书 · 豆本豆',date:'2026-09-06',title:'茉莉野山楂饮品实喝',summary:'作者写到在沙坡尾喝到茉莉野山楂，觉得山楂酸感、淡淡茉莉香与咸奶盖搭配清爽，杯底有阿达子；这是单次口味体验，具体配方和门店分店未核对。',url:'https://www.xiaohongshu.com/explore/6a9cfec9000000002900c0a7?xsec_token=ABExRroS6EBOzKMCt1JVcO48chrMOGTB8x5t4TOex1eug='}],
+      tip:'配图是一篇沙坡尾笔记中的品牌饮品实拍，以及同品牌门店环境照，均非思北分店实景；出发前按店名和厦禾路门牌核实营业。',
+      reviews:[
+        {source:'小红书 · 豆本豆',date:'2026-09-06',title:'茉莉野山楂饮品实喝',summary:'作者写到在沙坡尾喝到茉莉野山楂，觉得山楂酸感、淡淡茉莉香与咸奶盖搭配清爽，杯底有阿达子；这是单次口味体验，具体配方和门店分店未核对。',url:'https://www.xiaohongshu.com/explore/6a9cfec9000000002900c0a7?xsec_token=ABExRroS6EBOzKMCt1JVcO48chrMOGTB8x5t4TOex1eug='},
+        {source:'小红书 · 吞土土',date:'2024-06-30',title:'思北一带的茉莉青提乌龙体验',summary:'作者在思北一带的奶茶测评中试了茉莉青提乌龙，觉得奶香足，但茶香与茉莉青提风味不突出，整体可喝但不太符合预期。笔记未确认具体分店，是较早的一次个人口味体验。',url:'https://www.xiaohongshu.com/search_result/66811b51000000001e0127d1?xsec_token=ABF-bqY_0EtzJBwYFb23Dl2xkO0Zrfs1mC7o-_1LYY6AI=&xsec_source='}
+      ],
       source:'https://my.trip.com/moments/detail/xiamen-21-128769307', sourceLabel:'查看品牌门店实拍 ↗', showPhotoLink:true
     },
     {

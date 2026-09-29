@@ -399,7 +399,8 @@ const imageCredits = [
   ["郑百顺姜母鸭菜品与门头","小红书用户咩咩小探长到店实拍","https://www.xiaohongshu.com/search_result/69379a7b000000001b02497d?xsec_token=ABhqF_gZnxoMO6xJsrUxcPFZUxc9VD-2YYhrooQ_GN_Qc=&xsec_source="],
   ["阿呆姜母鸭大同路店","小红书用户周围走Flora到店实拍","https://www.xiaohongshu.com/search_result/6980bd560000000022009192?xsec_token=ABYAyG6FOQhcT86Y7q4yARIUi5fkamm1qNJQGGIcyMnVA=&xsec_source="],
   ["林锦记鱼丸与店名小票","小红书用户十一学霸干货铺到店实拍","https://www.xiaohongshu.com/search_result/68984c6000000000030337b5?xsec_token=ABbDEqtSE-MwHfl6NmniFnUUeuzTlWbO97KhR1liocww0=&xsec_source="],
-  ["卢阿嬷的手艺柜台与饮品","小红书用户momo到店实拍","https://www.xiaohongshu.com/search_result/69df6fb9000000001d01ea27?xsec_token=ABxnYw9kQKDp_VD1ClbWKhe4is2qSb8h5B3A8l0a-K8eo=&xsec_source="]
+  ["卢阿嬷的手艺柜台与饮品","小红书用户momo到店实拍","https://www.xiaohongshu.com/search_result/69df6fb9000000001d01ea27?xsec_token=ABxnYw9kQKDp_VD1ClbWKhe4is2qSb8h5B3A8l0a-K8eo=&xsec_source="],
+  ["一树一叶品牌饮品","小红书用户豆本豆实拍；沙坡尾笔记中的品牌饮品，非思北店","https://www.xiaohongshu.com/explore/6a9cfec9000000002900c0a7?xsec_token=ABExRroS6EBOzKMCt1JVcO48chrMOGTB8x5t4TOex1eug="]
 ];
 
 const storeSources = [
