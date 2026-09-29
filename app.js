@@ -540,7 +540,7 @@ function renderSources(){
   document.getElementById("storeSources").innerHTML=storeSources.map(([label,url])=>`<li><a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${safe(label)} · 门店页 ↗</a></li>`).join("");
   document.getElementById("imageCredits").innerHTML=imageCredits.map(([label,credit,url])=>`<li><a href="${safe(url)}" target="_blank" rel="noopener noreferrer">${safe(label)}</a> · ${safe(credit)}</li>`).join("");
 }
-renderDays();renderFood();activateDay(1);
+renderDays();renderFood();activateDay(0);
 const photoDialog=document.getElementById("photoDialog");
 function bindZoom(root){root.querySelectorAll("figure img").forEach(img=>{
   if(img.dataset.zoomBound)return;img.dataset.zoomBound="true";
