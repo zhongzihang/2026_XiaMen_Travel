@@ -147,7 +147,7 @@
       source:'https://tw.trip.com/restaurant/china/xiamen/detail/restaurant-11309499', meituanUrl:'https://dpurl.cn/r9smU4jz'
     },
     {
-      id:'shangguan', area:'中山路', category:'甜汤饮品', name:'上官栗子·四果汤（厦禾路店）', address:'厦门市思明区厦禾路296-108号',
+      id:'shangguan', featuredRank:8, area:'中山路', category:'甜汤饮品', name:'上官栗子·四果汤（厦禾路店）', address:'厦门市思明区厦禾路296-108号',
       image:'assets/gallery/food-shangguan-1.jpeg', imageAlt:'上官栗子四果汤品牌菜品展示图', photoLabel:'品牌菜品图 · 非分店实拍',
       summary:'四果汤用冰、仙草、豆类与水果调成清爽甜口，适合八市或骑楼夜逛时两人分一碗。',
       dishes:['招牌四果汤：先问甜度与冰量。','栗子：想带一份路上吃时可少量买。'],
@@ -196,7 +196,7 @@
       source:'https://4travel.jp/os_shisetsu/10440355', sourceLabel:'查看到店照片与点评 ↗', showPhotoLink:true
     },
     {
-      id:'yishuyiye', area:'中山路', category:'甜汤饮品', name:'一树一叶（思北店）', address:'厦门市思明区厦禾路296-135-1号',
+      id:'yishuyiye', featuredRank:6, area:'中山路', category:'甜汤饮品', name:'一树一叶（思北店）', address:'厦门市思明区厦禾路296-135-1号',
       image:'assets/gallery/food-yishuyiye-1.jpg', imageAlt:'一树一叶福建鲜奶茶品牌门店实拍', photoLabel:'品牌门店实拍 · 非思北店',
       gallery:[
         {src:'assets/gallery/food-yishuyiye-1.jpg',alt:'一树一叶同品牌门店环境实拍（非思北店）',caption:'品牌门店环境 · 非思北店'},
@@ -325,7 +325,7 @@
       source:'https://tw.trip.com/restaurant/china/xiamen/detail/bapopo-11308557/'
     },
     {
-      id:'diaoyuchuan-shapowei', featuredRank:1, area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
+      id:'diaoyuchuan-shapowei', featuredRank:2, area:'沙坡尾', category:'海鲜大餐', name:'打渔船厦门菜·正宗姜母鸭（沙坡尾店）',
       address:'沙坡尾片区（以大众点评门店定位为准；小红书笔记称“打渔船·老厦门本地菜·姜母鸭”）',
       image:'assets/gallery/food-diaoyuchuan-xhs-2026.jpg', imageAlt:'小红书探店实拍：打渔船的海鲜沙茶面与小菜', photoLabel:'小红书探店实拍 · 海鲜沙茶面',
       photoNote:'小红书探店实拍 · 海鲜沙茶面（笔记作者：糯米就是Nommy）',
@@ -337,7 +337,7 @@
       dianpingUrl:'https://www.dianping.com/shop/jDgraZ2KYLC8zGnk'
     },
     {
-      id:'xinwutang-gingerduck', area:'中山路', category:'闽南正餐', name:'鑫坞堂姜母鸭·海鲜热炒（中山路总店）',
+      id:'xinwutang-gingerduck', featuredRank:1, area:'中山路', category:'闽南正餐', name:'鑫坞堂姜母鸭·海鲜热炒（中山路总店）',
       address:'中山路镇邦路片区（以大众点评门店定位为准；小红书笔记称“鑫坞堂姜母鸭·闽菜香煎蟹”）',
       image:'assets/gallery/food-xinwutang-xhs-2026.jpg', imageAlt:'小红书探店实拍：鑫坞堂招牌姜母鸭', photoLabel:'小红书探店实拍 · 姜母鸭',
       photoNote:'小红书探店实拍 · 姜母鸭（笔记作者：吃不饱的苏大强）',
@@ -434,7 +434,7 @@
       reviews:[{source:'小红书 · 一杯冰美式',date:'2026-02-13',title:'经典面汤组合',summary:'食客把花生酱拌面和猪杂汤作为一组推荐，反馈面条有嚼劲、汤味鲜；适合喜欢浓酱和内脏汤的人。',url:'https://www.xiaohongshu.com/search_result/698f2152000000000d00b35c?xsec_token=ABwj1b33SJJeXiHVtZQN2giIdzDIIlyodMCFC7yZh0xUU=&xsec_source='}]
     },
     {
-      id:'laosixi-egg-burger', area:'中山路', category:'厦门小吃', name:'林记老思西鸡蛋汉堡',
+      id:'laosixi-egg-burger', featuredRank:5, area:'中山路', category:'厦门小吃', name:'林记老思西鸡蛋汉堡',
       address:'思明西路山仔顶巷内；地图平台门牌号不一致，按店名定位后核对',
       image:'assets/gallery/food-laosixi-xhs-1.jpg', imageAlt:'小红书实拍：老思西鸡蛋汉堡现煎过程', photoLabel:'小红书实拍 · 鸡蛋汉堡',
       photoNote:'小红书实拍 · 老思西鸡蛋汉堡',
@@ -513,7 +513,7 @@
       ]
     },
     {
-      id:'zhengyoucai-casserole-congee', area:'中山路', category:'海鲜大餐', name:'郑有财海鲜砂锅粥（中山路店）',
+      id:'zhengyoucai-casserole-congee', featuredRank:3, area:'中山路', category:'海鲜大餐', name:'郑有财海鲜砂锅粥（中山路店）',
       address:'厦门市思明区镇邦路28号',
       image:'assets/gallery/food-zhengyoucai-xhs-1.jpg', imageAlt:'小红书实拍：郑有财海鲜砂锅粥及多道菜品', photoLabel:'小红书食客实拍 · 海鲜与砂锅粥',
       gallery:[
@@ -575,7 +575,7 @@
   });
 
   window.XiamenExtraFoods.push({
-    id:'jinhaiwan-shapowei', featuredRank:2, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
+    id:'jinhaiwan-shapowei', featuredRank:4, area:'沙坡尾', category:'海鲜大餐', name:'金海湾海鲜厦门菜',
     address:'厦门大学、沙坡尾片区（原帖描述；门牌未核实，出发前按店名查地图）',
     image:'assets/gallery/food-jinhaiwan-user-01.png',
     imageAlt:'用户提供的金海湾海鲜厦门菜实拍：海鲜面、蒜蓉虾和螃蟹',

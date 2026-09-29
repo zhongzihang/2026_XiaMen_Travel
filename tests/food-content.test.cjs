@@ -46,13 +46,27 @@ test('Xiaohongshu-matched ginger duck shops have Dianping destinations and bundl
   }
 });
 
-test('Jinhaiwan is featured second after the Shapowei ginger duck guide', () => {
-  const foods = loadExtraFoods();
+test('the eight requested food cards keep their featured order', () => {
+  const context = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(root, 'food-ranking.js'), 'utf8'), context);
+  const foods = Array.from(context.window.XiamenFoodRanking.sort(loadFoodCatalog()));
+  const featured = foods
+    .filter(item => Number.isFinite(Number(item.featuredRank)))
+    .map(item => [item.id, item.featuredRank]);
+
+  assert.deepEqual(featured, [
+    ['xinwutang-gingerduck', 1],
+    ['diaoyuchuan-shapowei', 2],
+    ['zhengyoucai-casserole-congee', 3],
+    ['jinhaiwan-shapowei', 4],
+    ['laosixi-egg-burger', 5],
+    ['yishuyiye', 6],
+    ['wuhongying', 7],
+    ['shangguan', 8]
+  ]);
+
   const jinhaiwan = foods.find(item => item.id === 'jinhaiwan-shapowei');
   const diaoyuchuan = foods.find(item => item.id === 'diaoyuchuan-shapowei');
-
-  assert.equal(jinhaiwan?.featuredRank, 2);
-  assert.equal(diaoyuchuan?.featuredRank, 1);
   assert.ok(jinhaiwan.reviews.some(review => review.url.includes('/explore/6aadea1b0000000026021a3f')));
   assert.ok(diaoyuchuan.reviews.some(review => review.url.includes('/explore/6ab0f2060000000036017667')));
   assert.equal(diaoyuchuan.image, 'assets/gallery/food-diaoyuchuan-xhs-2026.jpg');

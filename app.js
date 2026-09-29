@@ -198,7 +198,7 @@ const foods = [
     source:"https://gs.ctrip.com/html5/you/foods/Xiamen21/11389102.html"
   },
   {
-    id:"wuhongying",area:"沙坡尾",category:"海鲜大餐",name:"吴红英海鲜砂锅粥（沙坡尾店）",address:"厦门市思明区大学路177号恒达大厦101室",
+    id:"wuhongying",featuredRank:7,area:"沙坡尾",category:"海鲜大餐",name:"吴红英海鲜砂锅粥（沙坡尾店）",address:"厦门市思明区大学路177号恒达大厦101室",
     image:"assets/gallery/food-wuhongying.jpg",imageAlt:"吴红英海鲜砂锅粥店内砂锅粥与海鲜菜实拍",photoLabel:"店内实拍",
     summary:"适合逛沙坡尾后坐下来吃热粥，砂锅现煮；比海鲜大排档更适合想吃得暖和、节奏慢一点的两人。",
     dishes:["膏蟹鲜虾砂锅粥：蟹鲜和虾甜融进绵稠粥底。","捞汁花蛤 / 螺类：酸辣开胃，适合作为小菜。","时蔬或炸物：和砂锅粥搭配分享。"],
