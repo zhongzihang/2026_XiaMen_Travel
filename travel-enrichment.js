@@ -801,4 +801,18 @@
     {src:'assets/gallery/food-jinhaiwan-user-03.png',alt:'用户提供的金海湾海鲜厦门菜实拍：多人海鲜桌菜',caption:'用户提供实拍 · 多人海鲜桌菜'},
     {src:'assets/gallery/food-jinhaiwan-user-04.png',alt:'用户提供的金海湾海鲜厦门菜实拍：两盘虾与年糕',caption:'用户提供实拍 · 虾与年糕'}
   ]);
+  appendReviews('sibei-bread', [
+    {source:'小红书 · 魔小婷在厦门',date:'2026-05-24',title:'思北特香包实吃：趁热更松软',summary:'作者记录刚出炉时外皮微脆、内里松软，并认为甜口偏甜；也提醒不必为了面包排太久。属于一次个人体验，供应与排队情况以到店为准。',url:'https://www.xiaohongshu.com/explore/6a12b41d000000003701e31b?xsec_token=ABClRSoGWrJ9d4gS3y1E0p18X_U4TPqSixHIDV9oY7XO8=&xsec_source='}
+  ]);
+  appendReviews('xinaqiang', [
+    {source:'小红书 · 鹿九',date:'2026-02-20',title:'姜母鸭与煎蟹探店体验',summary:'作者更喜欢煎蟹与姜母鸭，觉得姜母鸭带甜味，也认为海蛎捞饭值得尝；对沙茶面评价较普通。属于一次个人体验，菜品和海鲜按当日供应为准。',url:'https://www.xiaohongshu.com/explore/6998658d0000000009039fd5?xsec_token=ABhojK2c5mhr5ET0TiRG1ZRckQEjCn_C2xoXiibyIgJiw=&xsec_source='}
+  ]);
+  appendPhotos('sibei-bread', [
+    {src:'assets/gallery/food-sibei-bread-xhs-2026.jpg',alt:'食客实拍的思北特香包撕开后的松软面包组织',caption:'小红书食客实拍 · 特香包内部 · 魔小婷在厦门'}
+  ]);
+  appendPhotos('xinaqiang', [
+    {src:'assets/gallery/food-xinaqiang-xhs-crab-2026.jpg',alt:'食客实拍的鑫阿强探店煎蟹',caption:'小红书食客实拍 · 煎蟹 · 鹿九'},
+    {src:'assets/gallery/food-xinaqiang-xhs-gingerduck-2026.jpg',alt:'食客实拍的鑫阿强探店姜母鸭',caption:'小红书食客实拍 · 姜母鸭 · 鹿九'},
+    {src:'assets/gallery/food-xinaqiang-xhs-oysterrice-2026.jpg',alt:'食客实拍的鑫阿强探店海蛎捞饭',caption:'小红书食客实拍 · 海蛎捞饭 · 鹿九'}
+  ]);
 })();
